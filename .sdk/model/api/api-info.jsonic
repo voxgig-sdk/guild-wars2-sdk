@@ -1,0 +1,29 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        name: "API Documentation"
+        url: "https://wiki.guildwars2.com/wiki/API:Main"
+      }
+      description: "The Guild Wars 2 API is an interface that allows third-party applications to access game data from the Guild Wars 2 servers. It provides various endpoints for retrieving information about achievements, account details, items, and more, enabling developers to create applications that enhance the gaming experience."
+      servers: [
+        {
+          description: "Guild Wars 2 API Version 2"
+          url: "https://api.guildwars2.com/v2"
+        }
+        {
+          description: "Guild Wars 2 API Version 1"
+          url: "https://api.guildwars2.com/v1"
+        }
+      ]
+      termsOfService: "https://www.arena.net/en/legal/guild-wars-2-content-terms-of-use"
+      title: "Guild Wars 2 API"
+      version: "2.0.0"
+    }
+  }
+}
+
+}

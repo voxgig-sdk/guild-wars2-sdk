@@ -1,0 +1,45 @@
+# Entity: map_information
+
+main: kit: entity: map_information: {
+
+  alias: field: {}
+
+  name: "map_information"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "ids"
+                orig: "ids"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/continents"
+          parts: [
+            "continents"
+          ]
+          select: {
+            exist: [
+              "ids"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

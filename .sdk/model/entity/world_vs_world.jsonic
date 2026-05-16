@@ -1,0 +1,169 @@
+# Entity: world_vs_world
+
+main: kit: entity: world_vs_world: {
+
+  alias: field: {}
+
+  name: "world_vs_world"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "ids"
+                orig: "ids"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/wvw/abilities"
+          parts: [
+            "wvw"
+            "abilities"
+          ]
+          select: {
+            exist: [
+              "ids"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "ids"
+                orig: "ids"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/wvw/matches"
+          parts: [
+            "wvw"
+            "matches"
+          ]
+          select: {
+            exist: [
+              "ids"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "ids"
+                orig: "ids"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/wvw/objectives"
+          parts: [
+            "wvw"
+            "objectives"
+          ]
+          select: {
+            exist: [
+              "ids"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "ids"
+                orig: "ids"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/wvw/ranks"
+          parts: [
+            "wvw"
+            "ranks"
+          ]
+          select: {
+            exist: [
+              "ids"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "ids"
+                orig: "ids"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/wvw/upgrades"
+          parts: [
+            "wvw"
+            "upgrades"
+          ]
+          select: {
+            exist: [
+              "ids"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          method: "GET"
+          orig: "/wvw"
+          parts: [
+            "wvw"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

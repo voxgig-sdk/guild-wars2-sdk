@@ -1,0 +1,45 @@
+{
+  "existing": {
+    "authenticated": {
+      "AUTHENTICATED00": {
+        "created": "s46",
+        "id": "AUTHENTICATED00",
+        "name": "s48",
+        "permission": [],
+        "subtoken": "s4a",
+        "value": "s4b",
+        "world": "s4c"
+      },
+      "AUTHENTICATED01": {
+        "created": "s8c",
+        "id": "AUTHENTICATED01",
+        "name": "s8e",
+        "permission": [],
+        "subtoken": "s90",
+        "value": "s91",
+        "world": "s92"
+      },
+      "AUTHENTICATED02": {
+        "created": "sd2",
+        "id": "AUTHENTICATED02",
+        "name": "sd4",
+        "permission": [],
+        "subtoken": "sd6",
+        "value": "sd7",
+        "world": "sd8"
+      }
+    }
+  },
+  "new": {
+    "authenticated": {
+      "authenticated_ref01": {
+        "created": "s118",
+        "name": "s11a",
+        "permission": [],
+        "subtoken": "s11c",
+        "value": "s11d",
+        "world": "s11e"
+      }
+    }
+  }
+}

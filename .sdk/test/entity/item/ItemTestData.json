@@ -1,0 +1,14 @@
+{
+  "existing": {
+    "item": {
+      "ITEM00": {},
+      "ITEM01": {},
+      "ITEM02": {}
+    }
+  },
+  "new": {
+    "item": {
+      "item_ref01": {}
+    }
+  }
+}

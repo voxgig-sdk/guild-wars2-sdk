@@ -1,0 +1,113 @@
+# Entity: structured_pv_p
+
+main: kit: entity: structured_pv_p: {
+
+  alias: field: {}
+
+  name: "structured_pv_p"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "ids"
+                orig: "ids"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/pvp/heroes"
+          parts: [
+            "pvp"
+            "heroes"
+          ]
+          select: {
+            exist: [
+              "ids"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "ids"
+                orig: "ids"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/pvp/ranks"
+          parts: [
+            "pvp"
+            "ranks"
+          ]
+          select: {
+            exist: [
+              "ids"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "ids"
+                orig: "ids"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/pvp/seasons"
+          parts: [
+            "pvp"
+            "seasons"
+          ]
+          select: {
+            exist: [
+              "ids"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          method: "GET"
+          orig: "/pvp"
+          parts: [
+            "pvp"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

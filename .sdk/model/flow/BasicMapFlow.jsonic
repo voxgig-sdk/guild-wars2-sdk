@@ -1,0 +1,22 @@
+# BasicMapFlow
+
+main: kit: flow: BasicMapFlow:
+{
+  entity: "map",
+  kind: "basic",
+  name: "BasicMapFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "map_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicMapFlow"
+}

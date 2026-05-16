@@ -1,0 +1,45 @@
+# Entity: map
+
+main: kit: entity: map: {
+
+  alias: field: {}
+
+  name: "map"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "ids"
+                orig: "ids"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/maps"
+          parts: [
+            "maps"
+          ]
+          select: {
+            exist: [
+              "ids"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

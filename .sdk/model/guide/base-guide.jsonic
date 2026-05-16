@@ -1,0 +1,410 @@
+# Guide
+
+guide: {
+  metrics: count: entity: 15
+  metrics: count: path: 114
+  metrics: count: method: 114
+
+  entity: achievement: {
+    path: "/achievements": {
+      op: list: method: *GET
+    }
+    path: "/achievements/categories": {
+      action: "category": {}
+      op: list: method: *GET
+    }
+    path: "/achievements/daily": {
+      action: "daily": {}
+      op: load: method: *GET
+    }
+    path: "/achievements/daily/tomorrow": {
+      op: load: method: *GET
+    }
+    path: "/achievements/groups": {
+      action: "group": {}
+      op: list: method: *GET
+    }
+  }
+
+  entity: authenticated: {
+    path: "/account": {
+      op: load: method: *GET
+    }
+    path: "/account/achievements": {
+      op: list: method: *GET
+    }
+    path: "/account/bank": {
+      op: list: method: *GET
+    }
+    path: "/account/buildstorage": {
+      op: list: method: *GET
+    }
+    path: "/account/dailycrafting": {
+      op: list: method: *GET
+    }
+    path: "/account/dungeons": {
+      op: list: method: *GET
+    }
+    path: "/account/dyes": {
+      op: list: method: *GET
+    }
+    path: "/account/emotes": {
+      op: list: method: *GET
+    }
+    path: "/account/finishers": {
+      op: list: method: *GET
+    }
+    path: "/account/gliders": {
+      op: list: method: *GET
+    }
+    path: "/account/home/cats": {
+      op: list: method: *GET
+    }
+    path: "/account/home/nodes": {
+      op: list: method: *GET
+    }
+    path: "/account/inventory": {
+      op: list: method: *GET
+    }
+    path: "/account/legendaryarmory": {
+      op: list: method: *GET
+    }
+    path: "/account/luck": {
+      op: list: method: *GET
+    }
+    path: "/account/mapchests": {
+      op: list: method: *GET
+    }
+    path: "/account/masteries": {
+      op: list: method: *GET
+    }
+    path: "/account/mastery/points": {
+      op: load: method: *GET
+    }
+    path: "/account/materials": {
+      op: list: method: *GET
+    }
+    path: "/account/minis": {
+      op: list: method: *GET
+    }
+    path: "/account/mounts/skins": {
+      op: list: method: *GET
+    }
+    path: "/account/mounts/types": {
+      op: list: method: *GET
+    }
+    path: "/account/novelties": {
+      op: list: method: *GET
+    }
+    path: "/account/outfits": {
+      op: list: method: *GET
+    }
+    path: "/account/pvp/heroes": {
+      op: list: method: *GET
+    }
+    path: "/account/raids": {
+      op: list: method: *GET
+    }
+    path: "/account/recipes": {
+      op: list: method: *GET
+    }
+    path: "/account/skins": {
+      op: list: method: *GET
+    }
+    path: "/account/titles": {
+      op: list: method: *GET
+    }
+    path: "/account/wallet": {
+      op: list: method: *GET
+    }
+    path: "/account/worldbosses": {
+      op: list: method: *GET
+    }
+    path: "/characters": {
+      op: list: method: *GET
+    }
+    path: "/createsubtoken": {
+      op: load: method: *GET
+    }
+    path: "/pvp/games": {
+      op: list: method: *GET
+    }
+    path: "/pvp/standings": {
+      op: list: method: *GET
+    }
+    path: "/pvp/stats": {
+      op: load: method: *GET
+    }
+    path: "/tokeninfo": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: daily_reward: {
+    path: "/dailycrafting": {
+      op: list: method: *GET
+    }
+    path: "/mapchests": {
+      op: list: method: *GET
+    }
+    path: "/worldbosses": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: game_mechanic: {
+    path: "/legendaryarmory": {
+      op: list: method: *GET
+    }
+    path: "/legends": {
+      op: list: method: *GET
+    }
+    path: "/masteries": {
+      op: list: method: *GET
+    }
+    path: "/mounts": {
+      op: list: method: *GET
+    }
+    path: "/mounts/skins": {
+      op: list: method: *GET
+    }
+    path: "/mounts/types": {
+      op: list: method: *GET
+    }
+    path: "/outfits": {
+      op: list: method: *GET
+    }
+    path: "/pets": {
+      op: list: method: *GET
+    }
+    path: "/professions": {
+      op: list: method: *GET
+    }
+    path: "/races": {
+      op: list: method: *GET
+    }
+    path: "/skills": {
+      op: list: method: *GET
+    }
+    path: "/specializations": {
+      op: list: method: *GET
+    }
+    path: "/traits": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: guild: {
+    path: "/emblem": {
+      op: list: method: *GET
+    }
+    path: "/guild/permissions": {
+      action: "permission": {}
+      op: list: method: *GET
+    }
+    path: "/guild/search": {
+      action: "search": {}
+      op: list: method: *GET
+    }
+    path: "/guild/upgrades": {
+      action: "upgrade": {}
+      op: list: method: *GET
+    }
+    path: "/guild/{id}": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: guild_authenticated: {
+    path: "/guild/{id}/log": {
+      action: "log": {}
+      op: list: method: *GET
+    }
+    path: "/guild/{id}/members": {
+      action: "members": {}
+      op: list: method: *GET
+    }
+    path: "/guild/{id}/ranks": {
+      action: "ranks": {}
+      op: list: method: *GET
+    }
+    path: "/guild/{id}/stash": {
+      action: "stash": {}
+      op: list: method: *GET
+    }
+    path: "/guild/{id}/storage": {
+      action: "storage": {}
+      op: list: method: *GET
+    }
+    path: "/guild/{id}/teams": {
+      action: "teams": {}
+      op: list: method: *GET
+    }
+    path: "/guild/{id}/treasury": {
+      action: "treasury": {}
+      op: list: method: *GET
+    }
+    path: "/guild/{id}/upgrades": {
+      action: "upgrades": {}
+      op: list: method: *GET
+    }
+  }
+
+  entity: home_instance: {
+    path: "/home/cats": {
+      op: list: method: *GET
+    }
+    path: "/home/nodes": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: item: {
+    path: "/finishers": {
+      op: list: method: *GET
+    }
+    path: "/gliders": {
+      op: list: method: *GET
+    }
+    path: "/items": {
+      op: list: method: *GET
+    }
+    path: "/itemstats": {
+      op: list: method: *GET
+    }
+    path: "/materials": {
+      op: list: method: *GET
+    }
+    path: "/pvp/amulets": {
+      op: list: method: *GET
+    }
+    path: "/recipes": {
+      op: list: method: *GET
+    }
+    path: "/recipes/search": {
+      op: list: method: *GET
+    }
+    path: "/skins": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: map: {
+    path: "/maps": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: map_information: {
+    path: "/continents": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: miscellaneous: {
+    path: "/build": {
+      op: load: method: *GET
+    }
+    path: "/colors": {
+      op: list: method: *GET
+    }
+    path: "/currencies": {
+      op: list: method: *GET
+    }
+    path: "/dungeons": {
+      op: list: method: *GET
+    }
+    path: "/files": {
+      op: list: method: *GET
+    }
+    path: "/minis": {
+      op: list: method: *GET
+    }
+    path: "/novelties": {
+      op: list: method: *GET
+    }
+    path: "/raids": {
+      op: list: method: *GET
+    }
+    path: "/titles": {
+      op: list: method: *GET
+    }
+    path: "/worlds": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: story: {
+    path: "/quests": {
+      op: list: method: *GET
+    }
+    path: "/stories": {
+      op: list: method: *GET
+    }
+    path: "/stories/seasons": {
+      action: "season": {}
+      op: list: method: *GET
+    }
+  }
+
+  entity: structured_pv_p: {
+    path: "/pvp": {
+      op: list: method: *GET
+    }
+    path: "/pvp/heroes": {
+      op: list: method: *GET
+    }
+    path: "/pvp/ranks": {
+      op: list: method: *GET
+    }
+    path: "/pvp/seasons": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: trading_post: {
+    path: "/commerce/delivery": {
+      op: list: method: *GET
+    }
+    path: "/commerce/exchange": {
+      op: list: method: *GET
+    }
+    path: "/commerce/exchange/coins": {
+      op: load: method: *GET
+    }
+    path: "/commerce/exchange/gems": {
+      op: load: method: *GET
+    }
+    path: "/commerce/listings": {
+      op: list: method: *GET
+    }
+    path: "/commerce/prices": {
+      op: list: method: *GET
+    }
+    path: "/commerce/transactions": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: world_vs_world: {
+    path: "/wvw": {
+      op: list: method: *GET
+    }
+    path: "/wvw/abilities": {
+      op: list: method: *GET
+    }
+    path: "/wvw/matches": {
+      op: list: method: *GET
+    }
+    path: "/wvw/objectives": {
+      op: list: method: *GET
+    }
+    path: "/wvw/ranks": {
+      op: list: method: *GET
+    }
+    path: "/wvw/upgrades": {
+      op: list: method: *GET
+    }
+  }
+
+}

@@ -1,0 +1,3905 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Guild Wars 2 API",
+    "description": "The Guild Wars 2 API is an interface that allows third-party applications to access game data from the Guild Wars 2 servers. It provides various endpoints for retrieving information about achievements, account details, items, and more, enabling developers to create applications that enhance the gaming experience.",
+    "version": "2.0.0",
+    "contact": {
+      "name": "API Documentation",
+      "url": "https://wiki.guildwars2.com/wiki/API:Main"
+    },
+    "termsOfService": "https://www.arena.net/en/legal/guild-wars-2-content-terms-of-use"
+  },
+  "servers": [
+    {
+      "url": "https://api.guildwars2.com/v2",
+      "description": "Guild Wars 2 API Version 2"
+    },
+    {
+      "url": "https://api.guildwars2.com/v1",
+      "description": "Guild Wars 2 API Version 1"
+    }
+  ],
+  "security": [
+    {
+      "BearerAuth": []
+    },
+    {
+      "QueryAuth": []
+    }
+  ],
+  "paths": {
+    "/achievements": {
+      "get": {
+        "summary": "Get achievements",
+        "description": "Returns information about achievements.",
+        "operationId": "getAchievements",
+        "tags": [
+          "Achievements"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "Comma-separated list of achievement IDs",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "v",
+            "in": "query",
+            "description": "Schema version",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/achievements/daily": {
+      "get": {
+        "summary": "Get daily achievements",
+        "description": "Returns information about daily achievements.",
+        "operationId": "getDailyAchievements",
+        "tags": [
+          "Achievements"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/achievements/daily/tomorrow": {
+      "get": {
+        "summary": "Get tomorrow's daily achievements",
+        "description": "Returns information about the next daily achievements.",
+        "operationId": "getTomorrowDailyAchievements",
+        "tags": [
+          "Achievements"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/achievements/groups": {
+      "get": {
+        "summary": "Get achievement groups",
+        "description": "Returns information about achievement groups.",
+        "operationId": "getAchievementGroups",
+        "tags": [
+          "Achievements"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "Comma-separated list of group IDs",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/achievements/categories": {
+      "get": {
+        "summary": "Get achievement categories",
+        "description": "Returns information about achievement categories.",
+        "operationId": "getAchievementCategories",
+        "tags": [
+          "Achievements"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "Comma-separated list of category IDs",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/account": {
+      "get": {
+        "summary": "Get account information",
+        "description": "Returns information about an account associated with an API key.",
+        "operationId": "getAccount",
+        "tags": [
+          "Authenticated"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "world": {
+                      "type": "integer"
+                    },
+                    "created": {
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or missing API key"
+          }
+        }
+      }
+    },
+    "/account/achievements": {
+      "get": {
+        "summary": "Get account achievements",
+        "description": "Returns information about an account's achievement progress.",
+        "operationId": "getAccountAchievements",
+        "tags": [
+          "Authenticated"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/account/bank": {
+      "get": {
+        "summary": "Get account bank",
+        "description": "Returns information about a bank associated with an API key.",
+        "operationId": "getAccountBank",
+        "tags": [
+          "Authenticated"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/account/buildstorage": {
+      "get": {
+        "summary": "Get account build storage",
+        "description": "Returns information about the hero panel account build storage section (non-character specific).",
+        "operationId": "getAccountBuildStorage",
+        "tags": [
+          "Authenticated"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/account/dailycrafting": {
+      "get": {
+        "summary": "Get account daily crafting",
+        "description": "Returns information about (daily) crafted materials (since the most recent reset) associated with an API key.",
+        "operationId": "getAccountDailyCrafting",
+        "tags": [
+          "Authenticated"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/account/dungeons": {
+      "get": {
+        "summary": "Get account dungeons",
+        "description": "Returns information about the current daily cleared dungeons associated with an API key.",
+        "operationId": "getAccountDungeons",
+        "tags": [
+          "Authenticated"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/account/dyes": {
+      "get": {
+        "summary": "Get account dyes",
+        "description": "Returns information about unlocked dyes associated with an API key.",
+        "operationId": "getAccountDyes",
+        "tags": [
+          "Authenticated"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/account/emotes": {
+      "get": {
+        "summary": "Get account emotes",
+        "description": "Returns information about unlocked emotes associated with an API key.",
+        "operationId": "getAccountEmotes",
+        "tags": [
+          "Authenticated"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/account/finishers": {
+      "get": {
+        "summary": "Get account finishers",
+        "description": "Returns information about unlocked finishers associated with an API key.",
+        "operationId": "getAccountFinishers",
+        "tags": [
+          "Authenticated"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/account/gliders": {
+      "get": {
+        "summary": "Get account gliders",
+        "description": "Returns information about unlocked gliders associated with an API key.",
+        "operationId": "getAccountGliders",
+        "tags": [
+          "Authenticated"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/account/home/cats": {
+      "get": {
+        "summary": "Get account home cats",
+        "description": "Returns information about unlocked cats in the home instance associated with an API key.",
+        "operationId": "getAccountHomeCats",
+        "tags": [
+          "Authenticated"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/account/home/nodes": {
+      "get": {
+        "summary": "Get account home nodes",
+        "description": "Returns information about unlocked nodes in the home instance associated with an API key.",
+        "operationId": "getAccountHomeNodes",
+        "tags": [
+          "Authenticated"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/account/inventory": {
+      "get": {
+        "summary": "Get account inventory",
+        "description": "Returns information about the shared inventory slots associated with an API key.",
+        "operationId": "getAccountInventory",
+        "tags": [
+          "Authenticated"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/account/legendaryarmory": {
+      "get": {
+        "summary": "Get account legendary armory",
+        "description": "Returns information about the Legendary Armory associated with an API key.",
+        "operationId": "getAccountLegendaryArmory",
+        "tags": [
+          "Authenticated"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/account/luck": {
+      "get": {
+        "summary": "Get account luck",
+        "description": "Returns information about acquired luck associated with an API key.",
+        "operationId": "getAccountLuck",
+        "tags": [
+          "Authenticated"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/account/mapchests": {
+      "get": {
+        "summary": "Get account map chests",
+        "description": "Returns information about (daily) map chest rewards received (since the most recent reset) associated with an API key.",
+        "operationId": "getAccountMapChests",
+        "tags": [
+          "Authenticated"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/account/masteries": {
+      "get": {
+        "summary": "Get account masteries",
+        "description": "Returns information about unlocked masteries associated with an API key.",
+        "operationId": "getAccountMasteries",
+        "tags": [
+          "Authenticated"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/account/mastery/points": {
+      "get": {
+        "summary": "Get account mastery points",
+        "description": "Returns information about the total amount of mastery points associated with an API key.",
+        "operationId": "getAccountMasteryPoints",
+        "tags": [
+          "Authenticated"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/account/materials": {
+      "get": {
+        "summary": "Get account materials",
+        "description": "Returns information about a material storage associated with an API key.",
+        "operationId": "getAccountMaterials",
+        "tags": [
+          "Authenticated"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/account/minis": {
+      "get": {
+        "summary": "Get account minis",
+        "description": "Returns information about unlocked miniatures associated with an API key.",
+        "operationId": "getAccountMinis",
+        "tags": [
+          "Authenticated"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/account/mounts/skins": {
+      "get": {
+        "summary": "Get account mount skins",
+        "description": "Returns information about unlocked mount skins associated with an API key.",
+        "operationId": "getAccountMountSkins",
+        "tags": [
+          "Authenticated"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/account/mounts/types": {
+      "get": {
+        "summary": "Get account mount types",
+        "description": "Returns information about unlocked mounts associated with an API key.",
+        "operationId": "getAccountMountTypes",
+        "tags": [
+          "Authenticated"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/account/novelties": {
+      "get": {
+        "summary": "Get account novelties",
+        "description": "Returns information about unlocked novelties associated with an API key.",
+        "operationId": "getAccountNovelties",
+        "tags": [
+          "Authenticated"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/account/outfits": {
+      "get": {
+        "summary": "Get account outfits",
+        "description": "Returns information about unlocked outfits associated with an API key.",
+        "operationId": "getAccountOutfits",
+        "tags": [
+          "Authenticated"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/account/pvp/heroes": {
+      "get": {
+        "summary": "Get account PvP heroes",
+        "description": "Returns information about unlocked PvP heroes associated with an API key.",
+        "operationId": "getAccountPvPHeroes",
+        "tags": [
+          "Authenticated"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/account/raids": {
+      "get": {
+        "summary": "Get account raids",
+        "description": "Returns information about completed raid events between weekly resets associated with an API key.",
+        "operationId": "getAccountRaids",
+        "tags": [
+          "Authenticated"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/account/recipes": {
+      "get": {
+        "summary": "Get account recipes",
+        "description": "Returns information about unlocked crafting recipes associated with an API key.",
+        "operationId": "getAccountRecipes",
+        "tags": [
+          "Authenticated"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/account/skins": {
+      "get": {
+        "summary": "Get account skins",
+        "description": "Returns information about unlocked skins associated with an API key.",
+        "operationId": "getAccountSkins",
+        "tags": [
+          "Authenticated"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/account/titles": {
+      "get": {
+        "summary": "Get account titles",
+        "description": "Returns information about unlocked titles associated with an API key.",
+        "operationId": "getAccountTitles",
+        "tags": [
+          "Authenticated"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/account/wallet": {
+      "get": {
+        "summary": "Get account wallet",
+        "description": "Returns information about wealth associated with an API key.",
+        "operationId": "getAccountWallet",
+        "tags": [
+          "Authenticated"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "value": {
+                        "type": "integer"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/account/worldbosses": {
+      "get": {
+        "summary": "Get account world bosses",
+        "description": "Returns information about (daily) Core Tyria world boss clears (since the most recent reset) associated with an API key.",
+        "operationId": "getAccountWorldBosses",
+        "tags": [
+          "Authenticated"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/characters": {
+      "get": {
+        "summary": "Get characters",
+        "description": "Returns information on an account's characters.",
+        "operationId": "getCharacters",
+        "tags": [
+          "Authenticated"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "Comma-separated list of character names",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/createsubtoken": {
+      "get": {
+        "summary": "Create subtoken",
+        "description": "Creates a subtoken that can be used in place of API Keys. The subtoken will have an expiry date and can be limited to a subset of the permissions granted to the API Key used during its creation as well as to a subset of accessible endpoints.",
+        "operationId": "createSubtoken",
+        "tags": [
+          "Authenticated"
+        ],
+        "parameters": [
+          {
+            "name": "expire",
+            "in": "query",
+            "description": "Expiry time in ISO 8601 format",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "permissions",
+            "in": "query",
+            "description": "Comma-separated list of permissions",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "urls",
+            "in": "query",
+            "description": "Comma-separated list of accessible URLs",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "subtoken": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/tokeninfo": {
+      "get": {
+        "summary": "Get token info",
+        "description": "Returns information about the supplied API Key.",
+        "operationId": "getTokenInfo",
+        "tags": [
+          "Authenticated"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "permissions": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/build": {
+      "get": {
+        "summary": "Get build",
+        "description": "Returns the current build id.",
+        "operationId": "getBuild",
+        "tags": [
+          "Miscellaneous"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/colors": {
+      "get": {
+        "summary": "Get colors",
+        "description": "Returns information about dye colors.",
+        "operationId": "getColors",
+        "tags": [
+          "Miscellaneous"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "Comma-separated list of color IDs",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/commerce/delivery": {
+      "get": {
+        "summary": "Get commerce delivery",
+        "description": "Returns the items and coin available for pickup for a given account.",
+        "operationId": "getCommerceDelivery",
+        "tags": [
+          "Trading Post"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "coins": {
+                      "type": "integer"
+                    },
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/commerce/exchange": {
+      "get": {
+        "summary": "Get commerce exchange",
+        "description": "Returns a list of accepted resources for the gem exchange.",
+        "operationId": "getCommerceExchange",
+        "tags": [
+          "Trading Post"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/commerce/exchange/coins": {
+      "get": {
+        "summary": "Get coins to gems exchange rate",
+        "description": "Returns the current coins to gems exchange rate.",
+        "operationId": "getCoinsToGemsExchange",
+        "tags": [
+          "Trading Post"
+        ],
+        "parameters": [
+          {
+            "name": "quantity",
+            "in": "query",
+            "description": "Number of coins to convert",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "coins_per_gem": {
+                      "type": "integer"
+                    },
+                    "quantity": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/commerce/exchange/gems": {
+      "get": {
+        "summary": "Get gems to coins exchange rate",
+        "description": "Returns the current gems to coins exchange rate.",
+        "operationId": "getGemsToCoinsExchange",
+        "tags": [
+          "Trading Post"
+        ],
+        "parameters": [
+          {
+            "name": "quantity",
+            "in": "query",
+            "description": "Number of gems to convert",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "coins_per_gem": {
+                      "type": "integer"
+                    },
+                    "quantity": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/commerce/listings": {
+      "get": {
+        "summary": "Get commerce listings",
+        "description": "Returns trading post listings.",
+        "operationId": "getCommerceListings",
+        "tags": [
+          "Trading Post"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "Comma-separated list of item IDs",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/commerce/prices": {
+      "get": {
+        "summary": "Get commerce prices",
+        "description": "Returns buy and sell listing information.",
+        "operationId": "getCommercePrices",
+        "tags": [
+          "Trading Post"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "Comma-separated list of item IDs",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/commerce/transactions": {
+      "get": {
+        "summary": "Get commerce transactions",
+        "description": "Returns the current and historical buy and sell transactions for a given account.",
+        "operationId": "getCommerceTransactions",
+        "tags": [
+          "Trading Post"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/continents": {
+      "get": {
+        "summary": "Get continents",
+        "description": "Returns a list of continents and information about each continent.",
+        "operationId": "getContinents",
+        "tags": [
+          "Map Information"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "Comma-separated list of continent IDs",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/currencies": {
+      "get": {
+        "summary": "Get currencies",
+        "description": "Returns information about wallet currencies.",
+        "operationId": "getCurrencies",
+        "tags": [
+          "Miscellaneous"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "Comma-separated list of currency IDs",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/dailycrafting": {
+      "get": {
+        "summary": "Get daily crafting",
+        "description": "Returns information about daily craftable items.",
+        "operationId": "getDailyCrafting",
+        "tags": [
+          "Daily Rewards"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/dungeons": {
+      "get": {
+        "summary": "Get dungeons",
+        "description": "Returns information about each dungeons and its associated paths.",
+        "operationId": "getDungeons",
+        "tags": [
+          "Miscellaneous"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "Comma-separated list of dungeon IDs",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/emblem": {
+      "get": {
+        "summary": "Get emblem",
+        "description": "Returns image resources needed to render guild emblems.",
+        "operationId": "getEmblem",
+        "tags": [
+          "Guild"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/files": {
+      "get": {
+        "summary": "Get files",
+        "description": "Returns commonly requested assets.",
+        "operationId": "getFiles",
+        "tags": [
+          "Miscellaneous"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "Comma-separated list of file IDs",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/finishers": {
+      "get": {
+        "summary": "Get finishers",
+        "description": "Returns information about finishers.",
+        "operationId": "getFinishers",
+        "tags": [
+          "Items"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "Comma-separated list of finisher IDs",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/gliders": {
+      "get": {
+        "summary": "Get gliders",
+        "description": "Returns information about gliders.",
+        "operationId": "getGliders",
+        "tags": [
+          "Items"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "Comma-separated list of glider IDs",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/guild/permissions": {
+      "get": {
+        "summary": "Get guild permissions",
+        "description": "Returns information about guild rank permissions.",
+        "operationId": "getGuildPermissions",
+        "tags": [
+          "Guild"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "Comma-separated list of permission IDs",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/guild/search": {
+      "get": {
+        "summary": "Search guild",
+        "description": "Returns information on guild ids to be used for other API queries.",
+        "operationId": "searchGuild",
+        "tags": [
+          "Guild"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Guild name to search for",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/guild/upgrades": {
+      "get": {
+        "summary": "Get guild upgrades",
+        "description": "Returns information about guild upgrades and scribe decorations.",
+        "operationId": "getGuildUpgrades",
+        "tags": [
+          "Guild"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "Comma-separated list of upgrade IDs",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/guild/{id}": {
+      "get": {
+        "summary": "Get guild by ID",
+        "description": "Returns core details about a given guild.",
+        "operationId": "getGuildById",
+        "tags": [
+          "Guild"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Guild ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/guild/{id}/log": {
+      "get": {
+        "summary": "Get guild log",
+        "description": "Returns information about a guild's event log.",
+        "operationId": "getGuildLog",
+        "tags": [
+          "Guild Authenticated"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Guild ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/guild/{id}/members": {
+      "get": {
+        "summary": "Get guild members",
+        "description": "Returns information about members of a guild.",
+        "operationId": "getGuildMembers",
+        "tags": [
+          "Guild Authenticated"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Guild ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/guild/{id}/ranks": {
+      "get": {
+        "summary": "Get guild ranks",
+        "description": "Returns information about the permission ranks of a guild.",
+        "operationId": "getGuildRanks",
+        "tags": [
+          "Guild Authenticated"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Guild ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/guild/{id}/stash": {
+      "get": {
+        "summary": "Get guild stash",
+        "description": "Returns information about the contents of a guild's stash.",
+        "operationId": "getGuildStash",
+        "tags": [
+          "Guild Authenticated"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Guild ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/guild/{id}/storage": {
+      "get": {
+        "summary": "Get guild storage",
+        "description": "Returns information about the contents of a guild's storage.",
+        "operationId": "getGuildStorage",
+        "tags": [
+          "Guild Authenticated"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Guild ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/guild/{id}/treasury": {
+      "get": {
+        "summary": "Get guild treasury",
+        "description": "Returns information about a guild's treasury contents.",
+        "operationId": "getGuildTreasury",
+        "tags": [
+          "Guild Authenticated"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Guild ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/guild/{id}/teams": {
+      "get": {
+        "summary": "Get guild teams",
+        "description": "Returns information about a guild's teams.",
+        "operationId": "getGuildTeams",
+        "tags": [
+          "Guild Authenticated"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Guild ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/guild/{id}/upgrades": {
+      "get": {
+        "summary": "Get guild specific upgrades",
+        "description": "Returns information about a guild's upgrades.",
+        "operationId": "getGuildSpecificUpgrades",
+        "tags": [
+          "Guild Authenticated"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Guild ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/home/cats": {
+      "get": {
+        "summary": "Get home cats",
+        "description": "Returns information about cats that can be unlocked in the home instance.",
+        "operationId": "getHomeCats",
+        "tags": [
+          "Home Instance"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "Comma-separated list of cat IDs",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/home/nodes": {
+      "get": {
+        "summary": "Get home nodes",
+        "description": "Returns information about home instance upgrades.",
+        "operationId": "getHomeNodes",
+        "tags": [
+          "Home Instance"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "Comma-separated list of node IDs",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/items": {
+      "get": {
+        "summary": "Get items",
+        "description": "Returns information about items.",
+        "operationId": "getItems",
+        "tags": [
+          "Items"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "Comma-separated list of item IDs",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/itemstats": {
+      "get": {
+        "summary": "Get item stats",
+        "description": "Returns information about item stats.",
+        "operationId": "getItemStats",
+        "tags": [
+          "Items"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "Comma-separated list of item stat IDs",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/legendaryarmory": {
+      "get": {
+        "summary": "Get legendary armory",
+        "description": "Returns information about the Legendary Armory.",
+        "operationId": "getLegendaryArmory",
+        "tags": [
+          "Game Mechanics"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "Comma-separated list of item IDs",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/legends": {
+      "get": {
+        "summary": "Get legends",
+        "description": "Returns information about revenant legends.",
+        "operationId": "getLegends",
+        "tags": [
+          "Game Mechanics"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "Comma-separated list of legend IDs",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/mapchests": {
+      "get": {
+        "summary": "Get map chests",
+        "description": "Returns information about daily acquirable map chests.",
+        "operationId": "getMapChests",
+        "tags": [
+          "Daily Rewards"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/maps": {
+      "get": {
+        "summary": "Get maps",
+        "description": "Returns information about maps in the game.",
+        "operationId": "getMaps",
+        "tags": [
+          "Map Information"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "Comma-separated list of map IDs",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/masteries": {
+      "get": {
+        "summary": "Get masteries",
+        "description": "Returns information about masteries.",
+        "operationId": "getMasteries",
+        "tags": [
+          "Game Mechanics"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "Comma-separated list of mastery IDs",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/materials": {
+      "get": {
+        "summary": "Get materials",
+        "description": "Returns information about materials.",
+        "operationId": "getMaterials",
+        "tags": [
+          "Items"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "Comma-separated list of material IDs",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/minis": {
+      "get": {
+        "summary": "Get minis",
+        "description": "Returns minis.",
+        "operationId": "getMinis",
+        "tags": [
+          "Miscellaneous"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "Comma-separated list of mini IDs",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/mounts": {
+      "get": {
+        "summary": "Get mounts",
+        "description": "Returns information about the v2/mounts endpoints.",
+        "operationId": "getMounts",
+        "tags": [
+          "Game Mechanics"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/mounts/skins": {
+      "get": {
+        "summary": "Get mount skins",
+        "description": "Returns information about mount skins.",
+        "operationId": "getMountSkins",
+        "tags": [
+          "Game Mechanics"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "Comma-separated list of mount skin IDs",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/mounts/types": {
+      "get": {
+        "summary": "Get mount types",
+        "description": "Returns information about mount types.",
+        "operationId": "getMountTypes",
+        "tags": [
+          "Game Mechanics"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "Comma-separated list of mount type IDs",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/novelties": {
+      "get": {
+        "summary": "Get novelties",
+        "description": "Returns novelties.",
+        "operationId": "getNovelties",
+        "tags": [
+          "Miscellaneous"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "Comma-separated list of novelty IDs",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/outfits": {
+      "get": {
+        "summary": "Get outfits",
+        "description": "Returns information about outfits.",
+        "operationId": "getOutfits",
+        "tags": [
+          "Game Mechanics"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "Comma-separated list of outfit IDs",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/pets": {
+      "get": {
+        "summary": "Get pets",
+        "description": "Returns information about pets.",
+        "operationId": "getPets",
+        "tags": [
+          "Game Mechanics"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "Comma-separated list of pet IDs",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/professions": {
+      "get": {
+        "summary": "Get professions",
+        "description": "Returns information about professions.",
+        "operationId": "getProfessions",
+        "tags": [
+          "Game Mechanics"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "Comma-separated list of profession IDs",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/pvp": {
+      "get": {
+        "summary": "Get PvP info",
+        "description": "Returns information about the v2/pvp endpoints.",
+        "operationId": "getPvP",
+        "tags": [
+          "Structured PvP"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/pvp/amulets": {
+      "get": {
+        "summary": "Get PvP amulets",
+        "description": "Returns information about pvp amulets.",
+        "operationId": "getPvPAmulets",
+        "tags": [
+          "Items"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "Comma-separated list of amulet IDs",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/pvp/games": {
+      "get": {
+        "summary": "Get PvP games",
+        "description": "Returns more detailed information on the player's most recent sPvP matches.",
+        "operationId": "getPvPGames",
+        "tags": [
+          "Authenticated"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/pvp/heroes": {
+      "get": {
+        "summary": "Get PvP heroes",
+        "description": "Returns information about Mist Champion unlocks for Stronghold sPvP.",
+        "operationId": "getPvPHeroes",
+        "tags": [
+          "Structured PvP"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "Comma-separated list of hero IDs",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/pvp/ranks": {
+      "get": {
+        "summary": "Get PvP ranks",
+        "description": "Returns information about PvP Rank.",
+        "operationId": "getPvPRanks",
+        "tags": [
+          "Structured PvP"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "Comma-separated list of rank IDs",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/pvp/seasons": {
+      "get": {
+        "summary": "Get PvP seasons",
+        "description": "Returns information about League seasons.",
+        "operationId": "getPvPSeasons",
+        "tags": [
+          "Structured PvP"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "Comma-separated list of season IDs",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/pvp/standings": {
+      "get": {
+        "summary": "Get PvP standings",
+        "description": "Returns the best and current standing of a player in sPvP leagues.",
+        "operationId": "getPvPStandings",
+        "tags": [
+          "Authenticated"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/pvp/stats": {
+      "get": {
+        "summary": "Get PvP stats",
+        "description": "Returns general information on a player's performance in sPvP.",
+        "operationId": "getPvPStats",
+        "tags": [
+          "Authenticated"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/quests": {
+      "get": {
+        "summary": "Get quests",
+        "description": "Returns information about the quests constituting the stories found in the Story Journal.",
+        "operationId": "getQuests",
+        "tags": [
+          "Story"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "Comma-separated list of quest IDs",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/races": {
+      "get": {
+        "summary": "Get races",
+        "description": "Returns information about particular racial skills.",
+        "operationId": "getRaces",
+        "tags": [
+          "Game Mechanics"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "Comma-separated list of race IDs",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/raids": {
+      "get": {
+        "summary": "Get raids",
+        "description": "Returns information about each raid and its associated events.",
+        "operationId": "getRaids",
+        "tags": [
+          "Miscellaneous"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "Comma-separated list of raid IDs",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/recipes": {
+      "get": {
+        "summary": "Get recipes",
+        "description": "Returns information about recipes.",
+        "operationId": "getRecipes",
+        "tags": [
+          "Items"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "Comma-separated list of recipe IDs",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/recipes/search": {
+      "get": {
+        "summary": "Search recipes",
+        "description": "A search interface for recipes.",
+        "operationId": "searchRecipes",
+        "tags": [
+          "Items"
+        ],
+        "parameters": [
+          {
+            "name": "input",
+            "in": "query",
+            "description": "Item ID of the crafting input",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "output",
+            "in": "query",
+            "description": "Item ID of the crafting output",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/skins": {
+      "get": {
+        "summary": "Get skins",
+        "description": "Returns information about skins.",
+        "operationId": "getSkins",
+        "tags": [
+          "Items"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "Comma-separated list of skin IDs",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/skills": {
+      "get": {
+        "summary": "Get skills",
+        "description": "Returns information about skills.",
+        "operationId": "getSkills",
+        "tags": [
+          "Game Mechanics"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "Comma-separated list of skill IDs",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/specializations": {
+      "get": {
+        "summary": "Get specializations",
+        "description": "Returns information about specializations.",
+        "operationId": "getSpecializations",
+        "tags": [
+          "Game Mechanics"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "Comma-separated list of specialization IDs",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/stories": {
+      "get": {
+        "summary": "Get stories",
+        "description": "Returns information about stories in the Story Journal.",
+        "operationId": "getStories",
+        "tags": [
+          "Story"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "Comma-separated list of story IDs",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/stories/seasons": {
+      "get": {
+        "summary": "Get story seasons",
+        "description": "Returns information about the story seasons in the Story Journal.",
+        "operationId": "getStorySeasons",
+        "tags": [
+          "Story"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "Comma-separated list of season IDs",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/titles": {
+      "get": {
+        "summary": "Get titles",
+        "description": "Returns the list of titles.",
+        "operationId": "getTitles",
+        "tags": [
+          "Miscellaneous"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "Comma-separated list of title IDs",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/traits": {
+      "get": {
+        "summary": "Get traits",
+        "description": "Returns information about traits.",
+        "operationId": "getTraits",
+        "tags": [
+          "Game Mechanics"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "Comma-separated list of trait IDs",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/worldbosses": {
+      "get": {
+        "summary": "Get world bosses",
+        "description": "Returns information about daily (Core Tyria) world boss clears.",
+        "operationId": "getWorldBosses",
+        "tags": [
+          "Daily Rewards"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/worlds": {
+      "get": {
+        "summary": "Get worlds",
+        "description": "Returns world names.",
+        "operationId": "getWorlds",
+        "tags": [
+          "Miscellaneous"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "Comma-separated list of world IDs",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/wvw": {
+      "get": {
+        "summary": "Get WvW info",
+        "description": "Returns information about the v2/wvw endpoints.",
+        "operationId": "getWvW",
+        "tags": [
+          "World vs. World"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/wvw/abilities": {
+      "get": {
+        "summary": "Get WvW abilities",
+        "description": "Returns information about WvW abilities.",
+        "operationId": "getWvWAbilities",
+        "tags": [
+          "World vs. World"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "Comma-separated list of ability IDs",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/wvw/matches": {
+      "get": {
+        "summary": "Get WvW matches",
+        "description": "Returns information about current WvW matchups.",
+        "operationId": "getWvWMatches",
+        "tags": [
+          "World vs. World"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "Comma-separated list of match IDs",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/wvw/objectives": {
+      "get": {
+        "summary": "Get WvW objectives",
+        "description": "Returns information about WvW objectives.",
+        "operationId": "getWvWObjectives",
+        "tags": [
+          "World vs. World"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "Comma-separated list of objective IDs",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/wvw/ranks": {
+      "get": {
+        "summary": "Get WvW ranks",
+        "description": "Returns information about current WvW Rank.",
+        "operationId": "getWvWRanks",
+        "tags": [
+          "World vs. World"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "Comma-separated list of rank IDs",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/wvw/upgrades": {
+      "get": {
+        "summary": "Get WvW upgrades",
+        "description": "Returns information about available upgrades for objectives.",
+        "operationId": "getWvWUpgrades",
+        "tags": [
+          "World vs. World"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "Comma-separated list of upgrade IDs",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "API key provided in Authorization header"
+      },
+      "QueryAuth": {
+        "type": "apiKey",
+        "in": "query",
+        "name": "access_token",
+        "description": "API key provided as query parameter"
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Achievements",
+      "description": "Achievement-related endpoints"
+    },
+    {
+      "name": "Authenticated",
+      "description": "Endpoints that require authentication"
+    },
+    {
+      "name": "Daily Rewards",
+      "description": "Daily reward-related endpoints"
+    },
+    {
+      "name": "Game Mechanics",
+      "description": "Game mechanics-related endpoints"
+    },
+    {
+      "name": "Guild",
+      "description": "Guild-related endpoints"
+    },
+    {
+      "name": "Guild Authenticated",
+      "description": "Guild endpoints that require authentication"
+    },
+    {
+      "name": "Home Instance",
+      "description": "Home instance-related endpoints"
+    },
+    {
+      "name": "Items",
+      "description": "Item-related endpoints"
+    },
+    {
+      "name": "Map Information",
+      "description": "Map information endpoints"
+    },
+    {
+      "name": "Miscellaneous",
+      "description": "Miscellaneous endpoints"
+    },
+    {
+      "name": "Story",
+      "description": "Story-related endpoints"
+    },
+    {
+      "name": "Structured PvP",
+      "description": "PvP-related endpoints"
+    },
+    {
+      "name": "Trading Post",
+      "description": "Trading post-related endpoints"
+    },
+    {
+      "name": "World vs. World",
+      "description": "WvW-related endpoints"
+    }
+  ]
+}

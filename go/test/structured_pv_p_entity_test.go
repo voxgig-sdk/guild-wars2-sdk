@@ -1,0 +1,151 @@
+package sdktest
+
+import (
+	"encoding/json"
+	"os"
+	"path/filepath"
+	"runtime"
+	"strings"
+	"testing"
+	"time"
+
+	sdk "github.com/voxgig-sdk/guild-wars2-sdk"
+	"github.com/voxgig-sdk/guild-wars2-sdk/core"
+
+	vs "github.com/voxgig/struct"
+)
+
+func TestStructuredPvPEntity(t *testing.T) {
+	t.Run("instance", func(t *testing.T) {
+		testsdk := sdk.TestSDK(nil, nil)
+		ent := testsdk.StructuredPvP(nil)
+		if ent == nil {
+			t.Fatal("expected non-nil StructuredPvPEntity")
+		}
+	})
+
+	t.Run("basic", func(t *testing.T) {
+		setup := structured_pv_pBasicSetup(nil)
+		// Per-op sdk-test-control.json skip — basic test exercises a flow
+		// with multiple ops; skipping any op skips the whole flow.
+		_mode := "unit"
+		if setup.live {
+			_mode = "live"
+		}
+		for _, _op := range []string{"list"} {
+			if _shouldSkip, _reason := isControlSkipped("entityOp", "structured_pv_p." + _op, _mode); _shouldSkip {
+				if _reason == "" {
+					_reason = "skipped via sdk-test-control.json"
+				}
+				t.Skip(_reason)
+				return
+			}
+		}
+		// The basic flow consumes synthetic IDs from the fixture. In live mode
+		// without an *_ENTID env override, those IDs hit the live API and 4xx.
+		if setup.syntheticOnly {
+			t.Skip("live entity test uses synthetic IDs from fixture — set GUILDWARS__TEST_STRUCTURED_PV_P_ENTID JSON to run live")
+			return
+		}
+		client := setup.client
+
+		// Bootstrap entity data from existing test data (no create step in flow).
+		structuredPvPRef01DataRaw := vs.Items(core.ToMapAny(vs.GetPath("existing.structured_pv_p", setup.data)))
+		var structuredPvPRef01Data map[string]any
+		if len(structuredPvPRef01DataRaw) > 0 {
+			structuredPvPRef01Data = core.ToMapAny(structuredPvPRef01DataRaw[0][1])
+		}
+		// Discard guards against Go's unused-var check when the flow's steps
+		// happen not to consume the bootstrap data (e.g. list-only flows).
+		_ = structuredPvPRef01Data
+
+		// LIST
+		structuredPvPRef01Ent := client.StructuredPvP(nil)
+		structuredPvPRef01Match := map[string]any{}
+
+		structuredPvPRef01ListResult, err := structuredPvPRef01Ent.List(structuredPvPRef01Match, nil)
+		if err != nil {
+			t.Fatalf("list failed: %v", err)
+		}
+		_, structuredPvPRef01ListOk := structuredPvPRef01ListResult.([]any)
+		if !structuredPvPRef01ListOk {
+			t.Fatalf("expected list result to be an array, got %T", structuredPvPRef01ListResult)
+		}
+
+	})
+}
+
+func structured_pv_pBasicSetup(extra map[string]any) *entityTestSetup {
+	loadEnvLocal()
+
+	_, filename, _, _ := runtime.Caller(0)
+	dir := filepath.Dir(filename)
+
+	entityDataFile := filepath.Join(dir, "..", "..", ".sdk", "test", "entity", "structured_pv_p", "StructuredPvPTestData.json")
+
+	entityDataSource, err := os.ReadFile(entityDataFile)
+	if err != nil {
+		panic("failed to read structured_pv_p test data: " + err.Error())
+	}
+
+	var entityData map[string]any
+	if err := json.Unmarshal(entityDataSource, &entityData); err != nil {
+		panic("failed to parse structured_pv_p test data: " + err.Error())
+	}
+
+	options := map[string]any{}
+	options["entity"] = entityData["existing"]
+
+	client := sdk.TestSDK(options, extra)
+
+	// Generate idmap via transform, matching TS pattern.
+	idmap := vs.Transform(
+		[]any{"structured_pv_p01", "structured_pv_p02", "structured_pv_p03"},
+		map[string]any{
+			"`$PACK`": []any{"", map[string]any{
+				"`$KEY`": "`$COPY`",
+				"`$VAL`": []any{"`$FORMAT`", "upper", "`$COPY`"},
+			}},
+		},
+	)
+
+	// Detect ENTID env override before envOverride consumes it. When live
+	// mode is on without a real override, the basic test runs against synthetic
+	// IDs from the fixture and 4xx's. Surface this so the test can skip.
+	entidEnvRaw := os.Getenv("GUILDWARS__TEST_STRUCTURED_PV_P_ENTID")
+	idmapOverridden := entidEnvRaw != "" && strings.HasPrefix(strings.TrimSpace(entidEnvRaw), "{")
+
+	env := envOverride(map[string]any{
+		"GUILDWARS__TEST_STRUCTURED_PV_P_ENTID": idmap,
+		"GUILDWARS__TEST_LIVE":      "FALSE",
+		"GUILDWARS__TEST_EXPLAIN":   "FALSE",
+		"GUILDWARS__APIKEY":         "NONE",
+	})
+
+	idmapResolved := core.ToMapAny(env["GUILDWARS__TEST_STRUCTURED_PV_P_ENTID"])
+	if idmapResolved == nil {
+		idmapResolved = core.ToMapAny(idmap)
+	}
+
+	if env["GUILDWARS__TEST_LIVE"] == "TRUE" {
+		mergedOpts := vs.Merge([]any{
+			map[string]any{
+				"apikey": env["GUILDWARS__APIKEY"],
+			},
+			extra,
+		})
+		client = sdk.NewGuildWars2SDK(core.ToMapAny(mergedOpts))
+	}
+
+	live := env["GUILDWARS__TEST_LIVE"] == "TRUE"
+	return &entityTestSetup{
+		client:        client,
+		data:          entityData,
+		idmap:         idmapResolved,
+		env:           env,
+		explain:       env["GUILDWARS__TEST_EXPLAIN"] == "TRUE",
+		live:          live,
+		syntheticOnly: live && !idmapOverridden,
+		now:           time.Now().UnixMilli(),
+	}
+}

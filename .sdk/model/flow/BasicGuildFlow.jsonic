@@ -1,0 +1,44 @@
+# BasicGuildFlow
+
+main: kit: flow: BasicGuildFlow:
+{
+  entity: "guild",
+  kind: "basic",
+  name: "BasicGuildFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "guild_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "guild_ref01",
+        srcdatavar: "guild_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "guild01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-guild_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicGuildFlow"
+}

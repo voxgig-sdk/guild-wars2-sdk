@@ -1,0 +1,22 @@
+# BasicWorldVsWorldFlow
+
+main: kit: flow: BasicWorldVsWorldFlow:
+{
+  entity: "world_vs_world",
+  kind: "basic",
+  name: "BasicWorldVsWorldFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "world_vs_world_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicWorldVsWorldFlow"
+}

@@ -1,0 +1,14 @@
+{
+  "existing": {
+    "world_vs_world": {
+      "WORLD_VS_WORLD00": {},
+      "WORLD_VS_WORLD01": {},
+      "WORLD_VS_WORLD02": {}
+    }
+  },
+  "new": {
+    "world_vs_world": {
+      "world_vs_world_ref01": {}
+    }
+  }
+}

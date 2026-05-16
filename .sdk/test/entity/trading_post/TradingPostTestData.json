@@ -1,0 +1,37 @@
+{
+  "existing": {
+    "trading_post": {
+      "TRADING_POST00": {
+        "coin": "s28",
+        "coins_per_gem": "s29",
+        "item": [],
+        "quantity": "s2b",
+        "id": "TRADING_POST00"
+      },
+      "TRADING_POST01": {
+        "coin": "s50",
+        "coins_per_gem": "s51",
+        "item": [],
+        "quantity": "s53",
+        "id": "TRADING_POST01"
+      },
+      "TRADING_POST02": {
+        "coin": "s78",
+        "coins_per_gem": "s79",
+        "item": [],
+        "quantity": "s7b",
+        "id": "TRADING_POST02"
+      }
+    }
+  },
+  "new": {
+    "trading_post": {
+      "trading_post_ref01": {
+        "coin": "sa0",
+        "coins_per_gem": "sa1",
+        "item": [],
+        "quantity": "sa3"
+      }
+    }
+  }
+}

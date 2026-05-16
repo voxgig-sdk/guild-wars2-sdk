@@ -1,0 +1,40 @@
+# BasicTradingPostFlow
+
+main: kit: flow: BasicTradingPostFlow:
+{
+  entity: "trading_post",
+  kind: "basic",
+  name: "BasicTradingPostFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "trading_post_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "trading_post_ref01",
+        srcdatavar: "trading_post_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-trading_post_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicTradingPostFlow"
+}

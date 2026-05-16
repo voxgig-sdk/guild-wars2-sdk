@@ -1,0 +1,14 @@
+{
+  "existing": {
+    "map_information": {
+      "MAP_INFORMATION00": {},
+      "MAP_INFORMATION01": {},
+      "MAP_INFORMATION02": {}
+    }
+  },
+  "new": {
+    "map_information": {
+      "map_information_ref01": {}
+    }
+  }
+}

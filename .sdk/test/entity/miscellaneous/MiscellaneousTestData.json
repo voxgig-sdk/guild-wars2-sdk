@@ -1,0 +1,20 @@
+{
+  "existing": {
+    "miscellaneous": {
+      "MISCELLANEOUS00": {
+        "id": "MISCELLANEOUS00"
+      },
+      "MISCELLANEOUS01": {
+        "id": "MISCELLANEOUS01"
+      },
+      "MISCELLANEOUS02": {
+        "id": "MISCELLANEOUS02"
+      }
+    }
+  },
+  "new": {
+    "miscellaneous": {
+      "miscellaneous_ref01": {}
+    }
+  }
+}

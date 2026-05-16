@@ -1,0 +1,14 @@
+{
+  "existing": {
+    "guild_authenticated": {
+      "GUILD_AUTHENTICATED00": {},
+      "GUILD_AUTHENTICATED01": {},
+      "GUILD_AUTHENTICATED02": {}
+    }
+  },
+  "new": {
+    "guild_authenticated": {
+      "guild_authenticated_ref01": {}
+    }
+  }
+}

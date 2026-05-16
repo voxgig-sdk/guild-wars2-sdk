@@ -1,0 +1,40 @@
+# BasicAuthenticatedFlow
+
+main: kit: flow: BasicAuthenticatedFlow:
+{
+  entity: "authenticated",
+  kind: "basic",
+  name: "BasicAuthenticatedFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "authenticated_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "authenticated_ref01",
+        srcdatavar: "authenticated_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-authenticated_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAuthenticatedFlow"
+}

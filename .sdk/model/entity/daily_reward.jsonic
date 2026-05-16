@@ -1,0 +1,51 @@
+# Entity: daily_reward
+
+main: kit: entity: daily_reward: {
+
+  alias: field: {}
+
+  name: "daily_reward"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          method: "GET"
+          orig: "/dailycrafting"
+          parts: [
+            "dailycrafting"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          method: "GET"
+          orig: "/mapchests"
+          parts: [
+            "mapchests"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          method: "GET"
+          orig: "/worldbosses"
+          parts: [
+            "worldbosses"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

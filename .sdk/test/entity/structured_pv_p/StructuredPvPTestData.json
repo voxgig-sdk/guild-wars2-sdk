@@ -1,0 +1,14 @@
+{
+  "existing": {
+    "structured_pv_p": {
+      "STRUCTURED_PV_P00": {},
+      "STRUCTURED_PV_P01": {},
+      "STRUCTURED_PV_P02": {}
+    }
+  },
+  "new": {
+    "structured_pv_p": {
+      "structured_pv_p_ref01": {}
+    }
+  }
+}

@@ -1,0 +1,144 @@
+# Entity: achievement
+
+main: kit: entity: achievement: {
+
+  alias: field: {}
+
+  name: "achievement"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "ids"
+                orig: "ids"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "v"
+                orig: "v"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/achievements"
+          parts: [
+            "achievements"
+          ]
+          select: {
+            exist: [
+              "ids"
+              "v"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "ids"
+                orig: "ids"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/achievements/categories"
+          parts: [
+            "achievements"
+            "categories"
+          ]
+          select: {
+            "$action": "category"
+            exist: [
+              "ids"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "ids"
+                orig: "ids"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/achievements/groups"
+          parts: [
+            "achievements"
+            "groups"
+          ]
+          select: {
+            "$action": "group"
+            exist: [
+              "ids"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          method: "GET"
+          orig: "/achievements/daily"
+          parts: [
+            "achievements"
+            "daily"
+          ]
+          select: {
+            "$action": "daily"
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          method: "GET"
+          orig: "/achievements/daily/tomorrow"
+          parts: [
+            "achievements"
+            "daily"
+            "tomorrow"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

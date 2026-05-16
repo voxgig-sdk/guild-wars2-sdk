@@ -1,0 +1,22 @@
+# BasicDailyRewardFlow
+
+main: kit: flow: BasicDailyRewardFlow:
+{
+  entity: "daily_reward",
+  kind: "basic",
+  name: "BasicDailyRewardFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "daily_reward_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicDailyRewardFlow"
+}

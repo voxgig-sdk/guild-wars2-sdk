@@ -1,0 +1,20 @@
+{
+  "existing": {
+    "achievement": {
+      "ACHIEVEMENT00": {
+        "id": "ACHIEVEMENT00"
+      },
+      "ACHIEVEMENT01": {
+        "id": "ACHIEVEMENT01"
+      },
+      "ACHIEVEMENT02": {
+        "id": "ACHIEVEMENT02"
+      }
+    }
+  },
+  "new": {
+    "achievement": {
+      "achievement_ref01": {}
+    }
+  }
+}

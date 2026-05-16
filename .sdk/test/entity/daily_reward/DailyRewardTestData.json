@@ -1,0 +1,14 @@
+{
+  "existing": {
+    "daily_reward": {
+      "DAILY_REWARD00": {},
+      "DAILY_REWARD01": {},
+      "DAILY_REWARD02": {}
+    }
+  },
+  "new": {
+    "daily_reward": {
+      "daily_reward_ref01": {}
+    }
+  }
+}

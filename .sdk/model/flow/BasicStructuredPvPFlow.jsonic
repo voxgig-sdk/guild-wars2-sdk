@@ -1,0 +1,22 @@
+# BasicStructuredPvPFlow
+
+main: kit: flow: BasicStructuredPvPFlow:
+{
+  entity: "structured_pv_p",
+  kind: "basic",
+  name: "BasicStructuredPvPFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "structured_pv_p_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicStructuredPvPFlow"
+}

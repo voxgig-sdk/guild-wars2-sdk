@@ -1,0 +1,14 @@
+{
+  "existing": {
+    "home_instance": {
+      "HOME_INSTANCE00": {},
+      "HOME_INSTANCE01": {},
+      "HOME_INSTANCE02": {}
+    }
+  },
+  "new": {
+    "home_instance": {
+      "home_instance_ref01": {}
+    }
+  }
+}

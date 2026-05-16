@@ -1,0 +1,911 @@
+# GuildWars2 PHP SDK Reference
+
+Complete API reference for the GuildWars2 PHP SDK.
+
+
+## GuildWars2SDK
+
+### Constructor
+
+```php
+require_once __DIR__ . '/guild-wars2_sdk.php';
+
+$client = new GuildWars2SDK($options);
+```
+
+Create a new SDK client instance.
+
+**Parameters:**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `$options` | `array` | SDK configuration options. |
+| `$options["apikey"]` | `string` | API key for authentication. |
+| `$options["base"]` | `string` | Base URL for API requests. |
+| `$options["prefix"]` | `string` | URL prefix appended after base. |
+| `$options["suffix"]` | `string` | URL suffix appended after path. |
+| `$options["headers"]` | `array` | Custom headers for all requests. |
+| `$options["feature"]` | `array` | Feature configuration. |
+| `$options["system"]` | `array` | System overrides (e.g. custom fetch). |
+
+
+### Static Methods
+
+#### `GuildWars2SDK::test($testopts = null, $sdkopts = null)`
+
+Create a test client with mock features active. Both arguments may be `null`.
+
+```php
+$client = GuildWars2SDK::test();
+```
+
+
+### Instance Methods
+
+#### `Achievement($data = null)`
+
+Create a new `AchievementEntity` instance. Pass `null` for no initial data.
+
+#### `Authenticated($data = null)`
+
+Create a new `AuthenticatedEntity` instance. Pass `null` for no initial data.
+
+#### `DailyReward($data = null)`
+
+Create a new `DailyRewardEntity` instance. Pass `null` for no initial data.
+
+#### `GameMechanic($data = null)`
+
+Create a new `GameMechanicEntity` instance. Pass `null` for no initial data.
+
+#### `Guild($data = null)`
+
+Create a new `GuildEntity` instance. Pass `null` for no initial data.
+
+#### `GuildAuthenticated($data = null)`
+
+Create a new `GuildAuthenticatedEntity` instance. Pass `null` for no initial data.
+
+#### `HomeInstance($data = null)`
+
+Create a new `HomeInstanceEntity` instance. Pass `null` for no initial data.
+
+#### `Item($data = null)`
+
+Create a new `ItemEntity` instance. Pass `null` for no initial data.
+
+#### `Map($data = null)`
+
+Create a new `MapEntity` instance. Pass `null` for no initial data.
+
+#### `MapInformation($data = null)`
+
+Create a new `MapInformationEntity` instance. Pass `null` for no initial data.
+
+#### `Miscellaneous($data = null)`
+
+Create a new `MiscellaneousEntity` instance. Pass `null` for no initial data.
+
+#### `Story($data = null)`
+
+Create a new `StoryEntity` instance. Pass `null` for no initial data.
+
+#### `StructuredPvP($data = null)`
+
+Create a new `StructuredPvPEntity` instance. Pass `null` for no initial data.
+
+#### `TradingPost($data = null)`
+
+Create a new `TradingPostEntity` instance. Pass `null` for no initial data.
+
+#### `WorldVsWorld($data = null)`
+
+Create a new `WorldVsWorldEntity` instance. Pass `null` for no initial data.
+
+#### `optionsMap(): array`
+
+Return a deep copy of the current SDK options.
+
+#### `getUtility(): ProjectNameUtility`
+
+Return a copy of the SDK utility object.
+
+#### `direct(array $fetchargs = []): array`
+
+Make a direct HTTP request to any API endpoint. Returns `[$result, $err]`.
+
+**Parameters:**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `$fetchargs["path"]` | `string` | URL path with optional `{param}` placeholders. |
+| `$fetchargs["method"]` | `string` | HTTP method (default: `"GET"`). |
+| `$fetchargs["params"]` | `array` | Path parameter values for `{param}` substitution. |
+| `$fetchargs["query"]` | `array` | Query string parameters. |
+| `$fetchargs["headers"]` | `array` | Request headers (merged with defaults). |
+| `$fetchargs["body"]` | `mixed` | Request body (arrays are JSON-serialized). |
+| `$fetchargs["ctrl"]` | `array` | Control options. |
+
+**Returns:** `array [$result, $err]`
+
+#### `prepare(array $fetchargs = []): array`
+
+Prepare a fetch definition without sending the request. Returns `[$fetchdef, $err]`.
+
+
+---
+
+## AchievementEntity
+
+```php
+$achievement = $client->Achievement();
+```
+
+### Operations
+
+#### `list(array $reqmatch, ?array $ctrl = null): array`
+
+List entities matching the given criteria. Returns an array.
+
+```php
+[$results, $err] = $client->Achievement()->list([]);
+```
+
+#### `load(array $reqmatch, ?array $ctrl = null): array`
+
+Load a single entity matching the given criteria.
+
+```php
+[$result, $err] = $client->Achievement()->load(["id" => "achievement_id"]);
+```
+
+### Common Methods
+
+#### `dataGet(): array`
+
+Get the entity data. Returns a copy of the current data.
+
+#### `dataSet($data): void`
+
+Set the entity data.
+
+#### `matchGet(): array`
+
+Get the entity match criteria.
+
+#### `matchSet($match): void`
+
+Set the entity match criteria.
+
+#### `make(): AchievementEntity`
+
+Create a new `AchievementEntity` instance with the same client and
+options.
+
+#### `getName(): string`
+
+Return the entity name.
+
+
+---
+
+## AuthenticatedEntity
+
+```php
+$authenticated = $client->Authenticated();
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `created` | ``$STRING`` | No |  |
+| `id` | ``$STRING`` | No |  |
+| `name` | ``$STRING`` | No |  |
+| `permission` | ``$ARRAY`` | No |  |
+| `subtoken` | ``$STRING`` | No |  |
+| `value` | ``$INTEGER`` | No |  |
+| `world` | ``$INTEGER`` | No |  |
+
+### Operations
+
+#### `list(array $reqmatch, ?array $ctrl = null): array`
+
+List entities matching the given criteria. Returns an array.
+
+```php
+[$results, $err] = $client->Authenticated()->list([]);
+```
+
+#### `load(array $reqmatch, ?array $ctrl = null): array`
+
+Load a single entity matching the given criteria.
+
+```php
+[$result, $err] = $client->Authenticated()->load(["id" => "authenticated_id"]);
+```
+
+### Common Methods
+
+#### `dataGet(): array`
+
+Get the entity data. Returns a copy of the current data.
+
+#### `dataSet($data): void`
+
+Set the entity data.
+
+#### `matchGet(): array`
+
+Get the entity match criteria.
+
+#### `matchSet($match): void`
+
+Set the entity match criteria.
+
+#### `make(): AuthenticatedEntity`
+
+Create a new `AuthenticatedEntity` instance with the same client and
+options.
+
+#### `getName(): string`
+
+Return the entity name.
+
+
+---
+
+## DailyRewardEntity
+
+```php
+$daily_reward = $client->DailyReward();
+```
+
+### Operations
+
+#### `list(array $reqmatch, ?array $ctrl = null): array`
+
+List entities matching the given criteria. Returns an array.
+
+```php
+[$results, $err] = $client->DailyReward()->list([]);
+```
+
+### Common Methods
+
+#### `dataGet(): array`
+
+Get the entity data. Returns a copy of the current data.
+
+#### `dataSet($data): void`
+
+Set the entity data.
+
+#### `matchGet(): array`
+
+Get the entity match criteria.
+
+#### `matchSet($match): void`
+
+Set the entity match criteria.
+
+#### `make(): DailyRewardEntity`
+
+Create a new `DailyRewardEntity` instance with the same client and
+options.
+
+#### `getName(): string`
+
+Return the entity name.
+
+
+---
+
+## GameMechanicEntity
+
+```php
+$game_mechanic = $client->GameMechanic();
+```
+
+### Operations
+
+#### `list(array $reqmatch, ?array $ctrl = null): array`
+
+List entities matching the given criteria. Returns an array.
+
+```php
+[$results, $err] = $client->GameMechanic()->list([]);
+```
+
+### Common Methods
+
+#### `dataGet(): array`
+
+Get the entity data. Returns a copy of the current data.
+
+#### `dataSet($data): void`
+
+Set the entity data.
+
+#### `matchGet(): array`
+
+Get the entity match criteria.
+
+#### `matchSet($match): void`
+
+Set the entity match criteria.
+
+#### `make(): GameMechanicEntity`
+
+Create a new `GameMechanicEntity` instance with the same client and
+options.
+
+#### `getName(): string`
+
+Return the entity name.
+
+
+---
+
+## GuildEntity
+
+```php
+$guild = $client->Guild();
+```
+
+### Operations
+
+#### `list(array $reqmatch, ?array $ctrl = null): array`
+
+List entities matching the given criteria. Returns an array.
+
+```php
+[$results, $err] = $client->Guild()->list([]);
+```
+
+#### `load(array $reqmatch, ?array $ctrl = null): array`
+
+Load a single entity matching the given criteria.
+
+```php
+[$result, $err] = $client->Guild()->load(["id" => "guild_id"]);
+```
+
+### Common Methods
+
+#### `dataGet(): array`
+
+Get the entity data. Returns a copy of the current data.
+
+#### `dataSet($data): void`
+
+Set the entity data.
+
+#### `matchGet(): array`
+
+Get the entity match criteria.
+
+#### `matchSet($match): void`
+
+Set the entity match criteria.
+
+#### `make(): GuildEntity`
+
+Create a new `GuildEntity` instance with the same client and
+options.
+
+#### `getName(): string`
+
+Return the entity name.
+
+
+---
+
+## GuildAuthenticatedEntity
+
+```php
+$guild_authenticated = $client->GuildAuthenticated();
+```
+
+### Operations
+
+#### `list(array $reqmatch, ?array $ctrl = null): array`
+
+List entities matching the given criteria. Returns an array.
+
+```php
+[$results, $err] = $client->GuildAuthenticated()->list([]);
+```
+
+### Common Methods
+
+#### `dataGet(): array`
+
+Get the entity data. Returns a copy of the current data.
+
+#### `dataSet($data): void`
+
+Set the entity data.
+
+#### `matchGet(): array`
+
+Get the entity match criteria.
+
+#### `matchSet($match): void`
+
+Set the entity match criteria.
+
+#### `make(): GuildAuthenticatedEntity`
+
+Create a new `GuildAuthenticatedEntity` instance with the same client and
+options.
+
+#### `getName(): string`
+
+Return the entity name.
+
+
+---
+
+## HomeInstanceEntity
+
+```php
+$home_instance = $client->HomeInstance();
+```
+
+### Operations
+
+#### `list(array $reqmatch, ?array $ctrl = null): array`
+
+List entities matching the given criteria. Returns an array.
+
+```php
+[$results, $err] = $client->HomeInstance()->list([]);
+```
+
+### Common Methods
+
+#### `dataGet(): array`
+
+Get the entity data. Returns a copy of the current data.
+
+#### `dataSet($data): void`
+
+Set the entity data.
+
+#### `matchGet(): array`
+
+Get the entity match criteria.
+
+#### `matchSet($match): void`
+
+Set the entity match criteria.
+
+#### `make(): HomeInstanceEntity`
+
+Create a new `HomeInstanceEntity` instance with the same client and
+options.
+
+#### `getName(): string`
+
+Return the entity name.
+
+
+---
+
+## ItemEntity
+
+```php
+$item = $client->Item();
+```
+
+### Operations
+
+#### `list(array $reqmatch, ?array $ctrl = null): array`
+
+List entities matching the given criteria. Returns an array.
+
+```php
+[$results, $err] = $client->Item()->list([]);
+```
+
+### Common Methods
+
+#### `dataGet(): array`
+
+Get the entity data. Returns a copy of the current data.
+
+#### `dataSet($data): void`
+
+Set the entity data.
+
+#### `matchGet(): array`
+
+Get the entity match criteria.
+
+#### `matchSet($match): void`
+
+Set the entity match criteria.
+
+#### `make(): ItemEntity`
+
+Create a new `ItemEntity` instance with the same client and
+options.
+
+#### `getName(): string`
+
+Return the entity name.
+
+
+---
+
+## MapEntity
+
+```php
+$map = $client->Map();
+```
+
+### Operations
+
+#### `list(array $reqmatch, ?array $ctrl = null): array`
+
+List entities matching the given criteria. Returns an array.
+
+```php
+[$results, $err] = $client->Map()->list([]);
+```
+
+### Common Methods
+
+#### `dataGet(): array`
+
+Get the entity data. Returns a copy of the current data.
+
+#### `dataSet($data): void`
+
+Set the entity data.
+
+#### `matchGet(): array`
+
+Get the entity match criteria.
+
+#### `matchSet($match): void`
+
+Set the entity match criteria.
+
+#### `make(): MapEntity`
+
+Create a new `MapEntity` instance with the same client and
+options.
+
+#### `getName(): string`
+
+Return the entity name.
+
+
+---
+
+## MapInformationEntity
+
+```php
+$map_information = $client->MapInformation();
+```
+
+### Operations
+
+#### `list(array $reqmatch, ?array $ctrl = null): array`
+
+List entities matching the given criteria. Returns an array.
+
+```php
+[$results, $err] = $client->MapInformation()->list([]);
+```
+
+### Common Methods
+
+#### `dataGet(): array`
+
+Get the entity data. Returns a copy of the current data.
+
+#### `dataSet($data): void`
+
+Set the entity data.
+
+#### `matchGet(): array`
+
+Get the entity match criteria.
+
+#### `matchSet($match): void`
+
+Set the entity match criteria.
+
+#### `make(): MapInformationEntity`
+
+Create a new `MapInformationEntity` instance with the same client and
+options.
+
+#### `getName(): string`
+
+Return the entity name.
+
+
+---
+
+## MiscellaneousEntity
+
+```php
+$miscellaneous = $client->Miscellaneous();
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | ``$INTEGER`` | No |  |
+
+### Operations
+
+#### `list(array $reqmatch, ?array $ctrl = null): array`
+
+List entities matching the given criteria. Returns an array.
+
+```php
+[$results, $err] = $client->Miscellaneous()->list([]);
+```
+
+#### `load(array $reqmatch, ?array $ctrl = null): array`
+
+Load a single entity matching the given criteria.
+
+```php
+[$result, $err] = $client->Miscellaneous()->load(["id" => "miscellaneous_id"]);
+```
+
+### Common Methods
+
+#### `dataGet(): array`
+
+Get the entity data. Returns a copy of the current data.
+
+#### `dataSet($data): void`
+
+Set the entity data.
+
+#### `matchGet(): array`
+
+Get the entity match criteria.
+
+#### `matchSet($match): void`
+
+Set the entity match criteria.
+
+#### `make(): MiscellaneousEntity`
+
+Create a new `MiscellaneousEntity` instance with the same client and
+options.
+
+#### `getName(): string`
+
+Return the entity name.
+
+
+---
+
+## StoryEntity
+
+```php
+$story = $client->Story();
+```
+
+### Operations
+
+#### `list(array $reqmatch, ?array $ctrl = null): array`
+
+List entities matching the given criteria. Returns an array.
+
+```php
+[$results, $err] = $client->Story()->list([]);
+```
+
+### Common Methods
+
+#### `dataGet(): array`
+
+Get the entity data. Returns a copy of the current data.
+
+#### `dataSet($data): void`
+
+Set the entity data.
+
+#### `matchGet(): array`
+
+Get the entity match criteria.
+
+#### `matchSet($match): void`
+
+Set the entity match criteria.
+
+#### `make(): StoryEntity`
+
+Create a new `StoryEntity` instance with the same client and
+options.
+
+#### `getName(): string`
+
+Return the entity name.
+
+
+---
+
+## StructuredPvPEntity
+
+```php
+$structured_pv_p = $client->StructuredPvP();
+```
+
+### Operations
+
+#### `list(array $reqmatch, ?array $ctrl = null): array`
+
+List entities matching the given criteria. Returns an array.
+
+```php
+[$results, $err] = $client->StructuredPvP()->list([]);
+```
+
+### Common Methods
+
+#### `dataGet(): array`
+
+Get the entity data. Returns a copy of the current data.
+
+#### `dataSet($data): void`
+
+Set the entity data.
+
+#### `matchGet(): array`
+
+Get the entity match criteria.
+
+#### `matchSet($match): void`
+
+Set the entity match criteria.
+
+#### `make(): StructuredPvPEntity`
+
+Create a new `StructuredPvPEntity` instance with the same client and
+options.
+
+#### `getName(): string`
+
+Return the entity name.
+
+
+---
+
+## TradingPostEntity
+
+```php
+$trading_post = $client->TradingPost();
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `coin` | ``$INTEGER`` | No |  |
+| `coins_per_gem` | ``$INTEGER`` | No |  |
+| `item` | ``$ARRAY`` | No |  |
+| `quantity` | ``$INTEGER`` | No |  |
+
+### Operations
+
+#### `list(array $reqmatch, ?array $ctrl = null): array`
+
+List entities matching the given criteria. Returns an array.
+
+```php
+[$results, $err] = $client->TradingPost()->list([]);
+```
+
+#### `load(array $reqmatch, ?array $ctrl = null): array`
+
+Load a single entity matching the given criteria.
+
+```php
+[$result, $err] = $client->TradingPost()->load(["id" => "trading_post_id"]);
+```
+
+### Common Methods
+
+#### `dataGet(): array`
+
+Get the entity data. Returns a copy of the current data.
+
+#### `dataSet($data): void`
+
+Set the entity data.
+
+#### `matchGet(): array`
+
+Get the entity match criteria.
+
+#### `matchSet($match): void`
+
+Set the entity match criteria.
+
+#### `make(): TradingPostEntity`
+
+Create a new `TradingPostEntity` instance with the same client and
+options.
+
+#### `getName(): string`
+
+Return the entity name.
+
+
+---
+
+## WorldVsWorldEntity
+
+```php
+$world_vs_world = $client->WorldVsWorld();
+```
+
+### Operations
+
+#### `list(array $reqmatch, ?array $ctrl = null): array`
+
+List entities matching the given criteria. Returns an array.
+
+```php
+[$results, $err] = $client->WorldVsWorld()->list([]);
+```
+
+### Common Methods
+
+#### `dataGet(): array`
+
+Get the entity data. Returns a copy of the current data.
+
+#### `dataSet($data): void`
+
+Set the entity data.
+
+#### `matchGet(): array`
+
+Get the entity match criteria.
+
+#### `matchSet($match): void`
+
+Set the entity match criteria.
+
+#### `make(): WorldVsWorldEntity`
+
+Create a new `WorldVsWorldEntity` instance with the same client and
+options.
+
+#### `getName(): string`
+
+Return the entity name.
+
+
+---
+
+## Features
+
+| Feature | Version | Description |
+| --- | --- | --- |
+| `test` | 0.0.1 | In-memory mock transport for testing without a live server |
+
+
+Features are activated via the `feature` option:
+
+```php
+$client = new GuildWars2SDK([
+  "feature" => [
+    "test" => ["active" => true],
+  ],
+]);
+```
+

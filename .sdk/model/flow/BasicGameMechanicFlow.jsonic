@@ -1,0 +1,22 @@
+# BasicGameMechanicFlow
+
+main: kit: flow: BasicGameMechanicFlow:
+{
+  entity: "game_mechanic",
+  kind: "basic",
+  name: "BasicGameMechanicFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "game_mechanic_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicGameMechanicFlow"
+}

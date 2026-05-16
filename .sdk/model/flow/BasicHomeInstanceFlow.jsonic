@@ -1,0 +1,22 @@
+# BasicHomeInstanceFlow
+
+main: kit: flow: BasicHomeInstanceFlow:
+{
+  entity: "home_instance",
+  kind: "basic",
+  name: "BasicHomeInstanceFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "home_instance_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicHomeInstanceFlow"
+}

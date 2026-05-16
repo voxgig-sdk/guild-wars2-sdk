@@ -1,0 +1,14 @@
+{
+  "existing": {
+    "game_mechanic": {
+      "GAME_MECHANIC00": {},
+      "GAME_MECHANIC01": {},
+      "GAME_MECHANIC02": {}
+    }
+  },
+  "new": {
+    "game_mechanic": {
+      "game_mechanic_ref01": {}
+    }
+  }
+}

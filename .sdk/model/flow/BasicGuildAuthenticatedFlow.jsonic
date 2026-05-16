@@ -1,0 +1,22 @@
+# BasicGuildAuthenticatedFlow
+
+main: kit: flow: BasicGuildAuthenticatedFlow:
+{
+  entity: "guild_authenticated",
+  kind: "basic",
+  name: "BasicGuildAuthenticatedFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "guild_authenticated_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicGuildAuthenticatedFlow"
+}

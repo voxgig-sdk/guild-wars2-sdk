@@ -1,0 +1,20 @@
+{
+  "existing": {
+    "guild": {
+      "GUILD00": {
+        "id": "GUILD00"
+      },
+      "GUILD01": {
+        "id": "GUILD01"
+      },
+      "GUILD02": {
+        "id": "GUILD02"
+      }
+    }
+  },
+  "new": {
+    "guild": {
+      "guild_ref01": {}
+    }
+  }
+}
