@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/guild-wars2-sdk"
-	"github.com/voxgig-sdk/guild-wars2-sdk/core"
+	sdk "github.com/voxgig-sdk/guild-wars2-sdk/go"
+	"github.com/voxgig-sdk/guild-wars2-sdk/go/core"
 )
 
 func TestDailyRewardDirect(t *testing.T) {

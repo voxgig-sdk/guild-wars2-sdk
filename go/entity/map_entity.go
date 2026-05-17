@@ -1,9 +1,9 @@
 package entity
 
 import (
-	"github.com/voxgig-sdk/guild-wars2-sdk/core"
+	"github.com/voxgig-sdk/guild-wars2-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/guild-wars2-sdk/go/utility/struct"
 )
 
 type MapEntity struct {

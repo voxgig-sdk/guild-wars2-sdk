@@ -1,6 +1,6 @@
 package utility
 
-import "github.com/voxgig-sdk/guild-wars2-sdk/core"
+import "github.com/voxgig-sdk/guild-wars2-sdk/go/core"
 
 func doneUtil(ctx *core.Context) (any, error) {
 	if ctx.Ctrl.Explain != nil {

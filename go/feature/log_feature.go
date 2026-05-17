@@ -4,7 +4,7 @@ import (
 	"log/slog"
 	"os"
 
-	"github.com/voxgig-sdk/guild-wars2-sdk/core"
+	"github.com/voxgig-sdk/guild-wars2-sdk/go/core"
 )
 
 type LogFeature struct {

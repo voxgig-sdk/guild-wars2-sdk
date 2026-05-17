@@ -1,7 +1,7 @@
 package core
 
 import (
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/guild-wars2-sdk/go/utility/struct"
 )
 
 type Point struct {
