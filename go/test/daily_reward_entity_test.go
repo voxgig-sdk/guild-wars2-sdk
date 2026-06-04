@@ -119,7 +119,6 @@ func daily_rewardBasicSetup(extra map[string]any) *entityTestSetup {
 		"GUILDWARS__TEST_DAILY_REWARD_ENTID": idmap,
 		"GUILDWARS__TEST_LIVE":      "FALSE",
 		"GUILDWARS__TEST_EXPLAIN":   "FALSE",
-		"GUILDWARS__APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["GUILDWARS__TEST_DAILY_REWARD_ENTID"])
@@ -130,7 +129,6 @@ func daily_rewardBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["GUILDWARS__TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
-				"apikey": env["GUILDWARS__APIKEY"],
 			},
 			extra,
 		})

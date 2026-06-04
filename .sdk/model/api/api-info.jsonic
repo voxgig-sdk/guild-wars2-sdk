@@ -22,8 +22,44 @@ main: {
       termsOfService: "https://www.arena.net/en/legal/guild-wars-2-content-terms-of-use"
       title: "Guild Wars 2 API"
       version: "2.0.0"
+      tagline: "Access live Guild Wars 2 game data — items, achievements, guilds, WvW, PvP, trading post and more — straight from ArenaNet's servers"
+      homepage: "https://api.guildwars2.com/v2"
+      docs_url: "https://wiki.guildwars2.com/wiki/API:Main"
+      license_short: "Use is governed by ArenaNet's Content Terms of Use and Website Terms of Use."
+      license_md: `- The API is operated by [ArenaNet](https://www.arena.net/) for the MMO Guild Wars 2; using it constitutes acceptance of ArenaNet's Content Terms of Use and Website Terms of Use.
+- Public game data (items, maps, achievements, etc.) is generally redistributable for fan tools, but trademarks, art, and other ArenaNet assets remain ArenaNet's property.
+- Account, character, guild, and other player-scoped endpoints require an API key issued from the player's ArenaNet account, with scopes the player has explicitly granted.
+- No formal SLA or open-source licence is published for the API itself; check the [official wiki](https://wiki.guildwars2.com/wiki/API:Main) for the current terms before shipping a product.`
+      about_md: `The Guild Wars 2 API is the official HTTP interface to game data for [Guild Wars 2](https://www.guildwars2.com/), the MMORPG developed by [ArenaNet](https://www.arena.net/). The current version, **v2**, lives at \`https://api.guildwars2.com/v2\` and follows a pattern where each path segment enumerates the possible values of the next segment, so a fully qualified path returns a JSON object describing one resource.
+
+What you get from the API:
+
+- Static game catalogue: items, skins, recipes, skills, traits, specializations, professions, masteries, mounts, pets, finishers and gliders.
+- World data: continents, maps, points of interest, story content, dungeons and raids.
+- Live player-scoped data (with an API key): account inventory, characters, achievements, wallet, bank, material storage, guild membership and homestead/home instance progress.
+- Competitive modes: structured PvP stats, leaderboards and seasons, plus World vs. World matches, objectives and upgrades.
+- Economy: trading post listings, current prices, delivery box contents and gem exchange rates.
+- Daily and seasonal rewards: daily achievements, world bosses, map chests and Wizard's Vault objectives.
+
+Most endpoints support \`?lang=\` for localisation (en, es, de, fr, zh) and bulk fetching via \`?ids=1,2,3\`, \`?ids=all\` or \`?page=&page_size=\`. Authenticated endpoints accept the key either as \`Authorization: Bearer <key>\` (preferred from servers) or \`?access_token=<key>\` (required from browsers, since CORS preflight is not supported).`
+      entity_desc: {
+        achievement: "Achievement definitions, categories, groups and the rotating daily list — see paths under `/v2/achievements`."
+        authenticated: "Account-scoped resources that require an API key, such as `/v2/account`, `/v2/characters`, `/v2/wallet` and related player data."
+        daily_reward: "Recurring reward listings including daily crafting items, map chests and world boss rotations exposed under `/v2/dailycrafting`, `/v2/mapchests` and `/v2/worldbosses`."
+        game_mechanic: "Core combat and progression systems: masteries, mounts, pets, professions, skills, traits and specializations under `/v2/masteries`, `/v2/skills`, `/v2/traits`, etc."
+        guild: "Public guild lookup endpoints for guild info, emblems, permissions and upgrade catalogues under `/v2/guild/{id}` and `/v2/guild/permissions|upgrades|emblem`."
+        guild_authenticated: "Guild leader / member endpoints behind an API key — members, ranks, treasury, stash, storage and logs under `/v2/guild/{id}/...`."
+        home_instance: "Home instance and homestead content such as cats, nodes, decorations and glyphs under `/v2/home/...` and related homestead paths."
+        item: "The item catalogue plus related collectibles — items, item stats, skins, finishers, gliders, materials and recipes under `/v2/items`, `/v2/itemstats`, `/v2/skins`, `/v2/recipes`, etc."
+        map: "Individual map records keyed by map id under `/v2/maps`."
+        map_information: "Higher-level world geography — continents, floors, regions and points of interest under `/v2/continents` and friends."
+        miscellaneous: "Catch-all utility endpoints such as build number, colors, currencies, files, quaggans and titles under `/v2/build`, `/v2/colors`, `/v2/currencies`, `/v2/files`, `/v2/quaggans`, `/v2/titles`."
+        story: "Personal and Living World story content — backstory answers and questions, quests and story seasons under `/v2/stories`, `/v2/quests` and `/v2/backstory/...`."
+        structured_pv_p: "Structured PvP data: ranks, heroes, amulets, seasons, leaderboards and per-account games and stats under `/v2/pvp/...`."
+        trading_post: "Commerce endpoints for current listings, prices, transaction history, delivery box contents and gem/coin exchange rates under `/v2/commerce/...`."
+        world_vs_world: "World vs. World mode data: matches, objectives, abilities, ranks and upgrades under `/v2/wvw/...`."
+      }
+      auth: false
     }
   }
-}
-
 }

@@ -17,9 +17,7 @@ loading a specific record.
 ```ts
 import { GuildWars2SDK } from 'guild-wars2'
 
-const client = new GuildWars2SDK({
-  apikey: process.env.GUILD-WARS2_APIKEY,
-})
+const client = new GuildWars2SDK({})
 ```
 
 ### 2. List achievements
@@ -94,7 +92,7 @@ const result = await client.Planet().load({ id: 'test01' })
 You can also use the instance method:
 
 ```ts
-const client = new GuildWars2SDK({ apikey: '...' })
+const client = new GuildWars2SDK()
 const testClient = client.tester()
 ```
 
@@ -130,7 +128,6 @@ const logger = {
 }
 
 const client = new GuildWars2SDK({
-  apikey: '...',
   extend: [logger],
 })
 ```
@@ -141,7 +138,6 @@ Create a `.env.local` file at the project root:
 
 ```
 GUILD-WARS2_TEST_LIVE=TRUE
-GUILD-WARS2_APIKEY=<your-key>
 ```
 
 Then run:
@@ -159,7 +155,6 @@ cd ts && npm test
 
 ```ts
 new GuildWars2SDK(options?: {
-  apikey?: string
   base?: string
   prefix?: string
   suffix?: string
@@ -170,7 +165,6 @@ new GuildWars2SDK(options?: {
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |

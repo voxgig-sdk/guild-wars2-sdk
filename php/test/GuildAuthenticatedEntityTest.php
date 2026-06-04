@@ -86,7 +86,6 @@ function guild_authenticated_basic_setup($extra)
         "GUILDWARS__TEST_GUILD_AUTHENTICATED_ENTID" => $idmap,
         "GUILDWARS__TEST_LIVE" => "FALSE",
         "GUILDWARS__TEST_EXPLAIN" => "FALSE",
-        "GUILDWARS__APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -98,7 +97,6 @@ function guild_authenticated_basic_setup($extra)
     if ($env["GUILDWARS__TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["GUILDWARS__APIKEY"],
             ],
             $extra ?? [],
         ]);

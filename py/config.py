@@ -15,9 +15,6 @@ def make_config():
         },
         "options": {
             "base": "https://api.guildwars2.com/v2",
-            "auth": {
-                "prefix": "Bearer",
-            },
             "headers": {
         "content-type": "application/json",
       },
