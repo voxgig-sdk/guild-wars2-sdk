@@ -79,12 +79,14 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'GUILDWARS__TEST_MAP_ENTID': {},
     'GUILDWARS__TEST_LIVE': 'FALSE',
+    'GUILDWARS__APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.GUILDWARS__TEST_LIVE
 
   if (live) {
     const client = new GuildWars2SDK({
+      apikey: env.GUILDWARS__APIKEY,
     })
 
     let idmap: any = env['GUILDWARS__TEST_MAP_ENTID']

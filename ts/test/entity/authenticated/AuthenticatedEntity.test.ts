@@ -120,6 +120,7 @@ function basicSetup(extra?: any) {
     'GUILD_WARS__TEST_AUTHENTICATED_ENTID': idmap,
     'GUILD_WARS__TEST_LIVE': 'FALSE',
     'GUILD_WARS__TEST_EXPLAIN': 'FALSE',
+    'GUILD_WARS__APIKEY': 'NONE',
   })
 
   idmap = env['GUILD_WARS__TEST_AUTHENTICATED_ENTID']
@@ -129,6 +130,7 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new GuildWars2SDK(merge([
       {
+        apikey: env.GUILD_WARS__APIKEY,
       },
       extra
     ]))

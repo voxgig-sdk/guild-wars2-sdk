@@ -102,6 +102,7 @@ function miscellaneous_basic_setup(extra)
     ["GUILDWARS__TEST_MISCELLANEOUS_ENTID"] = idmap,
     ["GUILDWARS__TEST_LIVE"] = "FALSE",
     ["GUILDWARS__TEST_EXPLAIN"] = "FALSE",
+    ["GUILDWARS__APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -113,6 +114,7 @@ function miscellaneous_basic_setup(extra)
   if env["GUILDWARS__TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
+        apikey = env["GUILDWARS__APIKEY"],
       },
       extra or {},
     })

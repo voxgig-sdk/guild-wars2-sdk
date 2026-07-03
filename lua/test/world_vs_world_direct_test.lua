@@ -63,12 +63,14 @@ function world_vs_world_direct_setup(mockres)
   local env = runner.env_override({
     ["GUILDWARS__TEST_WORLD_VS_WORLD_ENTID"] = {},
     ["GUILDWARS__TEST_LIVE"] = "FALSE",
+    ["GUILDWARS__APIKEY"] = "NONE",
   })
 
   local live = env["GUILDWARS__TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
+      apikey = env["GUILDWARS__APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {

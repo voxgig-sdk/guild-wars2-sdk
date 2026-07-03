@@ -73,12 +73,14 @@ def _guild_authenticated_direct_setup(mockres):
     env = runner.env_override({
         "GUILDWARS__TEST_GUILD_AUTHENTICATED_ENTID": {},
         "GUILDWARS__TEST_LIVE": "FALSE",
+        "GUILDWARS__APIKEY": "NONE",
     })
 
     live = env.get("GUILDWARS__TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
+            "apikey": env.get("GUILDWARS__APIKEY"),
         }
         client = GuildWars2SDK(merged_opts)
         return {

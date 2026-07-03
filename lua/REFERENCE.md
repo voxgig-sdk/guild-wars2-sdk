@@ -30,12 +30,12 @@ Create a new SDK client instance.
 
 ### Static Methods
 
-#### `sdk.test(testopts, sdkopts)`
+#### `sdk.test(testopts?, sdkopts?)`
 
-Create a test client with mock features active. Both arguments may be `nil`.
+Create a test client with mock features active. Both arguments are optional.
 
 ```lua
-local client = sdk.test(nil, nil)
+local client = sdk.test()
 ```
 
 
@@ -150,7 +150,7 @@ local achievement = client:Achievement(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Achievement(nil):list(nil, nil)
+local results, err = client:Achievement():list()
 ```
 
 #### `load(reqmatch, ctrl) -> any, err`
@@ -158,7 +158,7 @@ local results, err = client:Achievement(nil):list(nil, nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Achievement(nil):load({ id = "achievement_id" }, nil)
+local result, err = client:Achievement():load({ id = "achievement_id" })
 ```
 
 ### Common Methods
@@ -216,7 +216,7 @@ local authenticated = client:Authenticated(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Authenticated(nil):list(nil, nil)
+local results, err = client:Authenticated():list()
 ```
 
 #### `load(reqmatch, ctrl) -> any, err`
@@ -224,7 +224,7 @@ local results, err = client:Authenticated(nil):list(nil, nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Authenticated(nil):load({ id = "authenticated_id" }, nil)
+local result, err = client:Authenticated():load({ id = "authenticated_id" })
 ```
 
 ### Common Methods
@@ -270,7 +270,7 @@ local daily_reward = client:DailyReward(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:DailyReward(nil):list(nil, nil)
+local results, err = client:DailyReward():list()
 ```
 
 ### Common Methods
@@ -316,7 +316,7 @@ local game_mechanic = client:GameMechanic(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:GameMechanic(nil):list(nil, nil)
+local results, err = client:GameMechanic():list()
 ```
 
 ### Common Methods
@@ -362,7 +362,7 @@ local guild = client:Guild(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Guild(nil):list(nil, nil)
+local results, err = client:Guild():list()
 ```
 
 #### `load(reqmatch, ctrl) -> any, err`
@@ -370,7 +370,7 @@ local results, err = client:Guild(nil):list(nil, nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Guild(nil):load({ id = "guild_id" }, nil)
+local result, err = client:Guild():load({ id = "guild_id" })
 ```
 
 ### Common Methods
@@ -416,7 +416,7 @@ local guild_authenticated = client:GuildAuthenticated(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:GuildAuthenticated(nil):list(nil, nil)
+local results, err = client:GuildAuthenticated():list()
 ```
 
 ### Common Methods
@@ -462,7 +462,7 @@ local home_instance = client:HomeInstance(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:HomeInstance(nil):list(nil, nil)
+local results, err = client:HomeInstance():list()
 ```
 
 ### Common Methods
@@ -508,7 +508,7 @@ local item = client:Item(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Item(nil):list(nil, nil)
+local results, err = client:Item():list()
 ```
 
 ### Common Methods
@@ -554,7 +554,7 @@ local map = client:Map(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Map(nil):list(nil, nil)
+local results, err = client:Map():list()
 ```
 
 ### Common Methods
@@ -600,7 +600,7 @@ local map_information = client:MapInformation(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:MapInformation(nil):list(nil, nil)
+local results, err = client:MapInformation():list()
 ```
 
 ### Common Methods
@@ -652,7 +652,7 @@ local miscellaneous = client:Miscellaneous(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Miscellaneous(nil):list(nil, nil)
+local results, err = client:Miscellaneous():list()
 ```
 
 #### `load(reqmatch, ctrl) -> any, err`
@@ -660,7 +660,7 @@ local results, err = client:Miscellaneous(nil):list(nil, nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Miscellaneous(nil):load({ id = "miscellaneous_id" }, nil)
+local result, err = client:Miscellaneous():load({ id = "miscellaneous_id" })
 ```
 
 ### Common Methods
@@ -706,7 +706,7 @@ local story = client:Story(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Story(nil):list(nil, nil)
+local results, err = client:Story():list()
 ```
 
 ### Common Methods
@@ -752,7 +752,7 @@ local structured_pv_p = client:StructuredPvP(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:StructuredPvP(nil):list(nil, nil)
+local results, err = client:StructuredPvP():list()
 ```
 
 ### Common Methods
@@ -807,7 +807,7 @@ local trading_post = client:TradingPost(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:TradingPost(nil):list(nil, nil)
+local results, err = client:TradingPost():list()
 ```
 
 #### `load(reqmatch, ctrl) -> any, err`
@@ -815,7 +815,7 @@ local results, err = client:TradingPost(nil):list(nil, nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:TradingPost(nil):load({ id = "trading_post_id" }, nil)
+local result, err = client:TradingPost():load({ id = "trading_post_id" })
 ```
 
 ### Common Methods
@@ -861,7 +861,7 @@ local world_vs_world = client:WorldVsWorld(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:WorldVsWorld(nil):list(nil, nil)
+local results, err = client:WorldVsWorld():list()
 ```
 
 ### Common Methods

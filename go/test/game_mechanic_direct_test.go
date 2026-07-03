@@ -93,12 +93,14 @@ func game_mechanicDirectSetup(mockres any) *game_mechanicDirectSetupResult {
 	env := envOverride(map[string]any{
 		"GUILDWARS__TEST_GAME_MECHANIC_ENTID": map[string]any{},
 		"GUILDWARS__TEST_LIVE":    "FALSE",
+		"GUILDWARS__APIKEY":       "NONE",
 	})
 
 	live := env["GUILDWARS__TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
+			"apikey": env["GUILDWARS__APIKEY"],
 		}
 		client := sdk.NewGuildWars2SDK(mergedOpts)
 

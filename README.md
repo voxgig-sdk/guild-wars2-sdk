@@ -1,23 +1,8 @@
 # GuildWars2 SDK
 
-Access live Guild Wars 2 game data — items, achievements, guilds, WvW, PvP, trading post and more — straight from ArenaNet's servers
+Guild Wars 2 API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Guild Wars 2 API
-
-The Guild Wars 2 API is the official HTTP interface to game data for [Guild Wars 2](https://www.guildwars2.com/), the MMORPG developed by [ArenaNet](https://www.arena.net/). The current version, **v2**, lives at `https://api.guildwars2.com/v2` and follows a pattern where each path segment enumerates the possible values of the next segment, so a fully qualified path returns a JSON object describing one resource.
-
-What you get from the API:
-
-- Static game catalogue: items, skins, recipes, skills, traits, specializations, professions, masteries, mounts, pets, finishers and gliders.
-- World data: continents, maps, points of interest, story content, dungeons and raids.
-- Live player-scoped data (with an API key): account inventory, characters, achievements, wallet, bank, material storage, guild membership and homestead/home instance progress.
-- Competitive modes: structured PvP stats, leaderboards and seasons, plus World vs. World matches, objectives and upgrades.
-- Economy: trading post listings, current prices, delivery box contents and gem exchange rates.
-- Daily and seasonal rewards: daily achievements, world bosses, map chests and Wizard's Vault objectives.
-
-Most endpoints support `?lang=` for localisation (en, es, de, fr, zh) and bulk fetching via `?ids=1,2,3`, `?ids=all` or `?page=&page_size=`. Authenticated endpoints accept the key either as `Authorization: Bearer <key>` (preferred from servers) or `?access_token=<key>` (required from browsers, since CORS preflight is not supported).
 
 ## Try it
 
@@ -51,29 +36,31 @@ gem install guild-wars2-sdk
 luarocks install guild-wars2-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { GuildWars2SDK } from 'guild-wars2'
 
-const client = new GuildWars2SDK({})
+const client = new GuildWars2SDK({
+  apikey: process.env.GUILD-WARS2_APIKEY,
+})
 
 // List all achievements
 const achievements = await client.Achievement().list()
+console.log(achievements.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -103,21 +90,21 @@ The API exposes 15 entities:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Achievement** | Achievement definitions, categories, groups and the rotating daily list — see paths under `/v2/achievements`. | `/achievements` |
-| **Authenticated** | Account-scoped resources that require an API key, such as `/v2/account`, `/v2/characters`, `/v2/wallet` and related player data. | `/characters` |
-| **DailyReward** | Recurring reward listings including daily crafting items, map chests and world boss rotations exposed under `/v2/dailycrafting`, `/v2/mapchests` and `/v2/worldbosses`. | `/dailycrafting` |
-| **GameMechanic** | Core combat and progression systems: masteries, mounts, pets, professions, skills, traits and specializations under `/v2/masteries`, `/v2/skills`, `/v2/traits`, etc. | `/legendaryarmory` |
-| **Guild** | Public guild lookup endpoints for guild info, emblems, permissions and upgrade catalogues under `/v2/guild/{id}` and `/v2/guild/permissions|upgrades|emblem`. | `/guild/permissions` |
-| **GuildAuthenticated** | Guild leader / member endpoints behind an API key — members, ranks, treasury, stash, storage and logs under `/v2/guild/{id}/...`. | `/guild/{id}/log` |
-| **HomeInstance** | Home instance and homestead content such as cats, nodes, decorations and glyphs under `/v2/home/...` and related homestead paths. | `/home/cats` |
-| **Item** | The item catalogue plus related collectibles — items, item stats, skins, finishers, gliders, materials and recipes under `/v2/items`, `/v2/itemstats`, `/v2/skins`, `/v2/recipes`, etc. | `/recipes/search` |
-| **Map** | Individual map records keyed by map id under `/v2/maps`. | `/maps` |
-| **MapInformation** | Higher-level world geography — continents, floors, regions and points of interest under `/v2/continents` and friends. | `/continents` |
-| **Miscellaneous** | Catch-all utility endpoints such as build number, colors, currencies, files, quaggans and titles under `/v2/build`, `/v2/colors`, `/v2/currencies`, `/v2/files`, `/v2/quaggans`, `/v2/titles`. | `/colors` |
-| **Story** | Personal and Living World story content — backstory answers and questions, quests and story seasons under `/v2/stories`, `/v2/quests` and `/v2/backstory/...`. | `/quests` |
-| **StructuredPvP** | Structured PvP data: ranks, heroes, amulets, seasons, leaderboards and per-account games and stats under `/v2/pvp/...`. | `/pvp/heroes` |
-| **TradingPost** | Commerce endpoints for current listings, prices, transaction history, delivery box contents and gem/coin exchange rates under `/v2/commerce/...`. | `/commerce/listings` |
-| **WorldVsWorld** | World vs. World mode data: matches, objectives, abilities, ranks and upgrades under `/v2/wvw/...`. | `/wvw/abilities` |
+| **Achievement** |  | `/achievements` |
+| **Authenticated** |  | `/characters` |
+| **DailyReward** |  | `/dailycrafting` |
+| **GameMechanic** |  | `/legendaryarmory` |
+| **Guild** |  | `/guild/permissions` |
+| **GuildAuthenticated** |  | `/guild/{id}/log` |
+| **HomeInstance** |  | `/home/cats` |
+| **Item** |  | `/recipes/search` |
+| **Map** |  | `/maps` |
+| **MapInformation** |  | `/continents` |
+| **Miscellaneous** |  | `/colors` |
+| **Story** |  | `/quests` |
+| **StructuredPvP** |  | `/pvp/heroes` |
+| **TradingPost** |  | `/commerce/listings` |
+| **WorldVsWorld** |  | `/wvw/abilities` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -127,17 +114,20 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from guildwars2_sdk import GuildWars2SDK
 
-client = GuildWars2SDK({})
+client = GuildWars2SDK({
+    "apikey": os.environ.get("GUILD-WARS2_APIKEY"),
+})
 
 # List all achievements
-achievements, err = client.Achievement(None).list(None, None)
+achievements, err = client.Achievement().list()
+print(achievements)
 
 # Load a specific achievement
-achievement, err = client.Achievement(None).load(
-    {"id": "example_id"}, None
-)
+achievement, err = client.Achievement().load({"id": "example_id"})
+print(achievement)
 ```
 
 ### PHP
@@ -146,15 +136,17 @@ achievement, err = client.Achievement(None).load(
 <?php
 require_once 'guildwars2_sdk.php';
 
-$client = new GuildWars2SDK([]);
+$client = new GuildWars2SDK([
+    "apikey" => getenv("GUILD-WARS2_APIKEY"),
+]);
 
 // List all achievements
-[$achievements, $err] = $client->Achievement(null)->list(null, null);
+[$achievements, $err] = $client->Achievement()->list();
+print_r($achievements);
 
 // Load a specific achievement
-[$achievement, $err] = $client->Achievement(null)->load(
-    ["id" => "example_id"], null
-);
+[$achievement, $err] = $client->Achievement()->load(["id" => "example_id"]);
+print_r($achievement);
 ```
 
 ### Golang
@@ -162,10 +154,13 @@ $client = new GuildWars2SDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/guild-wars2-sdk/go"
 
-client := sdk.NewGuildWars2SDK(map[string]any{})
+client := sdk.NewGuildWars2SDK(map[string]any{
+    "apikey": os.Getenv("GUILD-WARS2_APIKEY"),
+})
 
 // List all achievements
 achievements, err := client.Achievement(nil).List(nil, nil)
+fmt.Println(achievements)
 ```
 
 ### Ruby
@@ -173,15 +168,17 @@ achievements, err := client.Achievement(nil).List(nil, nil)
 ```ruby
 require_relative "GuildWars2_sdk"
 
-client = GuildWars2SDK.new({})
+client = GuildWars2SDK.new({
+  "apikey" => ENV["GUILD-WARS2_APIKEY"],
+})
 
 # List all achievements
-achievements, err = client.Achievement(nil).list(nil, nil)
+achievements, err = client.Achievement().list
+puts achievements
 
 # Load a specific achievement
-achievement, err = client.Achievement(nil).load(
-  { "id" => "example_id" }, nil
-)
+achievement, err = client.Achievement().load({ "id" => "example_id" })
+puts achievement
 ```
 
 ### Lua
@@ -189,15 +186,17 @@ achievement, err = client.Achievement(nil).load(
 ```lua
 local sdk = require("guild-wars2_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("GUILD-WARS2_APIKEY"),
+})
 
 -- List all achievements
-local achievements, err = client:Achievement(nil):list(nil, nil)
+local achievements, err = client:Achievement():list()
+print(achievements)
 
 -- Load a specific achievement
-local achievement, err = client:Achievement(nil):load(
-  { id = "example_id" }, nil
-)
+local achievement, err = client:Achievement():load({ id = "example_id" })
+print(achievement)
 ```
 
 ## Unit testing in offline mode
@@ -216,25 +215,21 @@ const result = await client.Achievement().load({ id: 'test01' })
 ### Python
 
 ```python
-client = GuildWars2SDK.test(None, None)
-result, err = client.Achievement(None).load(
-    {"id": "test01"}, None
-)
+client = GuildWars2SDK.test()
+result, err = client.Achievement().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = GuildWars2SDK::test(null, null);
-[$result, $err] = $client->Achievement(null)->load(
-    ["id" => "test01"], null
-);
+$client = GuildWars2SDK::test();
+[$result, $err] = $client->Achievement()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Achievement(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -243,19 +238,15 @@ result, err := client.Achievement(nil).Load(
 ### Ruby
 
 ```ruby
-client = GuildWars2SDK.test(nil, nil)
-result, err = client.Achievement(nil).load(
-  { "id" => "test01" }, nil
-)
+client = GuildWars2SDK.test
+result, err = client.Achievement().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Achievement(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Achievement():load({ id = "test01" })
 ```
 
 ## How it works
@@ -359,16 +350,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Guild Wars 2 API
-
-- Upstream: [https://api.guildwars2.com/v2](https://api.guildwars2.com/v2)
-- API docs: [https://wiki.guildwars2.com/wiki/API:Main](https://wiki.guildwars2.com/wiki/API:Main)
-
-- The API is operated by [ArenaNet](https://www.arena.net/) for the MMO Guild Wars 2; using it constitutes acceptance of ArenaNet's Content Terms of Use and Website Terms of Use.
-- Public game data (items, maps, achievements, etc.) is generally redistributable for fan tools, but trademarks, art, and other ArenaNet assets remain ArenaNet's property.
-- Account, character, guild, and other player-scoped endpoints require an API key issued from the player's ArenaNet account, with scopes the player has explicitly granted.
-- No formal SLA or open-source licence is published for the API itself; check the [official wiki](https://wiki.guildwars2.com/wiki/API:Main) for the current terms before shipping a product.
 
 ---
 

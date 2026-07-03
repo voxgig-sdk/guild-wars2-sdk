@@ -92,6 +92,7 @@ def _map_information_basic_setup(extra):
         "GUILDWARS__TEST_MAP_INFORMATION_ENTID": idmap,
         "GUILDWARS__TEST_LIVE": "FALSE",
         "GUILDWARS__TEST_EXPLAIN": "FALSE",
+        "GUILDWARS__APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -102,6 +103,7 @@ def _map_information_basic_setup(extra):
     if env.get("GUILDWARS__TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
+                "apikey": env.get("GUILDWARS__APIKEY"),
             },
             extra or {},
         ])
