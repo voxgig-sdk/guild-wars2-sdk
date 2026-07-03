@@ -10,7 +10,7 @@ The Lua SDK for the GuildWars2 API — an entity-oriented client using Lua conve
 
 ## Install
 ```bash
-luarocks install guild-wars2-sdk
+luarocks install voxgig-sdk-guild-wars2
 ```
 
 If the module is not yet published, add the source directory to

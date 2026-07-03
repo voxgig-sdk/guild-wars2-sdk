@@ -10,13 +10,13 @@ The Ruby SDK for the GuildWars2 API — an entity-oriented client using idiomati
 
 ## Install
 ```bash
-gem install guild-wars2-sdk
+gem install voxgig-sdk-guild-wars2
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "guild-wars2-sdk"
+gem "voxgig-sdk-guild-wars2"
 ```
 
 Then run:

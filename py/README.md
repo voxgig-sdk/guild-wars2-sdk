@@ -10,7 +10,7 @@ The Python SDK for the GuildWars2 API — an entity-oriented client following Py
 
 ## Install
 ```bash
-pip install guild-wars2-sdk
+pip install voxgig-sdk-guild-wars2
 ```
 
 Or install from source:

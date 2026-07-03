@@ -10,7 +10,7 @@ The PHP SDK for the GuildWars2 API — an entity-oriented client using PHP conve
 
 ## Install
 ```bash
-composer require voxgig/guild-wars2-sdk
+composer require voxgig-sdk/guild-wars2
 ```
 
 
