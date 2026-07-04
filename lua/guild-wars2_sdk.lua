@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:achievement():list() / client:achievement():load({ id = ... })
-function GuildWars2SDK:achievement(data)
+-- Idiomatic facade: client:Achievement():list() / client:Achievement():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function GuildWars2SDK:Achievement(data)
   local EntityMod = require("entity.achievement_entity")
   if data == nil then
     if self._achievement == nil then
@@ -256,15 +257,10 @@ function GuildWars2SDK:achievement(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:achievement() instead.
-function GuildWars2SDK:Achievement(data)
-  local EntityMod = require("entity.achievement_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:authenticated():list() / client:authenticated():load({ id = ... })
-function GuildWars2SDK:authenticated(data)
+-- Idiomatic facade: client:Authenticated():list() / client:Authenticated():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function GuildWars2SDK:Authenticated(data)
   local EntityMod = require("entity.authenticated_entity")
   if data == nil then
     if self._authenticated == nil then
@@ -275,15 +271,10 @@ function GuildWars2SDK:authenticated(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:authenticated() instead.
-function GuildWars2SDK:Authenticated(data)
-  local EntityMod = require("entity.authenticated_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:daily_reward():list() / client:daily_reward():load({ id = ... })
-function GuildWars2SDK:daily_reward(data)
+-- Idiomatic facade: client:DailyReward():list() / client:DailyReward():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function GuildWars2SDK:DailyReward(data)
   local EntityMod = require("entity.daily_reward_entity")
   if data == nil then
     if self._daily_reward == nil then
@@ -294,15 +285,10 @@ function GuildWars2SDK:daily_reward(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:daily_reward() instead.
-function GuildWars2SDK:DailyReward(data)
-  local EntityMod = require("entity.daily_reward_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:game_mechanic():list() / client:game_mechanic():load({ id = ... })
-function GuildWars2SDK:game_mechanic(data)
+-- Idiomatic facade: client:GameMechanic():list() / client:GameMechanic():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function GuildWars2SDK:GameMechanic(data)
   local EntityMod = require("entity.game_mechanic_entity")
   if data == nil then
     if self._game_mechanic == nil then
@@ -313,15 +299,10 @@ function GuildWars2SDK:game_mechanic(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:game_mechanic() instead.
-function GuildWars2SDK:GameMechanic(data)
-  local EntityMod = require("entity.game_mechanic_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:guild():list() / client:guild():load({ id = ... })
-function GuildWars2SDK:guild(data)
+-- Idiomatic facade: client:Guild():list() / client:Guild():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function GuildWars2SDK:Guild(data)
   local EntityMod = require("entity.guild_entity")
   if data == nil then
     if self._guild == nil then
@@ -332,15 +313,10 @@ function GuildWars2SDK:guild(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:guild() instead.
-function GuildWars2SDK:Guild(data)
-  local EntityMod = require("entity.guild_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:guild_authenticated():list() / client:guild_authenticated():load({ id = ... })
-function GuildWars2SDK:guild_authenticated(data)
+-- Idiomatic facade: client:GuildAuthenticated():list() / client:GuildAuthenticated():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function GuildWars2SDK:GuildAuthenticated(data)
   local EntityMod = require("entity.guild_authenticated_entity")
   if data == nil then
     if self._guild_authenticated == nil then
@@ -351,15 +327,10 @@ function GuildWars2SDK:guild_authenticated(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:guild_authenticated() instead.
-function GuildWars2SDK:GuildAuthenticated(data)
-  local EntityMod = require("entity.guild_authenticated_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:home_instance():list() / client:home_instance():load({ id = ... })
-function GuildWars2SDK:home_instance(data)
+-- Idiomatic facade: client:HomeInstance():list() / client:HomeInstance():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function GuildWars2SDK:HomeInstance(data)
   local EntityMod = require("entity.home_instance_entity")
   if data == nil then
     if self._home_instance == nil then
@@ -370,15 +341,10 @@ function GuildWars2SDK:home_instance(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:home_instance() instead.
-function GuildWars2SDK:HomeInstance(data)
-  local EntityMod = require("entity.home_instance_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:item():list() / client:item():load({ id = ... })
-function GuildWars2SDK:item(data)
+-- Idiomatic facade: client:Item():list() / client:Item():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function GuildWars2SDK:Item(data)
   local EntityMod = require("entity.item_entity")
   if data == nil then
     if self._item == nil then
@@ -389,15 +355,10 @@ function GuildWars2SDK:item(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:item() instead.
-function GuildWars2SDK:Item(data)
-  local EntityMod = require("entity.item_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:map():list() / client:map():load({ id = ... })
-function GuildWars2SDK:map(data)
+-- Idiomatic facade: client:Map():list() / client:Map():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function GuildWars2SDK:Map(data)
   local EntityMod = require("entity.map_entity")
   if data == nil then
     if self._map == nil then
@@ -408,15 +369,10 @@ function GuildWars2SDK:map(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:map() instead.
-function GuildWars2SDK:Map(data)
-  local EntityMod = require("entity.map_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:map_information():list() / client:map_information():load({ id = ... })
-function GuildWars2SDK:map_information(data)
+-- Idiomatic facade: client:MapInformation():list() / client:MapInformation():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function GuildWars2SDK:MapInformation(data)
   local EntityMod = require("entity.map_information_entity")
   if data == nil then
     if self._map_information == nil then
@@ -427,15 +383,10 @@ function GuildWars2SDK:map_information(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:map_information() instead.
-function GuildWars2SDK:MapInformation(data)
-  local EntityMod = require("entity.map_information_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:miscellaneous():list() / client:miscellaneous():load({ id = ... })
-function GuildWars2SDK:miscellaneous(data)
+-- Idiomatic facade: client:Miscellaneous():list() / client:Miscellaneous():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function GuildWars2SDK:Miscellaneous(data)
   local EntityMod = require("entity.miscellaneous_entity")
   if data == nil then
     if self._miscellaneous == nil then
@@ -446,15 +397,10 @@ function GuildWars2SDK:miscellaneous(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:miscellaneous() instead.
-function GuildWars2SDK:Miscellaneous(data)
-  local EntityMod = require("entity.miscellaneous_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:story():list() / client:story():load({ id = ... })
-function GuildWars2SDK:story(data)
+-- Idiomatic facade: client:Story():list() / client:Story():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function GuildWars2SDK:Story(data)
   local EntityMod = require("entity.story_entity")
   if data == nil then
     if self._story == nil then
@@ -465,15 +411,10 @@ function GuildWars2SDK:story(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:story() instead.
-function GuildWars2SDK:Story(data)
-  local EntityMod = require("entity.story_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:structured_pv_p():list() / client:structured_pv_p():load({ id = ... })
-function GuildWars2SDK:structured_pv_p(data)
+-- Idiomatic facade: client:StructuredPvP():list() / client:StructuredPvP():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function GuildWars2SDK:StructuredPvP(data)
   local EntityMod = require("entity.structured_pv_p_entity")
   if data == nil then
     if self._structured_pv_p == nil then
@@ -484,15 +425,10 @@ function GuildWars2SDK:structured_pv_p(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:structured_pv_p() instead.
-function GuildWars2SDK:StructuredPvP(data)
-  local EntityMod = require("entity.structured_pv_p_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:trading_post():list() / client:trading_post():load({ id = ... })
-function GuildWars2SDK:trading_post(data)
+-- Idiomatic facade: client:TradingPost():list() / client:TradingPost():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function GuildWars2SDK:TradingPost(data)
   local EntityMod = require("entity.trading_post_entity")
   if data == nil then
     if self._trading_post == nil then
@@ -503,15 +439,10 @@ function GuildWars2SDK:trading_post(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:trading_post() instead.
-function GuildWars2SDK:TradingPost(data)
-  local EntityMod = require("entity.trading_post_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:world_vs_world():list() / client:world_vs_world():load({ id = ... })
-function GuildWars2SDK:world_vs_world(data)
+-- Idiomatic facade: client:WorldVsWorld():list() / client:WorldVsWorld():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function GuildWars2SDK:WorldVsWorld(data)
   local EntityMod = require("entity.world_vs_world_entity")
   if data == nil then
     if self._world_vs_world == nil then
@@ -519,12 +450,6 @@ function GuildWars2SDK:world_vs_world(data)
     end
     return self._world_vs_world
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:world_vs_world() instead.
-function GuildWars2SDK:WorldVsWorld(data)
-  local EntityMod = require("entity.world_vs_world_entity")
   return EntityMod.new(self, data)
 end
 

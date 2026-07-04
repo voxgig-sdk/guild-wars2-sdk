@@ -218,210 +218,105 @@ class GuildWars2SDK {
 
 
 
-  _achievement?: AchievementEntity
-
-  // Idiomatic facade: `client.achievement.list()` / `client.achievement.load({ id })`.
-  get achievement(): AchievementEntity {
-    return (this._achievement ??= new AchievementEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.achievement` instead. */
+  // Entity access: `client.Achievement().list()` / `client.Achievement().load({ id })`.
   Achievement(data?: any) {
     const self = this
     return new AchievementEntity(self,data)
   }
 
 
-  _authenticated?: AuthenticatedEntity
-
-  // Idiomatic facade: `client.authenticated.list()` / `client.authenticated.load({ id })`.
-  get authenticated(): AuthenticatedEntity {
-    return (this._authenticated ??= new AuthenticatedEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.authenticated` instead. */
+  // Entity access: `client.Authenticated().list()` / `client.Authenticated().load({ id })`.
   Authenticated(data?: any) {
     const self = this
     return new AuthenticatedEntity(self,data)
   }
 
 
-  _daily_reward?: DailyRewardEntity
-
-  // Idiomatic facade: `client.daily_reward.list()` / `client.daily_reward.load({ id })`.
-  get daily_reward(): DailyRewardEntity {
-    return (this._daily_reward ??= new DailyRewardEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.daily_reward` instead. */
+  // Entity access: `client.DailyReward().list()` / `client.DailyReward().load({ id })`.
   DailyReward(data?: any) {
     const self = this
     return new DailyRewardEntity(self,data)
   }
 
 
-  _game_mechanic?: GameMechanicEntity
-
-  // Idiomatic facade: `client.game_mechanic.list()` / `client.game_mechanic.load({ id })`.
-  get game_mechanic(): GameMechanicEntity {
-    return (this._game_mechanic ??= new GameMechanicEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.game_mechanic` instead. */
+  // Entity access: `client.GameMechanic().list()` / `client.GameMechanic().load({ id })`.
   GameMechanic(data?: any) {
     const self = this
     return new GameMechanicEntity(self,data)
   }
 
 
-  _guild?: GuildEntity
-
-  // Idiomatic facade: `client.guild.list()` / `client.guild.load({ id })`.
-  get guild(): GuildEntity {
-    return (this._guild ??= new GuildEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.guild` instead. */
+  // Entity access: `client.Guild().list()` / `client.Guild().load({ id })`.
   Guild(data?: any) {
     const self = this
     return new GuildEntity(self,data)
   }
 
 
-  _guild_authenticated?: GuildAuthenticatedEntity
-
-  // Idiomatic facade: `client.guild_authenticated.list()` / `client.guild_authenticated.load({ id })`.
-  get guild_authenticated(): GuildAuthenticatedEntity {
-    return (this._guild_authenticated ??= new GuildAuthenticatedEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.guild_authenticated` instead. */
+  // Entity access: `client.GuildAuthenticated().list()` / `client.GuildAuthenticated().load({ id })`.
   GuildAuthenticated(data?: any) {
     const self = this
     return new GuildAuthenticatedEntity(self,data)
   }
 
 
-  _home_instance?: HomeInstanceEntity
-
-  // Idiomatic facade: `client.home_instance.list()` / `client.home_instance.load({ id })`.
-  get home_instance(): HomeInstanceEntity {
-    return (this._home_instance ??= new HomeInstanceEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.home_instance` instead. */
+  // Entity access: `client.HomeInstance().list()` / `client.HomeInstance().load({ id })`.
   HomeInstance(data?: any) {
     const self = this
     return new HomeInstanceEntity(self,data)
   }
 
 
-  _item?: ItemEntity
-
-  // Idiomatic facade: `client.item.list()` / `client.item.load({ id })`.
-  get item(): ItemEntity {
-    return (this._item ??= new ItemEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.item` instead. */
+  // Entity access: `client.Item().list()` / `client.Item().load({ id })`.
   Item(data?: any) {
     const self = this
     return new ItemEntity(self,data)
   }
 
 
-  _map?: MapEntity
-
-  // Idiomatic facade: `client.map.list()` / `client.map.load({ id })`.
-  get map(): MapEntity {
-    return (this._map ??= new MapEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.map` instead. */
+  // Entity access: `client.Map().list()` / `client.Map().load({ id })`.
   Map(data?: any) {
     const self = this
     return new MapEntity(self,data)
   }
 
 
-  _map_information?: MapInformationEntity
-
-  // Idiomatic facade: `client.map_information.list()` / `client.map_information.load({ id })`.
-  get map_information(): MapInformationEntity {
-    return (this._map_information ??= new MapInformationEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.map_information` instead. */
+  // Entity access: `client.MapInformation().list()` / `client.MapInformation().load({ id })`.
   MapInformation(data?: any) {
     const self = this
     return new MapInformationEntity(self,data)
   }
 
 
-  _miscellaneous?: MiscellaneousEntity
-
-  // Idiomatic facade: `client.miscellaneous.list()` / `client.miscellaneous.load({ id })`.
-  get miscellaneous(): MiscellaneousEntity {
-    return (this._miscellaneous ??= new MiscellaneousEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.miscellaneous` instead. */
+  // Entity access: `client.Miscellaneous().list()` / `client.Miscellaneous().load({ id })`.
   Miscellaneous(data?: any) {
     const self = this
     return new MiscellaneousEntity(self,data)
   }
 
 
-  _story?: StoryEntity
-
-  // Idiomatic facade: `client.story.list()` / `client.story.load({ id })`.
-  get story(): StoryEntity {
-    return (this._story ??= new StoryEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.story` instead. */
+  // Entity access: `client.Story().list()` / `client.Story().load({ id })`.
   Story(data?: any) {
     const self = this
     return new StoryEntity(self,data)
   }
 
 
-  _structured_pv_p?: StructuredPvPEntity
-
-  // Idiomatic facade: `client.structured_pv_p.list()` / `client.structured_pv_p.load({ id })`.
-  get structured_pv_p(): StructuredPvPEntity {
-    return (this._structured_pv_p ??= new StructuredPvPEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.structured_pv_p` instead. */
+  // Entity access: `client.StructuredPvP().list()` / `client.StructuredPvP().load({ id })`.
   StructuredPvP(data?: any) {
     const self = this
     return new StructuredPvPEntity(self,data)
   }
 
 
-  _trading_post?: TradingPostEntity
-
-  // Idiomatic facade: `client.trading_post.list()` / `client.trading_post.load({ id })`.
-  get trading_post(): TradingPostEntity {
-    return (this._trading_post ??= new TradingPostEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.trading_post` instead. */
+  // Entity access: `client.TradingPost().list()` / `client.TradingPost().load({ id })`.
   TradingPost(data?: any) {
     const self = this
     return new TradingPostEntity(self,data)
   }
 
 
-  _world_vs_world?: WorldVsWorldEntity
-
-  // Idiomatic facade: `client.world_vs_world.list()` / `client.world_vs_world.load({ id })`.
-  get world_vs_world(): WorldVsWorldEntity {
-    return (this._world_vs_world ??= new WorldVsWorldEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.world_vs_world` instead. */
+  // Entity access: `client.WorldVsWorld().list()` / `client.WorldVsWorld().load({ id })`.
   WorldVsWorld(data?: any) {
     const self = this
     return new WorldVsWorldEntity(self,data)

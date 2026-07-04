@@ -4,211 +4,180 @@
 # params (op.<name>.points[].args.params[]). Field/param types come from the
 # canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 # @voxgig/apidef VALID_CANON). Do not edit by hand.
+#
+# These are TypedDicts, not dataclasses: the SDK ops return/accept plain dicts
+# at runtime, and a TypedDict IS a dict shape, so the types match the runtime.
+# Optional (req:false) keys are modelled as TypedDict key-optionality
+# (total=False), split into a required base + total=False subclass when a type
+# has both required and optional keys.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import Optional, Any
+from typing import TypedDict, Any
 
 
-@dataclass
-class Achievement:
+class Achievement(TypedDict):
     pass
 
 
-@dataclass
-class AchievementLoadMatch:
+class AchievementLoadMatch(TypedDict):
     pass
 
 
-@dataclass
-class AchievementListMatch:
+class AchievementListMatch(TypedDict):
     pass
 
 
-@dataclass
-class Authenticated:
-    created: Optional[str] = None
-    id: Optional[str] = None
-    name: Optional[str] = None
-    permission: Optional[list] = None
-    subtoken: Optional[str] = None
-    value: Optional[int] = None
-    world: Optional[int] = None
+class Authenticated(TypedDict, total=False):
+    created: str
+    id: str
+    name: str
+    permission: list
+    subtoken: str
+    value: int
+    world: int
 
 
-@dataclass
-class AuthenticatedLoadMatch:
-    created: Optional[str] = None
-    id: Optional[str] = None
-    name: Optional[str] = None
-    permission: Optional[list] = None
-    subtoken: Optional[str] = None
-    value: Optional[int] = None
-    world: Optional[int] = None
+class AuthenticatedLoadMatch(TypedDict, total=False):
+    created: str
+    id: str
+    name: str
+    permission: list
+    subtoken: str
+    value: int
+    world: int
 
 
-@dataclass
-class AuthenticatedListMatch:
-    created: Optional[str] = None
-    id: Optional[str] = None
-    name: Optional[str] = None
-    permission: Optional[list] = None
-    subtoken: Optional[str] = None
-    value: Optional[int] = None
-    world: Optional[int] = None
+class AuthenticatedListMatch(TypedDict, total=False):
+    created: str
+    id: str
+    name: str
+    permission: list
+    subtoken: str
+    value: int
+    world: int
 
 
-@dataclass
-class DailyReward:
+class DailyReward(TypedDict):
     pass
 
 
-@dataclass
-class DailyRewardListMatch:
+class DailyRewardListMatch(TypedDict):
     pass
 
 
-@dataclass
-class GameMechanic:
+class GameMechanic(TypedDict):
     pass
 
 
-@dataclass
-class GameMechanicListMatch:
+class GameMechanicListMatch(TypedDict):
     pass
 
 
-@dataclass
-class Guild:
+class Guild(TypedDict):
     pass
 
 
-@dataclass
-class GuildLoadMatch:
+class GuildLoadMatch(TypedDict):
     id: str
 
 
-@dataclass
-class GuildListMatch:
+class GuildListMatch(TypedDict):
     pass
 
 
-@dataclass
-class GuildAuthenticated:
+class GuildAuthenticated(TypedDict):
     pass
 
 
-@dataclass
-class GuildAuthenticatedListMatch:
+class GuildAuthenticatedListMatch(TypedDict):
     id: str
 
 
-@dataclass
-class HomeInstance:
+class HomeInstance(TypedDict):
     pass
 
 
-@dataclass
-class HomeInstanceListMatch:
+class HomeInstanceListMatch(TypedDict):
     pass
 
 
-@dataclass
-class Item:
+class Item(TypedDict):
     pass
 
 
-@dataclass
-class ItemListMatch:
+class ItemListMatch(TypedDict):
     pass
 
 
-@dataclass
-class Map:
+class Map(TypedDict):
     pass
 
 
-@dataclass
-class MapListMatch:
+class MapListMatch(TypedDict):
     pass
 
 
-@dataclass
-class MapInformation:
+class MapInformation(TypedDict):
     pass
 
 
-@dataclass
-class MapInformationListMatch:
+class MapInformationListMatch(TypedDict):
     pass
 
 
-@dataclass
-class Miscellaneous:
-    id: Optional[int] = None
+class Miscellaneous(TypedDict, total=False):
+    id: int
 
 
-@dataclass
-class MiscellaneousLoadMatch:
-    id: Optional[int] = None
+class MiscellaneousLoadMatch(TypedDict, total=False):
+    id: int
 
 
-@dataclass
-class MiscellaneousListMatch:
-    id: Optional[int] = None
+class MiscellaneousListMatch(TypedDict, total=False):
+    id: int
 
 
-@dataclass
-class Story:
+class Story(TypedDict):
     pass
 
 
-@dataclass
-class StoryListMatch:
+class StoryListMatch(TypedDict):
     pass
 
 
-@dataclass
-class StructuredPvP:
+class StructuredPvP(TypedDict):
     pass
 
 
-@dataclass
-class StructuredPvPListMatch:
+class StructuredPvPListMatch(TypedDict):
     pass
 
 
-@dataclass
-class TradingPost:
-    coin: Optional[int] = None
-    coins_per_gem: Optional[int] = None
-    item: Optional[list] = None
-    quantity: Optional[int] = None
+class TradingPost(TypedDict, total=False):
+    coin: int
+    coins_per_gem: int
+    item: list
+    quantity: int
 
 
-@dataclass
-class TradingPostLoadMatch:
-    coin: Optional[int] = None
-    coins_per_gem: Optional[int] = None
-    item: Optional[list] = None
-    quantity: Optional[int] = None
+class TradingPostLoadMatch(TypedDict, total=False):
+    coin: int
+    coins_per_gem: int
+    item: list
+    quantity: int
 
 
-@dataclass
-class TradingPostListMatch:
-    coin: Optional[int] = None
-    coins_per_gem: Optional[int] = None
-    item: Optional[list] = None
-    quantity: Optional[int] = None
+class TradingPostListMatch(TypedDict, total=False):
+    coin: int
+    coins_per_gem: int
+    item: list
+    quantity: int
 
 
-@dataclass
-class WorldVsWorld:
+class WorldVsWorld(TypedDict):
     pass
 
 
-@dataclass
-class WorldVsWorldListMatch:
+class WorldVsWorldListMatch(TypedDict):
     pass
-

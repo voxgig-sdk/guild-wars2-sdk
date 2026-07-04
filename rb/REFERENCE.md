@@ -143,7 +143,7 @@ same parameters as `direct()`. Raises on error.
 ## AchievementEntity
 
 ```ruby
-achievement = client.achievement
+achievement = client.Achievement
 ```
 
 ### Operations
@@ -153,7 +153,7 @@ achievement = client.achievement
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.achievement.list(nil)
+results = client.Achievement.list(nil)
 ```
 
 #### `load(reqmatch, ctrl = nil) -> result`
@@ -161,7 +161,7 @@ results = client.achievement.list(nil)
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.achievement.load({ "id" => "achievement_id" })
+result = client.Achievement.load({ "id" => "achievement_id" })
 ```
 
 ### Common Methods
@@ -197,7 +197,7 @@ Return the entity name.
 ## AuthenticatedEntity
 
 ```ruby
-authenticated = client.authenticated
+authenticated = client.Authenticated
 ```
 
 ### Fields
@@ -219,7 +219,7 @@ authenticated = client.authenticated
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.authenticated.list(nil)
+results = client.Authenticated.list(nil)
 ```
 
 #### `load(reqmatch, ctrl = nil) -> result`
@@ -227,7 +227,7 @@ results = client.authenticated.list(nil)
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.authenticated.load({ "id" => "authenticated_id" })
+result = client.Authenticated.load({ "id" => "authenticated_id" })
 ```
 
 ### Common Methods
@@ -263,7 +263,7 @@ Return the entity name.
 ## DailyRewardEntity
 
 ```ruby
-daily_reward = client.daily_reward
+daily_reward = client.DailyReward
 ```
 
 ### Operations
@@ -273,7 +273,7 @@ daily_reward = client.daily_reward
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.daily_reward.list(nil)
+results = client.DailyReward.list(nil)
 ```
 
 ### Common Methods
@@ -309,7 +309,7 @@ Return the entity name.
 ## GameMechanicEntity
 
 ```ruby
-game_mechanic = client.game_mechanic
+game_mechanic = client.GameMechanic
 ```
 
 ### Operations
@@ -319,7 +319,7 @@ game_mechanic = client.game_mechanic
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.game_mechanic.list(nil)
+results = client.GameMechanic.list(nil)
 ```
 
 ### Common Methods
@@ -355,7 +355,7 @@ Return the entity name.
 ## GuildEntity
 
 ```ruby
-guild = client.guild
+guild = client.Guild
 ```
 
 ### Operations
@@ -365,7 +365,7 @@ guild = client.guild
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.guild.list(nil)
+results = client.Guild.list(nil)
 ```
 
 #### `load(reqmatch, ctrl = nil) -> result`
@@ -373,7 +373,7 @@ results = client.guild.list(nil)
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.guild.load({ "id" => "guild_id" })
+result = client.Guild.load({ "id" => "guild_id" })
 ```
 
 ### Common Methods
@@ -409,7 +409,7 @@ Return the entity name.
 ## GuildAuthenticatedEntity
 
 ```ruby
-guild_authenticated = client.guild_authenticated
+guild_authenticated = client.GuildAuthenticated
 ```
 
 ### Operations
@@ -419,7 +419,7 @@ guild_authenticated = client.guild_authenticated
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.guild_authenticated.list(nil)
+results = client.GuildAuthenticated.list(nil)
 ```
 
 ### Common Methods
@@ -455,7 +455,7 @@ Return the entity name.
 ## HomeInstanceEntity
 
 ```ruby
-home_instance = client.home_instance
+home_instance = client.HomeInstance
 ```
 
 ### Operations
@@ -465,7 +465,7 @@ home_instance = client.home_instance
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.home_instance.list(nil)
+results = client.HomeInstance.list(nil)
 ```
 
 ### Common Methods
@@ -501,7 +501,7 @@ Return the entity name.
 ## ItemEntity
 
 ```ruby
-item = client.item
+item = client.Item
 ```
 
 ### Operations
@@ -511,7 +511,7 @@ item = client.item
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.item.list(nil)
+results = client.Item.list(nil)
 ```
 
 ### Common Methods
@@ -547,7 +547,7 @@ Return the entity name.
 ## MapEntity
 
 ```ruby
-map = client.map
+map = client.Map
 ```
 
 ### Operations
@@ -557,7 +557,7 @@ map = client.map
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.map.list(nil)
+results = client.Map.list(nil)
 ```
 
 ### Common Methods
@@ -593,7 +593,7 @@ Return the entity name.
 ## MapInformationEntity
 
 ```ruby
-map_information = client.map_information
+map_information = client.MapInformation
 ```
 
 ### Operations
@@ -603,7 +603,7 @@ map_information = client.map_information
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.map_information.list(nil)
+results = client.MapInformation.list(nil)
 ```
 
 ### Common Methods
@@ -639,7 +639,7 @@ Return the entity name.
 ## MiscellaneousEntity
 
 ```ruby
-miscellaneous = client.miscellaneous
+miscellaneous = client.Miscellaneous
 ```
 
 ### Fields
@@ -655,7 +655,7 @@ miscellaneous = client.miscellaneous
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.miscellaneous.list(nil)
+results = client.Miscellaneous.list(nil)
 ```
 
 #### `load(reqmatch, ctrl = nil) -> result`
@@ -663,7 +663,7 @@ results = client.miscellaneous.list(nil)
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.miscellaneous.load({ "id" => "miscellaneous_id" })
+result = client.Miscellaneous.load({ "id" => "miscellaneous_id" })
 ```
 
 ### Common Methods
@@ -699,7 +699,7 @@ Return the entity name.
 ## StoryEntity
 
 ```ruby
-story = client.story
+story = client.Story
 ```
 
 ### Operations
@@ -709,7 +709,7 @@ story = client.story
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.story.list(nil)
+results = client.Story.list(nil)
 ```
 
 ### Common Methods
@@ -745,7 +745,7 @@ Return the entity name.
 ## StructuredPvPEntity
 
 ```ruby
-structured_pv_p = client.structured_pv_p
+structured_pv_p = client.StructuredPvP
 ```
 
 ### Operations
@@ -755,7 +755,7 @@ structured_pv_p = client.structured_pv_p
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.structured_pv_p.list(nil)
+results = client.StructuredPvP.list(nil)
 ```
 
 ### Common Methods
@@ -791,7 +791,7 @@ Return the entity name.
 ## TradingPostEntity
 
 ```ruby
-trading_post = client.trading_post
+trading_post = client.TradingPost
 ```
 
 ### Fields
@@ -810,7 +810,7 @@ trading_post = client.trading_post
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.trading_post.list(nil)
+results = client.TradingPost.list(nil)
 ```
 
 #### `load(reqmatch, ctrl = nil) -> result`
@@ -818,7 +818,7 @@ results = client.trading_post.list(nil)
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.trading_post.load({ "id" => "trading_post_id" })
+result = client.TradingPost.load({ "id" => "trading_post_id" })
 ```
 
 ### Common Methods
@@ -854,7 +854,7 @@ Return the entity name.
 ## WorldVsWorldEntity
 
 ```ruby
-world_vs_world = client.world_vs_world
+world_vs_world = client.WorldVsWorld
 ```
 
 ### Operations
@@ -864,7 +864,7 @@ world_vs_world = client.world_vs_world
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.world_vs_world.list(nil)
+results = client.WorldVsWorld.list(nil)
 ```
 
 ### Common Methods

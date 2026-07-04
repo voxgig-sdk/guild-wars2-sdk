@@ -31,18 +31,16 @@ $client = new GuildWars2SDK([
 ]);
 ```
 
-### 2. List achievements
+### 2. List achievement records
 
 ```php
 try {
-    $result = $client->achievement()->list();
-    if (is_array($result)) {
-        foreach ($result as $item) {
-            $d = $item->data_get();
-            echo $d["id"] . " " . $d["name"] . "\n";
-        }
+    // list() returns an array of Achievement records — iterate directly.
+    $achievements = $client->Achievement()->list();
+    foreach ($achievements as $item) {
+        echo $item["id"] . " " . $item["name"] . "\n";
     }
-} catch (\Exception $err) {
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -51,9 +49,10 @@ try {
 
 ```php
 try {
-    $result = $client->achievement()->load(["id" => "example_id"]);
-    print_r($result);
-} catch (\Exception $err) {
+    // load() returns the bare Achievement record (throws on error).
+    $achievement = $client->Achievement()->load(["id" => "example_id"]);
+    print_r($achievement);
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -99,13 +98,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = GuildWars2SDK::test();
+$client = GuildWars2SDK::test([
+    "entity" => ["achievement" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->achievement()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$achievement = $client->Achievement()->load(["id" => "test01"]);
+print_r($achievement);
 ```
 
 ### Use a custom fetch function
@@ -186,14 +189,14 @@ Creates a test-mode client with mock transport. Both arguments may be `null`.
 | `get_utility` | `(): Utility` | Copy of the SDK utility object. |
 | `prepare` | `(array $fetchargs): array` | Build an HTTP request definition without sending. |
 | `direct` | `(array $fetchargs): array` | Build and send an HTTP request. |
-| `Achievement` | `($data): AchievementEntity` | Create a Achievement entity instance. |
-| `Authenticated` | `($data): AuthenticatedEntity` | Create a Authenticated entity instance. |
+| `Achievement` | `($data): AchievementEntity` | Create an Achievement entity instance. |
+| `Authenticated` | `($data): AuthenticatedEntity` | Create an Authenticated entity instance. |
 | `DailyReward` | `($data): DailyRewardEntity` | Create a DailyReward entity instance. |
 | `GameMechanic` | `($data): GameMechanicEntity` | Create a GameMechanic entity instance. |
 | `Guild` | `($data): GuildEntity` | Create a Guild entity instance. |
 | `GuildAuthenticated` | `($data): GuildAuthenticatedEntity` | Create a GuildAuthenticated entity instance. |
 | `HomeInstance` | `($data): HomeInstanceEntity` | Create a HomeInstance entity instance. |
-| `Item` | `($data): ItemEntity` | Create a Item entity instance. |
+| `Item` | `($data): ItemEntity` | Create an Item entity instance. |
 | `Map` | `($data): MapEntity` | Create a Map entity instance. |
 | `MapInformation` | `($data): MapInformationEntity` | Create a MapInformation entity instance. |
 | `Miscellaneous` | `($data): MiscellaneousEntity` | Create a Miscellaneous entity instance. |
@@ -394,7 +397,7 @@ API path: `/wvw/abilities`
 
 ### Achievement
 
-Create an instance: `const achievement = client.achievement`
+Create an instance: `$achievement = $client->Achievement();`
 
 #### Operations
 
@@ -405,20 +408,22 @@ Create an instance: `const achievement = client.achievement`
 
 #### Example: Load
 
-```ts
-const achievement = await client.achievement.load({ id: 'achievement_id' })
+```php
+// load() returns the bare Achievement record (throws on error).
+$achievement = $client->Achievement()->load(["id" => "achievement_id"]);
 ```
 
 #### Example: List
 
-```ts
-const achievements = await client.achievement.list()
+```php
+// list() returns an array of Achievement records (throws on error).
+$achievements = $client->Achievement()->list();
 ```
 
 
 ### Authenticated
 
-Create an instance: `const authenticated = client.authenticated`
+Create an instance: `$authenticated = $client->Authenticated();`
 
 #### Operations
 
@@ -441,20 +446,22 @@ Create an instance: `const authenticated = client.authenticated`
 
 #### Example: Load
 
-```ts
-const authenticated = await client.authenticated.load({ id: 'authenticated_id' })
+```php
+// load() returns the bare Authenticated record (throws on error).
+$authenticated = $client->Authenticated()->load(["id" => "authenticated_id"]);
 ```
 
 #### Example: List
 
-```ts
-const authenticateds = await client.authenticated.list()
+```php
+// list() returns an array of Authenticated records (throws on error).
+$authenticateds = $client->Authenticated()->list();
 ```
 
 
 ### DailyReward
 
-Create an instance: `const daily_reward = client.daily_reward`
+Create an instance: `$daily_reward = $client->DailyReward();`
 
 #### Operations
 
@@ -464,14 +471,15 @@ Create an instance: `const daily_reward = client.daily_reward`
 
 #### Example: List
 
-```ts
-const daily_rewards = await client.daily_reward.list()
+```php
+// list() returns an array of DailyReward records (throws on error).
+$daily_rewards = $client->DailyReward()->list();
 ```
 
 
 ### GameMechanic
 
-Create an instance: `const game_mechanic = client.game_mechanic`
+Create an instance: `$game_mechanic = $client->GameMechanic();`
 
 #### Operations
 
@@ -481,14 +489,15 @@ Create an instance: `const game_mechanic = client.game_mechanic`
 
 #### Example: List
 
-```ts
-const game_mechanics = await client.game_mechanic.list()
+```php
+// list() returns an array of GameMechanic records (throws on error).
+$game_mechanics = $client->GameMechanic()->list();
 ```
 
 
 ### Guild
 
-Create an instance: `const guild = client.guild`
+Create an instance: `$guild = $client->Guild();`
 
 #### Operations
 
@@ -499,20 +508,22 @@ Create an instance: `const guild = client.guild`
 
 #### Example: Load
 
-```ts
-const guild = await client.guild.load({ id: 'guild_id' })
+```php
+// load() returns the bare Guild record (throws on error).
+$guild = $client->Guild()->load(["id" => "guild_id"]);
 ```
 
 #### Example: List
 
-```ts
-const guilds = await client.guild.list()
+```php
+// list() returns an array of Guild records (throws on error).
+$guilds = $client->Guild()->list();
 ```
 
 
 ### GuildAuthenticated
 
-Create an instance: `const guild_authenticated = client.guild_authenticated`
+Create an instance: `$guild_authenticated = $client->GuildAuthenticated();`
 
 #### Operations
 
@@ -522,14 +533,15 @@ Create an instance: `const guild_authenticated = client.guild_authenticated`
 
 #### Example: List
 
-```ts
-const guild_authenticateds = await client.guild_authenticated.list()
+```php
+// list() returns an array of GuildAuthenticated records (throws on error).
+$guild_authenticateds = $client->GuildAuthenticated()->list();
 ```
 
 
 ### HomeInstance
 
-Create an instance: `const home_instance = client.home_instance`
+Create an instance: `$home_instance = $client->HomeInstance();`
 
 #### Operations
 
@@ -539,14 +551,15 @@ Create an instance: `const home_instance = client.home_instance`
 
 #### Example: List
 
-```ts
-const home_instances = await client.home_instance.list()
+```php
+// list() returns an array of HomeInstance records (throws on error).
+$home_instances = $client->HomeInstance()->list();
 ```
 
 
 ### Item
 
-Create an instance: `const item = client.item`
+Create an instance: `$item = $client->Item();`
 
 #### Operations
 
@@ -556,14 +569,15 @@ Create an instance: `const item = client.item`
 
 #### Example: List
 
-```ts
-const items = await client.item.list()
+```php
+// list() returns an array of Item records (throws on error).
+$items = $client->Item()->list();
 ```
 
 
 ### Map
 
-Create an instance: `const map = client.map`
+Create an instance: `$map = $client->Map();`
 
 #### Operations
 
@@ -573,14 +587,15 @@ Create an instance: `const map = client.map`
 
 #### Example: List
 
-```ts
-const maps = await client.map.list()
+```php
+// list() returns an array of Map records (throws on error).
+$maps = $client->Map()->list();
 ```
 
 
 ### MapInformation
 
-Create an instance: `const map_information = client.map_information`
+Create an instance: `$map_information = $client->MapInformation();`
 
 #### Operations
 
@@ -590,14 +605,15 @@ Create an instance: `const map_information = client.map_information`
 
 #### Example: List
 
-```ts
-const map_informations = await client.map_information.list()
+```php
+// list() returns an array of MapInformation records (throws on error).
+$map_informations = $client->MapInformation()->list();
 ```
 
 
 ### Miscellaneous
 
-Create an instance: `const miscellaneous = client.miscellaneous`
+Create an instance: `$miscellaneous = $client->Miscellaneous();`
 
 #### Operations
 
@@ -614,20 +630,22 @@ Create an instance: `const miscellaneous = client.miscellaneous`
 
 #### Example: Load
 
-```ts
-const miscellaneous = await client.miscellaneous.load({ id: 'miscellaneous_id' })
+```php
+// load() returns the bare Miscellaneous record (throws on error).
+$miscellaneous = $client->Miscellaneous()->load(["id" => "miscellaneous_id"]);
 ```
 
 #### Example: List
 
-```ts
-const miscellaneouss = await client.miscellaneous.list()
+```php
+// list() returns an array of Miscellaneous records (throws on error).
+$miscellaneouss = $client->Miscellaneous()->list();
 ```
 
 
 ### Story
 
-Create an instance: `const story = client.story`
+Create an instance: `$story = $client->Story();`
 
 #### Operations
 
@@ -637,14 +655,15 @@ Create an instance: `const story = client.story`
 
 #### Example: List
 
-```ts
-const storys = await client.story.list()
+```php
+// list() returns an array of Story records (throws on error).
+$storys = $client->Story()->list();
 ```
 
 
 ### StructuredPvP
 
-Create an instance: `const structured_pv_p = client.structured_pv_p`
+Create an instance: `$structured_pv_p = $client->StructuredPvP();`
 
 #### Operations
 
@@ -654,14 +673,15 @@ Create an instance: `const structured_pv_p = client.structured_pv_p`
 
 #### Example: List
 
-```ts
-const structured_pv_ps = await client.structured_pv_p.list()
+```php
+// list() returns an array of StructuredPvP records (throws on error).
+$structured_pv_ps = $client->StructuredPvP()->list();
 ```
 
 
 ### TradingPost
 
-Create an instance: `const trading_post = client.trading_post`
+Create an instance: `$trading_post = $client->TradingPost();`
 
 #### Operations
 
@@ -681,20 +701,22 @@ Create an instance: `const trading_post = client.trading_post`
 
 #### Example: Load
 
-```ts
-const trading_post = await client.trading_post.load({ id: 'trading_post_id' })
+```php
+// load() returns the bare TradingPost record (throws on error).
+$trading_post = $client->TradingPost()->load(["id" => "trading_post_id"]);
 ```
 
 #### Example: List
 
-```ts
-const trading_posts = await client.trading_post.list()
+```php
+// list() returns an array of TradingPost records (throws on error).
+$trading_posts = $client->TradingPost()->list();
 ```
 
 
 ### WorldVsWorld
 
-Create an instance: `const world_vs_world = client.world_vs_world`
+Create an instance: `$world_vs_world = $client->WorldVsWorld();`
 
 #### Operations
 
@@ -704,8 +726,9 @@ Create an instance: `const world_vs_world = client.world_vs_world`
 
 #### Example: List
 
-```ts
-const world_vs_worlds = await client.world_vs_world.list()
+```php
+// list() returns an array of WorldVsWorld records (throws on error).
+$world_vs_worlds = $client->WorldVsWorld()->list();
 ```
 
 
@@ -780,7 +803,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$achievement = $client->achievement();
+$achievement = $client->Achievement();
 $achievement->load(["id" => "example_id"]);
 
 // $achievement->dataGet() now returns the loaded achievement data

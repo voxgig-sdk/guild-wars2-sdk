@@ -137,7 +137,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## AchievementEntity
 
 ```python
-achievement = client.achievement
+achievement = client.Achievement()
 ```
 
 ### Operations
@@ -147,7 +147,9 @@ achievement = client.achievement
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.achievement.list({})
+results = client.Achievement().list({})
+for achievement in results:
+    print(achievement)
 ```
 
 #### `load(reqmatch, ctrl=None) -> dict`
@@ -155,7 +157,7 @@ results = client.achievement.list({})
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.achievement.load({"id": "achievement_id"})
+result = client.Achievement().load({"id": "achievement_id"})
 ```
 
 ### Common Methods
@@ -190,7 +192,7 @@ Return the entity name.
 ## AuthenticatedEntity
 
 ```python
-authenticated = client.authenticated
+authenticated = client.Authenticated()
 ```
 
 ### Fields
@@ -212,7 +214,9 @@ authenticated = client.authenticated
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.authenticated.list({})
+results = client.Authenticated().list({})
+for authenticated in results:
+    print(authenticated)
 ```
 
 #### `load(reqmatch, ctrl=None) -> dict`
@@ -220,7 +224,7 @@ results = client.authenticated.list({})
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.authenticated.load({"id": "authenticated_id"})
+result = client.Authenticated().load({"id": "authenticated_id"})
 ```
 
 ### Common Methods
@@ -255,7 +259,7 @@ Return the entity name.
 ## DailyRewardEntity
 
 ```python
-daily_reward = client.daily_reward
+daily_reward = client.DailyReward()
 ```
 
 ### Operations
@@ -265,7 +269,9 @@ daily_reward = client.daily_reward
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.daily_reward.list({})
+results = client.DailyReward().list({})
+for daily_reward in results:
+    print(daily_reward)
 ```
 
 ### Common Methods
@@ -300,7 +306,7 @@ Return the entity name.
 ## GameMechanicEntity
 
 ```python
-game_mechanic = client.game_mechanic
+game_mechanic = client.GameMechanic()
 ```
 
 ### Operations
@@ -310,7 +316,9 @@ game_mechanic = client.game_mechanic
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.game_mechanic.list({})
+results = client.GameMechanic().list({})
+for game_mechanic in results:
+    print(game_mechanic)
 ```
 
 ### Common Methods
@@ -345,7 +353,7 @@ Return the entity name.
 ## GuildEntity
 
 ```python
-guild = client.guild
+guild = client.Guild()
 ```
 
 ### Operations
@@ -355,7 +363,9 @@ guild = client.guild
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.guild.list({})
+results = client.Guild().list({})
+for guild in results:
+    print(guild)
 ```
 
 #### `load(reqmatch, ctrl=None) -> dict`
@@ -363,7 +373,7 @@ results = client.guild.list({})
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.guild.load({"id": "guild_id"})
+result = client.Guild().load({"id": "guild_id"})
 ```
 
 ### Common Methods
@@ -398,7 +408,7 @@ Return the entity name.
 ## GuildAuthenticatedEntity
 
 ```python
-guild_authenticated = client.guild_authenticated
+guild_authenticated = client.GuildAuthenticated()
 ```
 
 ### Operations
@@ -408,7 +418,9 @@ guild_authenticated = client.guild_authenticated
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.guild_authenticated.list({})
+results = client.GuildAuthenticated().list({})
+for guild_authenticated in results:
+    print(guild_authenticated)
 ```
 
 ### Common Methods
@@ -443,7 +455,7 @@ Return the entity name.
 ## HomeInstanceEntity
 
 ```python
-home_instance = client.home_instance
+home_instance = client.HomeInstance()
 ```
 
 ### Operations
@@ -453,7 +465,9 @@ home_instance = client.home_instance
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.home_instance.list({})
+results = client.HomeInstance().list({})
+for home_instance in results:
+    print(home_instance)
 ```
 
 ### Common Methods
@@ -488,7 +502,7 @@ Return the entity name.
 ## ItemEntity
 
 ```python
-item = client.item
+item = client.Item()
 ```
 
 ### Operations
@@ -498,7 +512,9 @@ item = client.item
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.item.list({})
+results = client.Item().list({})
+for item in results:
+    print(item)
 ```
 
 ### Common Methods
@@ -533,7 +549,7 @@ Return the entity name.
 ## MapEntity
 
 ```python
-map = client.map
+map = client.Map()
 ```
 
 ### Operations
@@ -543,7 +559,9 @@ map = client.map
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.map.list({})
+results = client.Map().list({})
+for map in results:
+    print(map)
 ```
 
 ### Common Methods
@@ -578,7 +596,7 @@ Return the entity name.
 ## MapInformationEntity
 
 ```python
-map_information = client.map_information
+map_information = client.MapInformation()
 ```
 
 ### Operations
@@ -588,7 +606,9 @@ map_information = client.map_information
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.map_information.list({})
+results = client.MapInformation().list({})
+for map_information in results:
+    print(map_information)
 ```
 
 ### Common Methods
@@ -623,7 +643,7 @@ Return the entity name.
 ## MiscellaneousEntity
 
 ```python
-miscellaneous = client.miscellaneous
+miscellaneous = client.Miscellaneous()
 ```
 
 ### Fields
@@ -639,7 +659,9 @@ miscellaneous = client.miscellaneous
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.miscellaneous.list({})
+results = client.Miscellaneous().list({})
+for miscellaneous in results:
+    print(miscellaneous)
 ```
 
 #### `load(reqmatch, ctrl=None) -> dict`
@@ -647,7 +669,7 @@ results = client.miscellaneous.list({})
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.miscellaneous.load({"id": "miscellaneous_id"})
+result = client.Miscellaneous().load({"id": "miscellaneous_id"})
 ```
 
 ### Common Methods
@@ -682,7 +704,7 @@ Return the entity name.
 ## StoryEntity
 
 ```python
-story = client.story
+story = client.Story()
 ```
 
 ### Operations
@@ -692,7 +714,9 @@ story = client.story
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.story.list({})
+results = client.Story().list({})
+for story in results:
+    print(story)
 ```
 
 ### Common Methods
@@ -727,7 +751,7 @@ Return the entity name.
 ## StructuredPvPEntity
 
 ```python
-structured_pv_p = client.structured_pv_p
+structured_pv_p = client.StructuredPvP()
 ```
 
 ### Operations
@@ -737,7 +761,9 @@ structured_pv_p = client.structured_pv_p
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.structured_pv_p.list({})
+results = client.StructuredPvP().list({})
+for structured_pv_p in results:
+    print(structured_pv_p)
 ```
 
 ### Common Methods
@@ -772,7 +798,7 @@ Return the entity name.
 ## TradingPostEntity
 
 ```python
-trading_post = client.trading_post
+trading_post = client.TradingPost()
 ```
 
 ### Fields
@@ -791,7 +817,9 @@ trading_post = client.trading_post
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.trading_post.list({})
+results = client.TradingPost().list({})
+for trading_post in results:
+    print(trading_post)
 ```
 
 #### `load(reqmatch, ctrl=None) -> dict`
@@ -799,7 +827,7 @@ results = client.trading_post.list({})
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.trading_post.load({"id": "trading_post_id"})
+result = client.TradingPost().load({"id": "trading_post_id"})
 ```
 
 ### Common Methods
@@ -834,7 +862,7 @@ Return the entity name.
 ## WorldVsWorldEntity
 
 ```python
-world_vs_world = client.world_vs_world
+world_vs_world = client.WorldVsWorld()
 ```
 
 ### Operations
@@ -844,7 +872,9 @@ world_vs_world = client.world_vs_world
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.world_vs_world.list({})
+results = client.WorldVsWorld().list({})
+for world_vs_world in results:
+    print(world_vs_world)
 ```
 
 ### Common Methods

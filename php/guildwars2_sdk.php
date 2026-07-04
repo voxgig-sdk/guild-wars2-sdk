@@ -233,10 +233,10 @@ class GuildWars2SDK
 
     private $_achievement = null;
 
-    // Idiomatic facade: $client->achievement()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Achievement() (PHP method
-    // names are case-insensitive).
-    public function achievement($data = null)
+    // Canonical facade: $client->Achievement()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->achievement()
+    // resolves here too.
+    public function Achievement($data = null)
     {
         require_once __DIR__ . '/entity/achievement_entity.php';
         if ($data === null) {
@@ -251,10 +251,10 @@ class GuildWars2SDK
 
     private $_authenticated = null;
 
-    // Idiomatic facade: $client->authenticated()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Authenticated() (PHP method
-    // names are case-insensitive).
-    public function authenticated($data = null)
+    // Canonical facade: $client->Authenticated()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->authenticated()
+    // resolves here too.
+    public function Authenticated($data = null)
     {
         require_once __DIR__ . '/entity/authenticated_entity.php';
         if ($data === null) {
@@ -269,10 +269,10 @@ class GuildWars2SDK
 
     private $_daily_reward = null;
 
-    // Idiomatic facade: $client->daily_reward()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias DailyReward() (PHP method
-    // names are case-insensitive).
-    public function daily_reward($data = null)
+    // Canonical facade: $client->DailyReward()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->daily_reward()
+    // resolves here too.
+    public function DailyReward($data = null)
     {
         require_once __DIR__ . '/entity/daily_reward_entity.php';
         if ($data === null) {
@@ -287,10 +287,10 @@ class GuildWars2SDK
 
     private $_game_mechanic = null;
 
-    // Idiomatic facade: $client->game_mechanic()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias GameMechanic() (PHP method
-    // names are case-insensitive).
-    public function game_mechanic($data = null)
+    // Canonical facade: $client->GameMechanic()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->game_mechanic()
+    // resolves here too.
+    public function GameMechanic($data = null)
     {
         require_once __DIR__ . '/entity/game_mechanic_entity.php';
         if ($data === null) {
@@ -305,10 +305,10 @@ class GuildWars2SDK
 
     private $_guild = null;
 
-    // Idiomatic facade: $client->guild()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Guild() (PHP method
-    // names are case-insensitive).
-    public function guild($data = null)
+    // Canonical facade: $client->Guild()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->guild()
+    // resolves here too.
+    public function Guild($data = null)
     {
         require_once __DIR__ . '/entity/guild_entity.php';
         if ($data === null) {
@@ -323,10 +323,10 @@ class GuildWars2SDK
 
     private $_guild_authenticated = null;
 
-    // Idiomatic facade: $client->guild_authenticated()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias GuildAuthenticated() (PHP method
-    // names are case-insensitive).
-    public function guild_authenticated($data = null)
+    // Canonical facade: $client->GuildAuthenticated()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->guild_authenticated()
+    // resolves here too.
+    public function GuildAuthenticated($data = null)
     {
         require_once __DIR__ . '/entity/guild_authenticated_entity.php';
         if ($data === null) {
@@ -341,10 +341,10 @@ class GuildWars2SDK
 
     private $_home_instance = null;
 
-    // Idiomatic facade: $client->home_instance()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias HomeInstance() (PHP method
-    // names are case-insensitive).
-    public function home_instance($data = null)
+    // Canonical facade: $client->HomeInstance()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->home_instance()
+    // resolves here too.
+    public function HomeInstance($data = null)
     {
         require_once __DIR__ . '/entity/home_instance_entity.php';
         if ($data === null) {
@@ -359,10 +359,10 @@ class GuildWars2SDK
 
     private $_item = null;
 
-    // Idiomatic facade: $client->item()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Item() (PHP method
-    // names are case-insensitive).
-    public function item($data = null)
+    // Canonical facade: $client->Item()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->item()
+    // resolves here too.
+    public function Item($data = null)
     {
         require_once __DIR__ . '/entity/item_entity.php';
         if ($data === null) {
@@ -377,10 +377,10 @@ class GuildWars2SDK
 
     private $_map = null;
 
-    // Idiomatic facade: $client->map()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Map() (PHP method
-    // names are case-insensitive).
-    public function map($data = null)
+    // Canonical facade: $client->Map()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->map()
+    // resolves here too.
+    public function Map($data = null)
     {
         require_once __DIR__ . '/entity/map_entity.php';
         if ($data === null) {
@@ -395,10 +395,10 @@ class GuildWars2SDK
 
     private $_map_information = null;
 
-    // Idiomatic facade: $client->map_information()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias MapInformation() (PHP method
-    // names are case-insensitive).
-    public function map_information($data = null)
+    // Canonical facade: $client->MapInformation()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->map_information()
+    // resolves here too.
+    public function MapInformation($data = null)
     {
         require_once __DIR__ . '/entity/map_information_entity.php';
         if ($data === null) {
@@ -413,10 +413,10 @@ class GuildWars2SDK
 
     private $_miscellaneous = null;
 
-    // Idiomatic facade: $client->miscellaneous()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Miscellaneous() (PHP method
-    // names are case-insensitive).
-    public function miscellaneous($data = null)
+    // Canonical facade: $client->Miscellaneous()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->miscellaneous()
+    // resolves here too.
+    public function Miscellaneous($data = null)
     {
         require_once __DIR__ . '/entity/miscellaneous_entity.php';
         if ($data === null) {
@@ -431,10 +431,10 @@ class GuildWars2SDK
 
     private $_story = null;
 
-    // Idiomatic facade: $client->story()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Story() (PHP method
-    // names are case-insensitive).
-    public function story($data = null)
+    // Canonical facade: $client->Story()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->story()
+    // resolves here too.
+    public function Story($data = null)
     {
         require_once __DIR__ . '/entity/story_entity.php';
         if ($data === null) {
@@ -449,10 +449,10 @@ class GuildWars2SDK
 
     private $_structured_pv_p = null;
 
-    // Idiomatic facade: $client->structured_pv_p()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias StructuredPvP() (PHP method
-    // names are case-insensitive).
-    public function structured_pv_p($data = null)
+    // Canonical facade: $client->StructuredPvP()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->structured_pv_p()
+    // resolves here too.
+    public function StructuredPvP($data = null)
     {
         require_once __DIR__ . '/entity/structured_pv_p_entity.php';
         if ($data === null) {
@@ -467,10 +467,10 @@ class GuildWars2SDK
 
     private $_trading_post = null;
 
-    // Idiomatic facade: $client->trading_post()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias TradingPost() (PHP method
-    // names are case-insensitive).
-    public function trading_post($data = null)
+    // Canonical facade: $client->TradingPost()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->trading_post()
+    // resolves here too.
+    public function TradingPost($data = null)
     {
         require_once __DIR__ . '/entity/trading_post_entity.php';
         if ($data === null) {
@@ -485,10 +485,10 @@ class GuildWars2SDK
 
     private $_world_vs_world = null;
 
-    // Idiomatic facade: $client->world_vs_world()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias WorldVsWorld() (PHP method
-    // names are case-insensitive).
-    public function world_vs_world($data = null)
+    // Canonical facade: $client->WorldVsWorld()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->world_vs_world()
+    // resolves here too.
+    public function WorldVsWorld($data = null)
     {
         require_once __DIR__ . '/entity/world_vs_world_entity.php';
         if ($data === null) {

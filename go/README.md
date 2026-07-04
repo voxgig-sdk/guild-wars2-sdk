@@ -30,7 +30,12 @@ go mod edit -replace github.com/voxgig-sdk/guild-wars2-sdk/go=../guild-wars2-sdk
 This tutorial walks through creating a client, listing entities, and
 loading a specific record.
 
-### 1. Create a client
+### Quickstart
+
+A complete program: create a client, then call the entity operations.
+Each operation returns `(value, error)` — the value is the data itself
+(there is no `{ok, data}` wrapper), so check `err` and use the value
+directly.
 
 ```go
 package main
@@ -38,48 +43,29 @@ package main
 import (
     "fmt"
     "os"
-
     sdk "github.com/voxgig-sdk/guild-wars2-sdk/go"
-    "github.com/voxgig-sdk/guild-wars2-sdk/go/core"
 )
 
 func main() {
     client := sdk.NewGuildWars2SDK(map[string]any{
         "apikey": os.Getenv("GUILD_WARS2_APIKEY"),
     })
-```
 
-### 2. List achievements
-
-```go
-    result, err := client.Achievement(nil).List(nil, nil)
+    // List achievement records — the value is the array of records itself.
+    achievements, err := client.Achievement(nil).List(nil, nil)
     if err != nil {
         panic(err)
     }
-
-    rm := core.ToMapAny(result)
-    if rm["ok"] == true {
-        for _, item := range rm["data"].([]any) {
-            p := core.ToMapAny(item)
-            fmt.Println(p["id"], p["name"])
-        }
+    for _, item := range achievements.([]any) {
+        fmt.Println(item)
     }
-```
 
-### 3. Load an achievement
-
-```go
-    result, err = client.Achievement(nil).Load(
-        map[string]any{"id": "example_id"}, nil,
-    )
+    // Load a single achievement — the value is the loaded record.
+    achievement, err := client.Achievement(nil).Load(map[string]any{"id": "example_id"}, nil)
     if err != nil {
         panic(err)
     }
-
-    rm = core.ToMapAny(result)
-    if rm["ok"] == true {
-        fmt.Println(rm["data"])
-    }
+    fmt.Println(achievement)
 }
 ```
 
@@ -130,10 +116,13 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-result, err := client.Achievement(nil).Load(
+achievement, err := client.Achievement(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
-// result contains mock response data
+if err != nil {
+    panic(err)
+}
+fmt.Println(achievement) // the loaded mock data
 ```
 
 ### Use a custom fetch function
@@ -212,14 +201,14 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `GetUtility` | `() *Utility` | Copy of the SDK utility object. |
 | `Prepare` | `(fetchargs map[string]any) (map[string]any, error)` | Build an HTTP request definition without sending. |
 | `Direct` | `(fetchargs map[string]any) (map[string]any, error)` | Build and send an HTTP request. |
-| `Achievement` | `(data map[string]any) GuildWars2Entity` | Create a Achievement entity instance. |
-| `Authenticated` | `(data map[string]any) GuildWars2Entity` | Create a Authenticated entity instance. |
+| `Achievement` | `(data map[string]any) GuildWars2Entity` | Create an Achievement entity instance. |
+| `Authenticated` | `(data map[string]any) GuildWars2Entity` | Create an Authenticated entity instance. |
 | `DailyReward` | `(data map[string]any) GuildWars2Entity` | Create a DailyReward entity instance. |
 | `GameMechanic` | `(data map[string]any) GuildWars2Entity` | Create a GameMechanic entity instance. |
 | `Guild` | `(data map[string]any) GuildWars2Entity` | Create a Guild entity instance. |
 | `GuildAuthenticated` | `(data map[string]any) GuildWars2Entity` | Create a GuildAuthenticated entity instance. |
 | `HomeInstance` | `(data map[string]any) GuildWars2Entity` | Create a HomeInstance entity instance. |
-| `Item` | `(data map[string]any) GuildWars2Entity` | Create a Item entity instance. |
+| `Item` | `(data map[string]any) GuildWars2Entity` | Create an Item entity instance. |
 | `Map` | `(data map[string]any) GuildWars2Entity` | Create a Map entity instance. |
 | `MapInformation` | `(data map[string]any) GuildWars2Entity` | Create a MapInformation entity instance. |
 | `Miscellaneous` | `(data map[string]any) GuildWars2Entity` | Create a Miscellaneous entity instance. |
@@ -246,17 +235,24 @@ All entities implement the `GuildWars2Entity` interface.
 
 ### Result shape
 
-Entity operations return `(any, error)`. The `any` value is a
-`map[string]any` with these keys:
+Entity operations return `(value, error)`. The `value` is the
+operation's data **directly** — there is no wrapper:
 
-| Key | Type | Description |
-| --- | --- | --- |
-| `"ok"` | `bool` | `true` if the HTTP status is 2xx. |
-| `"status"` | `int` | HTTP status code. |
-| `"headers"` | `map[string]any` | Response headers. |
-| `"data"` | `any` | Parsed JSON response body. |
+| Operation | `value` |
+| --- | --- |
+| `Load` / `Create` / `Update` / `Remove` | the entity record (`map[string]any`) |
+| `List` | a `[]any` of entity records |
 
-On error, `"ok"` is `false` and `"err"` contains the error value.
+Check `err` first, then use the value directly (or the typed
+`...Typed` variants, which return the entity's model struct and a typed
+slice):
+
+    achievement, err := client.Achievement(nil).Load(map[string]any{"id": "example_id"}, nil)
+    if err != nil { /* handle */ }
+    // achievement is the loaded record
+
+Only `Direct()` returns a response envelope — a `map[string]any` with
+`"ok"`, `"status"`, `"headers"`, and `"data"` keys.
 
 ### Entities
 
@@ -426,13 +422,21 @@ Create an instance: `achievement := client.Achievement(nil)`
 #### Example: Load
 
 ```go
-result, err := client.Achievement(nil).Load(map[string]any{"id": "achievement_id"}, nil)
+achievement, err := client.Achievement(nil).Load(map[string]any{"id": "achievement_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(achievement) // the loaded record
 ```
 
 #### Example: List
 
 ```go
-results, err := client.Achievement(nil).List(nil, nil)
+achievements, err := client.Achievement(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(achievements) // the array of records
 ```
 
 
@@ -462,13 +466,21 @@ Create an instance: `authenticated := client.Authenticated(nil)`
 #### Example: Load
 
 ```go
-result, err := client.Authenticated(nil).Load(map[string]any{"id": "authenticated_id"}, nil)
+authenticated, err := client.Authenticated(nil).Load(map[string]any{"id": "authenticated_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(authenticated) // the loaded record
 ```
 
 #### Example: List
 
 ```go
-results, err := client.Authenticated(nil).List(nil, nil)
+authenticateds, err := client.Authenticated(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(authenticateds) // the array of records
 ```
 
 
@@ -485,7 +497,11 @@ Create an instance: `daily_reward := client.DailyReward(nil)`
 #### Example: List
 
 ```go
-results, err := client.DailyReward(nil).List(nil, nil)
+daily_rewards, err := client.DailyReward(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(daily_rewards) // the array of records
 ```
 
 
@@ -502,7 +518,11 @@ Create an instance: `game_mechanic := client.GameMechanic(nil)`
 #### Example: List
 
 ```go
-results, err := client.GameMechanic(nil).List(nil, nil)
+game_mechanics, err := client.GameMechanic(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(game_mechanics) // the array of records
 ```
 
 
@@ -520,13 +540,21 @@ Create an instance: `guild := client.Guild(nil)`
 #### Example: Load
 
 ```go
-result, err := client.Guild(nil).Load(map[string]any{"id": "guild_id"}, nil)
+guild, err := client.Guild(nil).Load(map[string]any{"id": "guild_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(guild) // the loaded record
 ```
 
 #### Example: List
 
 ```go
-results, err := client.Guild(nil).List(nil, nil)
+guilds, err := client.Guild(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(guilds) // the array of records
 ```
 
 
@@ -543,7 +571,11 @@ Create an instance: `guild_authenticated := client.GuildAuthenticated(nil)`
 #### Example: List
 
 ```go
-results, err := client.GuildAuthenticated(nil).List(nil, nil)
+guild_authenticateds, err := client.GuildAuthenticated(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(guild_authenticateds) // the array of records
 ```
 
 
@@ -560,7 +592,11 @@ Create an instance: `home_instance := client.HomeInstance(nil)`
 #### Example: List
 
 ```go
-results, err := client.HomeInstance(nil).List(nil, nil)
+home_instances, err := client.HomeInstance(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(home_instances) // the array of records
 ```
 
 
@@ -577,7 +613,11 @@ Create an instance: `item := client.Item(nil)`
 #### Example: List
 
 ```go
-results, err := client.Item(nil).List(nil, nil)
+items, err := client.Item(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(items) // the array of records
 ```
 
 
@@ -594,7 +634,11 @@ Create an instance: `map := client.Map(nil)`
 #### Example: List
 
 ```go
-results, err := client.Map(nil).List(nil, nil)
+maps, err := client.Map(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(maps) // the array of records
 ```
 
 
@@ -611,7 +655,11 @@ Create an instance: `map_information := client.MapInformation(nil)`
 #### Example: List
 
 ```go
-results, err := client.MapInformation(nil).List(nil, nil)
+map_informations, err := client.MapInformation(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(map_informations) // the array of records
 ```
 
 
@@ -635,13 +683,21 @@ Create an instance: `miscellaneous := client.Miscellaneous(nil)`
 #### Example: Load
 
 ```go
-result, err := client.Miscellaneous(nil).Load(map[string]any{"id": "miscellaneous_id"}, nil)
+miscellaneous, err := client.Miscellaneous(nil).Load(map[string]any{"id": "miscellaneous_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(miscellaneous) // the loaded record
 ```
 
 #### Example: List
 
 ```go
-results, err := client.Miscellaneous(nil).List(nil, nil)
+miscellaneouss, err := client.Miscellaneous(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(miscellaneouss) // the array of records
 ```
 
 
@@ -658,7 +714,11 @@ Create an instance: `story := client.Story(nil)`
 #### Example: List
 
 ```go
-results, err := client.Story(nil).List(nil, nil)
+storys, err := client.Story(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(storys) // the array of records
 ```
 
 
@@ -675,7 +735,11 @@ Create an instance: `structured_pv_p := client.StructuredPvP(nil)`
 #### Example: List
 
 ```go
-results, err := client.StructuredPvP(nil).List(nil, nil)
+structured_pv_ps, err := client.StructuredPvP(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(structured_pv_ps) // the array of records
 ```
 
 
@@ -702,13 +766,21 @@ Create an instance: `trading_post := client.TradingPost(nil)`
 #### Example: Load
 
 ```go
-result, err := client.TradingPost(nil).Load(map[string]any{"id": "trading_post_id"}, nil)
+trading_post, err := client.TradingPost(nil).Load(map[string]any{"id": "trading_post_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(trading_post) // the loaded record
 ```
 
 #### Example: List
 
 ```go
-results, err := client.TradingPost(nil).List(nil, nil)
+trading_posts, err := client.TradingPost(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(trading_posts) // the array of records
 ```
 
 
@@ -725,7 +797,11 @@ Create an instance: `world_vs_world := client.WorldVsWorld(nil)`
 #### Example: List
 
 ```go
-results, err := client.WorldVsWorld(nil).List(nil, nil)
+world_vs_worlds, err := client.WorldVsWorld(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(world_vs_worlds) // the array of records
 ```
 
 

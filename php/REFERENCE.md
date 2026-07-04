@@ -142,7 +142,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## AchievementEntity
 
 ```php
-$achievement = $client->achievement();
+$achievement = $client->Achievement();
 ```
 
 ### Operations
@@ -152,7 +152,7 @@ $achievement = $client->achievement();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->achievement()->list([]);
+$results = $client->Achievement()->list([]);
 ```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -160,7 +160,7 @@ $results = $client->achievement()->list([]);
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->achievement()->load(["id" => "achievement_id"]);
+$result = $client->Achievement()->load(["id" => "achievement_id"]);
 ```
 
 ### Common Methods
@@ -196,7 +196,7 @@ Return the entity name.
 ## AuthenticatedEntity
 
 ```php
-$authenticated = $client->authenticated();
+$authenticated = $client->Authenticated();
 ```
 
 ### Fields
@@ -218,7 +218,7 @@ $authenticated = $client->authenticated();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->authenticated()->list([]);
+$results = $client->Authenticated()->list([]);
 ```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -226,7 +226,7 @@ $results = $client->authenticated()->list([]);
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->authenticated()->load(["id" => "authenticated_id"]);
+$result = $client->Authenticated()->load(["id" => "authenticated_id"]);
 ```
 
 ### Common Methods
@@ -262,7 +262,7 @@ Return the entity name.
 ## DailyRewardEntity
 
 ```php
-$daily_reward = $client->daily_reward();
+$daily_reward = $client->DailyReward();
 ```
 
 ### Operations
@@ -272,7 +272,7 @@ $daily_reward = $client->daily_reward();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->daily_reward()->list([]);
+$results = $client->DailyReward()->list([]);
 ```
 
 ### Common Methods
@@ -308,7 +308,7 @@ Return the entity name.
 ## GameMechanicEntity
 
 ```php
-$game_mechanic = $client->game_mechanic();
+$game_mechanic = $client->GameMechanic();
 ```
 
 ### Operations
@@ -318,7 +318,7 @@ $game_mechanic = $client->game_mechanic();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->game_mechanic()->list([]);
+$results = $client->GameMechanic()->list([]);
 ```
 
 ### Common Methods
@@ -354,7 +354,7 @@ Return the entity name.
 ## GuildEntity
 
 ```php
-$guild = $client->guild();
+$guild = $client->Guild();
 ```
 
 ### Operations
@@ -364,7 +364,7 @@ $guild = $client->guild();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->guild()->list([]);
+$results = $client->Guild()->list([]);
 ```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -372,7 +372,7 @@ $results = $client->guild()->list([]);
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->guild()->load(["id" => "guild_id"]);
+$result = $client->Guild()->load(["id" => "guild_id"]);
 ```
 
 ### Common Methods
@@ -408,7 +408,7 @@ Return the entity name.
 ## GuildAuthenticatedEntity
 
 ```php
-$guild_authenticated = $client->guild_authenticated();
+$guild_authenticated = $client->GuildAuthenticated();
 ```
 
 ### Operations
@@ -418,7 +418,7 @@ $guild_authenticated = $client->guild_authenticated();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->guild_authenticated()->list([]);
+$results = $client->GuildAuthenticated()->list([]);
 ```
 
 ### Common Methods
@@ -454,7 +454,7 @@ Return the entity name.
 ## HomeInstanceEntity
 
 ```php
-$home_instance = $client->home_instance();
+$home_instance = $client->HomeInstance();
 ```
 
 ### Operations
@@ -464,7 +464,7 @@ $home_instance = $client->home_instance();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->home_instance()->list([]);
+$results = $client->HomeInstance()->list([]);
 ```
 
 ### Common Methods
@@ -500,7 +500,7 @@ Return the entity name.
 ## ItemEntity
 
 ```php
-$item = $client->item();
+$item = $client->Item();
 ```
 
 ### Operations
@@ -510,7 +510,7 @@ $item = $client->item();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->item()->list([]);
+$results = $client->Item()->list([]);
 ```
 
 ### Common Methods
@@ -546,7 +546,7 @@ Return the entity name.
 ## MapEntity
 
 ```php
-$map = $client->map();
+$map = $client->Map();
 ```
 
 ### Operations
@@ -556,7 +556,7 @@ $map = $client->map();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->map()->list([]);
+$results = $client->Map()->list([]);
 ```
 
 ### Common Methods
@@ -592,7 +592,7 @@ Return the entity name.
 ## MapInformationEntity
 
 ```php
-$map_information = $client->map_information();
+$map_information = $client->MapInformation();
 ```
 
 ### Operations
@@ -602,7 +602,7 @@ $map_information = $client->map_information();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->map_information()->list([]);
+$results = $client->MapInformation()->list([]);
 ```
 
 ### Common Methods
@@ -638,7 +638,7 @@ Return the entity name.
 ## MiscellaneousEntity
 
 ```php
-$miscellaneous = $client->miscellaneous();
+$miscellaneous = $client->Miscellaneous();
 ```
 
 ### Fields
@@ -654,7 +654,7 @@ $miscellaneous = $client->miscellaneous();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->miscellaneous()->list([]);
+$results = $client->Miscellaneous()->list([]);
 ```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -662,7 +662,7 @@ $results = $client->miscellaneous()->list([]);
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->miscellaneous()->load(["id" => "miscellaneous_id"]);
+$result = $client->Miscellaneous()->load(["id" => "miscellaneous_id"]);
 ```
 
 ### Common Methods
@@ -698,7 +698,7 @@ Return the entity name.
 ## StoryEntity
 
 ```php
-$story = $client->story();
+$story = $client->Story();
 ```
 
 ### Operations
@@ -708,7 +708,7 @@ $story = $client->story();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->story()->list([]);
+$results = $client->Story()->list([]);
 ```
 
 ### Common Methods
@@ -744,7 +744,7 @@ Return the entity name.
 ## StructuredPvPEntity
 
 ```php
-$structured_pv_p = $client->structured_pv_p();
+$structured_pv_p = $client->StructuredPvP();
 ```
 
 ### Operations
@@ -754,7 +754,7 @@ $structured_pv_p = $client->structured_pv_p();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->structured_pv_p()->list([]);
+$results = $client->StructuredPvP()->list([]);
 ```
 
 ### Common Methods
@@ -790,7 +790,7 @@ Return the entity name.
 ## TradingPostEntity
 
 ```php
-$trading_post = $client->trading_post();
+$trading_post = $client->TradingPost();
 ```
 
 ### Fields
@@ -809,7 +809,7 @@ $trading_post = $client->trading_post();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->trading_post()->list([]);
+$results = $client->TradingPost()->list([]);
 ```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -817,7 +817,7 @@ $results = $client->trading_post()->list([]);
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->trading_post()->load(["id" => "trading_post_id"]);
+$result = $client->TradingPost()->load(["id" => "trading_post_id"]);
 ```
 
 ### Common Methods
@@ -853,7 +853,7 @@ Return the entity name.
 ## WorldVsWorldEntity
 
 ```php
-$world_vs_world = $client->world_vs_world();
+$world_vs_world = $client->WorldVsWorld();
 ```
 
 ### Operations
@@ -863,7 +863,7 @@ $world_vs_world = $client->world_vs_world();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->world_vs_world()->list([]);
+$results = $client->WorldVsWorld()->list([]);
 ```
 
 ### Common Methods

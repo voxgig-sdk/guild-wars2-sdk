@@ -220,249 +220,99 @@ class GuildWars2SDK:
         }
 
 
-    @property
-    def achievement(self):
-        """Idiomatic facade: client.achievement.list() / client.achievement.load({"id": ...})."""
-        from entity.achievement_entity import AchievementEntity
-        cached = getattr(self, "_achievement", None)
-        if cached is None:
-            cached = AchievementEntity(self, None)
-            self._achievement = cached
-        return cached
-
-    def Achievement(self, data=None):
-        # Deprecated: use client.achievement instead.
+    def Achievement(self, data=None) -> "AchievementEntity":
+        """Entity factory: client.Achievement().list({}) / client.Achievement().load({"id": ...})."""
         from entity.achievement_entity import AchievementEntity
         return AchievementEntity(self, data)
 
 
-    @property
-    def authenticated(self):
-        """Idiomatic facade: client.authenticated.list() / client.authenticated.load({"id": ...})."""
-        from entity.authenticated_entity import AuthenticatedEntity
-        cached = getattr(self, "_authenticated", None)
-        if cached is None:
-            cached = AuthenticatedEntity(self, None)
-            self._authenticated = cached
-        return cached
-
-    def Authenticated(self, data=None):
-        # Deprecated: use client.authenticated instead.
+    def Authenticated(self, data=None) -> "AuthenticatedEntity":
+        """Entity factory: client.Authenticated().list({}) / client.Authenticated().load({"id": ...})."""
         from entity.authenticated_entity import AuthenticatedEntity
         return AuthenticatedEntity(self, data)
 
 
-    @property
-    def daily_reward(self):
-        """Idiomatic facade: client.daily_reward.list() / client.daily_reward.load({"id": ...})."""
-        from entity.daily_reward_entity import DailyRewardEntity
-        cached = getattr(self, "_daily_reward", None)
-        if cached is None:
-            cached = DailyRewardEntity(self, None)
-            self._daily_reward = cached
-        return cached
-
-    def DailyReward(self, data=None):
-        # Deprecated: use client.daily_reward instead.
+    def DailyReward(self, data=None) -> "DailyRewardEntity":
+        """Entity factory: client.DailyReward().list({}) / client.DailyReward().load({"id": ...})."""
         from entity.daily_reward_entity import DailyRewardEntity
         return DailyRewardEntity(self, data)
 
 
-    @property
-    def game_mechanic(self):
-        """Idiomatic facade: client.game_mechanic.list() / client.game_mechanic.load({"id": ...})."""
-        from entity.game_mechanic_entity import GameMechanicEntity
-        cached = getattr(self, "_game_mechanic", None)
-        if cached is None:
-            cached = GameMechanicEntity(self, None)
-            self._game_mechanic = cached
-        return cached
-
-    def GameMechanic(self, data=None):
-        # Deprecated: use client.game_mechanic instead.
+    def GameMechanic(self, data=None) -> "GameMechanicEntity":
+        """Entity factory: client.GameMechanic().list({}) / client.GameMechanic().load({"id": ...})."""
         from entity.game_mechanic_entity import GameMechanicEntity
         return GameMechanicEntity(self, data)
 
 
-    @property
-    def guild(self):
-        """Idiomatic facade: client.guild.list() / client.guild.load({"id": ...})."""
-        from entity.guild_entity import GuildEntity
-        cached = getattr(self, "_guild", None)
-        if cached is None:
-            cached = GuildEntity(self, None)
-            self._guild = cached
-        return cached
-
-    def Guild(self, data=None):
-        # Deprecated: use client.guild instead.
+    def Guild(self, data=None) -> "GuildEntity":
+        """Entity factory: client.Guild().list({}) / client.Guild().load({"id": ...})."""
         from entity.guild_entity import GuildEntity
         return GuildEntity(self, data)
 
 
-    @property
-    def guild_authenticated(self):
-        """Idiomatic facade: client.guild_authenticated.list() / client.guild_authenticated.load({"id": ...})."""
-        from entity.guild_authenticated_entity import GuildAuthenticatedEntity
-        cached = getattr(self, "_guild_authenticated", None)
-        if cached is None:
-            cached = GuildAuthenticatedEntity(self, None)
-            self._guild_authenticated = cached
-        return cached
-
-    def GuildAuthenticated(self, data=None):
-        # Deprecated: use client.guild_authenticated instead.
+    def GuildAuthenticated(self, data=None) -> "GuildAuthenticatedEntity":
+        """Entity factory: client.GuildAuthenticated().list({}) / client.GuildAuthenticated().load({"id": ...})."""
         from entity.guild_authenticated_entity import GuildAuthenticatedEntity
         return GuildAuthenticatedEntity(self, data)
 
 
-    @property
-    def home_instance(self):
-        """Idiomatic facade: client.home_instance.list() / client.home_instance.load({"id": ...})."""
-        from entity.home_instance_entity import HomeInstanceEntity
-        cached = getattr(self, "_home_instance", None)
-        if cached is None:
-            cached = HomeInstanceEntity(self, None)
-            self._home_instance = cached
-        return cached
-
-    def HomeInstance(self, data=None):
-        # Deprecated: use client.home_instance instead.
+    def HomeInstance(self, data=None) -> "HomeInstanceEntity":
+        """Entity factory: client.HomeInstance().list({}) / client.HomeInstance().load({"id": ...})."""
         from entity.home_instance_entity import HomeInstanceEntity
         return HomeInstanceEntity(self, data)
 
 
-    @property
-    def item(self):
-        """Idiomatic facade: client.item.list() / client.item.load({"id": ...})."""
-        from entity.item_entity import ItemEntity
-        cached = getattr(self, "_item", None)
-        if cached is None:
-            cached = ItemEntity(self, None)
-            self._item = cached
-        return cached
-
-    def Item(self, data=None):
-        # Deprecated: use client.item instead.
+    def Item(self, data=None) -> "ItemEntity":
+        """Entity factory: client.Item().list({}) / client.Item().load({"id": ...})."""
         from entity.item_entity import ItemEntity
         return ItemEntity(self, data)
 
 
-    @property
-    def map(self):
-        """Idiomatic facade: client.map.list() / client.map.load({"id": ...})."""
-        from entity.map_entity import MapEntity
-        cached = getattr(self, "_map", None)
-        if cached is None:
-            cached = MapEntity(self, None)
-            self._map = cached
-        return cached
-
-    def Map(self, data=None):
-        # Deprecated: use client.map instead.
+    def Map(self, data=None) -> "MapEntity":
+        """Entity factory: client.Map().list({}) / client.Map().load({"id": ...})."""
         from entity.map_entity import MapEntity
         return MapEntity(self, data)
 
 
-    @property
-    def map_information(self):
-        """Idiomatic facade: client.map_information.list() / client.map_information.load({"id": ...})."""
-        from entity.map_information_entity import MapInformationEntity
-        cached = getattr(self, "_map_information", None)
-        if cached is None:
-            cached = MapInformationEntity(self, None)
-            self._map_information = cached
-        return cached
-
-    def MapInformation(self, data=None):
-        # Deprecated: use client.map_information instead.
+    def MapInformation(self, data=None) -> "MapInformationEntity":
+        """Entity factory: client.MapInformation().list({}) / client.MapInformation().load({"id": ...})."""
         from entity.map_information_entity import MapInformationEntity
         return MapInformationEntity(self, data)
 
 
-    @property
-    def miscellaneous(self):
-        """Idiomatic facade: client.miscellaneous.list() / client.miscellaneous.load({"id": ...})."""
-        from entity.miscellaneous_entity import MiscellaneousEntity
-        cached = getattr(self, "_miscellaneous", None)
-        if cached is None:
-            cached = MiscellaneousEntity(self, None)
-            self._miscellaneous = cached
-        return cached
-
-    def Miscellaneous(self, data=None):
-        # Deprecated: use client.miscellaneous instead.
+    def Miscellaneous(self, data=None) -> "MiscellaneousEntity":
+        """Entity factory: client.Miscellaneous().list({}) / client.Miscellaneous().load({"id": ...})."""
         from entity.miscellaneous_entity import MiscellaneousEntity
         return MiscellaneousEntity(self, data)
 
 
-    @property
-    def story(self):
-        """Idiomatic facade: client.story.list() / client.story.load({"id": ...})."""
-        from entity.story_entity import StoryEntity
-        cached = getattr(self, "_story", None)
-        if cached is None:
-            cached = StoryEntity(self, None)
-            self._story = cached
-        return cached
-
-    def Story(self, data=None):
-        # Deprecated: use client.story instead.
+    def Story(self, data=None) -> "StoryEntity":
+        """Entity factory: client.Story().list({}) / client.Story().load({"id": ...})."""
         from entity.story_entity import StoryEntity
         return StoryEntity(self, data)
 
 
-    @property
-    def structured_pv_p(self):
-        """Idiomatic facade: client.structured_pv_p.list() / client.structured_pv_p.load({"id": ...})."""
-        from entity.structured_pv_p_entity import StructuredPvPEntity
-        cached = getattr(self, "_structured_pv_p", None)
-        if cached is None:
-            cached = StructuredPvPEntity(self, None)
-            self._structured_pv_p = cached
-        return cached
-
-    def StructuredPvP(self, data=None):
-        # Deprecated: use client.structured_pv_p instead.
+    def StructuredPvP(self, data=None) -> "StructuredPvPEntity":
+        """Entity factory: client.StructuredPvP().list({}) / client.StructuredPvP().load({"id": ...})."""
         from entity.structured_pv_p_entity import StructuredPvPEntity
         return StructuredPvPEntity(self, data)
 
 
-    @property
-    def trading_post(self):
-        """Idiomatic facade: client.trading_post.list() / client.trading_post.load({"id": ...})."""
-        from entity.trading_post_entity import TradingPostEntity
-        cached = getattr(self, "_trading_post", None)
-        if cached is None:
-            cached = TradingPostEntity(self, None)
-            self._trading_post = cached
-        return cached
-
-    def TradingPost(self, data=None):
-        # Deprecated: use client.trading_post instead.
+    def TradingPost(self, data=None) -> "TradingPostEntity":
+        """Entity factory: client.TradingPost().list({}) / client.TradingPost().load({"id": ...})."""
         from entity.trading_post_entity import TradingPostEntity
         return TradingPostEntity(self, data)
 
 
-    @property
-    def world_vs_world(self):
-        """Idiomatic facade: client.world_vs_world.list() / client.world_vs_world.load({"id": ...})."""
-        from entity.world_vs_world_entity import WorldVsWorldEntity
-        cached = getattr(self, "_world_vs_world", None)
-        if cached is None:
-            cached = WorldVsWorldEntity(self, None)
-            self._world_vs_world = cached
-        return cached
-
-    def WorldVsWorld(self, data=None):
-        # Deprecated: use client.world_vs_world instead.
+    def WorldVsWorld(self, data=None) -> "WorldVsWorldEntity":
+        """Entity factory: client.WorldVsWorld().list({}) / client.WorldVsWorld().load({"id": ...})."""
         from entity.world_vs_world_entity import WorldVsWorldEntity
         return WorldVsWorldEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "GuildWars2SDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -482,3 +332,23 @@ class GuildWars2SDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.achievement_entity import AchievementEntity
+    from entity.authenticated_entity import AuthenticatedEntity
+    from entity.daily_reward_entity import DailyRewardEntity
+    from entity.game_mechanic_entity import GameMechanicEntity
+    from entity.guild_entity import GuildEntity
+    from entity.guild_authenticated_entity import GuildAuthenticatedEntity
+    from entity.home_instance_entity import HomeInstanceEntity
+    from entity.item_entity import ItemEntity
+    from entity.map_entity import MapEntity
+    from entity.map_information_entity import MapInformationEntity
+    from entity.miscellaneous_entity import MiscellaneousEntity
+    from entity.story_entity import StoryEntity
+    from entity.structured_pv_p_entity import StructuredPvPEntity
+    from entity.trading_post_entity import TradingPostEntity
+    from entity.world_vs_world_entity import WorldVsWorldEntity
