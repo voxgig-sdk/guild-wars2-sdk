@@ -81,6 +81,10 @@ end
 
 
 
+---@param reqmatch DailyRewardListMatch
+---@param ctrl? table
+---@return DailyReward[]
+---@return string? err
 function DailyRewardEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

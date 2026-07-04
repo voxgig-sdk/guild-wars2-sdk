@@ -50,16 +50,14 @@ class AuthenticatedEntityTest extends TestCase
         $authenticated_ref01_ent = $client->Authenticated(null);
         $authenticated_ref01_match = [];
 
-        [$authenticated_ref01_list_result, $err] = $authenticated_ref01_ent->list($authenticated_ref01_match, null);
-        $this->assertNull($err);
+        $authenticated_ref01_list_result = $authenticated_ref01_ent->list($authenticated_ref01_match, null);
         $this->assertIsArray($authenticated_ref01_list_result);
 
         // LOAD
         $authenticated_ref01_match_dt0 = [
             "id" => $authenticated_ref01_data["id"],
         ];
-        [$authenticated_ref01_data_dt0_loaded, $err] = $authenticated_ref01_ent->load($authenticated_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $authenticated_ref01_data_dt0_loaded = $authenticated_ref01_ent->load($authenticated_ref01_match_dt0, null);
         $authenticated_ref01_data_dt0_load_result = Helpers::to_map($authenticated_ref01_data_dt0_loaded);
         $this->assertNotNull($authenticated_ref01_data_dt0_load_result);
         $this->assertEquals($authenticated_ref01_data_dt0_load_result["id"], $authenticated_ref01_data["id"]);

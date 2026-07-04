@@ -45,6 +45,7 @@ class WorldVsWorldEntity
     end
   end
 
+  # @return [WorldVsWorld, Hash] the current WorldVsWorld data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,6 +58,7 @@ class WorldVsWorldEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of WorldVsWorld fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
@@ -65,6 +67,11 @@ class WorldVsWorldEntity
   
 
   
+  # List WorldVsWorld items matching the given filter.
+  #
+  # @param reqmatch [WorldVsWorldListMatch, Hash, nil] match filter (any subset of WorldVsWorld fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [Array<WorldVsWorld>, Array] the matching WorldVsWorld items; raises GuildWars2Error on failure
   def list(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

@@ -50,8 +50,7 @@ class WorldVsWorldEntityTest extends TestCase
         $world_vs_world_ref01_ent = $client->WorldVsWorld(null);
         $world_vs_world_ref01_match = [];
 
-        [$world_vs_world_ref01_list_result, $err] = $world_vs_world_ref01_ent->list($world_vs_world_ref01_match, null);
-        $this->assertNull($err);
+        $world_vs_world_ref01_list_result = $world_vs_world_ref01_ent->list($world_vs_world_ref01_match, null);
         $this->assertIsArray($world_vs_world_ref01_list_result);
 
     }

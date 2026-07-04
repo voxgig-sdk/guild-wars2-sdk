@@ -50,8 +50,7 @@ class TestGuildAuthenticatedEntity:
         guild_authenticated_ref01_ent = client.GuildAuthenticated(None)
         guild_authenticated_ref01_match = {}
 
-        guild_authenticated_ref01_list_result, err = guild_authenticated_ref01_ent.list(guild_authenticated_ref01_match, None)
-        assert err is None
+        guild_authenticated_ref01_list_result = guild_authenticated_ref01_ent.list(guild_authenticated_ref01_match, None)
         assert isinstance(guild_authenticated_ref01_list_result, list)
 
 

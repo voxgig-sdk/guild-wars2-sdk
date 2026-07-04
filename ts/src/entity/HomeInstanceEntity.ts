@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  HomeInstance,
+  HomeInstanceListMatch,
+} from '../GuildWars2Types'
 
 // TODO: needs Entity superclass
-class HomeInstanceEntity extends GuildWars2EntityBase {
+class HomeInstanceEntity extends GuildWars2EntityBase<HomeInstance> {
 
   constructor(client: GuildWars2SDK, entopts: any) {
     super(client, entopts)
@@ -33,7 +37,7 @@ class HomeInstanceEntity extends GuildWars2EntityBase {
 
 
 
-  async list(this: any, reqmatch?: any, ctrl?: Control) {
+  async list(this: any, reqmatch?: HomeInstanceListMatch, ctrl?: Control): Promise<HomeInstance[]> {
 
     const utility = this._utility
 
@@ -133,7 +137,9 @@ class HomeInstanceEntity extends GuildWars2EntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<HomeInstance[]> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

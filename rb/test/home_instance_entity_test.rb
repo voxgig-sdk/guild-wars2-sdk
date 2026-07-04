@@ -43,8 +43,7 @@ class HomeInstanceEntityTest < Minitest::Test
     home_instance_ref01_ent = client.HomeInstance(nil)
     home_instance_ref01_match = {}
 
-    home_instance_ref01_list_result, err = home_instance_ref01_ent.list(home_instance_ref01_match, nil)
-    assert_nil err
+    home_instance_ref01_list_result = home_instance_ref01_ent.list(home_instance_ref01_match, nil)
     assert home_instance_ref01_list_result.is_a?(Array)
 
   end

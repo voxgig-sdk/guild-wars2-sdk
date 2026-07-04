@@ -81,6 +81,10 @@ end
 
 
 
+---@param reqmatch MapInformationListMatch
+---@param ctrl? table
+---@return MapInformation[]
+---@return string? err
 function MapInformationEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

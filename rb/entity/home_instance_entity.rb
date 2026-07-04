@@ -45,6 +45,7 @@ class HomeInstanceEntity
     end
   end
 
+  # @return [HomeInstance, Hash] the current HomeInstance data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,6 +58,7 @@ class HomeInstanceEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of HomeInstance fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
@@ -65,6 +67,11 @@ class HomeInstanceEntity
   
 
   
+  # List HomeInstance items matching the given filter.
+  #
+  # @param reqmatch [HomeInstanceListMatch, Hash, nil] match filter (any subset of HomeInstance fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [Array<HomeInstance>, Array] the matching HomeInstance items; raises GuildWars2Error on failure
   def list(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

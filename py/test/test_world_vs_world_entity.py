@@ -50,8 +50,7 @@ class TestWorldVsWorldEntity:
         world_vs_world_ref01_ent = client.WorldVsWorld(None)
         world_vs_world_ref01_match = {}
 
-        world_vs_world_ref01_list_result, err = world_vs_world_ref01_ent.list(world_vs_world_ref01_match, None)
-        assert err is None
+        world_vs_world_ref01_list_result = world_vs_world_ref01_ent.list(world_vs_world_ref01_match, None)
         assert isinstance(world_vs_world_ref01_list_result, list)
 
 

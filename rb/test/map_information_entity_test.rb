@@ -43,8 +43,7 @@ class MapInformationEntityTest < Minitest::Test
     map_information_ref01_ent = client.MapInformation(nil)
     map_information_ref01_match = {}
 
-    map_information_ref01_list_result, err = map_information_ref01_ent.list(map_information_ref01_match, nil)
-    assert_nil err
+    map_information_ref01_list_result = map_information_ref01_ent.list(map_information_ref01_match, nil)
     assert map_information_ref01_list_result.is_a?(Array)
 
   end

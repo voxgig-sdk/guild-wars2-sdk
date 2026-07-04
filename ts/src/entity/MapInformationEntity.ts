@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  MapInformation,
+  MapInformationListMatch,
+} from '../GuildWars2Types'
 
 // TODO: needs Entity superclass
-class MapInformationEntity extends GuildWars2EntityBase {
+class MapInformationEntity extends GuildWars2EntityBase<MapInformation> {
 
   constructor(client: GuildWars2SDK, entopts: any) {
     super(client, entopts)
@@ -33,7 +37,7 @@ class MapInformationEntity extends GuildWars2EntityBase {
 
 
 
-  async list(this: any, reqmatch?: any, ctrl?: Control) {
+  async list(this: any, reqmatch?: MapInformationListMatch, ctrl?: Control): Promise<MapInformation[]> {
 
     const utility = this._utility
 
@@ -133,7 +137,9 @@ class MapInformationEntity extends GuildWars2EntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<MapInformation[]> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

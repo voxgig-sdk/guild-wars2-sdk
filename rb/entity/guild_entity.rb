@@ -45,6 +45,7 @@ class GuildEntity
     end
   end
 
+  # @return [Guild, Hash] the current Guild data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,12 +58,18 @@ class GuildEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of Guild fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
   end
 
   
+  # Load a single Guild.
+  #
+  # @param reqmatch [GuildLoadMatch, Hash, nil] match criteria (id/query fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [Guild, Hash] the loaded Guild; raises GuildWars2Error on failure
   def load(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({
@@ -86,6 +93,11 @@ class GuildEntity
 
 
   
+  # List Guild items matching the given filter.
+  #
+  # @param reqmatch [GuildListMatch, Hash, nil] match filter (any subset of Guild fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [Array<Guild>, Array] the matching Guild items; raises GuildWars2Error on failure
   def list(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

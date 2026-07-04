@@ -50,8 +50,7 @@ class StructuredPvPEntityTest extends TestCase
         $structured_pv_p_ref01_ent = $client->StructuredPvP(null);
         $structured_pv_p_ref01_match = [];
 
-        [$structured_pv_p_ref01_list_result, $err] = $structured_pv_p_ref01_ent->list($structured_pv_p_ref01_match, null);
-        $this->assertNull($err);
+        $structured_pv_p_ref01_list_result = $structured_pv_p_ref01_ent->list($structured_pv_p_ref01_match, null);
         $this->assertIsArray($structured_pv_p_ref01_list_result);
 
     }

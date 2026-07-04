@@ -43,8 +43,7 @@ class ItemEntityTest < Minitest::Test
     item_ref01_ent = client.Item(nil)
     item_ref01_match = {}
 
-    item_ref01_list_result, err = item_ref01_ent.list(item_ref01_match, nil)
-    assert_nil err
+    item_ref01_list_result = item_ref01_ent.list(item_ref01_match, nil)
     assert item_ref01_list_result.is_a?(Array)
 
   end

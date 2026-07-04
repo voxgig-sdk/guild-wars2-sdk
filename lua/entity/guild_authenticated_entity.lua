@@ -81,6 +81,10 @@ end
 
 
 
+---@param reqmatch GuildAuthenticatedListMatch
+---@param ctrl? table
+---@return GuildAuthenticated[]
+---@return string? err
 function GuildAuthenticatedEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

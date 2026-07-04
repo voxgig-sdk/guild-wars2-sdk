@@ -81,6 +81,10 @@ end
 
 
 
+---@param reqmatch GameMechanicListMatch
+---@param ctrl? table
+---@return GameMechanic[]
+---@return string? err
 function GameMechanicEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

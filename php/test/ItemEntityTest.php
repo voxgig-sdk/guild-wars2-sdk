@@ -50,8 +50,7 @@ class ItemEntityTest extends TestCase
         $item_ref01_ent = $client->Item(null);
         $item_ref01_match = [];
 
-        [$item_ref01_list_result, $err] = $item_ref01_ent->list($item_ref01_match, null);
-        $this->assertNull($err);
+        $item_ref01_list_result = $item_ref01_ent->list($item_ref01_match, null);
         $this->assertIsArray($item_ref01_list_result);
 
     }

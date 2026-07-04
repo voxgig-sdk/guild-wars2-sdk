@@ -81,6 +81,10 @@ end
 
 
 
+---@param reqmatch HomeInstanceListMatch
+---@param ctrl? table
+---@return HomeInstance[]
+---@return string? err
 function HomeInstanceEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

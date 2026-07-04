@@ -81,6 +81,10 @@ end
 
 
 
+---@param reqmatch StructuredPvPListMatch
+---@param ctrl? table
+---@return StructuredPvP[]
+---@return string? err
 function StructuredPvPEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

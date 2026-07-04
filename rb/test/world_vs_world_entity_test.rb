@@ -43,8 +43,7 @@ class WorldVsWorldEntityTest < Minitest::Test
     world_vs_world_ref01_ent = client.WorldVsWorld(nil)
     world_vs_world_ref01_match = {}
 
-    world_vs_world_ref01_list_result, err = world_vs_world_ref01_ent.list(world_vs_world_ref01_match, nil)
-    assert_nil err
+    world_vs_world_ref01_list_result = world_vs_world_ref01_ent.list(world_vs_world_ref01_match, nil)
     assert world_vs_world_ref01_list_result.is_a?(Array)
 
   end

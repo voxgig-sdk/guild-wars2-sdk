@@ -50,8 +50,7 @@ class HomeInstanceEntityTest extends TestCase
         $home_instance_ref01_ent = $client->HomeInstance(null);
         $home_instance_ref01_match = [];
 
-        [$home_instance_ref01_list_result, $err] = $home_instance_ref01_ent->list($home_instance_ref01_match, null);
-        $this->assertNull($err);
+        $home_instance_ref01_list_result = $home_instance_ref01_ent->list($home_instance_ref01_match, null);
         $this->assertIsArray($home_instance_ref01_list_result);
 
     }

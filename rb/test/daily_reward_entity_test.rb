@@ -43,8 +43,7 @@ class DailyRewardEntityTest < Minitest::Test
     daily_reward_ref01_ent = client.DailyReward(nil)
     daily_reward_ref01_match = {}
 
-    daily_reward_ref01_list_result, err = daily_reward_ref01_ent.list(daily_reward_ref01_match, nil)
-    assert_nil err
+    daily_reward_ref01_list_result = daily_reward_ref01_ent.list(daily_reward_ref01_match, nil)
     assert daily_reward_ref01_list_result.is_a?(Array)
 
   end

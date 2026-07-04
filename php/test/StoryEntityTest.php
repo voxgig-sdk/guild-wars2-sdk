@@ -50,8 +50,7 @@ class StoryEntityTest extends TestCase
         $story_ref01_ent = $client->Story(null);
         $story_ref01_match = [];
 
-        [$story_ref01_list_result, $err] = $story_ref01_ent->list($story_ref01_match, null);
-        $this->assertNull($err);
+        $story_ref01_list_result = $story_ref01_ent->list($story_ref01_match, null);
         $this->assertIsArray($story_ref01_list_result);
 
     }

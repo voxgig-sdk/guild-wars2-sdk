@@ -85,6 +85,27 @@ func (e *GuildEntity) Match(args ...any) any {
 	return out
 }
 
+// DataTyped is the statically-typed accessor for this entity's data. With no
+// argument it returns the current data as an Guild; with an argument it
+// sets the data and returns the stored value. It delegates to the untyped Data
+// (identical runtime) and converts at the typed boundary.
+func (e *GuildEntity) DataTyped(data ...Guild) Guild {
+	if len(data) > 0 {
+		return typedFrom[Guild](e.Data(asMap(data[0])))
+	}
+	return typedFrom[Guild](e.Data())
+}
+
+// MatchTyped mirrors DataTyped for the entity's match filter. The match is a
+// partial of the entity, so it round-trips through Guild (all fields
+// optional at the wire level).
+func (e *GuildEntity) MatchTyped(match ...Guild) Guild {
+	if len(match) > 0 {
+		return typedFrom[Guild](e.Match(asMap(match[0])))
+	}
+	return typedFrom[Guild](e.Match())
+}
+
 
 func (e *GuildEntity) Load(reqmatch map[string]any, ctrl map[string]any) (any, error) {
 	utility := e.utility
@@ -111,6 +132,17 @@ func (e *GuildEntity) Load(reqmatch map[string]any, ctrl map[string]any) (any, e
 	})
 }
 
+// LoadTyped is the statically-typed variant of Load: it takes an
+// GuildLoadMatch and returns an Guild. It delegates to the untyped
+// Load (identical runtime) and converts at the typed boundary.
+func (e *GuildEntity) LoadTyped(reqmatch GuildLoadMatch, ctrl map[string]any) (Guild, error) {
+	res, err := e.Load(asMap(reqmatch), ctrl)
+	if err != nil {
+		return Guild{}, err
+	}
+	return typedFrom[Guild](res), nil
+}
+
 
 
 
@@ -131,6 +163,17 @@ func (e *GuildEntity) List(reqmatch map[string]any, ctrl map[string]any) (any, e
 			}
 		}
 	})
+}
+
+// ListTyped is the statically-typed variant of List: it takes an
+// GuildListMatch and returns []Guild. It delegates to the untyped
+// List (identical runtime) and converts at the typed boundary.
+func (e *GuildEntity) ListTyped(reqmatch GuildListMatch, ctrl map[string]any) ([]Guild, error) {
+	res, err := e.List(asMap(reqmatch), ctrl)
+	if err != nil {
+		return nil, err
+	}
+	return typedSliceFrom[Guild](res), nil
 }
 
 

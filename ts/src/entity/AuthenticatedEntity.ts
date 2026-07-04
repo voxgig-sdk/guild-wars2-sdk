@@ -14,9 +14,14 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Authenticated,
+  AuthenticatedLoadMatch,
+  AuthenticatedListMatch,
+} from '../GuildWars2Types'
 
 // TODO: needs Entity superclass
-class AuthenticatedEntity extends GuildWars2EntityBase {
+class AuthenticatedEntity extends GuildWars2EntityBase<Authenticated> {
 
   constructor(client: GuildWars2SDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +37,7 @@ class AuthenticatedEntity extends GuildWars2EntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: AuthenticatedLoadMatch, ctrl?: Control): Promise<Authenticated> {
 
     const utility = this._utility
 
@@ -136,14 +141,16 @@ class AuthenticatedEntity extends GuildWars2EntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Authenticated> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }
 
 
 
-  async list(this: any, reqmatch?: any, ctrl?: Control) {
+  async list(this: any, reqmatch?: AuthenticatedListMatch, ctrl?: Control): Promise<Authenticated[]> {
 
     const utility = this._utility
 
@@ -243,7 +250,9 @@ class AuthenticatedEntity extends GuildWars2EntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Authenticated[]> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

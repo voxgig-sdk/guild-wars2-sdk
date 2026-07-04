@@ -50,8 +50,7 @@ class GuildAuthenticatedEntityTest extends TestCase
         $guild_authenticated_ref01_ent = $client->GuildAuthenticated(null);
         $guild_authenticated_ref01_match = [];
 
-        [$guild_authenticated_ref01_list_result, $err] = $guild_authenticated_ref01_ent->list($guild_authenticated_ref01_match, null);
-        $this->assertNull($err);
+        $guild_authenticated_ref01_list_result = $guild_authenticated_ref01_ent->list($guild_authenticated_ref01_match, null);
         $this->assertIsArray($guild_authenticated_ref01_list_result);
 
     }

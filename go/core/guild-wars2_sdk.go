@@ -245,76 +245,121 @@ func (sdk *GuildWars2SDK) Direct(fetchargs map[string]any) (map[string]any, erro
 }
 
 
+// Achievement returns a Achievement entity bound to this client.
+// Idiomatic usage: client.Achievement(nil).List(nil, nil) or
+// client.Achievement(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *GuildWars2SDK) Achievement(data map[string]any) GuildWars2Entity {
 	return NewAchievementEntityFunc(sdk, data)
 }
 
 
+// Authenticated returns a Authenticated entity bound to this client.
+// Idiomatic usage: client.Authenticated(nil).List(nil, nil) or
+// client.Authenticated(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *GuildWars2SDK) Authenticated(data map[string]any) GuildWars2Entity {
 	return NewAuthenticatedEntityFunc(sdk, data)
 }
 
 
+// DailyReward returns a DailyReward entity bound to this client.
+// Idiomatic usage: client.DailyReward(nil).List(nil, nil) or
+// client.DailyReward(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *GuildWars2SDK) DailyReward(data map[string]any) GuildWars2Entity {
 	return NewDailyRewardEntityFunc(sdk, data)
 }
 
 
+// GameMechanic returns a GameMechanic entity bound to this client.
+// Idiomatic usage: client.GameMechanic(nil).List(nil, nil) or
+// client.GameMechanic(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *GuildWars2SDK) GameMechanic(data map[string]any) GuildWars2Entity {
 	return NewGameMechanicEntityFunc(sdk, data)
 }
 
 
+// Guild returns a Guild entity bound to this client.
+// Idiomatic usage: client.Guild(nil).List(nil, nil) or
+// client.Guild(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *GuildWars2SDK) Guild(data map[string]any) GuildWars2Entity {
 	return NewGuildEntityFunc(sdk, data)
 }
 
 
+// GuildAuthenticated returns a GuildAuthenticated entity bound to this client.
+// Idiomatic usage: client.GuildAuthenticated(nil).List(nil, nil) or
+// client.GuildAuthenticated(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *GuildWars2SDK) GuildAuthenticated(data map[string]any) GuildWars2Entity {
 	return NewGuildAuthenticatedEntityFunc(sdk, data)
 }
 
 
+// HomeInstance returns a HomeInstance entity bound to this client.
+// Idiomatic usage: client.HomeInstance(nil).List(nil, nil) or
+// client.HomeInstance(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *GuildWars2SDK) HomeInstance(data map[string]any) GuildWars2Entity {
 	return NewHomeInstanceEntityFunc(sdk, data)
 }
 
 
+// Item returns a Item entity bound to this client.
+// Idiomatic usage: client.Item(nil).List(nil, nil) or
+// client.Item(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *GuildWars2SDK) Item(data map[string]any) GuildWars2Entity {
 	return NewItemEntityFunc(sdk, data)
 }
 
 
+// Map returns a Map entity bound to this client.
+// Idiomatic usage: client.Map(nil).List(nil, nil) or
+// client.Map(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *GuildWars2SDK) Map(data map[string]any) GuildWars2Entity {
 	return NewMapEntityFunc(sdk, data)
 }
 
 
+// MapInformation returns a MapInformation entity bound to this client.
+// Idiomatic usage: client.MapInformation(nil).List(nil, nil) or
+// client.MapInformation(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *GuildWars2SDK) MapInformation(data map[string]any) GuildWars2Entity {
 	return NewMapInformationEntityFunc(sdk, data)
 }
 
 
+// Miscellaneous returns a Miscellaneous entity bound to this client.
+// Idiomatic usage: client.Miscellaneous(nil).List(nil, nil) or
+// client.Miscellaneous(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *GuildWars2SDK) Miscellaneous(data map[string]any) GuildWars2Entity {
 	return NewMiscellaneousEntityFunc(sdk, data)
 }
 
 
+// Story returns a Story entity bound to this client.
+// Idiomatic usage: client.Story(nil).List(nil, nil) or
+// client.Story(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *GuildWars2SDK) Story(data map[string]any) GuildWars2Entity {
 	return NewStoryEntityFunc(sdk, data)
 }
 
 
+// StructuredPvP returns a StructuredPvP entity bound to this client.
+// Idiomatic usage: client.StructuredPvP(nil).List(nil, nil) or
+// client.StructuredPvP(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *GuildWars2SDK) StructuredPvP(data map[string]any) GuildWars2Entity {
 	return NewStructuredPvPEntityFunc(sdk, data)
 }
 
 
+// TradingPost returns a TradingPost entity bound to this client.
+// Idiomatic usage: client.TradingPost(nil).List(nil, nil) or
+// client.TradingPost(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *GuildWars2SDK) TradingPost(data map[string]any) GuildWars2Entity {
 	return NewTradingPostEntityFunc(sdk, data)
 }
 
 
+// WorldVsWorld returns a WorldVsWorld entity bound to this client.
+// Idiomatic usage: client.WorldVsWorld(nil).List(nil, nil) or
+// client.WorldVsWorld(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *GuildWars2SDK) WorldVsWorld(data map[string]any) GuildWars2Entity {
 	return NewWorldVsWorldEntityFunc(sdk, data)
 }

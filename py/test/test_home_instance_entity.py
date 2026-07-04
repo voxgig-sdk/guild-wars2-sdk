@@ -50,8 +50,7 @@ class TestHomeInstanceEntity:
         home_instance_ref01_ent = client.HomeInstance(None)
         home_instance_ref01_match = {}
 
-        home_instance_ref01_list_result, err = home_instance_ref01_ent.list(home_instance_ref01_match, None)
-        assert err is None
+        home_instance_ref01_list_result = home_instance_ref01_ent.list(home_instance_ref01_match, None)
         assert isinstance(home_instance_ref01_list_result, list)
 
 

@@ -50,8 +50,7 @@ class GameMechanicEntityTest extends TestCase
         $game_mechanic_ref01_ent = $client->GameMechanic(null);
         $game_mechanic_ref01_match = [];
 
-        [$game_mechanic_ref01_list_result, $err] = $game_mechanic_ref01_ent->list($game_mechanic_ref01_match, null);
-        $this->assertNull($err);
+        $game_mechanic_ref01_list_result = $game_mechanic_ref01_ent->list($game_mechanic_ref01_match, null);
         $this->assertIsArray($game_mechanic_ref01_list_result);
 
     }

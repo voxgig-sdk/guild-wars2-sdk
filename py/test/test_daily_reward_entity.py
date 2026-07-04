@@ -50,8 +50,7 @@ class TestDailyRewardEntity:
         daily_reward_ref01_ent = client.DailyReward(None)
         daily_reward_ref01_match = {}
 
-        daily_reward_ref01_list_result, err = daily_reward_ref01_ent.list(daily_reward_ref01_match, None)
-        assert err is None
+        daily_reward_ref01_list_result = daily_reward_ref01_ent.list(daily_reward_ref01_match, None)
         assert isinstance(daily_reward_ref01_list_result, list)
 
 

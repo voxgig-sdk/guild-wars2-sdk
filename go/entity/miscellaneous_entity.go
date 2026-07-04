@@ -85,6 +85,27 @@ func (e *MiscellaneousEntity) Match(args ...any) any {
 	return out
 }
 
+// DataTyped is the statically-typed accessor for this entity's data. With no
+// argument it returns the current data as an Miscellaneous; with an argument it
+// sets the data and returns the stored value. It delegates to the untyped Data
+// (identical runtime) and converts at the typed boundary.
+func (e *MiscellaneousEntity) DataTyped(data ...Miscellaneous) Miscellaneous {
+	if len(data) > 0 {
+		return typedFrom[Miscellaneous](e.Data(asMap(data[0])))
+	}
+	return typedFrom[Miscellaneous](e.Data())
+}
+
+// MatchTyped mirrors DataTyped for the entity's match filter. The match is a
+// partial of the entity, so it round-trips through Miscellaneous (all fields
+// optional at the wire level).
+func (e *MiscellaneousEntity) MatchTyped(match ...Miscellaneous) Miscellaneous {
+	if len(match) > 0 {
+		return typedFrom[Miscellaneous](e.Match(asMap(match[0])))
+	}
+	return typedFrom[Miscellaneous](e.Match())
+}
+
 
 func (e *MiscellaneousEntity) Load(reqmatch map[string]any, ctrl map[string]any) (any, error) {
 	utility := e.utility
@@ -111,6 +132,17 @@ func (e *MiscellaneousEntity) Load(reqmatch map[string]any, ctrl map[string]any)
 	})
 }
 
+// LoadTyped is the statically-typed variant of Load: it takes an
+// MiscellaneousLoadMatch and returns an Miscellaneous. It delegates to the untyped
+// Load (identical runtime) and converts at the typed boundary.
+func (e *MiscellaneousEntity) LoadTyped(reqmatch MiscellaneousLoadMatch, ctrl map[string]any) (Miscellaneous, error) {
+	res, err := e.Load(asMap(reqmatch), ctrl)
+	if err != nil {
+		return Miscellaneous{}, err
+	}
+	return typedFrom[Miscellaneous](res), nil
+}
+
 
 
 
@@ -131,6 +163,17 @@ func (e *MiscellaneousEntity) List(reqmatch map[string]any, ctrl map[string]any)
 			}
 		}
 	})
+}
+
+// ListTyped is the statically-typed variant of List: it takes an
+// MiscellaneousListMatch and returns []Miscellaneous. It delegates to the untyped
+// List (identical runtime) and converts at the typed boundary.
+func (e *MiscellaneousEntity) ListTyped(reqmatch MiscellaneousListMatch, ctrl map[string]any) ([]Miscellaneous, error) {
+	res, err := e.List(asMap(reqmatch), ctrl)
+	if err != nil {
+		return nil, err
+	}
+	return typedSliceFrom[Miscellaneous](res), nil
 }
 
 

@@ -43,8 +43,7 @@ class GameMechanicEntityTest < Minitest::Test
     game_mechanic_ref01_ent = client.GameMechanic(nil)
     game_mechanic_ref01_match = {}
 
-    game_mechanic_ref01_list_result, err = game_mechanic_ref01_ent.list(game_mechanic_ref01_match, nil)
-    assert_nil err
+    game_mechanic_ref01_list_result = game_mechanic_ref01_ent.list(game_mechanic_ref01_match, nil)
     assert game_mechanic_ref01_list_result.is_a?(Array)
 
   end

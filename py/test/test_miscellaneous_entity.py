@@ -50,16 +50,14 @@ class TestMiscellaneousEntity:
         miscellaneous_ref01_ent = client.Miscellaneous(None)
         miscellaneous_ref01_match = {}
 
-        miscellaneous_ref01_list_result, err = miscellaneous_ref01_ent.list(miscellaneous_ref01_match, None)
-        assert err is None
+        miscellaneous_ref01_list_result = miscellaneous_ref01_ent.list(miscellaneous_ref01_match, None)
         assert isinstance(miscellaneous_ref01_list_result, list)
 
         # LOAD
         miscellaneous_ref01_match_dt0 = {
             "id": miscellaneous_ref01_data["id"],
         }
-        miscellaneous_ref01_data_dt0_loaded, err = miscellaneous_ref01_ent.load(miscellaneous_ref01_match_dt0, None)
-        assert err is None
+        miscellaneous_ref01_data_dt0_loaded = miscellaneous_ref01_ent.load(miscellaneous_ref01_match_dt0, None)
         miscellaneous_ref01_data_dt0_load_result = helpers.to_map(miscellaneous_ref01_data_dt0_loaded)
         assert miscellaneous_ref01_data_dt0_load_result is not None
         assert miscellaneous_ref01_data_dt0_load_result["id"] == miscellaneous_ref01_data["id"]

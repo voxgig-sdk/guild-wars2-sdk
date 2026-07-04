@@ -45,6 +45,7 @@ class TradingPostEntity
     end
   end
 
+  # @return [TradingPost, Hash] the current TradingPost data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,12 +58,18 @@ class TradingPostEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of TradingPost fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
   end
 
   
+  # Load a single TradingPost.
+  #
+  # @param reqmatch [TradingPostLoadMatch, Hash, nil] match criteria (id/query fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [TradingPost, Hash] the loaded TradingPost; raises GuildWars2Error on failure
   def load(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({
@@ -86,6 +93,11 @@ class TradingPostEntity
 
 
   
+  # List TradingPost items matching the given filter.
+  #
+  # @param reqmatch [TradingPostListMatch, Hash, nil] match filter (any subset of TradingPost fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [Array<TradingPost>, Array] the matching TradingPost items; raises GuildWars2Error on failure
   def list(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

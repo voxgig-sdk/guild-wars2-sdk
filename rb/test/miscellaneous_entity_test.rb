@@ -43,16 +43,14 @@ class MiscellaneousEntityTest < Minitest::Test
     miscellaneous_ref01_ent = client.Miscellaneous(nil)
     miscellaneous_ref01_match = {}
 
-    miscellaneous_ref01_list_result, err = miscellaneous_ref01_ent.list(miscellaneous_ref01_match, nil)
-    assert_nil err
+    miscellaneous_ref01_list_result = miscellaneous_ref01_ent.list(miscellaneous_ref01_match, nil)
     assert miscellaneous_ref01_list_result.is_a?(Array)
 
     # LOAD
     miscellaneous_ref01_match_dt0 = {
       "id" => miscellaneous_ref01_data["id"],
     }
-    miscellaneous_ref01_data_dt0_loaded, err = miscellaneous_ref01_ent.load(miscellaneous_ref01_match_dt0, nil)
-    assert_nil err
+    miscellaneous_ref01_data_dt0_loaded = miscellaneous_ref01_ent.load(miscellaneous_ref01_match_dt0, nil)
     miscellaneous_ref01_data_dt0_load_result = Helpers.to_map(miscellaneous_ref01_data_dt0_loaded)
     assert !miscellaneous_ref01_data_dt0_load_result.nil?
     assert_equal miscellaneous_ref01_data_dt0_load_result["id"], miscellaneous_ref01_data["id"]

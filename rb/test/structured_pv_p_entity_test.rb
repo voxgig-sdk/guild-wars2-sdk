@@ -43,8 +43,7 @@ class StructuredPvPEntityTest < Minitest::Test
     structured_pv_p_ref01_ent = client.StructuredPvP(nil)
     structured_pv_p_ref01_match = {}
 
-    structured_pv_p_ref01_list_result, err = structured_pv_p_ref01_ent.list(structured_pv_p_ref01_match, nil)
-    assert_nil err
+    structured_pv_p_ref01_list_result = structured_pv_p_ref01_ent.list(structured_pv_p_ref01_match, nil)
     assert structured_pv_p_ref01_list_result.is_a?(Array)
 
   end

@@ -50,14 +50,12 @@ class TradingPostEntityTest extends TestCase
         $trading_post_ref01_ent = $client->TradingPost(null);
         $trading_post_ref01_match = [];
 
-        [$trading_post_ref01_list_result, $err] = $trading_post_ref01_ent->list($trading_post_ref01_match, null);
-        $this->assertNull($err);
+        $trading_post_ref01_list_result = $trading_post_ref01_ent->list($trading_post_ref01_match, null);
         $this->assertIsArray($trading_post_ref01_list_result);
 
         // LOAD
         $trading_post_ref01_match_dt0 = [];
-        [$trading_post_ref01_data_dt0_loaded, $err] = $trading_post_ref01_ent->load($trading_post_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $trading_post_ref01_data_dt0_loaded = $trading_post_ref01_ent->load($trading_post_ref01_match_dt0, null);
         $this->assertNotNull($trading_post_ref01_data_dt0_loaded);
 
     }

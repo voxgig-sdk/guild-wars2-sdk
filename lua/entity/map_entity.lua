@@ -81,6 +81,10 @@ end
 
 
 
+---@param reqmatch MapListMatch
+---@param ctrl? table
+---@return Map[]
+---@return string? err
 function MapEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

@@ -50,16 +50,14 @@ class MiscellaneousEntityTest extends TestCase
         $miscellaneous_ref01_ent = $client->Miscellaneous(null);
         $miscellaneous_ref01_match = [];
 
-        [$miscellaneous_ref01_list_result, $err] = $miscellaneous_ref01_ent->list($miscellaneous_ref01_match, null);
-        $this->assertNull($err);
+        $miscellaneous_ref01_list_result = $miscellaneous_ref01_ent->list($miscellaneous_ref01_match, null);
         $this->assertIsArray($miscellaneous_ref01_list_result);
 
         // LOAD
         $miscellaneous_ref01_match_dt0 = [
             "id" => $miscellaneous_ref01_data["id"],
         ];
-        [$miscellaneous_ref01_data_dt0_loaded, $err] = $miscellaneous_ref01_ent->load($miscellaneous_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $miscellaneous_ref01_data_dt0_loaded = $miscellaneous_ref01_ent->load($miscellaneous_ref01_match_dt0, null);
         $miscellaneous_ref01_data_dt0_load_result = Helpers::to_map($miscellaneous_ref01_data_dt0_loaded);
         $this->assertNotNull($miscellaneous_ref01_data_dt0_load_result);
         $this->assertEquals($miscellaneous_ref01_data_dt0_load_result["id"], $miscellaneous_ref01_data["id"]);

@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  GameMechanic,
+  GameMechanicListMatch,
+} from '../GuildWars2Types'
 
 // TODO: needs Entity superclass
-class GameMechanicEntity extends GuildWars2EntityBase {
+class GameMechanicEntity extends GuildWars2EntityBase<GameMechanic> {
 
   constructor(client: GuildWars2SDK, entopts: any) {
     super(client, entopts)
@@ -33,7 +37,7 @@ class GameMechanicEntity extends GuildWars2EntityBase {
 
 
 
-  async list(this: any, reqmatch?: any, ctrl?: Control) {
+  async list(this: any, reqmatch?: GameMechanicListMatch, ctrl?: Control): Promise<GameMechanic[]> {
 
     const utility = this._utility
 
@@ -133,7 +137,9 @@ class GameMechanicEntity extends GuildWars2EntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<GameMechanic[]> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

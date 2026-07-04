@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch MiscellaneousLoadMatch
+---@param ctrl? table
+---@return Miscellaneous
+---@return string? err
 function MiscellaneousEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({
@@ -104,6 +108,10 @@ end
 
 
 
+---@param reqmatch MiscellaneousListMatch
+---@param ctrl? table
+---@return Miscellaneous[]
+---@return string? err
 function MiscellaneousEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

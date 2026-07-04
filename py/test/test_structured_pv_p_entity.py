@@ -50,8 +50,7 @@ class TestStructuredPvPEntity:
         structured_pv_p_ref01_ent = client.StructuredPvP(None)
         structured_pv_p_ref01_match = {}
 
-        structured_pv_p_ref01_list_result, err = structured_pv_p_ref01_ent.list(structured_pv_p_ref01_match, None)
-        assert err is None
+        structured_pv_p_ref01_list_result = structured_pv_p_ref01_ent.list(structured_pv_p_ref01_match, None)
         assert isinstance(structured_pv_p_ref01_list_result, list)
 
 

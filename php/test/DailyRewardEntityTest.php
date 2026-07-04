@@ -50,8 +50,7 @@ class DailyRewardEntityTest extends TestCase
         $daily_reward_ref01_ent = $client->DailyReward(null);
         $daily_reward_ref01_match = [];
 
-        [$daily_reward_ref01_list_result, $err] = $daily_reward_ref01_ent->list($daily_reward_ref01_match, null);
-        $this->assertNull($err);
+        $daily_reward_ref01_list_result = $daily_reward_ref01_ent->list($daily_reward_ref01_match, null);
         $this->assertIsArray($daily_reward_ref01_list_result);
 
     }

@@ -278,7 +278,7 @@ Alias for `GuildWars2SDK.test()`.
 ## AchievementEntity
 
 ```ts
-const achievement = client.Achievement()
+const achievement = client.achievement
 ```
 
 ### Operations
@@ -288,7 +288,7 @@ const achievement = client.Achievement()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Achievement().list()
+const results = await client.achievement.list()
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -296,7 +296,7 @@ const results = await client.Achievement().list()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Achievement().load({ id: 'achievement_id' })
+const result = await client.achievement.load({ id: 'achievement_id' })
 ```
 
 ### Common Methods
@@ -330,7 +330,7 @@ Return a copy of the entity options.
 ## AuthenticatedEntity
 
 ```ts
-const authenticated = client.Authenticated()
+const authenticated = client.authenticated
 ```
 
 ### Fields
@@ -352,7 +352,7 @@ const authenticated = client.Authenticated()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Authenticated().list()
+const results = await client.authenticated.list()
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -360,7 +360,7 @@ const results = await client.Authenticated().list()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Authenticated().load({ id: 'authenticated_id' })
+const result = await client.authenticated.load({ id: 'authenticated_id' })
 ```
 
 ### Common Methods
@@ -394,7 +394,7 @@ Return a copy of the entity options.
 ## DailyRewardEntity
 
 ```ts
-const daily_reward = client.DailyReward()
+const daily_reward = client.daily_reward
 ```
 
 ### Operations
@@ -404,7 +404,7 @@ const daily_reward = client.DailyReward()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.DailyReward().list()
+const results = await client.daily_reward.list()
 ```
 
 ### Common Methods
@@ -438,7 +438,7 @@ Return a copy of the entity options.
 ## GameMechanicEntity
 
 ```ts
-const game_mechanic = client.GameMechanic()
+const game_mechanic = client.game_mechanic
 ```
 
 ### Operations
@@ -448,7 +448,7 @@ const game_mechanic = client.GameMechanic()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.GameMechanic().list()
+const results = await client.game_mechanic.list()
 ```
 
 ### Common Methods
@@ -482,7 +482,7 @@ Return a copy of the entity options.
 ## GuildEntity
 
 ```ts
-const guild = client.Guild()
+const guild = client.guild
 ```
 
 ### Operations
@@ -492,7 +492,7 @@ const guild = client.Guild()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Guild().list()
+const results = await client.guild.list()
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -500,7 +500,7 @@ const results = await client.Guild().list()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Guild().load({ id: 'guild_id' })
+const result = await client.guild.load({ id: 'guild_id' })
 ```
 
 ### Common Methods
@@ -534,7 +534,7 @@ Return a copy of the entity options.
 ## GuildAuthenticatedEntity
 
 ```ts
-const guild_authenticated = client.GuildAuthenticated()
+const guild_authenticated = client.guild_authenticated
 ```
 
 ### Operations
@@ -544,7 +544,7 @@ const guild_authenticated = client.GuildAuthenticated()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.GuildAuthenticated().list()
+const results = await client.guild_authenticated.list()
 ```
 
 ### Common Methods
@@ -578,7 +578,7 @@ Return a copy of the entity options.
 ## HomeInstanceEntity
 
 ```ts
-const home_instance = client.HomeInstance()
+const home_instance = client.home_instance
 ```
 
 ### Operations
@@ -588,7 +588,7 @@ const home_instance = client.HomeInstance()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.HomeInstance().list()
+const results = await client.home_instance.list()
 ```
 
 ### Common Methods
@@ -622,7 +622,7 @@ Return a copy of the entity options.
 ## ItemEntity
 
 ```ts
-const item = client.Item()
+const item = client.item
 ```
 
 ### Operations
@@ -632,7 +632,7 @@ const item = client.Item()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Item().list()
+const results = await client.item.list()
 ```
 
 ### Common Methods
@@ -666,7 +666,7 @@ Return a copy of the entity options.
 ## MapEntity
 
 ```ts
-const map = client.Map()
+const map = client.map
 ```
 
 ### Operations
@@ -676,7 +676,7 @@ const map = client.Map()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Map().list()
+const results = await client.map.list()
 ```
 
 ### Common Methods
@@ -710,7 +710,7 @@ Return a copy of the entity options.
 ## MapInformationEntity
 
 ```ts
-const map_information = client.MapInformation()
+const map_information = client.map_information
 ```
 
 ### Operations
@@ -720,7 +720,7 @@ const map_information = client.MapInformation()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.MapInformation().list()
+const results = await client.map_information.list()
 ```
 
 ### Common Methods
@@ -754,7 +754,7 @@ Return a copy of the entity options.
 ## MiscellaneousEntity
 
 ```ts
-const miscellaneous = client.Miscellaneous()
+const miscellaneous = client.miscellaneous
 ```
 
 ### Fields
@@ -770,7 +770,7 @@ const miscellaneous = client.Miscellaneous()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Miscellaneous().list()
+const results = await client.miscellaneous.list()
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -778,7 +778,7 @@ const results = await client.Miscellaneous().list()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Miscellaneous().load({ id: 'miscellaneous_id' })
+const result = await client.miscellaneous.load({ id: 'miscellaneous_id' })
 ```
 
 ### Common Methods
@@ -812,7 +812,7 @@ Return a copy of the entity options.
 ## StoryEntity
 
 ```ts
-const story = client.Story()
+const story = client.story
 ```
 
 ### Operations
@@ -822,7 +822,7 @@ const story = client.Story()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Story().list()
+const results = await client.story.list()
 ```
 
 ### Common Methods
@@ -856,7 +856,7 @@ Return a copy of the entity options.
 ## StructuredPvPEntity
 
 ```ts
-const structured_pv_p = client.StructuredPvP()
+const structured_pv_p = client.structured_pv_p
 ```
 
 ### Operations
@@ -866,7 +866,7 @@ const structured_pv_p = client.StructuredPvP()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.StructuredPvP().list()
+const results = await client.structured_pv_p.list()
 ```
 
 ### Common Methods
@@ -900,7 +900,7 @@ Return a copy of the entity options.
 ## TradingPostEntity
 
 ```ts
-const trading_post = client.TradingPost()
+const trading_post = client.trading_post
 ```
 
 ### Fields
@@ -919,7 +919,7 @@ const trading_post = client.TradingPost()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.TradingPost().list()
+const results = await client.trading_post.list()
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -927,7 +927,7 @@ const results = await client.TradingPost().list()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.TradingPost().load({ id: 'trading_post_id' })
+const result = await client.trading_post.load({ id: 'trading_post_id' })
 ```
 
 ### Common Methods
@@ -961,7 +961,7 @@ Return a copy of the entity options.
 ## WorldVsWorldEntity
 
 ```ts
-const world_vs_world = client.WorldVsWorld()
+const world_vs_world = client.world_vs_world
 ```
 
 ### Operations
@@ -971,7 +971,7 @@ const world_vs_world = client.WorldVsWorld()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.WorldVsWorld().list()
+const results = await client.world_vs_world.list()
 ```
 
 ### Common Methods

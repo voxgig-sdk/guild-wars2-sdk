@@ -50,16 +50,14 @@ class TestAuthenticatedEntity:
         authenticated_ref01_ent = client.Authenticated(None)
         authenticated_ref01_match = {}
 
-        authenticated_ref01_list_result, err = authenticated_ref01_ent.list(authenticated_ref01_match, None)
-        assert err is None
+        authenticated_ref01_list_result = authenticated_ref01_ent.list(authenticated_ref01_match, None)
         assert isinstance(authenticated_ref01_list_result, list)
 
         # LOAD
         authenticated_ref01_match_dt0 = {
             "id": authenticated_ref01_data["id"],
         }
-        authenticated_ref01_data_dt0_loaded, err = authenticated_ref01_ent.load(authenticated_ref01_match_dt0, None)
-        assert err is None
+        authenticated_ref01_data_dt0_loaded = authenticated_ref01_ent.load(authenticated_ref01_match_dt0, None)
         authenticated_ref01_data_dt0_load_result = helpers.to_map(authenticated_ref01_data_dt0_loaded)
         assert authenticated_ref01_data_dt0_load_result is not None
         assert authenticated_ref01_data_dt0_load_result["id"] == authenticated_ref01_data["id"]

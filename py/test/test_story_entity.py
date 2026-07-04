@@ -50,8 +50,7 @@ class TestStoryEntity:
         story_ref01_ent = client.Story(None)
         story_ref01_match = {}
 
-        story_ref01_list_result, err = story_ref01_ent.list(story_ref01_match, None)
-        assert err is None
+        story_ref01_list_result = story_ref01_ent.list(story_ref01_match, None)
         assert isinstance(story_ref01_list_result, list)
 
 

@@ -45,6 +45,7 @@ class MiscellaneousEntity
     end
   end
 
+  # @return [Miscellaneous, Hash] the current Miscellaneous data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,12 +58,18 @@ class MiscellaneousEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of Miscellaneous fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
   end
 
   
+  # Load a single Miscellaneous.
+  #
+  # @param reqmatch [MiscellaneousLoadMatch, Hash, nil] match criteria (id/query fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [Miscellaneous, Hash] the loaded Miscellaneous; raises GuildWars2Error on failure
   def load(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({
@@ -86,6 +93,11 @@ class MiscellaneousEntity
 
 
   
+  # List Miscellaneous items matching the given filter.
+  #
+  # @param reqmatch [MiscellaneousListMatch, Hash, nil] match filter (any subset of Miscellaneous fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [Array<Miscellaneous>, Array] the matching Miscellaneous items; raises GuildWars2Error on failure
   def list(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

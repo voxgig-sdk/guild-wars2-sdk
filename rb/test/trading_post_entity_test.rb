@@ -43,14 +43,12 @@ class TradingPostEntityTest < Minitest::Test
     trading_post_ref01_ent = client.TradingPost(nil)
     trading_post_ref01_match = {}
 
-    trading_post_ref01_list_result, err = trading_post_ref01_ent.list(trading_post_ref01_match, nil)
-    assert_nil err
+    trading_post_ref01_list_result = trading_post_ref01_ent.list(trading_post_ref01_match, nil)
     assert trading_post_ref01_list_result.is_a?(Array)
 
     # LOAD
     trading_post_ref01_match_dt0 = {}
-    trading_post_ref01_data_dt0_loaded, err = trading_post_ref01_ent.load(trading_post_ref01_match_dt0, nil)
-    assert_nil err
+    trading_post_ref01_data_dt0_loaded = trading_post_ref01_ent.load(trading_post_ref01_match_dt0, nil)
     assert !trading_post_ref01_data_dt0_loaded.nil?
 
   end

@@ -140,7 +140,7 @@ same parameters as `direct()`.
 ## AchievementEntity
 
 ```lua
-local achievement = client:Achievement(nil)
+local achievement = client:achievement(nil)
 ```
 
 ### Operations
@@ -150,7 +150,7 @@ local achievement = client:Achievement(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Achievement():list()
+local results, err = client:achievement():list()
 ```
 
 #### `load(reqmatch, ctrl) -> any, err`
@@ -158,7 +158,7 @@ local results, err = client:Achievement():list()
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Achievement():load({ id = "achievement_id" })
+local result, err = client:achievement():load({ id = "achievement_id" })
 ```
 
 ### Common Methods
@@ -194,7 +194,7 @@ Return the entity name.
 ## AuthenticatedEntity
 
 ```lua
-local authenticated = client:Authenticated(nil)
+local authenticated = client:authenticated(nil)
 ```
 
 ### Fields
@@ -216,7 +216,7 @@ local authenticated = client:Authenticated(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Authenticated():list()
+local results, err = client:authenticated():list()
 ```
 
 #### `load(reqmatch, ctrl) -> any, err`
@@ -224,7 +224,7 @@ local results, err = client:Authenticated():list()
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Authenticated():load({ id = "authenticated_id" })
+local result, err = client:authenticated():load({ id = "authenticated_id" })
 ```
 
 ### Common Methods
@@ -260,7 +260,7 @@ Return the entity name.
 ## DailyRewardEntity
 
 ```lua
-local daily_reward = client:DailyReward(nil)
+local daily_reward = client:daily_reward(nil)
 ```
 
 ### Operations
@@ -270,7 +270,7 @@ local daily_reward = client:DailyReward(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:DailyReward():list()
+local results, err = client:daily_reward():list()
 ```
 
 ### Common Methods
@@ -306,7 +306,7 @@ Return the entity name.
 ## GameMechanicEntity
 
 ```lua
-local game_mechanic = client:GameMechanic(nil)
+local game_mechanic = client:game_mechanic(nil)
 ```
 
 ### Operations
@@ -316,7 +316,7 @@ local game_mechanic = client:GameMechanic(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:GameMechanic():list()
+local results, err = client:game_mechanic():list()
 ```
 
 ### Common Methods
@@ -352,7 +352,7 @@ Return the entity name.
 ## GuildEntity
 
 ```lua
-local guild = client:Guild(nil)
+local guild = client:guild(nil)
 ```
 
 ### Operations
@@ -362,7 +362,7 @@ local guild = client:Guild(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Guild():list()
+local results, err = client:guild():list()
 ```
 
 #### `load(reqmatch, ctrl) -> any, err`
@@ -370,7 +370,7 @@ local results, err = client:Guild():list()
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Guild():load({ id = "guild_id" })
+local result, err = client:guild():load({ id = "guild_id" })
 ```
 
 ### Common Methods
@@ -406,7 +406,7 @@ Return the entity name.
 ## GuildAuthenticatedEntity
 
 ```lua
-local guild_authenticated = client:GuildAuthenticated(nil)
+local guild_authenticated = client:guild_authenticated(nil)
 ```
 
 ### Operations
@@ -416,7 +416,7 @@ local guild_authenticated = client:GuildAuthenticated(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:GuildAuthenticated():list()
+local results, err = client:guild_authenticated():list()
 ```
 
 ### Common Methods
@@ -452,7 +452,7 @@ Return the entity name.
 ## HomeInstanceEntity
 
 ```lua
-local home_instance = client:HomeInstance(nil)
+local home_instance = client:home_instance(nil)
 ```
 
 ### Operations
@@ -462,7 +462,7 @@ local home_instance = client:HomeInstance(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:HomeInstance():list()
+local results, err = client:home_instance():list()
 ```
 
 ### Common Methods
@@ -498,7 +498,7 @@ Return the entity name.
 ## ItemEntity
 
 ```lua
-local item = client:Item(nil)
+local item = client:item(nil)
 ```
 
 ### Operations
@@ -508,7 +508,7 @@ local item = client:Item(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Item():list()
+local results, err = client:item():list()
 ```
 
 ### Common Methods
@@ -544,7 +544,7 @@ Return the entity name.
 ## MapEntity
 
 ```lua
-local map = client:Map(nil)
+local map = client:map(nil)
 ```
 
 ### Operations
@@ -554,7 +554,7 @@ local map = client:Map(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Map():list()
+local results, err = client:map():list()
 ```
 
 ### Common Methods
@@ -590,7 +590,7 @@ Return the entity name.
 ## MapInformationEntity
 
 ```lua
-local map_information = client:MapInformation(nil)
+local map_information = client:map_information(nil)
 ```
 
 ### Operations
@@ -600,7 +600,7 @@ local map_information = client:MapInformation(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:MapInformation():list()
+local results, err = client:map_information():list()
 ```
 
 ### Common Methods
@@ -636,7 +636,7 @@ Return the entity name.
 ## MiscellaneousEntity
 
 ```lua
-local miscellaneous = client:Miscellaneous(nil)
+local miscellaneous = client:miscellaneous(nil)
 ```
 
 ### Fields
@@ -652,7 +652,7 @@ local miscellaneous = client:Miscellaneous(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Miscellaneous():list()
+local results, err = client:miscellaneous():list()
 ```
 
 #### `load(reqmatch, ctrl) -> any, err`
@@ -660,7 +660,7 @@ local results, err = client:Miscellaneous():list()
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Miscellaneous():load({ id = "miscellaneous_id" })
+local result, err = client:miscellaneous():load({ id = "miscellaneous_id" })
 ```
 
 ### Common Methods
@@ -696,7 +696,7 @@ Return the entity name.
 ## StoryEntity
 
 ```lua
-local story = client:Story(nil)
+local story = client:story(nil)
 ```
 
 ### Operations
@@ -706,7 +706,7 @@ local story = client:Story(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Story():list()
+local results, err = client:story():list()
 ```
 
 ### Common Methods
@@ -742,7 +742,7 @@ Return the entity name.
 ## StructuredPvPEntity
 
 ```lua
-local structured_pv_p = client:StructuredPvP(nil)
+local structured_pv_p = client:structured_pv_p(nil)
 ```
 
 ### Operations
@@ -752,7 +752,7 @@ local structured_pv_p = client:StructuredPvP(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:StructuredPvP():list()
+local results, err = client:structured_pv_p():list()
 ```
 
 ### Common Methods
@@ -788,7 +788,7 @@ Return the entity name.
 ## TradingPostEntity
 
 ```lua
-local trading_post = client:TradingPost(nil)
+local trading_post = client:trading_post(nil)
 ```
 
 ### Fields
@@ -807,7 +807,7 @@ local trading_post = client:TradingPost(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:TradingPost():list()
+local results, err = client:trading_post():list()
 ```
 
 #### `load(reqmatch, ctrl) -> any, err`
@@ -815,7 +815,7 @@ local results, err = client:TradingPost():list()
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:TradingPost():load({ id = "trading_post_id" })
+local result, err = client:trading_post():load({ id = "trading_post_id" })
 ```
 
 ### Common Methods
@@ -851,7 +851,7 @@ Return the entity name.
 ## WorldVsWorldEntity
 
 ```lua
-local world_vs_world = client:WorldVsWorld(nil)
+local world_vs_world = client:world_vs_world(nil)
 ```
 
 ### Operations
@@ -861,7 +861,7 @@ local world_vs_world = client:WorldVsWorld(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:WorldVsWorld():list()
+local results, err = client:world_vs_world():list()
 ```
 
 ### Common Methods

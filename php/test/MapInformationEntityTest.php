@@ -50,8 +50,7 @@ class MapInformationEntityTest extends TestCase
         $map_information_ref01_ent = $client->MapInformation(null);
         $map_information_ref01_match = [];
 
-        [$map_information_ref01_list_result, $err] = $map_information_ref01_ent->list($map_information_ref01_match, null);
-        $this->assertNull($err);
+        $map_information_ref01_list_result = $map_information_ref01_ent->list($map_information_ref01_match, null);
         $this->assertIsArray($map_information_ref01_list_result);
 
     }

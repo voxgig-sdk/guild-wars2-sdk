@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  DailyReward,
+  DailyRewardListMatch,
+} from '../GuildWars2Types'
 
 // TODO: needs Entity superclass
-class DailyRewardEntity extends GuildWars2EntityBase {
+class DailyRewardEntity extends GuildWars2EntityBase<DailyReward> {
 
   constructor(client: GuildWars2SDK, entopts: any) {
     super(client, entopts)
@@ -33,7 +37,7 @@ class DailyRewardEntity extends GuildWars2EntityBase {
 
 
 
-  async list(this: any, reqmatch?: any, ctrl?: Control) {
+  async list(this: any, reqmatch?: DailyRewardListMatch, ctrl?: Control): Promise<DailyReward[]> {
 
     const utility = this._utility
 
@@ -133,7 +137,9 @@ class DailyRewardEntity extends GuildWars2EntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<DailyReward[]> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

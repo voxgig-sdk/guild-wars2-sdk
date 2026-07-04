@@ -43,8 +43,7 @@ class GuildAuthenticatedEntityTest < Minitest::Test
     guild_authenticated_ref01_ent = client.GuildAuthenticated(nil)
     guild_authenticated_ref01_match = {}
 
-    guild_authenticated_ref01_list_result, err = guild_authenticated_ref01_ent.list(guild_authenticated_ref01_match, nil)
-    assert_nil err
+    guild_authenticated_ref01_list_result = guild_authenticated_ref01_ent.list(guild_authenticated_ref01_match, nil)
     assert guild_authenticated_ref01_list_result.is_a?(Array)
 
   end

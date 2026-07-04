@@ -50,8 +50,7 @@ class TestGameMechanicEntity:
         game_mechanic_ref01_ent = client.GameMechanic(None)
         game_mechanic_ref01_match = {}
 
-        game_mechanic_ref01_list_result, err = game_mechanic_ref01_ent.list(game_mechanic_ref01_match, None)
-        assert err is None
+        game_mechanic_ref01_list_result = game_mechanic_ref01_ent.list(game_mechanic_ref01_match, None)
         assert isinstance(game_mechanic_ref01_list_result, list)
 
 

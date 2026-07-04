@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch AuthenticatedLoadMatch
+---@param ctrl? table
+---@return Authenticated
+---@return string? err
 function AuthenticatedEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({
@@ -104,6 +108,10 @@ end
 
 
 
+---@param reqmatch AuthenticatedListMatch
+---@param ctrl? table
+---@return Authenticated[]
+---@return string? err
 function AuthenticatedEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

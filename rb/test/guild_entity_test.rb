@@ -43,14 +43,12 @@ class GuildEntityTest < Minitest::Test
     guild_ref01_ent = client.Guild(nil)
     guild_ref01_match = {}
 
-    guild_ref01_list_result, err = guild_ref01_ent.list(guild_ref01_match, nil)
-    assert_nil err
+    guild_ref01_list_result = guild_ref01_ent.list(guild_ref01_match, nil)
     assert guild_ref01_list_result.is_a?(Array)
 
     # LOAD
     guild_ref01_match_dt0 = {}
-    guild_ref01_data_dt0_loaded, err = guild_ref01_ent.load(guild_ref01_match_dt0, nil)
-    assert_nil err
+    guild_ref01_data_dt0_loaded = guild_ref01_ent.load(guild_ref01_match_dt0, nil)
     assert !guild_ref01_data_dt0_loaded.nil?
 
   end

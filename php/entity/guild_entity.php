@@ -55,6 +55,9 @@ class GuildEntity
         return new GuildEntity($this->_client, $opts);
     }
 
+    /**
+     * @param Guild|array $args Guild data (assoc-array) to store.
+     */
     public function data_set($args): void
     {
         if ($args) {
@@ -63,12 +66,18 @@ class GuildEntity
         }
     }
 
+    /**
+     * @return Guild|array The current Guild data as an assoc-array.
+     */
     public function data_get()
     {
         ($this->_utility->feature_hook)($this->_entctx, "GetData");
         return Struct::clone($this->_data);
     }
 
+    /**
+     * @param array $args Match filter (any subset of Guild fields).
+     */
     public function match_set($args): void
     {
         if ($args) {
@@ -77,6 +86,9 @@ class GuildEntity
         }
     }
 
+    /**
+     * @return array The current match filter (any subset of Guild fields).
+     */
     public function match_get()
     {
         ($this->_utility->feature_hook)($this->_entctx, "GetMatch");
@@ -84,7 +96,16 @@ class GuildEntity
     }
 
     
-    public function load($reqmatch, $ctrl = null): array
+    /**
+     * Load a single Guild.
+     *
+     * @param GuildLoadMatch|array|null $reqmatch Match criteria (id/query
+     *   fields) as an assoc-array; a typed GuildLoadMatch names the shape.
+     * @param mixed $ctrl Optional per-call control overrides.
+     * @return Guild|array The loaded Guild as an assoc-array at the
+     *   SDK boundary; throws GuildWars2Error on failure (item-5 convention).
+     */
+    public function load(?array $reqmatch = null, $ctrl = null): mixed
     {
         $utility = $this->_utility;
         $ctx = ($utility->make_context)([
@@ -110,7 +131,16 @@ class GuildEntity
 
 
     
-    public function list($reqmatch, $ctrl = null): array
+    /**
+     * List Guild items matching the given filter.
+     *
+     * @param GuildListMatch|array|null $reqmatch Match filter (any subset
+     *   of Guild fields) as an assoc-array; GuildListMatch names the shape.
+     * @param mixed $ctrl Optional per-call control overrides.
+     * @return Guild[]|array A list of Guild items as assoc-arrays at
+     *   the SDK boundary; throws GuildWars2Error on failure (item-5 convention).
+     */
+    public function list(?array $reqmatch = null, $ctrl = null): mixed
     {
         $utility = $this->_utility;
         $ctx = ($utility->make_context)([
@@ -138,7 +168,7 @@ class GuildEntity
 
     
 
-    private function _run_op($ctx, callable $post_done): array
+    private function _run_op($ctx, callable $post_done): mixed
     {
         $utility = $this->_utility;
 

@@ -50,14 +50,12 @@ class TestTradingPostEntity:
         trading_post_ref01_ent = client.TradingPost(None)
         trading_post_ref01_match = {}
 
-        trading_post_ref01_list_result, err = trading_post_ref01_ent.list(trading_post_ref01_match, None)
-        assert err is None
+        trading_post_ref01_list_result = trading_post_ref01_ent.list(trading_post_ref01_match, None)
         assert isinstance(trading_post_ref01_list_result, list)
 
         # LOAD
         trading_post_ref01_match_dt0 = {}
-        trading_post_ref01_data_dt0_loaded, err = trading_post_ref01_ent.load(trading_post_ref01_match_dt0, None)
-        assert err is None
+        trading_post_ref01_data_dt0_loaded = trading_post_ref01_ent.load(trading_post_ref01_match_dt0, None)
         assert trading_post_ref01_data_dt0_loaded is not None
 
 

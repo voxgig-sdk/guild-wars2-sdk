@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch TradingPostLoadMatch
+---@param ctrl? table
+---@return TradingPost
+---@return string? err
 function TradingPostEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({
@@ -104,6 +108,10 @@ end
 
 
 
+---@param reqmatch TradingPostListMatch
+---@param ctrl? table
+---@return TradingPost[]
+---@return string? err
 function TradingPostEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

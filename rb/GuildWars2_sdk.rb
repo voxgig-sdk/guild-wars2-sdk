@@ -13,6 +13,9 @@ require_relative 'config'
 require_relative 'feature/base_feature'
 require_relative 'features'
 
+# Load typed models (Struct value objects).
+require_relative 'GuildWars2_types'
+
 
 class GuildWars2SDK
   attr_accessor :mode, :features, :options
@@ -131,7 +134,7 @@ class GuildWars2SDK
     end
 
     _, err = utility.prepare_auth.call(ctx)
-    return nil, err if err
+    raise err if err
 
     utility.make_fetch_def.call(ctx)
   end
@@ -139,8 +142,14 @@ class GuildWars2SDK
   def direct(fetchargs = {})
     utility = @_utility
 
-    fetchdef, err = prepare(fetchargs)
-    return { "ok" => false, "err" => err }, nil if err
+    # direct() is the raw-HTTP escape hatch: it always returns a result hash
+    # ({ "ok" => ..., ... }) and never raises. prepare() raises on error, so
+    # trap that and surface it in the hash.
+    begin
+      fetchdef = prepare(fetchargs)
+    rescue GuildWars2Error => err
+      return { "ok" => false, "err" => err }
+    end
 
     fetchargs ||= {}
     ctrl = GuildWars2Helpers.to_map(VoxgigStruct.getprop(fetchargs, "ctrl")) || {}
@@ -153,13 +162,13 @@ class GuildWars2SDK
     url = fetchdef["url"] || ""
     fetched, fetch_err = utility.fetcher.call(ctx, url, fetchdef)
 
-    return { "ok" => false, "err" => fetch_err }, nil if fetch_err
+    return { "ok" => false, "err" => fetch_err } if fetch_err
 
     if fetched.nil?
       return {
         "ok" => false,
         "err" => ctx.make_error("direct_no_response", "response: undefined"),
-      }, nil
+      }
     end
 
     if fetched.is_a?(Hash)
@@ -189,100 +198,205 @@ class GuildWars2SDK
         "status" => status,
         "headers" => headers,
         "data" => json_data,
-      }, nil
+      }
     end
 
     return {
       "ok" => false,
       "err" => ctx.make_error("direct_invalid", "invalid response type"),
-    }, nil
+    }
   end
 
 
+  # Idiomatic facade: client.achievement.list / client.achievement.load({ "id" => ... })
+  def achievement
+    require_relative 'entity/achievement_entity'
+    @achievement ||= AchievementEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.achievement instead.
   def Achievement(data = nil)
     require_relative 'entity/achievement_entity'
     AchievementEntity.new(self, data)
   end
 
 
+  # Idiomatic facade: client.authenticated.list / client.authenticated.load({ "id" => ... })
+  def authenticated
+    require_relative 'entity/authenticated_entity'
+    @authenticated ||= AuthenticatedEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.authenticated instead.
   def Authenticated(data = nil)
     require_relative 'entity/authenticated_entity'
     AuthenticatedEntity.new(self, data)
   end
 
 
+  # Idiomatic facade: client.daily_reward.list / client.daily_reward.load({ "id" => ... })
+  def daily_reward
+    require_relative 'entity/daily_reward_entity'
+    @daily_reward ||= DailyRewardEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.daily_reward instead.
   def DailyReward(data = nil)
     require_relative 'entity/daily_reward_entity'
     DailyRewardEntity.new(self, data)
   end
 
 
+  # Idiomatic facade: client.game_mechanic.list / client.game_mechanic.load({ "id" => ... })
+  def game_mechanic
+    require_relative 'entity/game_mechanic_entity'
+    @game_mechanic ||= GameMechanicEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.game_mechanic instead.
   def GameMechanic(data = nil)
     require_relative 'entity/game_mechanic_entity'
     GameMechanicEntity.new(self, data)
   end
 
 
+  # Idiomatic facade: client.guild.list / client.guild.load({ "id" => ... })
+  def guild
+    require_relative 'entity/guild_entity'
+    @guild ||= GuildEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.guild instead.
   def Guild(data = nil)
     require_relative 'entity/guild_entity'
     GuildEntity.new(self, data)
   end
 
 
+  # Idiomatic facade: client.guild_authenticated.list / client.guild_authenticated.load({ "id" => ... })
+  def guild_authenticated
+    require_relative 'entity/guild_authenticated_entity'
+    @guild_authenticated ||= GuildAuthenticatedEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.guild_authenticated instead.
   def GuildAuthenticated(data = nil)
     require_relative 'entity/guild_authenticated_entity'
     GuildAuthenticatedEntity.new(self, data)
   end
 
 
+  # Idiomatic facade: client.home_instance.list / client.home_instance.load({ "id" => ... })
+  def home_instance
+    require_relative 'entity/home_instance_entity'
+    @home_instance ||= HomeInstanceEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.home_instance instead.
   def HomeInstance(data = nil)
     require_relative 'entity/home_instance_entity'
     HomeInstanceEntity.new(self, data)
   end
 
 
+  # Idiomatic facade: client.item.list / client.item.load({ "id" => ... })
+  def item
+    require_relative 'entity/item_entity'
+    @item ||= ItemEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.item instead.
   def Item(data = nil)
     require_relative 'entity/item_entity'
     ItemEntity.new(self, data)
   end
 
 
+  # Idiomatic facade: client.map.list / client.map.load({ "id" => ... })
+  def map
+    require_relative 'entity/map_entity'
+    @map ||= MapEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.map instead.
   def Map(data = nil)
     require_relative 'entity/map_entity'
     MapEntity.new(self, data)
   end
 
 
+  # Idiomatic facade: client.map_information.list / client.map_information.load({ "id" => ... })
+  def map_information
+    require_relative 'entity/map_information_entity'
+    @map_information ||= MapInformationEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.map_information instead.
   def MapInformation(data = nil)
     require_relative 'entity/map_information_entity'
     MapInformationEntity.new(self, data)
   end
 
 
+  # Idiomatic facade: client.miscellaneous.list / client.miscellaneous.load({ "id" => ... })
+  def miscellaneous
+    require_relative 'entity/miscellaneous_entity'
+    @miscellaneous ||= MiscellaneousEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.miscellaneous instead.
   def Miscellaneous(data = nil)
     require_relative 'entity/miscellaneous_entity'
     MiscellaneousEntity.new(self, data)
   end
 
 
+  # Idiomatic facade: client.story.list / client.story.load({ "id" => ... })
+  def story
+    require_relative 'entity/story_entity'
+    @story ||= StoryEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.story instead.
   def Story(data = nil)
     require_relative 'entity/story_entity'
     StoryEntity.new(self, data)
   end
 
 
+  # Idiomatic facade: client.structured_pv_p.list / client.structured_pv_p.load({ "id" => ... })
+  def structured_pv_p
+    require_relative 'entity/structured_pv_p_entity'
+    @structured_pv_p ||= StructuredPvPEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.structured_pv_p instead.
   def StructuredPvP(data = nil)
     require_relative 'entity/structured_pv_p_entity'
     StructuredPvPEntity.new(self, data)
   end
 
 
+  # Idiomatic facade: client.trading_post.list / client.trading_post.load({ "id" => ... })
+  def trading_post
+    require_relative 'entity/trading_post_entity'
+    @trading_post ||= TradingPostEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.trading_post instead.
   def TradingPost(data = nil)
     require_relative 'entity/trading_post_entity'
     TradingPostEntity.new(self, data)
   end
 
 
+  # Idiomatic facade: client.world_vs_world.list / client.world_vs_world.load({ "id" => ... })
+  def world_vs_world
+    require_relative 'entity/world_vs_world_entity'
+    @world_vs_world ||= WorldVsWorldEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.world_vs_world instead.
   def WorldVsWorld(data = nil)
     require_relative 'entity/world_vs_world_entity'
     WorldVsWorldEntity.new(self, data)

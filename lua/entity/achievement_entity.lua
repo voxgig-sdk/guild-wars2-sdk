@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch AchievementLoadMatch
+---@param ctrl? table
+---@return Achievement
+---@return string? err
 function AchievementEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({
@@ -104,6 +108,10 @@ end
 
 
 
+---@param reqmatch AchievementListMatch
+---@param ctrl? table
+---@return Achievement[]
+---@return string? err
 function AchievementEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

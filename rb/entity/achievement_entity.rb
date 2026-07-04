@@ -45,6 +45,7 @@ class AchievementEntity
     end
   end
 
+  # @return [Achievement, Hash] the current Achievement data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,12 +58,18 @@ class AchievementEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of Achievement fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
   end
 
   
+  # Load a single Achievement.
+  #
+  # @param reqmatch [AchievementLoadMatch, Hash, nil] match criteria (id/query fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [Achievement, Hash] the loaded Achievement; raises GuildWars2Error on failure
   def load(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({
@@ -86,6 +93,11 @@ class AchievementEntity
 
 
   
+  # List Achievement items matching the given filter.
+  #
+  # @param reqmatch [AchievementListMatch, Hash, nil] match filter (any subset of Achievement fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [Array<Achievement>, Array] the matching Achievement items; raises GuildWars2Error on failure
   def list(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

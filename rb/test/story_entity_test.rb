@@ -43,8 +43,7 @@ class StoryEntityTest < Minitest::Test
     story_ref01_ent = client.Story(nil)
     story_ref01_match = {}
 
-    story_ref01_list_result, err = story_ref01_ent.list(story_ref01_match, nil)
-    assert_nil err
+    story_ref01_list_result = story_ref01_ent.list(story_ref01_match, nil)
     assert story_ref01_list_result.is_a?(Array)
 
   end

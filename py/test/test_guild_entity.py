@@ -50,14 +50,12 @@ class TestGuildEntity:
         guild_ref01_ent = client.Guild(None)
         guild_ref01_match = {}
 
-        guild_ref01_list_result, err = guild_ref01_ent.list(guild_ref01_match, None)
-        assert err is None
+        guild_ref01_list_result = guild_ref01_ent.list(guild_ref01_match, None)
         assert isinstance(guild_ref01_list_result, list)
 
         # LOAD
         guild_ref01_match_dt0 = {}
-        guild_ref01_data_dt0_loaded, err = guild_ref01_ent.load(guild_ref01_match_dt0, None)
-        assert err is None
+        guild_ref01_data_dt0_loaded = guild_ref01_ent.load(guild_ref01_match_dt0, None)
         assert guild_ref01_data_dt0_loaded is not None
 
 

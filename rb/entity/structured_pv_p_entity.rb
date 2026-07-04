@@ -45,6 +45,7 @@ class StructuredPvPEntity
     end
   end
 
+  # @return [StructuredPvP, Hash] the current StructuredPvP data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,6 +58,7 @@ class StructuredPvPEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of StructuredPvP fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
@@ -65,6 +67,11 @@ class StructuredPvPEntity
   
 
   
+  # List StructuredPvP items matching the given filter.
+  #
+  # @param reqmatch [StructuredPvPListMatch, Hash, nil] match filter (any subset of StructuredPvP fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [Array<StructuredPvP>, Array] the matching StructuredPvP items; raises GuildWars2Error on failure
   def list(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

@@ -45,6 +45,7 @@ class GameMechanicEntity
     end
   end
 
+  # @return [GameMechanic, Hash] the current GameMechanic data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,6 +58,7 @@ class GameMechanicEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of GameMechanic fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
@@ -65,6 +67,11 @@ class GameMechanicEntity
   
 
   
+  # List GameMechanic items matching the given filter.
+  #
+  # @param reqmatch [GameMechanicListMatch, Hash, nil] match filter (any subset of GameMechanic fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [Array<GameMechanic>, Array] the matching GameMechanic items; raises GuildWars2Error on failure
   def list(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

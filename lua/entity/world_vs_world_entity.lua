@@ -81,6 +81,10 @@ end
 
 
 
+---@param reqmatch WorldVsWorldListMatch
+---@param ctrl? table
+---@return WorldVsWorld[]
+---@return string? err
 function WorldVsWorldEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

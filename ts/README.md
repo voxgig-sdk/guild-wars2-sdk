@@ -9,9 +9,12 @@ The TypeScript SDK for the GuildWars2 API — a type-safe, entity-oriented clien
 
 
 ## Install
-```bash
-npm install @voxgig-sdk/guild-wars2
-```
+This package is not yet published to npm. Install it from the GitHub
+release tag (`ts/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/guild-wars2-sdk/releases](https://github.com/voxgig-sdk/guild-wars2-sdk/releases)
+
+
 ## Tutorial: your first API call
 
 This tutorial walks through creating a client, listing entities, and
@@ -20,17 +23,17 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { GuildWars2SDK } from 'guild-wars2'
+import { GuildWars2SDK } from '@voxgig-sdk/guild-wars2'
 
 const client = new GuildWars2SDK({
-  apikey: process.env.GUILD-WARS2_APIKEY,
+  apikey: process.env.GUILD_WARS2_APIKEY,
 })
 ```
 
 ### 2. List achievements
 
 ```ts
-const result = await client.Achievement().list()
+const result = await client.achievement.list()
 
 if (result.ok) {
   for (const item of result.data) {
@@ -39,10 +42,10 @@ if (result.ok) {
 }
 ```
 
-### 3. Load a achievement
+### 3. Load an achievement
 
 ```ts
-const result = await client.Achievement().load({ id: 'example_id' })
+const result = await client.achievement.load({ id: 'example_id' })
 
 if (result.ok) {
   console.log(result.data)
@@ -91,7 +94,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = GuildWars2SDK.test()
 
-const result = await client.Planet().load({ id: 'test01' })
+const result = await client.achievement.load({ id: 'test01' })
 // result.ok === true
 // result.data contains mock response data
 ```
@@ -108,7 +111,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Planet()
+const entity = client.achievement
 
 // First call sets internal match
 await entity.load({ id: 'example' })
@@ -145,8 +148,8 @@ const client = new GuildWars2SDK({
 Create a `.env.local` file at the project root:
 
 ```
-GUILD-WARS2_TEST_LIVE=TRUE
-GUILD-WARS2_APIKEY=<your-key>
+GUILD_WARS2_TEST_LIVE=TRUE
+GUILD_WARS2_APIKEY=<your-key>
 ```
 
 Then run:
@@ -429,7 +432,7 @@ API path: `/wvw/abilities`
 
 ### Achievement
 
-Create an instance: `const achievement = client.Achievement()`
+Create an instance: `const achievement = client.achievement`
 
 #### Operations
 
@@ -441,19 +444,19 @@ Create an instance: `const achievement = client.Achievement()`
 #### Example: Load
 
 ```ts
-const achievement = await client.Achievement().load({ id: 'achievement_id' })
+const achievement = await client.achievement.load({ id: 'achievement_id' })
 ```
 
 #### Example: List
 
 ```ts
-const achievements = await client.Achievement().list()
+const achievements = await client.achievement.list()
 ```
 
 
 ### Authenticated
 
-Create an instance: `const authenticated = client.Authenticated()`
+Create an instance: `const authenticated = client.authenticated`
 
 #### Operations
 
@@ -477,19 +480,19 @@ Create an instance: `const authenticated = client.Authenticated()`
 #### Example: Load
 
 ```ts
-const authenticated = await client.Authenticated().load({ id: 'authenticated_id' })
+const authenticated = await client.authenticated.load({ id: 'authenticated_id' })
 ```
 
 #### Example: List
 
 ```ts
-const authenticateds = await client.Authenticated().list()
+const authenticateds = await client.authenticated.list()
 ```
 
 
 ### DailyReward
 
-Create an instance: `const daily_reward = client.DailyReward()`
+Create an instance: `const daily_reward = client.daily_reward`
 
 #### Operations
 
@@ -500,13 +503,13 @@ Create an instance: `const daily_reward = client.DailyReward()`
 #### Example: List
 
 ```ts
-const daily_rewards = await client.DailyReward().list()
+const daily_rewards = await client.daily_reward.list()
 ```
 
 
 ### GameMechanic
 
-Create an instance: `const game_mechanic = client.GameMechanic()`
+Create an instance: `const game_mechanic = client.game_mechanic`
 
 #### Operations
 
@@ -517,13 +520,13 @@ Create an instance: `const game_mechanic = client.GameMechanic()`
 #### Example: List
 
 ```ts
-const game_mechanics = await client.GameMechanic().list()
+const game_mechanics = await client.game_mechanic.list()
 ```
 
 
 ### Guild
 
-Create an instance: `const guild = client.Guild()`
+Create an instance: `const guild = client.guild`
 
 #### Operations
 
@@ -535,19 +538,19 @@ Create an instance: `const guild = client.Guild()`
 #### Example: Load
 
 ```ts
-const guild = await client.Guild().load({ id: 'guild_id' })
+const guild = await client.guild.load({ id: 'guild_id' })
 ```
 
 #### Example: List
 
 ```ts
-const guilds = await client.Guild().list()
+const guilds = await client.guild.list()
 ```
 
 
 ### GuildAuthenticated
 
-Create an instance: `const guild_authenticated = client.GuildAuthenticated()`
+Create an instance: `const guild_authenticated = client.guild_authenticated`
 
 #### Operations
 
@@ -558,13 +561,13 @@ Create an instance: `const guild_authenticated = client.GuildAuthenticated()`
 #### Example: List
 
 ```ts
-const guild_authenticateds = await client.GuildAuthenticated().list()
+const guild_authenticateds = await client.guild_authenticated.list()
 ```
 
 
 ### HomeInstance
 
-Create an instance: `const home_instance = client.HomeInstance()`
+Create an instance: `const home_instance = client.home_instance`
 
 #### Operations
 
@@ -575,13 +578,13 @@ Create an instance: `const home_instance = client.HomeInstance()`
 #### Example: List
 
 ```ts
-const home_instances = await client.HomeInstance().list()
+const home_instances = await client.home_instance.list()
 ```
 
 
 ### Item
 
-Create an instance: `const item = client.Item()`
+Create an instance: `const item = client.item`
 
 #### Operations
 
@@ -592,13 +595,13 @@ Create an instance: `const item = client.Item()`
 #### Example: List
 
 ```ts
-const items = await client.Item().list()
+const items = await client.item.list()
 ```
 
 
 ### Map
 
-Create an instance: `const map = client.Map()`
+Create an instance: `const map = client.map`
 
 #### Operations
 
@@ -609,13 +612,13 @@ Create an instance: `const map = client.Map()`
 #### Example: List
 
 ```ts
-const maps = await client.Map().list()
+const maps = await client.map.list()
 ```
 
 
 ### MapInformation
 
-Create an instance: `const map_information = client.MapInformation()`
+Create an instance: `const map_information = client.map_information`
 
 #### Operations
 
@@ -626,13 +629,13 @@ Create an instance: `const map_information = client.MapInformation()`
 #### Example: List
 
 ```ts
-const map_informations = await client.MapInformation().list()
+const map_informations = await client.map_information.list()
 ```
 
 
 ### Miscellaneous
 
-Create an instance: `const miscellaneous = client.Miscellaneous()`
+Create an instance: `const miscellaneous = client.miscellaneous`
 
 #### Operations
 
@@ -650,19 +653,19 @@ Create an instance: `const miscellaneous = client.Miscellaneous()`
 #### Example: Load
 
 ```ts
-const miscellaneous = await client.Miscellaneous().load({ id: 'miscellaneous_id' })
+const miscellaneous = await client.miscellaneous.load({ id: 'miscellaneous_id' })
 ```
 
 #### Example: List
 
 ```ts
-const miscellaneouss = await client.Miscellaneous().list()
+const miscellaneouss = await client.miscellaneous.list()
 ```
 
 
 ### Story
 
-Create an instance: `const story = client.Story()`
+Create an instance: `const story = client.story`
 
 #### Operations
 
@@ -673,13 +676,13 @@ Create an instance: `const story = client.Story()`
 #### Example: List
 
 ```ts
-const storys = await client.Story().list()
+const storys = await client.story.list()
 ```
 
 
 ### StructuredPvP
 
-Create an instance: `const structured_pv_p = client.StructuredPvP()`
+Create an instance: `const structured_pv_p = client.structured_pv_p`
 
 #### Operations
 
@@ -690,13 +693,13 @@ Create an instance: `const structured_pv_p = client.StructuredPvP()`
 #### Example: List
 
 ```ts
-const structured_pv_ps = await client.StructuredPvP().list()
+const structured_pv_ps = await client.structured_pv_p.list()
 ```
 
 
 ### TradingPost
 
-Create an instance: `const trading_post = client.TradingPost()`
+Create an instance: `const trading_post = client.trading_post`
 
 #### Operations
 
@@ -717,19 +720,19 @@ Create an instance: `const trading_post = client.TradingPost()`
 #### Example: Load
 
 ```ts
-const trading_post = await client.TradingPost().load({ id: 'trading_post_id' })
+const trading_post = await client.trading_post.load({ id: 'trading_post_id' })
 ```
 
 #### Example: List
 
 ```ts
-const trading_posts = await client.TradingPost().list()
+const trading_posts = await client.trading_post.list()
 ```
 
 
 ### WorldVsWorld
 
-Create an instance: `const world_vs_world = client.WorldVsWorld()`
+Create an instance: `const world_vs_world = client.world_vs_world`
 
 #### Operations
 
@@ -740,7 +743,7 @@ Create an instance: `const world_vs_world = client.WorldVsWorld()`
 #### Example: List
 
 ```ts
-const world_vs_worlds = await client.WorldVsWorld().list()
+const world_vs_worlds = await client.world_vs_world.list()
 ```
 
 
@@ -801,7 +804,7 @@ guild-wars2/
 Import the SDK from the package root:
 
 ```ts
-import { GuildWars2SDK } from 'guild-wars2'
+import { GuildWars2SDK } from '@voxgig-sdk/guild-wars2'
 ```
 
 ### Entity state
@@ -811,11 +814,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const moon = client.Moon()
-await moon.load({ planet_id: 'earth', id: 'luna' })
+const achievement = client.achievement
+await achievement.load({ id: "example_id" })
 
-// moon.data() now returns the loaded moon data
-// moon.match() returns { planet_id: 'earth', id: 'luna' }
+// achievement.data() now returns the loaded achievement data
+// achievement.match() returns { id: "example_id" }
 ```
 
 Call `make()` to create a fresh instance with the same configuration
