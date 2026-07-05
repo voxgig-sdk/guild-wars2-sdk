@@ -65,8 +65,13 @@ class TradingPostEntity:
         return vs.clone(self._match)
 
     
-    def load(self, reqmatch: TradingPostLoadMatch, ctrl=None) -> TradingPost:
+    def load(self, reqmatch=None, ctrl=None) -> TradingPost:
         utility = self._utility
+        # reqmatch is optional: an entity with no id-like key loads with no
+        # match. Treat None as an empty match so client.TradingPost().load()
+        # works with no args.
+        if reqmatch is None:
+            reqmatch = {}
         ctx = utility.make_context({
             "opname": "load",
             "ctrl": ctrl,
@@ -87,8 +92,12 @@ class TradingPostEntity:
 
 
     
-    def list(self, reqmatch: TradingPostListMatch, ctrl=None) -> list[TradingPost]:
+    def list(self, reqmatch=None, ctrl=None) -> list[TradingPost]:
         utility = self._utility
+        # reqmatch is optional: an omitted match lists all records. Treat None
+        # as an empty match so client.TradingPost().list() works with no args.
+        if reqmatch is None:
+            reqmatch = {}
         ctx = utility.make_context({
             "opname": "list",
             "ctrl": ctrl,

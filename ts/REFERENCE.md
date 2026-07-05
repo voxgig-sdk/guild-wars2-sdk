@@ -296,7 +296,7 @@ const results = await client.Achievement().list()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Achievement().load({ id: 'achievement_id' })
+const result = await client.Achievement().load()
 ```
 
 ### Common Methods
@@ -337,13 +337,13 @@ const authenticated = client.Authenticated()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `created` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `permission` | ``$ARRAY`` | No |  |
-| `subtoken` | ``$STRING`` | No |  |
-| `value` | ``$INTEGER`` | No |  |
-| `world` | ``$INTEGER`` | No |  |
+| `created` | `string` | No |  |
+| `id` | `string` | No |  |
+| `name` | `string` | No |  |
+| `permission` | `any[]` | No |  |
+| `subtoken` | `string` | No |  |
+| `value` | `number` | No |  |
+| `world` | `number` | No |  |
 
 ### Operations
 
@@ -761,7 +761,7 @@ const miscellaneous = client.Miscellaneous()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | ``$INTEGER`` | No |  |
+| `id` | `number` | No |  |
 
 ### Operations
 
@@ -778,7 +778,7 @@ const results = await client.Miscellaneous().list()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Miscellaneous().load({ id: 'miscellaneous_id' })
+const result = await client.Miscellaneous().load({ id: 1 })
 ```
 
 ### Common Methods
@@ -907,10 +907,10 @@ const trading_post = client.TradingPost()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `coin` | ``$INTEGER`` | No |  |
-| `coins_per_gem` | ``$INTEGER`` | No |  |
-| `item` | ``$ARRAY`` | No |  |
-| `quantity` | ``$INTEGER`` | No |  |
+| `coin` | `number` | No |  |
+| `coins_per_gem` | `number` | No |  |
+| `item` | `any[]` | No |  |
+| `quantity` | `number` | No |  |
 
 ### Operations
 
@@ -927,7 +927,7 @@ const results = await client.TradingPost().list()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.TradingPost().load({ id: 'trading_post_id' })
+const result = await client.TradingPost().load()
 ```
 
 ### Common Methods

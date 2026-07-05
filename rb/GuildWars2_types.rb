@@ -12,11 +12,11 @@
 class Achievement
 end
 
-# Match filter for Achievement#load (any subset of Achievement fields).
+# Request payload for Achievement#load.
 class AchievementLoadMatch
 end
 
-# Match filter for Achievement#list (any subset of Achievement fields).
+# Request payload for Achievement#list.
 class AchievementListMatch
 end
 
@@ -53,13 +53,13 @@ Authenticated = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Authenticated#load (any subset of Authenticated fields).
+# Request payload for Authenticated#load.
 #
 # @!attribute [rw] created
 #   @return [String, nil]
 #
 # @!attribute [rw] id
-#   @return [String, nil]
+#   @return [String]
 #
 # @!attribute [rw] name
 #   @return [String, nil]
@@ -86,7 +86,7 @@ AuthenticatedLoadMatch = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Authenticated#list (any subset of Authenticated fields).
+# Request payload for Authenticated#list.
 #
 # @!attribute [rw] created
 #   @return [String, nil]
@@ -123,7 +123,7 @@ AuthenticatedListMatch = Struct.new(
 class DailyReward
 end
 
-# Match filter for DailyReward#list (any subset of DailyReward fields).
+# Request payload for DailyReward#list.
 class DailyRewardListMatch
 end
 
@@ -131,7 +131,7 @@ end
 class GameMechanic
 end
 
-# Match filter for GameMechanic#list (any subset of GameMechanic fields).
+# Request payload for GameMechanic#list.
 class GameMechanicListMatch
 end
 
@@ -148,7 +148,7 @@ GuildLoadMatch = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Guild#list (any subset of Guild fields).
+# Request payload for Guild#list.
 class GuildListMatch
 end
 
@@ -169,7 +169,7 @@ GuildAuthenticatedListMatch = Struct.new(
 class HomeInstance
 end
 
-# Match filter for HomeInstance#list (any subset of HomeInstance fields).
+# Request payload for HomeInstance#list.
 class HomeInstanceListMatch
 end
 
@@ -177,7 +177,7 @@ end
 class Item
 end
 
-# Match filter for Item#list (any subset of Item fields).
+# Request payload for Item#list.
 class ItemListMatch
 end
 
@@ -185,7 +185,7 @@ end
 class Map
 end
 
-# Match filter for Map#list (any subset of Map fields).
+# Request payload for Map#list.
 class MapListMatch
 end
 
@@ -193,7 +193,7 @@ end
 class MapInformation
 end
 
-# Match filter for MapInformation#list (any subset of MapInformation fields).
+# Request payload for MapInformation#list.
 class MapInformationListMatch
 end
 
@@ -206,16 +206,16 @@ Miscellaneous = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Miscellaneous#load (any subset of Miscellaneous fields).
+# Request payload for Miscellaneous#load.
 #
 # @!attribute [rw] id
-#   @return [Integer, nil]
+#   @return [Integer]
 MiscellaneousLoadMatch = Struct.new(
   :id,
   keyword_init: true
 )
 
-# Match filter for Miscellaneous#list (any subset of Miscellaneous fields).
+# Request payload for Miscellaneous#list.
 #
 # @!attribute [rw] id
 #   @return [Integer, nil]
@@ -228,7 +228,7 @@ MiscellaneousListMatch = Struct.new(
 class Story
 end
 
-# Match filter for Story#list (any subset of Story fields).
+# Request payload for Story#list.
 class StoryListMatch
 end
 
@@ -236,7 +236,7 @@ end
 class StructuredPvP
 end
 
-# Match filter for StructuredPvP#list (any subset of StructuredPvP fields).
+# Request payload for StructuredPvP#list.
 class StructuredPvPListMatch
 end
 
@@ -261,7 +261,7 @@ TradingPost = Struct.new(
   keyword_init: true
 )
 
-# Match filter for TradingPost#load (any subset of TradingPost fields).
+# Request payload for TradingPost#load.
 #
 # @!attribute [rw] coin
 #   @return [Integer, nil]
@@ -282,7 +282,7 @@ TradingPostLoadMatch = Struct.new(
   keyword_init: true
 )
 
-# Match filter for TradingPost#list (any subset of TradingPost fields).
+# Request payload for TradingPost#list.
 #
 # @!attribute [rw] coin
 #   @return [Integer, nil]
@@ -307,7 +307,7 @@ TradingPostListMatch = Struct.new(
 class WorldVsWorld
 end
 
-# Match filter for WorldVsWorld#list (any subset of WorldVsWorld fields).
+# Request payload for WorldVsWorld#list.
 class WorldVsWorldListMatch
 end
 

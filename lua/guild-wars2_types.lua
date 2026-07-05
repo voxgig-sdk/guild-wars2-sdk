@@ -22,8 +22,22 @@
 ---@field world? number
 
 ---@class AuthenticatedLoadMatch
+---@field created? string
+---@field id string
+---@field name? string
+---@field permission? table
+---@field subtoken? string
+---@field value? number
+---@field world? number
 
 ---@class AuthenticatedListMatch
+---@field created? string
+---@field id? string
+---@field name? string
+---@field permission? table
+---@field subtoken? string
+---@field value? number
+---@field world? number
 
 ---@class DailyReward
 
@@ -65,8 +79,10 @@
 ---@field id? number
 
 ---@class MiscellaneousLoadMatch
+---@field id number
 
 ---@class MiscellaneousListMatch
+---@field id? number
 
 ---@class Story
 
@@ -83,8 +99,16 @@
 ---@field quantity? number
 
 ---@class TradingPostLoadMatch
+---@field coin? number
+---@field coins_per_gem? number
+---@field item? table
+---@field quantity? number
 
 ---@class TradingPostListMatch
+---@field coin? number
+---@field coins_per_gem? number
+---@field item? table
+---@field quantity? number
 
 ---@class WorldVsWorld
 

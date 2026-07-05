@@ -8,7 +8,7 @@ Complete API reference for the GuildWars2 Python SDK.
 ### Constructor
 
 ```python
-from guild-wars2_sdk import GuildWars2SDK
+from guildwars2_sdk import GuildWars2SDK
 
 client = GuildWars2SDK(options)
 ```
@@ -142,12 +142,12 @@ achievement = client.Achievement()
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Achievement().list({})
+results = client.Achievement().list()
 for achievement in results:
     print(achievement)
 ```
@@ -157,7 +157,7 @@ for achievement in results:
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Achievement().load({"id": "achievement_id"})
+result = client.Achievement().load()
 ```
 
 ### Common Methods
@@ -199,22 +199,22 @@ authenticated = client.Authenticated()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `created` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `permission` | ``$ARRAY`` | No |  |
-| `subtoken` | ``$STRING`` | No |  |
-| `value` | ``$INTEGER`` | No |  |
-| `world` | ``$INTEGER`` | No |  |
+| `created` | `str` | No |  |
+| `id` | `str` | No |  |
+| `name` | `str` | No |  |
+| `permission` | `list` | No |  |
+| `subtoken` | `str` | No |  |
+| `value` | `int` | No |  |
+| `world` | `int` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Authenticated().list({})
+results = client.Authenticated().list()
 for authenticated in results:
     print(authenticated)
 ```
@@ -264,12 +264,12 @@ daily_reward = client.DailyReward()
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.DailyReward().list({})
+results = client.DailyReward().list()
 for daily_reward in results:
     print(daily_reward)
 ```
@@ -311,12 +311,12 @@ game_mechanic = client.GameMechanic()
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.GameMechanic().list({})
+results = client.GameMechanic().list()
 for game_mechanic in results:
     print(game_mechanic)
 ```
@@ -358,12 +358,12 @@ guild = client.Guild()
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Guild().list({})
+results = client.Guild().list()
 for guild in results:
     print(guild)
 ```
@@ -413,12 +413,12 @@ guild_authenticated = client.GuildAuthenticated()
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.GuildAuthenticated().list({})
+results = client.GuildAuthenticated().list()
 for guild_authenticated in results:
     print(guild_authenticated)
 ```
@@ -460,12 +460,12 @@ home_instance = client.HomeInstance()
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.HomeInstance().list({})
+results = client.HomeInstance().list()
 for home_instance in results:
     print(home_instance)
 ```
@@ -507,12 +507,12 @@ item = client.Item()
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Item().list({})
+results = client.Item().list()
 for item in results:
     print(item)
 ```
@@ -554,12 +554,12 @@ map = client.Map()
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Map().list({})
+results = client.Map().list()
 for map in results:
     print(map)
 ```
@@ -601,12 +601,12 @@ map_information = client.MapInformation()
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.MapInformation().list({})
+results = client.MapInformation().list()
 for map_information in results:
     print(map_information)
 ```
@@ -650,16 +650,16 @@ miscellaneous = client.Miscellaneous()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | ``$INTEGER`` | No |  |
+| `id` | `int` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Miscellaneous().list({})
+results = client.Miscellaneous().list()
 for miscellaneous in results:
     print(miscellaneous)
 ```
@@ -709,12 +709,12 @@ story = client.Story()
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Story().list({})
+results = client.Story().list()
 for story in results:
     print(story)
 ```
@@ -756,12 +756,12 @@ structured_pv_p = client.StructuredPvP()
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.StructuredPvP().list({})
+results = client.StructuredPvP().list()
 for structured_pv_p in results:
     print(structured_pv_p)
 ```
@@ -805,19 +805,19 @@ trading_post = client.TradingPost()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `coin` | ``$INTEGER`` | No |  |
-| `coins_per_gem` | ``$INTEGER`` | No |  |
-| `item` | ``$ARRAY`` | No |  |
-| `quantity` | ``$INTEGER`` | No |  |
+| `coin` | `int` | No |  |
+| `coins_per_gem` | `int` | No |  |
+| `item` | `list` | No |  |
+| `quantity` | `int` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.TradingPost().list({})
+results = client.TradingPost().list()
 for trading_post in results:
     print(trading_post)
 ```
@@ -827,7 +827,7 @@ for trading_post in results:
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.TradingPost().load({"id": "trading_post_id"})
+result = client.TradingPost().load()
 ```
 
 ### Common Methods
@@ -867,12 +867,12 @@ world_vs_world = client.WorldVsWorld()
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.WorldVsWorld().list({})
+results = client.WorldVsWorld().list()
 for world_vs_world in results:
     print(world_vs_world)
 ```

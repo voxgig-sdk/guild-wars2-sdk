@@ -12,13 +12,11 @@ import "encoding/json"
 type Achievement struct {
 }
 
-// AchievementLoadMatch mirrors the achievement fields as an all-optional match
-// filter (Go analog of Partial<Achievement>).
+// AchievementLoadMatch is the typed request payload for Achievement.LoadTyped.
 type AchievementLoadMatch struct {
 }
 
-// AchievementListMatch mirrors the achievement fields as an all-optional match
-// filter (Go analog of Partial<Achievement>).
+// AchievementListMatch is the typed request payload for Achievement.ListTyped.
 type AchievementListMatch struct {
 }
 
@@ -33,11 +31,10 @@ type Authenticated struct {
 	World *int `json:"world,omitempty"`
 }
 
-// AuthenticatedLoadMatch mirrors the authenticated fields as an all-optional match
-// filter (Go analog of Partial<Authenticated>).
+// AuthenticatedLoadMatch is the typed request payload for Authenticated.LoadTyped.
 type AuthenticatedLoadMatch struct {
 	Created *string `json:"created,omitempty"`
-	Id *string `json:"id,omitempty"`
+	Id string `json:"id"`
 	Name *string `json:"name,omitempty"`
 	Permission *[]any `json:"permission,omitempty"`
 	Subtoken *string `json:"subtoken,omitempty"`
@@ -45,8 +42,7 @@ type AuthenticatedLoadMatch struct {
 	World *int `json:"world,omitempty"`
 }
 
-// AuthenticatedListMatch mirrors the authenticated fields as an all-optional match
-// filter (Go analog of Partial<Authenticated>).
+// AuthenticatedListMatch is the typed request payload for Authenticated.ListTyped.
 type AuthenticatedListMatch struct {
 	Created *string `json:"created,omitempty"`
 	Id *string `json:"id,omitempty"`
@@ -61,8 +57,7 @@ type AuthenticatedListMatch struct {
 type DailyReward struct {
 }
 
-// DailyRewardListMatch mirrors the daily_reward fields as an all-optional match
-// filter (Go analog of Partial<DailyReward>).
+// DailyRewardListMatch is the typed request payload for DailyReward.ListTyped.
 type DailyRewardListMatch struct {
 }
 
@@ -70,8 +65,7 @@ type DailyRewardListMatch struct {
 type GameMechanic struct {
 }
 
-// GameMechanicListMatch mirrors the game_mechanic fields as an all-optional match
-// filter (Go analog of Partial<GameMechanic>).
+// GameMechanicListMatch is the typed request payload for GameMechanic.ListTyped.
 type GameMechanicListMatch struct {
 }
 
@@ -84,8 +78,7 @@ type GuildLoadMatch struct {
 	Id string `json:"id"`
 }
 
-// GuildListMatch mirrors the guild fields as an all-optional match
-// filter (Go analog of Partial<Guild>).
+// GuildListMatch is the typed request payload for Guild.ListTyped.
 type GuildListMatch struct {
 }
 
@@ -102,8 +95,7 @@ type GuildAuthenticatedListMatch struct {
 type HomeInstance struct {
 }
 
-// HomeInstanceListMatch mirrors the home_instance fields as an all-optional match
-// filter (Go analog of Partial<HomeInstance>).
+// HomeInstanceListMatch is the typed request payload for HomeInstance.ListTyped.
 type HomeInstanceListMatch struct {
 }
 
@@ -111,8 +103,7 @@ type HomeInstanceListMatch struct {
 type Item struct {
 }
 
-// ItemListMatch mirrors the item fields as an all-optional match
-// filter (Go analog of Partial<Item>).
+// ItemListMatch is the typed request payload for Item.ListTyped.
 type ItemListMatch struct {
 }
 
@@ -120,8 +111,7 @@ type ItemListMatch struct {
 type Map struct {
 }
 
-// MapListMatch mirrors the map fields as an all-optional match
-// filter (Go analog of Partial<Map>).
+// MapListMatch is the typed request payload for Map.ListTyped.
 type MapListMatch struct {
 }
 
@@ -129,8 +119,7 @@ type MapListMatch struct {
 type MapInformation struct {
 }
 
-// MapInformationListMatch mirrors the map_information fields as an all-optional match
-// filter (Go analog of Partial<MapInformation>).
+// MapInformationListMatch is the typed request payload for MapInformation.ListTyped.
 type MapInformationListMatch struct {
 }
 
@@ -139,14 +128,12 @@ type Miscellaneous struct {
 	Id *int `json:"id,omitempty"`
 }
 
-// MiscellaneousLoadMatch mirrors the miscellaneous fields as an all-optional match
-// filter (Go analog of Partial<Miscellaneous>).
+// MiscellaneousLoadMatch is the typed request payload for Miscellaneous.LoadTyped.
 type MiscellaneousLoadMatch struct {
-	Id *int `json:"id,omitempty"`
+	Id int `json:"id"`
 }
 
-// MiscellaneousListMatch mirrors the miscellaneous fields as an all-optional match
-// filter (Go analog of Partial<Miscellaneous>).
+// MiscellaneousListMatch is the typed request payload for Miscellaneous.ListTyped.
 type MiscellaneousListMatch struct {
 	Id *int `json:"id,omitempty"`
 }
@@ -155,8 +142,7 @@ type MiscellaneousListMatch struct {
 type Story struct {
 }
 
-// StoryListMatch mirrors the story fields as an all-optional match
-// filter (Go analog of Partial<Story>).
+// StoryListMatch is the typed request payload for Story.ListTyped.
 type StoryListMatch struct {
 }
 
@@ -164,8 +150,7 @@ type StoryListMatch struct {
 type StructuredPvP struct {
 }
 
-// StructuredPvPListMatch mirrors the structured_pv_p fields as an all-optional match
-// filter (Go analog of Partial<StructuredPvP>).
+// StructuredPvPListMatch is the typed request payload for StructuredPvP.ListTyped.
 type StructuredPvPListMatch struct {
 }
 
@@ -177,8 +162,7 @@ type TradingPost struct {
 	Quantity *int `json:"quantity,omitempty"`
 }
 
-// TradingPostLoadMatch mirrors the trading_post fields as an all-optional match
-// filter (Go analog of Partial<TradingPost>).
+// TradingPostLoadMatch is the typed request payload for TradingPost.LoadTyped.
 type TradingPostLoadMatch struct {
 	Coin *int `json:"coin,omitempty"`
 	CoinsPerGem *int `json:"coins_per_gem,omitempty"`
@@ -186,8 +170,7 @@ type TradingPostLoadMatch struct {
 	Quantity *int `json:"quantity,omitempty"`
 }
 
-// TradingPostListMatch mirrors the trading_post fields as an all-optional match
-// filter (Go analog of Partial<TradingPost>).
+// TradingPostListMatch is the typed request payload for TradingPost.ListTyped.
 type TradingPostListMatch struct {
 	Coin *int `json:"coin,omitempty"`
 	CoinsPerGem *int `json:"coins_per_gem,omitempty"`
@@ -199,8 +182,7 @@ type TradingPostListMatch struct {
 type WorldVsWorld struct {
 }
 
-// WorldVsWorldListMatch mirrors the world_vs_world fields as an all-optional match
-// filter (Go analog of Partial<WorldVsWorld>).
+// WorldVsWorldListMatch is the typed request payload for WorldVsWorld.ListTyped.
 type WorldVsWorldListMatch struct {
 }
 

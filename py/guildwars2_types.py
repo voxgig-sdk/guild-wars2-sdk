@@ -38,9 +38,12 @@ class Authenticated(TypedDict, total=False):
     world: int
 
 
-class AuthenticatedLoadMatch(TypedDict, total=False):
-    created: str
+class AuthenticatedLoadMatchRequired(TypedDict):
     id: str
+
+
+class AuthenticatedLoadMatch(AuthenticatedLoadMatchRequired, total=False):
+    created: str
     name: str
     permission: list
     subtoken: str
@@ -130,7 +133,7 @@ class Miscellaneous(TypedDict, total=False):
     id: int
 
 
-class MiscellaneousLoadMatch(TypedDict, total=False):
+class MiscellaneousLoadMatch(TypedDict):
     id: int
 
 

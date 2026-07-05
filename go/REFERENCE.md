@@ -165,7 +165,7 @@ results, err := client.Achievement(nil).List(nil, nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.Achievement(nil).Load(map[string]any{"id": "achievement_id"}, nil)
+result, err := client.Achievement(nil).Load(nil, nil)
 ```
 
 ### Common Methods
@@ -202,13 +202,13 @@ authenticated := client.Authenticated(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `created` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `permission` | ``$ARRAY`` | No |  |
-| `subtoken` | ``$STRING`` | No |  |
-| `value` | ``$INTEGER`` | No |  |
-| `world` | ``$INTEGER`` | No |  |
+| `created` | `string` | No |  |
+| `id` | `string` | No |  |
+| `name` | `string` | No |  |
+| `permission` | `[]any` | No |  |
+| `subtoken` | `string` | No |  |
+| `value` | `int` | No |  |
+| `world` | `int` | No |  |
 
 ### Operations
 
@@ -590,7 +590,7 @@ miscellaneous := client.Miscellaneous(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | ``$INTEGER`` | No |  |
+| `id` | `int` | No |  |
 
 ### Operations
 
@@ -724,10 +724,10 @@ trading_post := client.TradingPost(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `coin` | ``$INTEGER`` | No |  |
-| `coins_per_gem` | ``$INTEGER`` | No |  |
-| `item` | ``$ARRAY`` | No |  |
-| `quantity` | ``$INTEGER`` | No |  |
+| `coin` | `int` | No |  |
+| `coins_per_gem` | `int` | No |  |
+| `item` | `[]any` | No |  |
+| `quantity` | `int` | No |  |
 
 ### Operations
 
@@ -744,7 +744,7 @@ results, err := client.TradingPost(nil).List(nil, nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.TradingPost(nil).Load(map[string]any{"id": "trading_post_id"}, nil)
+result, err := client.TradingPost(nil).Load(nil, nil)
 ```
 
 ### Common Methods

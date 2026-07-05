@@ -221,91 +221,91 @@ class GuildWars2SDK:
 
 
     def Achievement(self, data=None) -> "AchievementEntity":
-        """Entity factory: client.Achievement().list({}) / client.Achievement().load({"id": ...})."""
+        """Entity factory: client.Achievement().list() / client.Achievement().load({"id": ...})."""
         from entity.achievement_entity import AchievementEntity
         return AchievementEntity(self, data)
 
 
     def Authenticated(self, data=None) -> "AuthenticatedEntity":
-        """Entity factory: client.Authenticated().list({}) / client.Authenticated().load({"id": ...})."""
+        """Entity factory: client.Authenticated().list() / client.Authenticated().load({"id": ...})."""
         from entity.authenticated_entity import AuthenticatedEntity
         return AuthenticatedEntity(self, data)
 
 
     def DailyReward(self, data=None) -> "DailyRewardEntity":
-        """Entity factory: client.DailyReward().list({}) / client.DailyReward().load({"id": ...})."""
+        """Entity factory: client.DailyReward().list() / client.DailyReward().load({"id": ...})."""
         from entity.daily_reward_entity import DailyRewardEntity
         return DailyRewardEntity(self, data)
 
 
     def GameMechanic(self, data=None) -> "GameMechanicEntity":
-        """Entity factory: client.GameMechanic().list({}) / client.GameMechanic().load({"id": ...})."""
+        """Entity factory: client.GameMechanic().list() / client.GameMechanic().load({"id": ...})."""
         from entity.game_mechanic_entity import GameMechanicEntity
         return GameMechanicEntity(self, data)
 
 
     def Guild(self, data=None) -> "GuildEntity":
-        """Entity factory: client.Guild().list({}) / client.Guild().load({"id": ...})."""
+        """Entity factory: client.Guild().list() / client.Guild().load({"id": ...})."""
         from entity.guild_entity import GuildEntity
         return GuildEntity(self, data)
 
 
     def GuildAuthenticated(self, data=None) -> "GuildAuthenticatedEntity":
-        """Entity factory: client.GuildAuthenticated().list({}) / client.GuildAuthenticated().load({"id": ...})."""
+        """Entity factory: client.GuildAuthenticated().list() / client.GuildAuthenticated().load({"id": ...})."""
         from entity.guild_authenticated_entity import GuildAuthenticatedEntity
         return GuildAuthenticatedEntity(self, data)
 
 
     def HomeInstance(self, data=None) -> "HomeInstanceEntity":
-        """Entity factory: client.HomeInstance().list({}) / client.HomeInstance().load({"id": ...})."""
+        """Entity factory: client.HomeInstance().list() / client.HomeInstance().load({"id": ...})."""
         from entity.home_instance_entity import HomeInstanceEntity
         return HomeInstanceEntity(self, data)
 
 
     def Item(self, data=None) -> "ItemEntity":
-        """Entity factory: client.Item().list({}) / client.Item().load({"id": ...})."""
+        """Entity factory: client.Item().list() / client.Item().load({"id": ...})."""
         from entity.item_entity import ItemEntity
         return ItemEntity(self, data)
 
 
     def Map(self, data=None) -> "MapEntity":
-        """Entity factory: client.Map().list({}) / client.Map().load({"id": ...})."""
+        """Entity factory: client.Map().list() / client.Map().load({"id": ...})."""
         from entity.map_entity import MapEntity
         return MapEntity(self, data)
 
 
     def MapInformation(self, data=None) -> "MapInformationEntity":
-        """Entity factory: client.MapInformation().list({}) / client.MapInformation().load({"id": ...})."""
+        """Entity factory: client.MapInformation().list() / client.MapInformation().load({"id": ...})."""
         from entity.map_information_entity import MapInformationEntity
         return MapInformationEntity(self, data)
 
 
     def Miscellaneous(self, data=None) -> "MiscellaneousEntity":
-        """Entity factory: client.Miscellaneous().list({}) / client.Miscellaneous().load({"id": ...})."""
+        """Entity factory: client.Miscellaneous().list() / client.Miscellaneous().load({"id": ...})."""
         from entity.miscellaneous_entity import MiscellaneousEntity
         return MiscellaneousEntity(self, data)
 
 
     def Story(self, data=None) -> "StoryEntity":
-        """Entity factory: client.Story().list({}) / client.Story().load({"id": ...})."""
+        """Entity factory: client.Story().list() / client.Story().load({"id": ...})."""
         from entity.story_entity import StoryEntity
         return StoryEntity(self, data)
 
 
     def StructuredPvP(self, data=None) -> "StructuredPvPEntity":
-        """Entity factory: client.StructuredPvP().list({}) / client.StructuredPvP().load({"id": ...})."""
+        """Entity factory: client.StructuredPvP().list() / client.StructuredPvP().load({"id": ...})."""
         from entity.structured_pv_p_entity import StructuredPvPEntity
         return StructuredPvPEntity(self, data)
 
 
     def TradingPost(self, data=None) -> "TradingPostEntity":
-        """Entity factory: client.TradingPost().list({}) / client.TradingPost().load({"id": ...})."""
+        """Entity factory: client.TradingPost().list() / client.TradingPost().load({"id": ...})."""
         from entity.trading_post_entity import TradingPostEntity
         return TradingPostEntity(self, data)
 
 
     def WorldVsWorld(self, data=None) -> "WorldVsWorldEntity":
-        """Entity factory: client.WorldVsWorld().list({}) / client.WorldVsWorld().load({"id": ...})."""
+        """Entity factory: client.WorldVsWorld().list() / client.WorldVsWorld().load({"id": ...})."""
         from entity.world_vs_world_entity import WorldVsWorldEntity
         return WorldVsWorldEntity(self, data)
 

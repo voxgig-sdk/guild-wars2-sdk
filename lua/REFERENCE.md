@@ -158,7 +158,7 @@ local results, err = client:Achievement():list()
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Achievement():load({ id = "achievement_id" })
+local result, err = client:Achievement():load()
 ```
 
 ### Common Methods
@@ -201,13 +201,13 @@ local authenticated = client:Authenticated(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `created` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `permission` | ``$ARRAY`` | No |  |
-| `subtoken` | ``$STRING`` | No |  |
-| `value` | ``$INTEGER`` | No |  |
-| `world` | ``$INTEGER`` | No |  |
+| `created` | `string` | No |  |
+| `id` | `string` | No |  |
+| `name` | `string` | No |  |
+| `permission` | `table` | No |  |
+| `subtoken` | `string` | No |  |
+| `value` | `number` | No |  |
+| `world` | `number` | No |  |
 
 ### Operations
 
@@ -643,7 +643,7 @@ local miscellaneous = client:Miscellaneous(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | ``$INTEGER`` | No |  |
+| `id` | `number` | No |  |
 
 ### Operations
 
@@ -795,10 +795,10 @@ local trading_post = client:TradingPost(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `coin` | ``$INTEGER`` | No |  |
-| `coins_per_gem` | ``$INTEGER`` | No |  |
-| `item` | ``$ARRAY`` | No |  |
-| `quantity` | ``$INTEGER`` | No |  |
+| `coin` | `number` | No |  |
+| `coins_per_gem` | `number` | No |  |
+| `item` | `table` | No |  |
+| `quantity` | `number` | No |  |
 
 ### Operations
 
@@ -815,7 +815,7 @@ local results, err = client:TradingPost():list()
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:TradingPost():load({ id = "trading_post_id" })
+local result, err = client:TradingPost():load()
 ```
 
 ### Common Methods

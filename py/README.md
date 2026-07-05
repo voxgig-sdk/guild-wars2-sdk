@@ -4,6 +4,11 @@
 
 The Python SDK for the GuildWars2 API — an entity-oriented client following Pythonic conventions.
 
+The SDK exposes the API as capitalised, semantic **Entities** — for example `client.Achievement()` — each
+carrying a small, uniform set of operations (`list`, `load`) instead of raw URL
+paths and query strings. You work with named resources and verbs, which
+keeps the cognitive load low.
+
 > Other languages, the CLI, and MCP server live alongside this one — see
 > the [top-level README](../README.md).
 
@@ -41,7 +46,7 @@ error — iterate it directly.
 
 ```python
 try:
-    achievements = client.Achievement().list({})
+    achievements = client.Achievement().list()
     for achievement in achievements:
         print(achievement)
 except Exception as err:
@@ -54,10 +59,38 @@ except Exception as err:
 
 ```python
 try:
-    achievement = client.Achievement().load({"id": "example_id"})
+    achievement = client.Achievement().load()
     print(achievement)
 except Exception as err:
     print(f"load failed: {err}")
+```
+
+
+## Error handling
+
+Entity operations raise on failure, so wrap them in `try` / `except`:
+
+```python
+try:
+    achievements = client.Achievement().list()
+    print(achievements)
+except Exception as err:
+    print(f"list failed: {err}")
+```
+
+`direct()` does **not** raise — it returns the result envelope. Branch
+on `ok`; on failure `status` holds the HTTP status (for error responses)
+and `err` holds a transport error, so read both defensively:
+
+```python
+result = client.direct({
+    "path": "/api/resource/{id}",
+    "method": "GET",
+    "params": {"id": "example_id"},
+})
+
+if not result["ok"]:
+    print("request failed:", result.get("status"), result.get("err"))
 ```
 
 
@@ -78,7 +111,10 @@ if result["ok"]:
     print(result["status"])  # 200
     print(result["data"])    # response body
 else:
-    print(result["err"])     # error value
+    # A non-2xx response carries status + data (the error body); a
+    # transport-level failure carries err instead. Only one is present, so
+    # read both with .get() rather than indexing a key that may be absent.
+    print(result.get("status"), result.get("err"))
 ```
 
 ### Prepare a request without sending it
@@ -104,7 +140,7 @@ Create a mock client for unit testing — no server required:
 client = GuildWars2SDK.test()
 
 # Entity ops return the bare record and raise on error.
-achievement = client.Achievement().load({"id": "test01"})
+achievement = client.Achievement().list()
 # achievement contains the mock response record
 ```
 
@@ -207,9 +243,6 @@ All entities share the same interface.
 | --- | --- | --- |
 | `load` | `(reqmatch, ctrl) -> any` | Load a single entity by match criteria. Raises on error. |
 | `list` | `(reqmatch, ctrl) -> list` | List entities matching the criteria. Raises on error. |
-| `create` | `(reqdata, ctrl) -> any` | Create a new entity. Raises on error. |
-| `update` | `(reqdata, ctrl) -> any` | Update an existing entity. Raises on error. |
-| `remove` | `(reqmatch, ctrl) -> any` | Remove an entity. Raises on error. |
 | `data_get` | `() -> dict` | Get entity data. |
 | `data_set` | `(data)` | Set entity data. |
 | `match_get` | `() -> dict` | Get entity match criteria. |
@@ -397,19 +430,19 @@ Create an instance: `achievement = client.Achievement()`
 
 | Method | Description |
 | --- | --- |
-| `list(match)` | List entities matching the criteria. |
+| `list()` | List entities, optionally matching the given criteria. |
 | `load(match)` | Load a single entity by match criteria. |
 
 #### Example: Load
 
 ```python
-achievement = client.Achievement().load({"id": "achievement_id"})
+achievement = client.Achievement().load()
 ```
 
 #### Example: List
 
 ```python
-achievements = client.Achievement().list({})
+achievements = client.Achievement().list()
 ```
 
 
@@ -421,20 +454,20 @@ Create an instance: `authenticated = client.Authenticated()`
 
 | Method | Description |
 | --- | --- |
-| `list(match)` | List entities matching the criteria. |
+| `list()` | List entities, optionally matching the given criteria. |
 | `load(match)` | Load a single entity by match criteria. |
 
 #### Fields
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `created` | ``$STRING`` |  |
-| `id` | ``$STRING`` |  |
-| `name` | ``$STRING`` |  |
-| `permission` | ``$ARRAY`` |  |
-| `subtoken` | ``$STRING`` |  |
-| `value` | ``$INTEGER`` |  |
-| `world` | ``$INTEGER`` |  |
+| `created` | `str` |  |
+| `id` | `str` |  |
+| `name` | `str` |  |
+| `permission` | `list` |  |
+| `subtoken` | `str` |  |
+| `value` | `int` |  |
+| `world` | `int` |  |
 
 #### Example: Load
 
@@ -445,7 +478,7 @@ authenticated = client.Authenticated().load({"id": "authenticated_id"})
 #### Example: List
 
 ```python
-authenticateds = client.Authenticated().list({})
+authenticateds = client.Authenticated().list()
 ```
 
 
@@ -457,12 +490,12 @@ Create an instance: `daily_reward = client.DailyReward()`
 
 | Method | Description |
 | --- | --- |
-| `list(match)` | List entities matching the criteria. |
+| `list()` | List entities, optionally matching the given criteria. |
 
 #### Example: List
 
 ```python
-daily_rewards = client.DailyReward().list({})
+daily_rewards = client.DailyReward().list()
 ```
 
 
@@ -474,12 +507,12 @@ Create an instance: `game_mechanic = client.GameMechanic()`
 
 | Method | Description |
 | --- | --- |
-| `list(match)` | List entities matching the criteria. |
+| `list()` | List entities, optionally matching the given criteria. |
 
 #### Example: List
 
 ```python
-game_mechanics = client.GameMechanic().list({})
+game_mechanics = client.GameMechanic().list()
 ```
 
 
@@ -491,7 +524,7 @@ Create an instance: `guild = client.Guild()`
 
 | Method | Description |
 | --- | --- |
-| `list(match)` | List entities matching the criteria. |
+| `list()` | List entities, optionally matching the given criteria. |
 | `load(match)` | Load a single entity by match criteria. |
 
 #### Example: Load
@@ -503,7 +536,7 @@ guild = client.Guild().load({"id": "guild_id"})
 #### Example: List
 
 ```python
-guilds = client.Guild().list({})
+guilds = client.Guild().list()
 ```
 
 
@@ -515,12 +548,12 @@ Create an instance: `guild_authenticated = client.GuildAuthenticated()`
 
 | Method | Description |
 | --- | --- |
-| `list(match)` | List entities matching the criteria. |
+| `list()` | List entities, optionally matching the given criteria. |
 
 #### Example: List
 
 ```python
-guild_authenticateds = client.GuildAuthenticated().list({})
+guild_authenticateds = client.GuildAuthenticated().list()
 ```
 
 
@@ -532,12 +565,12 @@ Create an instance: `home_instance = client.HomeInstance()`
 
 | Method | Description |
 | --- | --- |
-| `list(match)` | List entities matching the criteria. |
+| `list()` | List entities, optionally matching the given criteria. |
 
 #### Example: List
 
 ```python
-home_instances = client.HomeInstance().list({})
+home_instances = client.HomeInstance().list()
 ```
 
 
@@ -549,12 +582,12 @@ Create an instance: `item = client.Item()`
 
 | Method | Description |
 | --- | --- |
-| `list(match)` | List entities matching the criteria. |
+| `list()` | List entities, optionally matching the given criteria. |
 
 #### Example: List
 
 ```python
-items = client.Item().list({})
+items = client.Item().list()
 ```
 
 
@@ -566,12 +599,12 @@ Create an instance: `map = client.Map()`
 
 | Method | Description |
 | --- | --- |
-| `list(match)` | List entities matching the criteria. |
+| `list()` | List entities, optionally matching the given criteria. |
 
 #### Example: List
 
 ```python
-maps = client.Map().list({})
+maps = client.Map().list()
 ```
 
 
@@ -583,12 +616,12 @@ Create an instance: `map_information = client.MapInformation()`
 
 | Method | Description |
 | --- | --- |
-| `list(match)` | List entities matching the criteria. |
+| `list()` | List entities, optionally matching the given criteria. |
 
 #### Example: List
 
 ```python
-map_informations = client.MapInformation().list({})
+map_informations = client.MapInformation().list()
 ```
 
 
@@ -600,14 +633,14 @@ Create an instance: `miscellaneous = client.Miscellaneous()`
 
 | Method | Description |
 | --- | --- |
-| `list(match)` | List entities matching the criteria. |
+| `list()` | List entities, optionally matching the given criteria. |
 | `load(match)` | Load a single entity by match criteria. |
 
 #### Fields
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `id` | ``$INTEGER`` |  |
+| `id` | `int` |  |
 
 #### Example: Load
 
@@ -618,7 +651,7 @@ miscellaneous = client.Miscellaneous().load({"id": "miscellaneous_id"})
 #### Example: List
 
 ```python
-miscellaneouss = client.Miscellaneous().list({})
+miscellaneouss = client.Miscellaneous().list()
 ```
 
 
@@ -630,12 +663,12 @@ Create an instance: `story = client.Story()`
 
 | Method | Description |
 | --- | --- |
-| `list(match)` | List entities matching the criteria. |
+| `list()` | List entities, optionally matching the given criteria. |
 
 #### Example: List
 
 ```python
-storys = client.Story().list({})
+storys = client.Story().list()
 ```
 
 
@@ -647,12 +680,12 @@ Create an instance: `structured_pv_p = client.StructuredPvP()`
 
 | Method | Description |
 | --- | --- |
-| `list(match)` | List entities matching the criteria. |
+| `list()` | List entities, optionally matching the given criteria. |
 
 #### Example: List
 
 ```python
-structured_pv_ps = client.StructuredPvP().list({})
+structured_pv_ps = client.StructuredPvP().list()
 ```
 
 
@@ -664,28 +697,28 @@ Create an instance: `trading_post = client.TradingPost()`
 
 | Method | Description |
 | --- | --- |
-| `list(match)` | List entities matching the criteria. |
+| `list()` | List entities, optionally matching the given criteria. |
 | `load(match)` | Load a single entity by match criteria. |
 
 #### Fields
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `coin` | ``$INTEGER`` |  |
-| `coins_per_gem` | ``$INTEGER`` |  |
-| `item` | ``$ARRAY`` |  |
-| `quantity` | ``$INTEGER`` |  |
+| `coin` | `int` |  |
+| `coins_per_gem` | `int` |  |
+| `item` | `list` |  |
+| `quantity` | `int` |  |
 
 #### Example: Load
 
 ```python
-trading_post = client.TradingPost().load({"id": "trading_post_id"})
+trading_post = client.TradingPost().load()
 ```
 
 #### Example: List
 
 ```python
-trading_posts = client.TradingPost().list({})
+trading_posts = client.TradingPost().list()
 ```
 
 
@@ -697,21 +730,25 @@ Create an instance: `world_vs_world = client.WorldVsWorld()`
 
 | Method | Description |
 | --- | --- |
-| `list(match)` | List entities matching the criteria. |
+| `list()` | List entities, optionally matching the given criteria. |
 
 #### Example: List
 
 ```python
-world_vs_worlds = client.WorldVsWorld().list({})
+world_vs_worlds = client.WorldVsWorld().list()
 ```
 
 
-## Explanation
+## Advanced
+
+> The sections above cover everyday use. The material below explains the
+> SDK's internals — useful when extending it with custom features, but not
+> needed for normal use.
 
 ### The operation pipeline
 
-Every entity operation (load, list, create, update, remove) follows a
-six-stage pipeline. Each stage fires a feature hook before executing:
+Every entity operation follows a six-stage pipeline. Each stage fires a
+feature hook before executing:
 
 ```
 PrePoint → PreSpec → PreRequest → PreResponse → PreResult → PreDone
@@ -728,8 +765,9 @@ PrePoint → PreSpec → PreRequest → PreResponse → PreResult → PreDone
 - **PreDone**: Final stage before returning to the caller. Entity
   state (match, data) is updated here.
 
-If any stage returns an error, the pipeline short-circuits and the
-error is returned to the caller as the second element in the return tuple.
+If any stage errors, the pipeline short-circuits and the error surfaces
+to the caller — see [Error handling](#error-handling) for how that looks
+in this language.
 
 ### Features and hooks
 
@@ -772,14 +810,14 @@ Import entity or utility modules directly only when needed.
 
 ### Entity state
 
-Entity instances are stateful. After a successful `load`, the entity
+Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```python
 achievement = client.Achievement()
-achievement.load({"id": "example_id"})
+achievement.list()
 
-# achievement.data_get() now returns the loaded achievement data
+# achievement.data_get() now returns the achievement data from the last list
 # achievement.match_get() returns the last match criteria
 ```
 

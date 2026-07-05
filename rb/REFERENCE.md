@@ -8,7 +8,7 @@ Complete API reference for the GuildWars2 Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'guild-wars2_sdk'
+require_relative 'GuildWars2_sdk'
 
 client = GuildWars2SDK.new(options)
 ```
@@ -148,12 +148,12 @@ achievement = client.Achievement
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Achievement.list(nil)
+results = client.Achievement.list
 ```
 
 #### `load(reqmatch, ctrl = nil) -> result`
@@ -161,7 +161,7 @@ results = client.Achievement.list(nil)
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.Achievement.load({ "id" => "achievement_id" })
+result = client.Achievement.load()
 ```
 
 ### Common Methods
@@ -204,22 +204,22 @@ authenticated = client.Authenticated
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `created` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `permission` | ``$ARRAY`` | No |  |
-| `subtoken` | ``$STRING`` | No |  |
-| `value` | ``$INTEGER`` | No |  |
-| `world` | ``$INTEGER`` | No |  |
+| `created` | `String` | No |  |
+| `id` | `String` | No |  |
+| `name` | `String` | No |  |
+| `permission` | `Array` | No |  |
+| `subtoken` | `String` | No |  |
+| `value` | `Integer` | No |  |
+| `world` | `Integer` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Authenticated.list(nil)
+results = client.Authenticated.list
 ```
 
 #### `load(reqmatch, ctrl = nil) -> result`
@@ -268,12 +268,12 @@ daily_reward = client.DailyReward
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.DailyReward.list(nil)
+results = client.DailyReward.list
 ```
 
 ### Common Methods
@@ -314,12 +314,12 @@ game_mechanic = client.GameMechanic
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.GameMechanic.list(nil)
+results = client.GameMechanic.list
 ```
 
 ### Common Methods
@@ -360,12 +360,12 @@ guild = client.Guild
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Guild.list(nil)
+results = client.Guild.list
 ```
 
 #### `load(reqmatch, ctrl = nil) -> result`
@@ -414,12 +414,12 @@ guild_authenticated = client.GuildAuthenticated
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.GuildAuthenticated.list(nil)
+results = client.GuildAuthenticated.list
 ```
 
 ### Common Methods
@@ -460,12 +460,12 @@ home_instance = client.HomeInstance
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.HomeInstance.list(nil)
+results = client.HomeInstance.list
 ```
 
 ### Common Methods
@@ -506,12 +506,12 @@ item = client.Item
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Item.list(nil)
+results = client.Item.list
 ```
 
 ### Common Methods
@@ -552,12 +552,12 @@ map = client.Map
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Map.list(nil)
+results = client.Map.list
 ```
 
 ### Common Methods
@@ -598,12 +598,12 @@ map_information = client.MapInformation
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.MapInformation.list(nil)
+results = client.MapInformation.list
 ```
 
 ### Common Methods
@@ -646,16 +646,16 @@ miscellaneous = client.Miscellaneous
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | ``$INTEGER`` | No |  |
+| `id` | `Integer` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Miscellaneous.list(nil)
+results = client.Miscellaneous.list
 ```
 
 #### `load(reqmatch, ctrl = nil) -> result`
@@ -704,12 +704,12 @@ story = client.Story
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Story.list(nil)
+results = client.Story.list
 ```
 
 ### Common Methods
@@ -750,12 +750,12 @@ structured_pv_p = client.StructuredPvP
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.StructuredPvP.list(nil)
+results = client.StructuredPvP.list
 ```
 
 ### Common Methods
@@ -798,19 +798,19 @@ trading_post = client.TradingPost
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `coin` | ``$INTEGER`` | No |  |
-| `coins_per_gem` | ``$INTEGER`` | No |  |
-| `item` | ``$ARRAY`` | No |  |
-| `quantity` | ``$INTEGER`` | No |  |
+| `coin` | `Integer` | No |  |
+| `coins_per_gem` | `Integer` | No |  |
+| `item` | `Array` | No |  |
+| `quantity` | `Integer` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.TradingPost.list(nil)
+results = client.TradingPost.list
 ```
 
 #### `load(reqmatch, ctrl = nil) -> result`
@@ -818,7 +818,7 @@ results = client.TradingPost.list(nil)
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.TradingPost.load({ "id" => "trading_post_id" })
+result = client.TradingPost.load()
 ```
 
 ### Common Methods
@@ -859,12 +859,12 @@ world_vs_world = client.WorldVsWorld
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.WorldVsWorld.list(nil)
+results = client.WorldVsWorld.list
 ```
 
 ### Common Methods

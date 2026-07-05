@@ -17,12 +17,12 @@ class Achievement
 {
 }
 
-/** Match filter for Achievement#load (any subset of Achievement fields). */
+/** Request payload for Achievement#load. */
 class AchievementLoadMatch
 {
 }
 
-/** Match filter for Achievement#list (any subset of Achievement fields). */
+/** Request payload for Achievement#list. */
 class AchievementListMatch
 {
 }
@@ -39,11 +39,11 @@ class Authenticated
     public ?int $world = null;
 }
 
-/** Match filter for Authenticated#load (any subset of Authenticated fields). */
+/** Request payload for Authenticated#load. */
 class AuthenticatedLoadMatch
 {
     public ?string $created = null;
-    public ?string $id = null;
+    public string $id;
     public ?string $name = null;
     public ?array $permission = null;
     public ?string $subtoken = null;
@@ -51,7 +51,7 @@ class AuthenticatedLoadMatch
     public ?int $world = null;
 }
 
-/** Match filter for Authenticated#list (any subset of Authenticated fields). */
+/** Request payload for Authenticated#list. */
 class AuthenticatedListMatch
 {
     public ?string $created = null;
@@ -68,7 +68,7 @@ class DailyReward
 {
 }
 
-/** Match filter for DailyReward#list (any subset of DailyReward fields). */
+/** Request payload for DailyReward#list. */
 class DailyRewardListMatch
 {
 }
@@ -78,7 +78,7 @@ class GameMechanic
 {
 }
 
-/** Match filter for GameMechanic#list (any subset of GameMechanic fields). */
+/** Request payload for GameMechanic#list. */
 class GameMechanicListMatch
 {
 }
@@ -94,7 +94,7 @@ class GuildLoadMatch
     public string $id;
 }
 
-/** Match filter for Guild#list (any subset of Guild fields). */
+/** Request payload for Guild#list. */
 class GuildListMatch
 {
 }
@@ -115,7 +115,7 @@ class HomeInstance
 {
 }
 
-/** Match filter for HomeInstance#list (any subset of HomeInstance fields). */
+/** Request payload for HomeInstance#list. */
 class HomeInstanceListMatch
 {
 }
@@ -125,7 +125,7 @@ class Item
 {
 }
 
-/** Match filter for Item#list (any subset of Item fields). */
+/** Request payload for Item#list. */
 class ItemListMatch
 {
 }
@@ -135,7 +135,7 @@ class Map
 {
 }
 
-/** Match filter for Map#list (any subset of Map fields). */
+/** Request payload for Map#list. */
 class MapListMatch
 {
 }
@@ -145,7 +145,7 @@ class MapInformation
 {
 }
 
-/** Match filter for MapInformation#list (any subset of MapInformation fields). */
+/** Request payload for MapInformation#list. */
 class MapInformationListMatch
 {
 }
@@ -156,13 +156,13 @@ class Miscellaneous
     public ?int $id = null;
 }
 
-/** Match filter for Miscellaneous#load (any subset of Miscellaneous fields). */
+/** Request payload for Miscellaneous#load. */
 class MiscellaneousLoadMatch
 {
-    public ?int $id = null;
+    public int $id;
 }
 
-/** Match filter for Miscellaneous#list (any subset of Miscellaneous fields). */
+/** Request payload for Miscellaneous#list. */
 class MiscellaneousListMatch
 {
     public ?int $id = null;
@@ -173,7 +173,7 @@ class Story
 {
 }
 
-/** Match filter for Story#list (any subset of Story fields). */
+/** Request payload for Story#list. */
 class StoryListMatch
 {
 }
@@ -183,7 +183,7 @@ class StructuredPvP
 {
 }
 
-/** Match filter for StructuredPvP#list (any subset of StructuredPvP fields). */
+/** Request payload for StructuredPvP#list. */
 class StructuredPvPListMatch
 {
 }
@@ -197,7 +197,7 @@ class TradingPost
     public ?int $quantity = null;
 }
 
-/** Match filter for TradingPost#load (any subset of TradingPost fields). */
+/** Request payload for TradingPost#load. */
 class TradingPostLoadMatch
 {
     public ?int $coin = null;
@@ -206,7 +206,7 @@ class TradingPostLoadMatch
     public ?int $quantity = null;
 }
 
-/** Match filter for TradingPost#list (any subset of TradingPost fields). */
+/** Request payload for TradingPost#list. */
 class TradingPostListMatch
 {
     public ?int $coin = null;
@@ -220,7 +220,7 @@ class WorldVsWorld
 {
 }
 
-/** Match filter for WorldVsWorld#list (any subset of WorldVsWorld fields). */
+/** Request payload for WorldVsWorld#list. */
 class WorldVsWorldListMatch
 {
 }
