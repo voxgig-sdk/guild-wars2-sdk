@@ -630,7 +630,7 @@ Create an instance: `local miscellaneous = client:Miscellaneous(nil)`
 #### Example: Load
 
 ```lua
-local miscellaneous, err = client:Miscellaneous():load({ id = "miscellaneous_id" })
+local miscellaneous, err = client:Miscellaneous():load({ id = 1 })
 ```
 
 #### Example: List

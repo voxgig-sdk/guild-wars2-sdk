@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -3740,6 +3737,14 @@
           "url": "https://wiki.guildwars2.com/wiki/API:Main"
         },
         "description": "The Guild Wars 2 API is an interface that allows third-party applications to access game data from the Guild Wars 2 servers. It provides various endpoints for retrieving information about achievements, account details, items, and more, enabling developers to create applications that enhance the gaming experience.",
+        "meta_source": "https://www.freepublicapis.com",
+        "security": {
+          "in": "header",
+          "name": "Authorization",
+          "prefix": "Bearer",
+          "scheme": "BearerAuth",
+          "type": "http"
+        },
         "servers": [
           {
             "description": "Guild Wars 2 API Version 2",
@@ -3750,9 +3755,11 @@
             "url": "https://api.guildwars2.com/v1"
           }
         ],
+        "summary": "The Guild Wars 2 API is an interface that allows third-party applications to access game data from the Guild Wars 2 servers.",
         "termsOfService": "https://www.arena.net/en/legal/guild-wars-2-content-terms-of-use",
         "title": "Guild Wars 2 API",
-        "version": "2.0.0"
+        "version": "2.0.0",
+        "website": "https://guildwars2.com"
       },
       "option": {},
       "target": {
@@ -3805,6 +3812,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -3855,6 +3865,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },

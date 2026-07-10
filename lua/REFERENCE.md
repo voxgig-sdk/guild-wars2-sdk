@@ -660,7 +660,7 @@ local results, err = client:Miscellaneous():list()
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Miscellaneous():load({ id = "miscellaneous_id" })
+local result, err = client:Miscellaneous():load({ id = 1 })
 ```
 
 ### Common Methods

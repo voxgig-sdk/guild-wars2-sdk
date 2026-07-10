@@ -669,7 +669,7 @@ for miscellaneous in results:
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Miscellaneous().load({"id": "miscellaneous_id"})
+result = client.Miscellaneous().load({"id": 1})
 ```
 
 ### Common Methods

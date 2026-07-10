@@ -514,7 +514,7 @@ fmt.Println(authenticateds) // the array of records
 
 ### DailyReward
 
-Create an instance: `daily_reward := client.DailyReward(nil)`
+Create an instance: `dailyReward := client.DailyReward(nil)`
 
 #### Operations
 
@@ -525,17 +525,17 @@ Create an instance: `daily_reward := client.DailyReward(nil)`
 #### Example: List
 
 ```go
-daily_rewards, err := client.DailyReward(nil).List(nil, nil)
+dailyRewards, err := client.DailyReward(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(daily_rewards) // the array of records
+fmt.Println(dailyRewards) // the array of records
 ```
 
 
 ### GameMechanic
 
-Create an instance: `game_mechanic := client.GameMechanic(nil)`
+Create an instance: `gameMechanic := client.GameMechanic(nil)`
 
 #### Operations
 
@@ -546,11 +546,11 @@ Create an instance: `game_mechanic := client.GameMechanic(nil)`
 #### Example: List
 
 ```go
-game_mechanics, err := client.GameMechanic(nil).List(nil, nil)
+gameMechanics, err := client.GameMechanic(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(game_mechanics) // the array of records
+fmt.Println(gameMechanics) // the array of records
 ```
 
 
@@ -588,7 +588,7 @@ fmt.Println(guilds) // the array of records
 
 ### GuildAuthenticated
 
-Create an instance: `guild_authenticated := client.GuildAuthenticated(nil)`
+Create an instance: `guildAuthenticated := client.GuildAuthenticated(nil)`
 
 #### Operations
 
@@ -599,17 +599,17 @@ Create an instance: `guild_authenticated := client.GuildAuthenticated(nil)`
 #### Example: List
 
 ```go
-guild_authenticateds, err := client.GuildAuthenticated(nil).List(nil, nil)
+guildAuthenticateds, err := client.GuildAuthenticated(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(guild_authenticateds) // the array of records
+fmt.Println(guildAuthenticateds) // the array of records
 ```
 
 
 ### HomeInstance
 
-Create an instance: `home_instance := client.HomeInstance(nil)`
+Create an instance: `homeInstance := client.HomeInstance(nil)`
 
 #### Operations
 
@@ -620,11 +620,11 @@ Create an instance: `home_instance := client.HomeInstance(nil)`
 #### Example: List
 
 ```go
-home_instances, err := client.HomeInstance(nil).List(nil, nil)
+homeInstances, err := client.HomeInstance(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(home_instances) // the array of records
+fmt.Println(homeInstances) // the array of records
 ```
 
 
@@ -672,7 +672,7 @@ fmt.Println(map_s) // the array of records
 
 ### MapInformation
 
-Create an instance: `map_information := client.MapInformation(nil)`
+Create an instance: `mapInformation := client.MapInformation(nil)`
 
 #### Operations
 
@@ -683,11 +683,11 @@ Create an instance: `map_information := client.MapInformation(nil)`
 #### Example: List
 
 ```go
-map_informations, err := client.MapInformation(nil).List(nil, nil)
+mapInformations, err := client.MapInformation(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(map_informations) // the array of records
+fmt.Println(mapInformations) // the array of records
 ```
 
 
@@ -711,7 +711,7 @@ Create an instance: `miscellaneous := client.Miscellaneous(nil)`
 #### Example: Load
 
 ```go
-miscellaneous, err := client.Miscellaneous(nil).Load(map[string]any{"id": "miscellaneous_id"}, nil)
+miscellaneous, err := client.Miscellaneous(nil).Load(map[string]any{"id": 1}, nil)
 if err != nil {
     panic(err)
 }
@@ -752,7 +752,7 @@ fmt.Println(storys) // the array of records
 
 ### StructuredPvP
 
-Create an instance: `structured_pv_p := client.StructuredPvP(nil)`
+Create an instance: `structuredPvP := client.StructuredPvP(nil)`
 
 #### Operations
 
@@ -763,17 +763,17 @@ Create an instance: `structured_pv_p := client.StructuredPvP(nil)`
 #### Example: List
 
 ```go
-structured_pv_ps, err := client.StructuredPvP(nil).List(nil, nil)
+structuredPvPs, err := client.StructuredPvP(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(structured_pv_ps) // the array of records
+fmt.Println(structuredPvPs) // the array of records
 ```
 
 
 ### TradingPost
 
-Create an instance: `trading_post := client.TradingPost(nil)`
+Create an instance: `tradingPost := client.TradingPost(nil)`
 
 #### Operations
 
@@ -794,27 +794,27 @@ Create an instance: `trading_post := client.TradingPost(nil)`
 #### Example: Load
 
 ```go
-trading_post, err := client.TradingPost(nil).Load(nil, nil)
+tradingPost, err := client.TradingPost(nil).Load(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(trading_post) // the loaded record
+fmt.Println(tradingPost) // the loaded record
 ```
 
 #### Example: List
 
 ```go
-trading_posts, err := client.TradingPost(nil).List(nil, nil)
+tradingPosts, err := client.TradingPost(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(trading_posts) // the array of records
+fmt.Println(tradingPosts) // the array of records
 ```
 
 
 ### WorldVsWorld
 
-Create an instance: `world_vs_world := client.WorldVsWorld(nil)`
+Create an instance: `worldVsWorld := client.WorldVsWorld(nil)`
 
 #### Operations
 
@@ -825,11 +825,11 @@ Create an instance: `world_vs_world := client.WorldVsWorld(nil)`
 #### Example: List
 
 ```go
-world_vs_worlds, err := client.WorldVsWorld(nil).List(nil, nil)
+worldVsWorlds, err := client.WorldVsWorld(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(world_vs_worlds) // the array of records
+fmt.Println(worldVsWorlds) // the array of records
 ```
 
 

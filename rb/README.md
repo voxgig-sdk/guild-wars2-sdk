@@ -652,7 +652,7 @@ Create an instance: `miscellaneous = client.Miscellaneous`
 
 ```ruby
 # load returns the bare Miscellaneous record (raises on error).
-miscellaneous = client.Miscellaneous.load({ "id" => "miscellaneous_id" })
+miscellaneous = client.Miscellaneous.load({ "id" => 1 })
 ```
 
 #### Example: List

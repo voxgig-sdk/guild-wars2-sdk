@@ -1,0 +1,17 @@
+# Flows
+
+@"BasicAchievementFlow.aontu"
+@"BasicAuthenticatedFlow.aontu"
+@"BasicDailyRewardFlow.aontu"
+@"BasicGameMechanicFlow.aontu"
+@"BasicGuildAuthenticatedFlow.aontu"
+@"BasicGuildFlow.aontu"
+@"BasicHomeInstanceFlow.aontu"
+@"BasicItemFlow.aontu"
+@"BasicMapFlow.aontu"
+@"BasicMapInformationFlow.aontu"
+@"BasicMiscellaneousFlow.aontu"
+@"BasicStoryFlow.aontu"
+@"BasicStructuredPvPFlow.aontu"
+@"BasicTradingPostFlow.aontu"
+@"BasicWorldVsWorldFlow.aontu"

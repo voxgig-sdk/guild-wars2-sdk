@@ -662,7 +662,7 @@ Create an instance: `$miscellaneous = $client->Miscellaneous();`
 
 ```php
 // load() returns the bare Miscellaneous record (throws on error).
-$miscellaneous = $client->Miscellaneous()->load(["id" => "miscellaneous_id"]);
+$miscellaneous = $client->Miscellaneous()->load(["id" => 1]);
 ```
 
 #### Example: List

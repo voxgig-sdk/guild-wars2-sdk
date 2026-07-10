@@ -645,7 +645,7 @@ Create an instance: `miscellaneous = client.Miscellaneous()`
 #### Example: Load
 
 ```python
-miscellaneous = client.Miscellaneous().load({"id": "miscellaneous_id"})
+miscellaneous = client.Miscellaneous().load({"id": 1})
 ```
 
 #### Example: List

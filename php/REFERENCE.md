@@ -662,7 +662,7 @@ $results = $client->Miscellaneous()->list();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->Miscellaneous()->load(["id" => "miscellaneous_id"]);
+$result = $client->Miscellaneous()->load(["id" => 1]);
 ```
 
 ### Common Methods
