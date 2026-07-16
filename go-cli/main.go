@@ -27,7 +27,20 @@ func main() {
 }
 
 func run(args []string, in io.Reader, out, errOut io.Writer) int {
-	client := sdk.NewGuildWars2SDK(nil)
+	// Configure from the environment: GUILD_WARS2_APIKEY carries the API key and
+	// GUILD_WARS2_BASE optionally overrides the API base URL (e.g. production).
+	// Both injectable by a secrets vault. Unset -> nil config defaults.
+	var opts map[string]any
+	if apikey := os.Getenv("GUILD_WARS2_APIKEY"); apikey != "" {
+		opts = map[string]any{"apikey": apikey}
+	}
+	if base := os.Getenv("GUILD_WARS2_BASE"); base != "" {
+		if opts == nil {
+			opts = map[string]any{}
+		}
+		opts["base"] = base
+	}
+	client := sdk.NewGuildWars2SDK(opts)
 
 	r, err := eng.NewRegistry()
 	if err != nil {
