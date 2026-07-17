@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- GuildWars2 SDK exists test
 
 local sdk = require("guild-wars2_sdk")
 
