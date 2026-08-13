@@ -70,6 +70,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/achievements",
                   "parts" => [
@@ -101,6 +102,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/achievements/categories",
                   "parts" => [
@@ -133,6 +135,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/achievements/groups",
                   "parts" => [
@@ -161,6 +164,7 @@ module GuildWars2Config
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/achievements/daily",
                   "parts" => [
@@ -179,6 +183,7 @@ module GuildWars2Config
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/achievements/daily/tomorrow",
                   "parts" => [
@@ -226,7 +231,7 @@ module GuildWars2Config
             },
             {
               "active" => true,
-              "name" => "permission",
+              "name" => "permissions",
               "req" => false,
               "type" => "`$ARRAY`",
               "index$" => 3,
@@ -273,6 +278,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/characters",
                   "parts" => [
@@ -292,6 +298,7 @@ module GuildWars2Config
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/account/achievements",
                   "parts" => [
@@ -308,6 +315,7 @@ module GuildWars2Config
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/account/bank",
                   "parts" => [
@@ -324,6 +332,7 @@ module GuildWars2Config
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/account/buildstorage",
                   "parts" => [
@@ -340,6 +349,7 @@ module GuildWars2Config
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/account/dailycrafting",
                   "parts" => [
@@ -356,6 +366,7 @@ module GuildWars2Config
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/account/dungeons",
                   "parts" => [
@@ -372,6 +383,7 @@ module GuildWars2Config
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/account/dyes",
                   "parts" => [
@@ -388,6 +400,7 @@ module GuildWars2Config
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/account/emotes",
                   "parts" => [
@@ -404,6 +417,7 @@ module GuildWars2Config
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/account/finishers",
                   "parts" => [
@@ -420,6 +434,7 @@ module GuildWars2Config
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/account/gliders",
                   "parts" => [
@@ -436,6 +451,7 @@ module GuildWars2Config
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/account/home/cats",
                   "parts" => [
@@ -453,6 +469,7 @@ module GuildWars2Config
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/account/home/nodes",
                   "parts" => [
@@ -470,6 +487,7 @@ module GuildWars2Config
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/account/inventory",
                   "parts" => [
@@ -486,6 +504,7 @@ module GuildWars2Config
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/account/legendaryarmory",
                   "parts" => [
@@ -502,6 +521,7 @@ module GuildWars2Config
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/account/luck",
                   "parts" => [
@@ -518,6 +538,7 @@ module GuildWars2Config
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/account/mapchests",
                   "parts" => [
@@ -534,6 +555,7 @@ module GuildWars2Config
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/account/masteries",
                   "parts" => [
@@ -550,6 +572,7 @@ module GuildWars2Config
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/account/materials",
                   "parts" => [
@@ -566,6 +589,7 @@ module GuildWars2Config
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/account/minis",
                   "parts" => [
@@ -582,6 +606,7 @@ module GuildWars2Config
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/account/mounts/skins",
                   "parts" => [
@@ -599,6 +624,7 @@ module GuildWars2Config
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/account/mounts/types",
                   "parts" => [
@@ -616,6 +642,7 @@ module GuildWars2Config
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/account/novelties",
                   "parts" => [
@@ -632,6 +659,7 @@ module GuildWars2Config
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/account/outfits",
                   "parts" => [
@@ -648,6 +676,7 @@ module GuildWars2Config
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/account/pvp/heroes",
                   "parts" => [
@@ -665,6 +694,7 @@ module GuildWars2Config
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/account/raids",
                   "parts" => [
@@ -681,6 +711,7 @@ module GuildWars2Config
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/account/recipes",
                   "parts" => [
@@ -697,6 +728,7 @@ module GuildWars2Config
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/account/skins",
                   "parts" => [
@@ -713,6 +745,7 @@ module GuildWars2Config
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/account/titles",
                   "parts" => [
@@ -729,6 +762,7 @@ module GuildWars2Config
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/account/wallet",
                   "parts" => [
@@ -745,6 +779,7 @@ module GuildWars2Config
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/account/worldbosses",
                   "parts" => [
@@ -761,6 +796,7 @@ module GuildWars2Config
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/pvp/games",
                   "parts" => [
@@ -777,6 +813,7 @@ module GuildWars2Config
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/pvp/standings",
                   "parts" => [
@@ -793,6 +830,7 @@ module GuildWars2Config
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/tokeninfo",
                   "parts" => [
@@ -801,7 +839,7 @@ module GuildWars2Config
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body`",
+                    "res" => "`body.permissions`",
                   },
                   "index$" => 32,
                 },
@@ -842,6 +880,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/createsubtoken",
                   "parts" => [
@@ -863,6 +902,7 @@ module GuildWars2Config
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/account",
                   "parts" => [
@@ -878,6 +918,7 @@ module GuildWars2Config
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/account/mastery/points",
                   "parts" => [
@@ -895,6 +936,7 @@ module GuildWars2Config
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/pvp/stats",
                   "parts" => [
@@ -927,6 +969,7 @@ module GuildWars2Config
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/dailycrafting",
                   "parts" => [
@@ -942,6 +985,7 @@ module GuildWars2Config
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/mapchests",
                   "parts" => [
@@ -957,6 +1001,7 @@ module GuildWars2Config
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/worldbosses",
                   "parts" => [
@@ -999,6 +1044,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/legendaryarmory",
                   "parts" => [
@@ -1029,6 +1075,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/legends",
                   "parts" => [
@@ -1059,6 +1106,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/masteries",
                   "parts" => [
@@ -1089,6 +1137,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/mounts/skins",
                   "parts" => [
@@ -1120,6 +1169,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/mounts/types",
                   "parts" => [
@@ -1151,6 +1201,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/outfits",
                   "parts" => [
@@ -1181,6 +1232,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/pets",
                   "parts" => [
@@ -1211,6 +1263,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/professions",
                   "parts" => [
@@ -1241,6 +1294,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/races",
                   "parts" => [
@@ -1271,6 +1325,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/skills",
                   "parts" => [
@@ -1301,6 +1356,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/specializations",
                   "parts" => [
@@ -1331,6 +1387,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/traits",
                   "parts" => [
@@ -1350,6 +1407,7 @@ module GuildWars2Config
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/mounts",
                   "parts" => [
@@ -1392,6 +1450,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/guild/permissions",
                   "parts" => [
@@ -1424,6 +1483,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/guild/search",
                   "parts" => [
@@ -1456,6 +1516,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/guild/upgrades",
                   "parts" => [
@@ -1477,6 +1538,7 @@ module GuildWars2Config
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/emblem",
                   "parts" => [
@@ -1511,6 +1573,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/guild/{id}",
                   "parts" => [
@@ -1559,6 +1622,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/guild/{id}/log",
                   "parts" => [
@@ -1593,6 +1657,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/guild/{id}/members",
                   "parts" => [
@@ -1627,6 +1692,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/guild/{id}/ranks",
                   "parts" => [
@@ -1661,6 +1727,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/guild/{id}/stash",
                   "parts" => [
@@ -1695,6 +1762,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/guild/{id}/storage",
                   "parts" => [
@@ -1729,6 +1797,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/guild/{id}/teams",
                   "parts" => [
@@ -1763,6 +1832,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/guild/{id}/treasury",
                   "parts" => [
@@ -1797,6 +1867,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/guild/{id}/upgrades",
                   "parts" => [
@@ -1846,6 +1917,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/home/cats",
                   "parts" => [
@@ -1877,6 +1949,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/home/nodes",
                   "parts" => [
@@ -1932,6 +2005,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/recipes/search",
                   "parts" => [
@@ -1964,6 +2038,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/finishers",
                   "parts" => [
@@ -1994,6 +2069,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/gliders",
                   "parts" => [
@@ -2024,6 +2100,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/items",
                   "parts" => [
@@ -2054,6 +2131,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/itemstats",
                   "parts" => [
@@ -2084,6 +2162,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/materials",
                   "parts" => [
@@ -2114,6 +2193,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/pvp/amulets",
                   "parts" => [
@@ -2145,6 +2225,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/recipes",
                   "parts" => [
@@ -2175,6 +2256,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/skins",
                   "parts" => [
@@ -2221,6 +2303,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/maps",
                   "parts" => [
@@ -2267,6 +2350,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/continents",
                   "parts" => [
@@ -2321,6 +2405,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/colors",
                   "parts" => [
@@ -2351,6 +2436,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/currencies",
                   "parts" => [
@@ -2381,6 +2467,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/dungeons",
                   "parts" => [
@@ -2411,6 +2498,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/files",
                   "parts" => [
@@ -2441,6 +2529,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/minis",
                   "parts" => [
@@ -2471,6 +2560,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/novelties",
                   "parts" => [
@@ -2501,6 +2591,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/raids",
                   "parts" => [
@@ -2531,6 +2622,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/titles",
                   "parts" => [
@@ -2561,6 +2653,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/worlds",
                   "parts" => [
@@ -2587,6 +2680,7 @@ module GuildWars2Config
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/build",
                   "parts" => [
@@ -2629,6 +2723,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/quests",
                   "parts" => [
@@ -2659,6 +2754,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/stories",
                   "parts" => [
@@ -2689,6 +2785,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/stories/seasons",
                   "parts" => [
@@ -2737,6 +2834,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/pvp/heroes",
                   "parts" => [
@@ -2768,6 +2866,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/pvp/ranks",
                   "parts" => [
@@ -2799,6 +2898,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/pvp/seasons",
                   "parts" => [
@@ -2819,6 +2919,7 @@ module GuildWars2Config
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/pvp",
                   "parts" => [
@@ -2843,7 +2944,7 @@ module GuildWars2Config
           "fields" => [
             {
               "active" => true,
-              "name" => "coin",
+              "name" => "coins",
               "req" => false,
               "type" => "`$INTEGER`",
               "index$" => 0,
@@ -2857,7 +2958,7 @@ module GuildWars2Config
             },
             {
               "active" => true,
-              "name" => "item",
+              "name" => "items",
               "req" => false,
               "type" => "`$ARRAY`",
               "index$" => 2,
@@ -2890,6 +2991,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/commerce/listings",
                   "parts" => [
@@ -2921,6 +3023,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/commerce/prices",
                   "parts" => [
@@ -2941,6 +3044,7 @@ module GuildWars2Config
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/commerce/delivery",
                   "parts" => [
@@ -2950,13 +3054,14 @@ module GuildWars2Config
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body`",
+                    "res" => "`body.items`",
                   },
                   "index$" => 2,
                 },
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/commerce/exchange",
                   "parts" => [
@@ -2973,6 +3078,7 @@ module GuildWars2Config
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/commerce/transactions",
                   "parts" => [
@@ -3007,6 +3113,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/commerce/exchange/coins",
                   "parts" => [
@@ -3039,6 +3146,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/commerce/exchange/gems",
                   "parts" => [
@@ -3087,6 +3195,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/wvw/abilities",
                   "parts" => [
@@ -3118,6 +3227,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/wvw/matches",
                   "parts" => [
@@ -3149,6 +3259,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/wvw/objectives",
                   "parts" => [
@@ -3180,6 +3291,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/wvw/ranks",
                   "parts" => [
@@ -3211,6 +3323,7 @@ module GuildWars2Config
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/wvw/upgrades",
                   "parts" => [
@@ -3231,6 +3344,7 @@ module GuildWars2Config
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/wvw",
                   "parts" => [

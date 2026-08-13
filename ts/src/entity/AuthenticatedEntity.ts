@@ -37,7 +37,7 @@ class AuthenticatedEntity extends GuildWars2EntityBase<Authenticated> {
 
 
 
-  async load(this: any, reqmatch?: AuthenticatedLoadMatch, ctrl?: Control): Promise<Authenticated> {
+  async load(this: any, reqmatch?: AuthenticatedLoadMatch, ctrl?: Control): Promise<AuthenticatedEntity> {
 
     const utility = this._utility
 
@@ -128,7 +128,15 @@ class AuthenticatedEntity extends GuildWars2EntityBase<Authenticated> {
         }
       }
 
-      return done(ctx)
+      const out = done(ctx)
+
+      // An operation resolves to the ENTITY, not the raw data — the record
+      // has just been absorbed into this instance and is reached through
+      // data(). `done` still runs: it completes the pipeline and raises on
+      // failure, and when throwing is disabled it hands back the error
+      // payload, which passes through unchanged. See AGENTS.md "Entity
+      // operations return ENTITIES".
+      return (ctx.result && ctx.result.ok) ? this : out
     }
     catch (err: any) {
 
@@ -150,7 +158,7 @@ class AuthenticatedEntity extends GuildWars2EntityBase<Authenticated> {
 
 
 
-  async list(this: any, reqmatch?: AuthenticatedListMatch, ctrl?: Control): Promise<Authenticated[]> {
+  async list(this: any, reqmatch?: AuthenticatedListMatch, ctrl?: Control): Promise<AuthenticatedEntity[]> {
 
     const utility = this._utility
 

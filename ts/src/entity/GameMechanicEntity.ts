@@ -37,7 +37,7 @@ class GameMechanicEntity extends GuildWars2EntityBase<GameMechanic> {
 
 
 
-  async list(this: any, reqmatch?: GameMechanicListMatch, ctrl?: Control): Promise<GameMechanic[]> {
+  async list(this: any, reqmatch?: GameMechanicListMatch, ctrl?: Control): Promise<GameMechanicEntity[]> {
 
     const utility = this._utility
 

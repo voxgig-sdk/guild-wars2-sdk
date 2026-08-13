@@ -33,7 +33,7 @@ class Authenticated
     public ?string $created = null;
     public ?string $id = null;
     public ?string $name = null;
-    public ?array $permission = null;
+    public ?array $permissions = null;
     public ?string $subtoken = null;
     public ?int $value = null;
     public ?int $world = null;
@@ -45,7 +45,7 @@ class AuthenticatedLoadMatch
     public ?string $created = null;
     public string $id;
     public ?string $name = null;
-    public ?array $permission = null;
+    public ?array $permissions = null;
     public ?string $subtoken = null;
     public ?int $value = null;
     public ?int $world = null;
@@ -57,7 +57,7 @@ class AuthenticatedListMatch
     public ?string $created = null;
     public ?string $id = null;
     public ?string $name = null;
-    public ?array $permission = null;
+    public ?array $permissions = null;
     public ?string $subtoken = null;
     public ?int $value = null;
     public ?int $world = null;
@@ -191,27 +191,27 @@ class StructuredPvPListMatch
 /** TradingPost entity data model. */
 class TradingPost
 {
-    public ?int $coin = null;
+    public ?int $coins = null;
     public ?int $coins_per_gem = null;
-    public ?array $item = null;
+    public ?array $items = null;
     public ?int $quantity = null;
 }
 
 /** Request payload for TradingPost#load. */
 class TradingPostLoadMatch
 {
-    public ?int $coin = null;
+    public ?int $coins = null;
     public ?int $coins_per_gem = null;
-    public ?array $item = null;
+    public ?array $items = null;
     public ?int $quantity = null;
 }
 
 /** Request payload for TradingPost#list. */
 class TradingPostListMatch
 {
-    public ?int $coin = null;
+    public ?int $coins = null;
     public ?int $coins_per_gem = null;
-    public ?array $item = null;
+    public ?array $items = null;
     public ?int $quantity = null;
 }
 

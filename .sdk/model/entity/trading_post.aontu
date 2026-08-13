@@ -6,7 +6,7 @@ main: kit: entity: trading_post: {
 
   fields: [
     {
-      name: "coin"
+      name: "coins"
       req: false
       type: "`$INTEGER`"
     }
@@ -16,7 +16,7 @@ main: kit: entity: trading_post: {
       type: "`$INTEGER`"
     }
     {
-      name: "item"
+      name: "items"
       req: false
       type: "`$ARRAY`"
     }
@@ -97,7 +97,7 @@ main: kit: entity: trading_post: {
           ]
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.items`"
           }
         }
         {

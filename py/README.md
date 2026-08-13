@@ -55,7 +55,7 @@ except Exception as err:
 
 ### 3. Load an achievement
 
-`load()` returns the bare record (a `dict`) and raises on error.
+`load()` returns the ENTITY — call data_get() for the record — and raises on error.
 
 ```python
 try:
@@ -72,8 +72,8 @@ Entity operations raise on failure, so wrap them in `try` / `except`:
 
 ```python
 try:
-    achievements = client.Achievement().list()
-    print(achievements)
+    gamemechanics = client.GameMechanic().list()
+    print(gamemechanics)
 except Exception as err:
     print(f"list failed: {err}")
 ```
@@ -139,9 +139,10 @@ Create a mock client for unit testing — no server required:
 ```python
 client = GuildWars2SDK.test()
 
-# Entity ops return the bare record and raise on error.
-achievement = client.Achievement().list()
-# achievement contains the mock response record
+# Entity ops return the ENTITY and raises on error;
+# call data_get() for the record.
+gamemechanic = client.GameMechanic().list()
+# gamemechanic contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -252,7 +253,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (a `dict` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (a `dict` for single-entity
 ops, a `list` for `list`) and raise on error. Wrap calls in
 `try`/`except` to handle failures.
 
@@ -286,7 +287,7 @@ API path: `/achievements`
 | `created` |  |
 | `id` |  |
 | `name` |  |
-| `permission` |  |
+| `permissions` |  |
 | `subtoken` |  |
 | `value` |  |
 | `world` |  |
@@ -399,9 +400,9 @@ API path: `/pvp/heroes`
 
 | Field | Description |
 | --- | --- |
-| `coin` |  |
+| `coins` |  |
 | `coins_per_gem` |  |
-| `item` |  |
+| `items` |  |
 | `quantity` |  |
 
 Operations: List, Load.
@@ -464,7 +465,7 @@ Create an instance: `authenticated = client.Authenticated()`
 | `created` | `str` |  |
 | `id` | `str` |  |
 | `name` | `str` |  |
-| `permission` | `list` |  |
+| `permissions` | `list` |  |
 | `subtoken` | `str` |  |
 | `value` | `int` |  |
 | `world` | `int` |  |
@@ -553,7 +554,7 @@ Create an instance: `guild_authenticated = client.GuildAuthenticated()`
 #### Example: List
 
 ```python
-guild_authenticateds = client.GuildAuthenticated().list()
+guild_authenticateds = client.GuildAuthenticated().list({"id": "example"})
 ```
 
 
@@ -704,9 +705,9 @@ Create an instance: `trading_post = client.TradingPost()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `coin` | `int` |  |
+| `coins` | `int` |  |
 | `coins_per_gem` | `int` |  |
-| `item` | `list` |  |
+| `items` | `list` |  |
 | `quantity` | `int` |  |
 
 #### Example: Load
@@ -814,11 +815,11 @@ Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-achievement = client.Achievement()
-achievement.list()
+gamemechanic = client.GameMechanic()
+gamemechanic.list()
 
-# achievement.data_get() now returns the achievement data from the last list
-# achievement.match_get() returns the last match criteria
+# gamemechanic.data_get() now returns the gamemechanic data from the last list
+# gamemechanic.match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

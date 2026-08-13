@@ -37,7 +37,7 @@ class StructuredPvPEntity extends GuildWars2EntityBase<StructuredPvP> {
 
 
 
-  async list(this: any, reqmatch?: StructuredPvPListMatch, ctrl?: Control): Promise<StructuredPvP[]> {
+  async list(this: any, reqmatch?: StructuredPvPListMatch, ctrl?: Control): Promise<StructuredPvPEntity[]> {
 
     const utility = this._utility
 

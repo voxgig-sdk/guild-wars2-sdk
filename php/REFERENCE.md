@@ -206,7 +206,7 @@ $authenticated = $client->Authenticated();
 | `created` | `string` | No |  |
 | `id` | `string` | No |  |
 | `name` | `string` | No |  |
-| `permission` | `array` | No |  |
+| `permissions` | `array` | No |  |
 | `subtoken` | `string` | No |  |
 | `value` | `int` | No |  |
 | `world` | `int` | No |  |
@@ -797,9 +797,9 @@ $trading_post = $client->TradingPost();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `coin` | `int` | No |  |
+| `coins` | `int` | No |  |
 | `coins_per_gem` | `int` | No |  |
-| `item` | `array` | No |  |
+| `items` | `array` | No |  |
 | `quantity` | `int` | No |  |
 
 ### Operations

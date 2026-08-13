@@ -78,12 +78,12 @@ Every entity operation returns `(value, error)`. Check `err` before
 using the value — there is no exception to catch:
 
 ```go
-achievements, err := client.Achievement(nil).List(nil, nil)
+gamemechanics, err := client.GameMechanic(nil).List(nil, nil)
 if err != nil {
     // handle err
     return
 }
-_ = achievements
+_ = gamemechanics
 ```
 
 `Direct` follows the same `(value, error)` convention:
@@ -147,13 +147,13 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-achievement, err := client.Achievement(nil).List(
+gameMechanic, err := client.GameMechanic(nil).List(
     nil, nil,
 )
 if err != nil {
     panic(err)
 }
-fmt.Println(achievement) // the returned mock data
+fmt.Println(gameMechanic) // the returned mock data
 ```
 
 ### Use a custom fetch function
@@ -300,7 +300,7 @@ API path: `/achievements`
 | `"created"` |  |
 | `"id"` |  |
 | `"name"` |  |
-| `"permission"` |  |
+| `"permissions"` |  |
 | `"subtoken"` |  |
 | `"value"` |  |
 | `"world"` |  |
@@ -413,9 +413,9 @@ API path: `/pvp/heroes`
 
 | Field | Description |
 | --- | --- |
-| `"coin"` |  |
+| `"coins"` |  |
 | `"coins_per_gem"` |  |
-| `"item"` |  |
+| `"items"` |  |
 | `"quantity"` |  |
 
 Operations: List, Load.
@@ -486,7 +486,7 @@ Create an instance: `authenticated := client.Authenticated(nil)`
 | `created` | `string` |  |
 | `id` | `string` |  |
 | `name` | `string` |  |
-| `permission` | `[]any` |  |
+| `permissions` | `[]any` |  |
 | `subtoken` | `string` |  |
 | `value` | `int` |  |
 | `world` | `int` |  |
@@ -786,9 +786,9 @@ Create an instance: `tradingPost := client.TradingPost(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `coin` | `int` |  |
+| `coins` | `int` |  |
 | `coins_per_gem` | `int` |  |
-| `item` | `[]any` |  |
+| `items` | `[]any` |  |
 | `quantity` | `int` |  |
 
 #### Example: Load
@@ -906,11 +906,11 @@ Entity instances are stateful. After a successful `List`, the entity
 stores the returned data and match criteria internally.
 
 ```go
-achievement := client.Achievement(nil)
-achievement.List(nil, nil)
+gamemechanic := client.GameMechanic(nil)
+gamemechanic.List(nil, nil)
 
-// achievement.Data() now returns the achievement data from the last list
-// achievement.Match() returns the last match criteria
+// gamemechanic.Data() now returns the gamemechanic data from the last list
+// gamemechanic.Match() returns the last match criteria
 ```
 
 Call `Make()` to create a fresh instance with the same configuration

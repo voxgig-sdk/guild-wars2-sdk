@@ -202,7 +202,7 @@ authenticated = client.Authenticated()
 | `created` | `str` | No |  |
 | `id` | `str` | No |  |
 | `name` | `str` | No |  |
-| `permission` | `list` | No |  |
+| `permissions` | `list` | No |  |
 | `subtoken` | `str` | No |  |
 | `value` | `int` | No |  |
 | `world` | `int` | No |  |
@@ -418,7 +418,7 @@ guild_authenticated = client.GuildAuthenticated()
 List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.GuildAuthenticated().list()
+results = client.GuildAuthenticated().list({"id": "example"})
 for guild_authenticated in results:
     print(guild_authenticated)
 ```
@@ -805,9 +805,9 @@ trading_post = client.TradingPost()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `coin` | `int` | No |  |
+| `coins` | `int` | No |  |
 | `coins_per_gem` | `int` | No |  |
-| `item` | `list` | No |  |
+| `items` | `list` | No |  |
 | `quantity` | `int` | No |  |
 
 ### Operations

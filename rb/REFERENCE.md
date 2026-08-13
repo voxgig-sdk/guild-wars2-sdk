@@ -207,7 +207,7 @@ authenticated = client.Authenticated
 | `created` | `String` | No |  |
 | `id` | `String` | No |  |
 | `name` | `String` | No |  |
-| `permission` | `Array` | No |  |
+| `permissions` | `Array` | No |  |
 | `subtoken` | `String` | No |  |
 | `value` | `Integer` | No |  |
 | `world` | `Integer` | No |  |
@@ -798,9 +798,9 @@ trading_post = client.TradingPost
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `coin` | `Integer` | No |  |
+| `coins` | `Integer` | No |  |
 | `coins_per_gem` | `Integer` | No |  |
-| `item` | `Array` | No |  |
+| `items` | `Array` | No |  |
 | `quantity` | `Integer` | No |  |
 
 ### Operations

@@ -9,16 +9,28 @@ export interface Achievement {
 }
 
 export interface AchievementLoadMatch {
+
+  // Selects a custom action instead of the plain load:
+  //   'daily'
+  // The remaining keys are that action's own payload.
+  $action?: string
+  [action: string]: any
 }
 
 export interface AchievementListMatch {
+
+  // Selects a custom action instead of the plain list:
+  //   'category' | 'group'
+  // The remaining keys are that action's own payload.
+  $action?: string
+  [action: string]: any
 }
 
 export interface Authenticated {
   created?: string
   id?: string
   name?: string
-  permission?: any[]
+  permissions?: any[]
   subtoken?: string
   value?: number
   world?: number
@@ -28,7 +40,7 @@ export interface AuthenticatedLoadMatch {
   created?: string
   id: string
   name?: string
-  permission?: any[]
+  permissions?: any[]
   subtoken?: string
   value?: number
   world?: number
@@ -38,7 +50,7 @@ export interface AuthenticatedListMatch {
   created?: string
   id?: string
   name?: string
-  permission?: any[]
+  permissions?: any[]
   subtoken?: string
   value?: number
   world?: number
@@ -64,6 +76,12 @@ export interface GuildLoadMatch {
 }
 
 export interface GuildListMatch {
+
+  // Selects a custom action instead of the plain list:
+  //   'permission' | 'search' | 'upgrade'
+  // The remaining keys are that action's own payload.
+  $action?: string
+  [action: string]: any
 }
 
 export interface GuildAuthenticated {
@@ -71,6 +89,12 @@ export interface GuildAuthenticated {
 
 export interface GuildAuthenticatedListMatch {
   id: string
+
+  // Selects a custom action instead of the plain list:
+  //   'log' | 'members' | 'ranks' | 'stash' | 'storage' | 'teams' | 'treasury' | 'upgrades'
+  // The remaining keys are that action's own payload.
+  $action?: string
+  [action: string]: any
 }
 
 export interface HomeInstance {
@@ -113,6 +137,12 @@ export interface Story {
 }
 
 export interface StoryListMatch {
+
+  // Selects a custom action instead of the plain list:
+  //   'season'
+  // The remaining keys are that action's own payload.
+  $action?: string
+  [action: string]: any
 }
 
 export interface StructuredPvP {
@@ -122,23 +152,23 @@ export interface StructuredPvPListMatch {
 }
 
 export interface TradingPost {
-  coin?: number
+  coins?: number
   coins_per_gem?: number
-  item?: any[]
+  items?: any[]
   quantity?: number
 }
 
 export interface TradingPostLoadMatch {
-  coin?: number
+  coins?: number
   coins_per_gem?: number
-  item?: any[]
+  items?: any[]
   quantity?: number
 }
 
 export interface TradingPostListMatch {
-  coin?: number
+  coins?: number
   coins_per_gem?: number
-  item?: any[]
+  items?: any[]
   quantity?: number
 }
 

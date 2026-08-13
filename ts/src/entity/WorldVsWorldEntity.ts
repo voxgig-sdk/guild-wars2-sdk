@@ -37,7 +37,7 @@ class WorldVsWorldEntity extends GuildWars2EntityBase<WorldVsWorld> {
 
 
 
-  async list(this: any, reqmatch?: WorldVsWorldListMatch, ctrl?: Control): Promise<WorldVsWorld[]> {
+  async list(this: any, reqmatch?: WorldVsWorldListMatch, ctrl?: Control): Promise<WorldVsWorldEntity[]> {
 
     const utility = this._utility
 

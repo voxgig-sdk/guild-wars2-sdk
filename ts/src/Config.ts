@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'GuildWars2',
   }
 
 
@@ -128,6 +128,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/achievements",
               "parts": [
@@ -159,6 +160,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/achievements/categories",
               "parts": [
@@ -191,6 +193,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/achievements/groups",
               "parts": [
@@ -219,6 +222,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/achievements/daily",
               "parts": [
@@ -237,6 +241,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/achievements/daily/tomorrow",
               "parts": [
@@ -284,7 +289,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "permission",
+          "name": "permissions",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 3
@@ -331,6 +336,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/characters",
               "parts": [
@@ -350,6 +356,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/account/achievements",
               "parts": [
@@ -366,6 +373,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/account/bank",
               "parts": [
@@ -382,6 +390,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/account/buildstorage",
               "parts": [
@@ -398,6 +407,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/account/dailycrafting",
               "parts": [
@@ -414,6 +424,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/account/dungeons",
               "parts": [
@@ -430,6 +441,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/account/dyes",
               "parts": [
@@ -446,6 +458,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/account/emotes",
               "parts": [
@@ -462,6 +475,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/account/finishers",
               "parts": [
@@ -478,6 +492,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/account/gliders",
               "parts": [
@@ -494,6 +509,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/account/home/cats",
               "parts": [
@@ -511,6 +527,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/account/home/nodes",
               "parts": [
@@ -528,6 +545,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/account/inventory",
               "parts": [
@@ -544,6 +562,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/account/legendaryarmory",
               "parts": [
@@ -560,6 +579,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/account/luck",
               "parts": [
@@ -576,6 +596,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/account/mapchests",
               "parts": [
@@ -592,6 +613,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/account/masteries",
               "parts": [
@@ -608,6 +630,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/account/materials",
               "parts": [
@@ -624,6 +647,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/account/minis",
               "parts": [
@@ -640,6 +664,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/account/mounts/skins",
               "parts": [
@@ -657,6 +682,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/account/mounts/types",
               "parts": [
@@ -674,6 +700,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/account/novelties",
               "parts": [
@@ -690,6 +717,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/account/outfits",
               "parts": [
@@ -706,6 +734,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/account/pvp/heroes",
               "parts": [
@@ -723,6 +752,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/account/raids",
               "parts": [
@@ -739,6 +769,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/account/recipes",
               "parts": [
@@ -755,6 +786,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/account/skins",
               "parts": [
@@ -771,6 +803,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/account/titles",
               "parts": [
@@ -787,6 +820,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/account/wallet",
               "parts": [
@@ -803,6 +837,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/account/worldbosses",
               "parts": [
@@ -819,6 +854,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/pvp/games",
               "parts": [
@@ -835,6 +871,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/pvp/standings",
               "parts": [
@@ -851,6 +888,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/tokeninfo",
               "parts": [
@@ -859,7 +897,7 @@ class Config {
               "select": {},
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.permissions`"
               },
               "index$": 32
             }
@@ -900,6 +938,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/createsubtoken",
               "parts": [
@@ -921,6 +960,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/account",
               "parts": [
@@ -936,6 +976,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/account/mastery/points",
               "parts": [
@@ -953,6 +994,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/pvp/stats",
               "parts": [
@@ -985,6 +1027,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/dailycrafting",
               "parts": [
@@ -1000,6 +1043,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/mapchests",
               "parts": [
@@ -1015,6 +1059,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/worldbosses",
               "parts": [
@@ -1057,6 +1102,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/legendaryarmory",
               "parts": [
@@ -1087,6 +1133,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/legends",
               "parts": [
@@ -1117,6 +1164,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/masteries",
               "parts": [
@@ -1147,6 +1195,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/mounts/skins",
               "parts": [
@@ -1178,6 +1227,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/mounts/types",
               "parts": [
@@ -1209,6 +1259,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/outfits",
               "parts": [
@@ -1239,6 +1290,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/pets",
               "parts": [
@@ -1269,6 +1321,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/professions",
               "parts": [
@@ -1299,6 +1352,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/races",
               "parts": [
@@ -1329,6 +1383,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/skills",
               "parts": [
@@ -1359,6 +1414,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/specializations",
               "parts": [
@@ -1389,6 +1445,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/traits",
               "parts": [
@@ -1408,6 +1465,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/mounts",
               "parts": [
@@ -1450,6 +1508,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/guild/permissions",
               "parts": [
@@ -1482,6 +1541,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/guild/search",
               "parts": [
@@ -1514,6 +1574,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/guild/upgrades",
               "parts": [
@@ -1535,6 +1596,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/emblem",
               "parts": [
@@ -1569,6 +1631,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/guild/{id}",
               "parts": [
@@ -1617,6 +1680,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/guild/{id}/log",
               "parts": [
@@ -1651,6 +1715,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/guild/{id}/members",
               "parts": [
@@ -1685,6 +1750,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/guild/{id}/ranks",
               "parts": [
@@ -1719,6 +1785,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/guild/{id}/stash",
               "parts": [
@@ -1753,6 +1820,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/guild/{id}/storage",
               "parts": [
@@ -1787,6 +1855,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/guild/{id}/teams",
               "parts": [
@@ -1821,6 +1890,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/guild/{id}/treasury",
               "parts": [
@@ -1855,6 +1925,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/guild/{id}/upgrades",
               "parts": [
@@ -1904,6 +1975,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/home/cats",
               "parts": [
@@ -1935,6 +2007,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/home/nodes",
               "parts": [
@@ -1990,6 +2063,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/recipes/search",
               "parts": [
@@ -2022,6 +2096,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/finishers",
               "parts": [
@@ -2052,6 +2127,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/gliders",
               "parts": [
@@ -2082,6 +2158,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/items",
               "parts": [
@@ -2112,6 +2189,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/itemstats",
               "parts": [
@@ -2142,6 +2220,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/materials",
               "parts": [
@@ -2172,6 +2251,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/pvp/amulets",
               "parts": [
@@ -2203,6 +2283,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/recipes",
               "parts": [
@@ -2233,6 +2314,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/skins",
               "parts": [
@@ -2279,6 +2361,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/maps",
               "parts": [
@@ -2325,6 +2408,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/continents",
               "parts": [
@@ -2379,6 +2463,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/colors",
               "parts": [
@@ -2409,6 +2494,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/currencies",
               "parts": [
@@ -2439,6 +2525,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/dungeons",
               "parts": [
@@ -2469,6 +2556,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/files",
               "parts": [
@@ -2499,6 +2587,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/minis",
               "parts": [
@@ -2529,6 +2618,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/novelties",
               "parts": [
@@ -2559,6 +2649,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/raids",
               "parts": [
@@ -2589,6 +2680,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/titles",
               "parts": [
@@ -2619,6 +2711,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/worlds",
               "parts": [
@@ -2645,6 +2738,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/build",
               "parts": [
@@ -2687,6 +2781,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/quests",
               "parts": [
@@ -2717,6 +2812,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/stories",
               "parts": [
@@ -2747,6 +2843,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/stories/seasons",
               "parts": [
@@ -2795,6 +2892,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/pvp/heroes",
               "parts": [
@@ -2826,6 +2924,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/pvp/ranks",
               "parts": [
@@ -2857,6 +2956,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/pvp/seasons",
               "parts": [
@@ -2877,6 +2977,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/pvp",
               "parts": [
@@ -2901,7 +3002,7 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "coin",
+          "name": "coins",
           "req": false,
           "type": "`$INTEGER`",
           "index$": 0
@@ -2915,7 +3016,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "item",
+          "name": "items",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 2
@@ -2948,6 +3049,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/commerce/listings",
               "parts": [
@@ -2979,6 +3081,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/commerce/prices",
               "parts": [
@@ -2999,6 +3102,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/commerce/delivery",
               "parts": [
@@ -3008,13 +3112,14 @@ class Config {
               "select": {},
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.items`"
               },
               "index$": 2
             },
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/commerce/exchange",
               "parts": [
@@ -3031,6 +3136,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/commerce/transactions",
               "parts": [
@@ -3065,6 +3171,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/commerce/exchange/coins",
               "parts": [
@@ -3097,6 +3204,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/commerce/exchange/gems",
               "parts": [
@@ -3145,6 +3253,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/wvw/abilities",
               "parts": [
@@ -3176,6 +3285,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/wvw/matches",
               "parts": [
@@ -3207,6 +3317,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/wvw/objectives",
               "parts": [
@@ -3238,6 +3349,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/wvw/ranks",
               "parts": [
@@ -3269,6 +3381,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/wvw/upgrades",
               "parts": [
@@ -3289,6 +3402,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/wvw",
               "parts": [

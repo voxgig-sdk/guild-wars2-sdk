@@ -23,8 +23,8 @@ module GuildWars2TestRunner
   end
 
   def self.env_override(m)
-    live = getenv("GUILDWARS2_TEST_LIVE")
-    override = getenv("GUILDWARS2_TEST_OVERRIDE")
+    live = getenv("GUILD_WARS2_TEST_LIVE")
+    override = getenv("GUILD_WARS2_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module GuildWars2TestRunner
       end
     end
 
-    explain = getenv("GUILDWARS2_TEST_EXPLAIN")
-    m["GUILDWARS2_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("GUILD_WARS2_TEST_EXPLAIN")
+    m["GUILD_WARS2_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

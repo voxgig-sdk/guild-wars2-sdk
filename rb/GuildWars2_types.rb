@@ -31,7 +31,7 @@ end
 # @!attribute [rw] name
 #   @return [String, nil]
 #
-# @!attribute [rw] permission
+# @!attribute [rw] permissions
 #   @return [Array, nil]
 #
 # @!attribute [rw] subtoken
@@ -46,7 +46,7 @@ Authenticated = Struct.new(
   :created,
   :id,
   :name,
-  :permission,
+  :permissions,
   :subtoken,
   :value,
   :world,
@@ -64,7 +64,7 @@ Authenticated = Struct.new(
 # @!attribute [rw] name
 #   @return [String, nil]
 #
-# @!attribute [rw] permission
+# @!attribute [rw] permissions
 #   @return [Array, nil]
 #
 # @!attribute [rw] subtoken
@@ -79,7 +79,7 @@ AuthenticatedLoadMatch = Struct.new(
   :created,
   :id,
   :name,
-  :permission,
+  :permissions,
   :subtoken,
   :value,
   :world,
@@ -97,7 +97,7 @@ AuthenticatedLoadMatch = Struct.new(
 # @!attribute [rw] name
 #   @return [String, nil]
 #
-# @!attribute [rw] permission
+# @!attribute [rw] permissions
 #   @return [Array, nil]
 #
 # @!attribute [rw] subtoken
@@ -112,7 +112,7 @@ AuthenticatedListMatch = Struct.new(
   :created,
   :id,
   :name,
-  :permission,
+  :permissions,
   :subtoken,
   :value,
   :world,
@@ -242,63 +242,63 @@ end
 
 # TradingPost entity data model.
 #
-# @!attribute [rw] coin
+# @!attribute [rw] coins
 #   @return [Integer, nil]
 #
 # @!attribute [rw] coins_per_gem
 #   @return [Integer, nil]
 #
-# @!attribute [rw] item
+# @!attribute [rw] items
 #   @return [Array, nil]
 #
 # @!attribute [rw] quantity
 #   @return [Integer, nil]
 TradingPost = Struct.new(
-  :coin,
+  :coins,
   :coins_per_gem,
-  :item,
+  :items,
   :quantity,
   keyword_init: true
 )
 
 # Request payload for TradingPost#load.
 #
-# @!attribute [rw] coin
+# @!attribute [rw] coins
 #   @return [Integer, nil]
 #
 # @!attribute [rw] coins_per_gem
 #   @return [Integer, nil]
 #
-# @!attribute [rw] item
+# @!attribute [rw] items
 #   @return [Array, nil]
 #
 # @!attribute [rw] quantity
 #   @return [Integer, nil]
 TradingPostLoadMatch = Struct.new(
-  :coin,
+  :coins,
   :coins_per_gem,
-  :item,
+  :items,
   :quantity,
   keyword_init: true
 )
 
 # Request payload for TradingPost#list.
 #
-# @!attribute [rw] coin
+# @!attribute [rw] coins
 #   @return [Integer, nil]
 #
 # @!attribute [rw] coins_per_gem
 #   @return [Integer, nil]
 #
-# @!attribute [rw] item
+# @!attribute [rw] items
 #   @return [Array, nil]
 #
 # @!attribute [rw] quantity
 #   @return [Integer, nil]
 TradingPostListMatch = Struct.new(
-  :coin,
+  :coins,
   :coins_per_gem,
-  :item,
+  :items,
   :quantity,
   keyword_init: true
 )

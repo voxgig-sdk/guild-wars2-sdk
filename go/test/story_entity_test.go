@@ -92,7 +92,7 @@ func TestStoryEntity(t *testing.T) {
 		// The basic flow consumes synthetic IDs from the fixture. In live mode
 		// without an *_ENTID env override, those IDs hit the live API and 4xx.
 		if setup.syntheticOnly {
-			t.Skip("live entity test uses synthetic IDs from fixture — set GUILDWARS__TEST_STORY_ENTID JSON to run live")
+			t.Skip("live entity test uses synthetic IDs from fixture — set GUILD_WARS2_TEST_STORY_ENTID JSON to run live")
 			return
 		}
 		client := setup.client
@@ -160,38 +160,38 @@ func storyBasicSetup(extra map[string]any) *entityTestSetup {
 	// Detect ENTID env override before envOverride consumes it. When live
 	// mode is on without a real override, the basic test runs against synthetic
 	// IDs from the fixture and 4xx's. Surface this so the test can skip.
-	entidEnvRaw := os.Getenv("GUILDWARS__TEST_STORY_ENTID")
+	entidEnvRaw := os.Getenv("GUILD_WARS2_TEST_STORY_ENTID")
 	idmapOverridden := entidEnvRaw != "" && strings.HasPrefix(strings.TrimSpace(entidEnvRaw), "{")
 
 	env := envOverride(map[string]any{
-		"GUILDWARS__TEST_STORY_ENTID": idmap,
-		"GUILDWARS__TEST_LIVE":      "FALSE",
-		"GUILDWARS__TEST_EXPLAIN":   "FALSE",
-		"GUILDWARS__APIKEY":         "NONE",
+		"GUILD_WARS2_TEST_STORY_ENTID": idmap,
+		"GUILD_WARS2_TEST_LIVE":      "FALSE",
+		"GUILD_WARS2_TEST_EXPLAIN":   "FALSE",
+		"GUILD_WARS2_APIKEY":         "NONE",
 	})
 
-	idmapResolved := core.ToMapAny(env["GUILDWARS__TEST_STORY_ENTID"])
+	idmapResolved := core.ToMapAny(env["GUILD_WARS2_TEST_STORY_ENTID"])
 	if idmapResolved == nil {
 		idmapResolved = core.ToMapAny(idmap)
 	}
 
-	if env["GUILDWARS__TEST_LIVE"] == "TRUE" {
+	if env["GUILD_WARS2_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
-				"apikey": env["GUILDWARS__APIKEY"],
+				"apikey": env["GUILD_WARS2_APIKEY"],
 			},
 			extra,
 		})
 		client = sdk.NewGuildWars2SDK(core.ToMapAny(mergedOpts))
 	}
 
-	live := env["GUILDWARS__TEST_LIVE"] == "TRUE"
+	live := env["GUILD_WARS2_TEST_LIVE"] == "TRUE"
 	return &entityTestSetup{
 		client:        client,
 		data:          entityData,
 		idmap:         idmapResolved,
 		env:           env,
-		explain:       env["GUILDWARS__TEST_EXPLAIN"] == "TRUE",
+		explain:       env["GUILD_WARS2_TEST_EXPLAIN"] == "TRUE",
 		live:          live,
 		syntheticOnly: live && !idmapOverridden,
 		now:           time.Now().UnixMilli(),

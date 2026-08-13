@@ -37,7 +37,7 @@ class DailyRewardEntity extends GuildWars2EntityBase<DailyReward> {
 
 
 
-  async list(this: any, reqmatch?: DailyRewardListMatch, ctrl?: Control): Promise<DailyReward[]> {
+  async list(this: any, reqmatch?: DailyRewardListMatch, ctrl?: Control): Promise<DailyRewardEntity[]> {
 
     const utility = this._utility
 

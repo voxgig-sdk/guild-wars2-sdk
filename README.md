@@ -38,18 +38,27 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = GuildWars2SDK.test()
-const achievements = await client.Achievement().list()
-// achievements is an array of bare Achievement records populated with mock data
-console.log(achievements)
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = GuildWars2SDK.test({
+  entity: {
+    game_mechanic: {
+      test01: { id: 'test01' },
+    },
+  },
+})
+const gamemechanics = await client.GameMechanic().list()
+// gamemechanics is an array of GameMechanic entities, populated with mock data
+// — call gamemechanics[0].data() for the record itself
+console.log(gamemechanics)
 ```
 
 ### Python
 
 ```python
 client = GuildWars2SDK.test()
-achievements = client.Achievement().list()
-print(achievements)
+gamemechanics = client.GameMechanic().list()
+print(gamemechanics)
 ```
 
 ### PHP
@@ -57,16 +66,16 @@ print(achievements)
 ```php
 // Seed fixture data so offline calls resolve without a live server.
 $client = GuildWars2SDK::test([
-    "entity" => ["achievement" => ["test01" => []]],
+    "entity" => ["gamemechanic" => ["test01" => []]],
 ]);
-$achievements = $client->Achievement()->list();
+$gamemechanics = $client->GameMechanic()->list();
 ```
 
 ### Golang
 
 ```go
 client := sdk.Test()
-result, err := client.Achievement(nil).List(
+result, err := client.GameMechanic(nil).List(
     nil, nil,
 )
 ```
@@ -76,16 +85,16 @@ result, err := client.Achievement(nil).List(
 ```ruby
 # Seed fixture data so offline calls resolve without a live server.
 client = GuildWars2SDK.test({
-  "entity" => { "achievement" => { "test01" => {} } },
+  "entity" => { "gamemechanic" => { "test01" => {} } },
 })
-achievements = client.Achievement.list()
+gamemechanics = client.GameMechanic.list()
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local results, err = client:Achievement():list()
+local results, err = client:GameMechanic():list()
 ```
 
 ## Packages
@@ -112,7 +121,7 @@ const client = new GuildWars2SDK({
   apikey: process.env.GUILD_WARS2_APIKEY,
 })
 
-// List all achievements (returns Achievement[])
+// List all achievements (returns AchievementEntity[] — .data() for the record)
 const achievements = await client.Achievement().list()
 for (const achievement of achievements) {
   console.log(achievement)
@@ -161,7 +170,7 @@ The API exposes 15 entities:
 | **Authenticated** | The Authenticated entity (list, load). | `/characters` |
 | **DailyReward** | The DailyReward entity (list). | `/dailycrafting` |
 | **GameMechanic** | The GameMechanic entity (list). | `/legendaryarmory` |
-| **Guild** | The Guild entity (list, load). | `/guild/permissions` |
+| **Guild** | The Guild entity (list, load). | `/emblem` |
 | **GuildAuthenticated** | The GuildAuthenticated entity (list). | `/guild/{id}/log` |
 | **HomeInstance** | The HomeInstance entity (list). | `/home/cats` |
 | **Item** | The Item entity (list). | `/recipes/search` |
@@ -212,7 +221,7 @@ $client = new GuildWars2SDK([
 $achievements = $client->Achievement()->list();
 print_r($achievements);
 
-// Load a specific achievement (returns the bare record; throws on error)
+// Load a specific achievement (returns the ENTITY; call data_get() for the record; throws on error)
 $achievement = $client->Achievement()->load();
 print_r($achievement);
 ```
@@ -247,7 +256,7 @@ client = GuildWars2SDK.new({
 achievements = client.Achievement.list
 puts achievements
 
-# Load a specific achievement (returns the bare record; raises on error)
+# Load a specific achievement (returns the ENTITY; call data_get for the record)
 achievement = client.Achievement.load()
 puts achievement
 ```
@@ -386,6 +395,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://wiki.guildwars2.com/wiki/API:Main](https://wiki.guildwars2.com/wiki/API:Main)
 

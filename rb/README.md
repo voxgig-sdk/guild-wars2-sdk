@@ -50,7 +50,7 @@ end
 
 ```ruby
 begin
-  # load returns the bare Achievement record (raises on error).
+  # load returns the ENTITY — call data_get for the Achievement record (raises on error).
   achievement = client.Achievement.load()
   puts achievement
 rescue => err
@@ -65,7 +65,7 @@ Entity operations raise on failure, so rescue them:
 
 ```ruby
 begin
-  achievements = client.Achievement.list()
+  gamemechanics = client.GameMechanic.list()
 rescue => err
   warn "list failed: #{err}"
 end
@@ -133,9 +133,10 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = GuildWars2SDK.test
 
-# Entity ops return the bare mock record (raises on error).
-achievement = client.Achievement.list()
-puts achievement
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
+gamemechanic = client.GameMechanic.list()
+puts gamemechanic
 ```
 
 ### Use a custom fetch function
@@ -279,7 +280,7 @@ API path: `/achievements`
 | `created` |  |
 | `id` |  |
 | `name` |  |
-| `permission` |  |
+| `permissions` |  |
 | `subtoken` |  |
 | `value` |  |
 | `world` |  |
@@ -392,9 +393,9 @@ API path: `/pvp/heroes`
 
 | Field | Description |
 | --- | --- |
-| `coin` |  |
+| `coins` |  |
 | `coins_per_gem` |  |
-| `item` |  |
+| `items` |  |
 | `quantity` |  |
 
 Operations: List, Load.
@@ -429,7 +430,7 @@ Create an instance: `achievement = client.Achievement`
 #### Example: Load
 
 ```ruby
-# load returns the bare Achievement record (raises on error).
+# load returns the ENTITY — call data_get for the Achievement record (raises on error).
 achievement = client.Achievement.load()
 ```
 
@@ -459,7 +460,7 @@ Create an instance: `authenticated = client.Authenticated`
 | `created` | `String` |  |
 | `id` | `String` |  |
 | `name` | `String` |  |
-| `permission` | `Array` |  |
+| `permissions` | `Array` |  |
 | `subtoken` | `String` |  |
 | `value` | `Integer` |  |
 | `world` | `Integer` |  |
@@ -467,7 +468,7 @@ Create an instance: `authenticated = client.Authenticated`
 #### Example: Load
 
 ```ruby
-# load returns the bare Authenticated record (raises on error).
+# load returns the ENTITY — call data_get for the Authenticated record (raises on error).
 authenticated = client.Authenticated.load({ "id" => "authenticated_id" })
 ```
 
@@ -529,7 +530,7 @@ Create an instance: `guild = client.Guild`
 #### Example: Load
 
 ```ruby
-# load returns the bare Guild record (raises on error).
+# load returns the ENTITY — call data_get for the Guild record (raises on error).
 guild = client.Guild.load({ "id" => "guild_id" })
 ```
 
@@ -651,7 +652,7 @@ Create an instance: `miscellaneous = client.Miscellaneous`
 #### Example: Load
 
 ```ruby
-# load returns the bare Miscellaneous record (raises on error).
+# load returns the ENTITY — call data_get for the Miscellaneous record (raises on error).
 miscellaneous = client.Miscellaneous.load({ "id" => 1 })
 ```
 
@@ -714,15 +715,15 @@ Create an instance: `trading_post = client.TradingPost`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `coin` | `Integer` |  |
+| `coins` | `Integer` |  |
 | `coins_per_gem` | `Integer` |  |
-| `item` | `Array` |  |
+| `items` | `Array` |  |
 | `quantity` | `Integer` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare TradingPost record (raises on error).
+# load returns the ENTITY — call data_get for the TradingPost record (raises on error).
 trading_post = client.TradingPost.load()
 ```
 
@@ -828,11 +829,11 @@ Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-achievement = client.Achievement
-achievement.list()
+gamemechanic = client.GameMechanic
+gamemechanic.list()
 
-# achievement.data_get now returns the achievement data from the last list
-# achievement.match_get returns the last match criteria
+# gamemechanic.data_get now returns the gamemechanic data from the last list
+# gamemechanic.match_get returns the last match criteria
 ```
 
 Call `make` to create a fresh instance with the same configuration

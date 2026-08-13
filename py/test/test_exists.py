@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# GuildWars2 SDK exists test
 
 import pytest
 from guildwars2_sdk import GuildWars2SDK

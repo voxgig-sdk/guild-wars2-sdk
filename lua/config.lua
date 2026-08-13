@@ -69,6 +69,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/achievements",
                 ["parts"] = {
@@ -100,6 +101,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/achievements/categories",
                 ["parts"] = {
@@ -132,6 +134,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/achievements/groups",
                 ["parts"] = {
@@ -160,6 +163,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/achievements/daily",
                 ["parts"] = {
@@ -178,6 +182,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/achievements/daily/tomorrow",
                 ["parts"] = {
@@ -225,7 +230,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "permission",
+            ["name"] = "permissions",
             ["req"] = false,
             ["type"] = "`$ARRAY`",
             ["index$"] = 3,
@@ -272,6 +277,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/characters",
                 ["parts"] = {
@@ -291,6 +297,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/account/achievements",
                 ["parts"] = {
@@ -307,6 +314,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/account/bank",
                 ["parts"] = {
@@ -323,6 +331,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/account/buildstorage",
                 ["parts"] = {
@@ -339,6 +348,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/account/dailycrafting",
                 ["parts"] = {
@@ -355,6 +365,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/account/dungeons",
                 ["parts"] = {
@@ -371,6 +382,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/account/dyes",
                 ["parts"] = {
@@ -387,6 +399,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/account/emotes",
                 ["parts"] = {
@@ -403,6 +416,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/account/finishers",
                 ["parts"] = {
@@ -419,6 +433,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/account/gliders",
                 ["parts"] = {
@@ -435,6 +450,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/account/home/cats",
                 ["parts"] = {
@@ -452,6 +468,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/account/home/nodes",
                 ["parts"] = {
@@ -469,6 +486,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/account/inventory",
                 ["parts"] = {
@@ -485,6 +503,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/account/legendaryarmory",
                 ["parts"] = {
@@ -501,6 +520,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/account/luck",
                 ["parts"] = {
@@ -517,6 +537,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/account/mapchests",
                 ["parts"] = {
@@ -533,6 +554,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/account/masteries",
                 ["parts"] = {
@@ -549,6 +571,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/account/materials",
                 ["parts"] = {
@@ -565,6 +588,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/account/minis",
                 ["parts"] = {
@@ -581,6 +605,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/account/mounts/skins",
                 ["parts"] = {
@@ -598,6 +623,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/account/mounts/types",
                 ["parts"] = {
@@ -615,6 +641,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/account/novelties",
                 ["parts"] = {
@@ -631,6 +658,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/account/outfits",
                 ["parts"] = {
@@ -647,6 +675,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/account/pvp/heroes",
                 ["parts"] = {
@@ -664,6 +693,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/account/raids",
                 ["parts"] = {
@@ -680,6 +710,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/account/recipes",
                 ["parts"] = {
@@ -696,6 +727,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/account/skins",
                 ["parts"] = {
@@ -712,6 +744,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/account/titles",
                 ["parts"] = {
@@ -728,6 +761,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/account/wallet",
                 ["parts"] = {
@@ -744,6 +778,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/account/worldbosses",
                 ["parts"] = {
@@ -760,6 +795,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/pvp/games",
                 ["parts"] = {
@@ -776,6 +812,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/pvp/standings",
                 ["parts"] = {
@@ -792,6 +829,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/tokeninfo",
                 ["parts"] = {
@@ -800,7 +838,7 @@ local function make_config()
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
+                  ["res"] = "`body.permissions`",
                 },
                 ["index$"] = 32,
               },
@@ -841,6 +879,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/createsubtoken",
                 ["parts"] = {
@@ -862,6 +901,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/account",
                 ["parts"] = {
@@ -877,6 +917,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/account/mastery/points",
                 ["parts"] = {
@@ -894,6 +935,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/pvp/stats",
                 ["parts"] = {
@@ -926,6 +968,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/dailycrafting",
                 ["parts"] = {
@@ -941,6 +984,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/mapchests",
                 ["parts"] = {
@@ -956,6 +1000,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/worldbosses",
                 ["parts"] = {
@@ -998,6 +1043,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/legendaryarmory",
                 ["parts"] = {
@@ -1028,6 +1074,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/legends",
                 ["parts"] = {
@@ -1058,6 +1105,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/masteries",
                 ["parts"] = {
@@ -1088,6 +1136,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/mounts/skins",
                 ["parts"] = {
@@ -1119,6 +1168,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/mounts/types",
                 ["parts"] = {
@@ -1150,6 +1200,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/outfits",
                 ["parts"] = {
@@ -1180,6 +1231,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/pets",
                 ["parts"] = {
@@ -1210,6 +1262,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/professions",
                 ["parts"] = {
@@ -1240,6 +1293,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/races",
                 ["parts"] = {
@@ -1270,6 +1324,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/skills",
                 ["parts"] = {
@@ -1300,6 +1355,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/specializations",
                 ["parts"] = {
@@ -1330,6 +1386,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/traits",
                 ["parts"] = {
@@ -1349,6 +1406,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/mounts",
                 ["parts"] = {
@@ -1391,6 +1449,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/guild/permissions",
                 ["parts"] = {
@@ -1423,6 +1482,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/guild/search",
                 ["parts"] = {
@@ -1455,6 +1515,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/guild/upgrades",
                 ["parts"] = {
@@ -1476,6 +1537,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/emblem",
                 ["parts"] = {
@@ -1510,6 +1572,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/guild/{id}",
                 ["parts"] = {
@@ -1558,6 +1621,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/guild/{id}/log",
                 ["parts"] = {
@@ -1592,6 +1656,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/guild/{id}/members",
                 ["parts"] = {
@@ -1626,6 +1691,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/guild/{id}/ranks",
                 ["parts"] = {
@@ -1660,6 +1726,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/guild/{id}/stash",
                 ["parts"] = {
@@ -1694,6 +1761,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/guild/{id}/storage",
                 ["parts"] = {
@@ -1728,6 +1796,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/guild/{id}/teams",
                 ["parts"] = {
@@ -1762,6 +1831,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/guild/{id}/treasury",
                 ["parts"] = {
@@ -1796,6 +1866,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/guild/{id}/upgrades",
                 ["parts"] = {
@@ -1845,6 +1916,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/home/cats",
                 ["parts"] = {
@@ -1876,6 +1948,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/home/nodes",
                 ["parts"] = {
@@ -1931,6 +2004,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/recipes/search",
                 ["parts"] = {
@@ -1963,6 +2037,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/finishers",
                 ["parts"] = {
@@ -1993,6 +2068,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/gliders",
                 ["parts"] = {
@@ -2023,6 +2099,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/items",
                 ["parts"] = {
@@ -2053,6 +2130,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/itemstats",
                 ["parts"] = {
@@ -2083,6 +2161,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/materials",
                 ["parts"] = {
@@ -2113,6 +2192,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/pvp/amulets",
                 ["parts"] = {
@@ -2144,6 +2224,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/recipes",
                 ["parts"] = {
@@ -2174,6 +2255,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/skins",
                 ["parts"] = {
@@ -2220,6 +2302,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/maps",
                 ["parts"] = {
@@ -2266,6 +2349,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/continents",
                 ["parts"] = {
@@ -2320,6 +2404,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/colors",
                 ["parts"] = {
@@ -2350,6 +2435,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/currencies",
                 ["parts"] = {
@@ -2380,6 +2466,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/dungeons",
                 ["parts"] = {
@@ -2410,6 +2497,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/files",
                 ["parts"] = {
@@ -2440,6 +2528,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/minis",
                 ["parts"] = {
@@ -2470,6 +2559,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/novelties",
                 ["parts"] = {
@@ -2500,6 +2590,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/raids",
                 ["parts"] = {
@@ -2530,6 +2621,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/titles",
                 ["parts"] = {
@@ -2560,6 +2652,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/worlds",
                 ["parts"] = {
@@ -2586,6 +2679,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/build",
                 ["parts"] = {
@@ -2628,6 +2722,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/quests",
                 ["parts"] = {
@@ -2658,6 +2753,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/stories",
                 ["parts"] = {
@@ -2688,6 +2784,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/stories/seasons",
                 ["parts"] = {
@@ -2736,6 +2833,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/pvp/heroes",
                 ["parts"] = {
@@ -2767,6 +2865,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/pvp/ranks",
                 ["parts"] = {
@@ -2798,6 +2897,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/pvp/seasons",
                 ["parts"] = {
@@ -2818,6 +2918,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/pvp",
                 ["parts"] = {
@@ -2842,7 +2943,7 @@ local function make_config()
         ["fields"] = {
           {
             ["active"] = true,
-            ["name"] = "coin",
+            ["name"] = "coins",
             ["req"] = false,
             ["type"] = "`$INTEGER`",
             ["index$"] = 0,
@@ -2856,7 +2957,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "item",
+            ["name"] = "items",
             ["req"] = false,
             ["type"] = "`$ARRAY`",
             ["index$"] = 2,
@@ -2889,6 +2990,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/commerce/listings",
                 ["parts"] = {
@@ -2920,6 +3022,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/commerce/prices",
                 ["parts"] = {
@@ -2940,6 +3043,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/commerce/delivery",
                 ["parts"] = {
@@ -2949,13 +3053,14 @@ local function make_config()
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
+                  ["res"] = "`body.items`",
                 },
                 ["index$"] = 2,
               },
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/commerce/exchange",
                 ["parts"] = {
@@ -2972,6 +3077,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/commerce/transactions",
                 ["parts"] = {
@@ -3006,6 +3112,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/commerce/exchange/coins",
                 ["parts"] = {
@@ -3038,6 +3145,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/commerce/exchange/gems",
                 ["parts"] = {
@@ -3086,6 +3194,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/wvw/abilities",
                 ["parts"] = {
@@ -3117,6 +3226,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/wvw/matches",
                 ["parts"] = {
@@ -3148,6 +3258,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/wvw/objectives",
                 ["parts"] = {
@@ -3179,6 +3290,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/wvw/ranks",
                 ["parts"] = {
@@ -3210,6 +3322,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/wvw/upgrades",
                 ["parts"] = {
@@ -3230,6 +3343,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/wvw",
                 ["parts"] = {

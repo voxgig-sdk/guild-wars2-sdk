@@ -26,8 +26,8 @@ import {
 describe('AuthenticatedEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when GUILDWARS2_TEST_LIVE=TRUE.
-  afterEach(liveDelay('GUILDWARS2_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when GUILD_WARS2_TEST_LIVE=TRUE.
+  afterEach(liveDelay('GUILD_WARS2_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = GuildWars2SDK.test()
@@ -38,7 +38,7 @@ describe('AuthenticatedEntity', async () => {
 
   test('basic', async (t) => {
 
-    const live = 'TRUE' === process.env.GUILD_WARS__TEST_LIVE
+    const live = 'TRUE' === process.env.GUILD_WARS2_TEST_LIVE
     for (const op of ['list', 'load']) {
       if (maybeSkipControl(t, 'entityOp', 'authenticated.' + op, live)) return
     }
@@ -48,7 +48,7 @@ describe('AuthenticatedEntity', async () => {
     // fixture (entity TestData.json). Those don't exist on the live API.
     // Skip live runs unless the user provided a real ENTID env override.
     if (setup.syntheticOnly) {
-      t.skip('live entity test uses synthetic IDs from fixture — set GUILD_WARS__TEST_AUTHENTICATED_ENTID JSON to run live')
+      t.skip('live entity test uses synthetic IDs from fixture — set GUILD_WARS2_TEST_AUTHENTICATED_ENTID JSON to run live')
       return
     }
     const client = setup.client
@@ -63,13 +63,13 @@ describe('AuthenticatedEntity', async () => {
     const authenticated_ref01_ent = client.Authenticated()
     const authenticated_ref01_match: any = {}
 
-    const authenticated_ref01_list = await authenticated_ref01_ent.list(authenticated_ref01_match)
+    const authenticated_ref01_list = (await authenticated_ref01_ent.list(authenticated_ref01_match)).map((e: any) => e.data())
 
 
     // LOAD
     const authenticated_ref01_match_dt0: any = {}
     authenticated_ref01_match_dt0.id = authenticated_ref01_data.id
-    const authenticated_ref01_data_dt0 = await authenticated_ref01_ent.load(authenticated_ref01_match_dt0)
+    const authenticated_ref01_data_dt0 = (await authenticated_ref01_ent.load(authenticated_ref01_match_dt0)).data()
     assert(authenticated_ref01_data_dt0.id === authenticated_ref01_data.id)
 
 
@@ -113,24 +113,24 @@ function basicSetup(extra?: any) {
   // basic flow consumes synthetic IDs from the fixture file; without an
   // override those synthetic IDs reach the live API and 4xx. Surface this
   // to the test so it can skip rather than fail.
-  const idmapEnvVal = process.env['GUILD_WARS__TEST_AUTHENTICATED_ENTID']
+  const idmapEnvVal = process.env['GUILD_WARS2_TEST_AUTHENTICATED_ENTID']
   const idmapOverridden = null != idmapEnvVal && idmapEnvVal.trim().startsWith('{')
 
   const env = envOverride({
-    'GUILD_WARS__TEST_AUTHENTICATED_ENTID': idmap,
-    'GUILD_WARS__TEST_LIVE': 'FALSE',
-    'GUILD_WARS__TEST_EXPLAIN': 'FALSE',
-    'GUILD_WARS__APIKEY': 'NONE',
+    'GUILD_WARS2_TEST_AUTHENTICATED_ENTID': idmap,
+    'GUILD_WARS2_TEST_LIVE': 'FALSE',
+    'GUILD_WARS2_TEST_EXPLAIN': 'FALSE',
+    'GUILD_WARS2_APIKEY': 'NONE',
   })
 
-  idmap = env['GUILD_WARS__TEST_AUTHENTICATED_ENTID']
+  idmap = env['GUILD_WARS2_TEST_AUTHENTICATED_ENTID']
 
-  const live = 'TRUE' === env.GUILD_WARS__TEST_LIVE
+  const live = 'TRUE' === env.GUILD_WARS2_TEST_LIVE
 
   if (live) {
     client = new GuildWars2SDK(merge([
       {
-        apikey: env.GUILD_WARS__APIKEY,
+        apikey: env.GUILD_WARS2_APIKEY,
       },
       extra
     ]))
@@ -143,7 +143,7 @@ function basicSetup(extra?: any) {
     client,
     struct,
     data: entityData,
-    explain: 'TRUE' === env.GUILD_WARS__TEST_EXPLAIN,
+    explain: 'TRUE' === env.GUILD_WARS2_TEST_EXPLAIN,
     live,
     syntheticOnly: live && !idmapOverridden,
     now: Date.now(),

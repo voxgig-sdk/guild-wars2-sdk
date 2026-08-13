@@ -160,8 +160,29 @@ class GuildWars2SDK {
   }
 
 
+  // Raw endpoint access is operator-controllable, like every entity op.
+  // Blocking it means denying BOTH the 'direct' and 'graphql' tokens, since
+  // either one reaches the same endpoint.
   async direct(fetchargs?: any) {
+    if (!this._options.allow.op.includes('direct')) {
+      return {
+        ok: false,
+        err: new Error('GuildWars2SDK: direct: operation not allowed by' +
+          ' SDK option allow.op value: "' + this._options.allow.op + '"'),
+      }
+    }
+
+    return this._rawRequest(fetchargs)
+  }
+
+
+  // Ungated request path shared by direct() and graphql(), each of which
+  // checks its own allow.op token first. Private, rather than a flag on
+  // fetchargs: a caller-supplied marker would let anyone opt straight back
+  // out of the gate by passing it.
+  async _rawRequest(fetchargs?: any) {
     const utility = this._utility
+
     const fetcher = utility.fetcher
     const makeContext = utility.makeContext
 
@@ -222,108 +243,192 @@ class GuildWars2SDK {
 
 
 
+  // Raw GraphQL access: the pressure valve that makes the generated
+  // surface's deliberate omissions (per-call selection sets, typed filter
+  // builders, batching, subscriptions) livable — the whole schema stays
+  // reachable.
+  //
+  // Thin wrapper over the same prepare/fetch path `direct` uses, with the
+  // one thing raw `direct` cannot do for GraphQL: a GraphQL failure rides
+  // HTTP 200 as a top-level `errors` array, so status alone would report a
+  // failed query as ok.
+  //
+  // NOTE: like `direct`, this bypasses the feature pipeline — no retry,
+  // ratelimit or paging features apply.
+  async graphql(query: string, variables?: any, ctrl?: any) {
+    const options = this._options
+
+    if (!options.allow.op.includes('graphql')) {
+      return {
+        ok: false,
+        err: new Error('GuildWars2SDK: graphql: operation not allowed by' +
+          ' SDK option allow.op value: "' + options.allow.op + '"'),
+      }
+    }
+
+    const res: any = await this._rawRequest({
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: { query, variables: variables || {} },
+      ctrl,
+    })
+
+    if (res instanceof Error) {
+      return res
+    }
+
+    // Errors are read BEFORE any status check: a GraphQL parse or validation
+    // failure comes back as HTTP 400 carrying the standard { errors: [...] }
+    // body, and the raw path represents a non-2xx as { ok: false } with no
+    // err — so returning early on status would discard the server's own
+    // diagnostics, which are the only useful part of that response.
+    const errors = null == res.data ? undefined : res.data.errors
+
+    if (null != errors && Array.isArray(errors) && 0 < errors.length) {
+      const first = errors[0] || {}
+      const err: any = new Error('GuildWars2SDK: graphql: ' +
+        (first.message || 'graphql error'))
+      err.graphql = errors
+      return { ok: false, status: res.status, headers: res.headers, err, data: res.data }
+    }
+
+    return res
+  }
+
+
+
   // Entity access: `client.Achievement().list()` / `client.Achievement().load({ id })`.
-  Achievement(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Achievement(entopts?: Record<string, any>) {
     const self = this
-    return new AchievementEntity(self,data)
+    return new AchievementEntity(self, entopts)
   }
 
 
   // Entity access: `client.Authenticated().list()` / `client.Authenticated().load({ id })`.
-  Authenticated(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Authenticated(entopts?: Record<string, any>) {
     const self = this
-    return new AuthenticatedEntity(self,data)
+    return new AuthenticatedEntity(self, entopts)
   }
 
 
   // Entity access: `client.DailyReward().list()` / `client.DailyReward().load({ id })`.
-  DailyReward(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  DailyReward(entopts?: Record<string, any>) {
     const self = this
-    return new DailyRewardEntity(self,data)
+    return new DailyRewardEntity(self, entopts)
   }
 
 
   // Entity access: `client.GameMechanic().list()` / `client.GameMechanic().load({ id })`.
-  GameMechanic(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  GameMechanic(entopts?: Record<string, any>) {
     const self = this
-    return new GameMechanicEntity(self,data)
+    return new GameMechanicEntity(self, entopts)
   }
 
 
   // Entity access: `client.Guild().list()` / `client.Guild().load({ id })`.
-  Guild(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Guild(entopts?: Record<string, any>) {
     const self = this
-    return new GuildEntity(self,data)
+    return new GuildEntity(self, entopts)
   }
 
 
   // Entity access: `client.GuildAuthenticated().list()` / `client.GuildAuthenticated().load({ id })`.
-  GuildAuthenticated(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  GuildAuthenticated(entopts?: Record<string, any>) {
     const self = this
-    return new GuildAuthenticatedEntity(self,data)
+    return new GuildAuthenticatedEntity(self, entopts)
   }
 
 
   // Entity access: `client.HomeInstance().list()` / `client.HomeInstance().load({ id })`.
-  HomeInstance(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  HomeInstance(entopts?: Record<string, any>) {
     const self = this
-    return new HomeInstanceEntity(self,data)
+    return new HomeInstanceEntity(self, entopts)
   }
 
 
   // Entity access: `client.Item().list()` / `client.Item().load({ id })`.
-  Item(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Item(entopts?: Record<string, any>) {
     const self = this
-    return new ItemEntity(self,data)
+    return new ItemEntity(self, entopts)
   }
 
 
   // Entity access: `client.Map().list()` / `client.Map().load({ id })`.
-  Map(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Map(entopts?: Record<string, any>) {
     const self = this
-    return new MapEntity(self,data)
+    return new MapEntity(self, entopts)
   }
 
 
   // Entity access: `client.MapInformation().list()` / `client.MapInformation().load({ id })`.
-  MapInformation(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  MapInformation(entopts?: Record<string, any>) {
     const self = this
-    return new MapInformationEntity(self,data)
+    return new MapInformationEntity(self, entopts)
   }
 
 
   // Entity access: `client.Miscellaneous().list()` / `client.Miscellaneous().load({ id })`.
-  Miscellaneous(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Miscellaneous(entopts?: Record<string, any>) {
     const self = this
-    return new MiscellaneousEntity(self,data)
+    return new MiscellaneousEntity(self, entopts)
   }
 
 
   // Entity access: `client.Story().list()` / `client.Story().load({ id })`.
-  Story(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Story(entopts?: Record<string, any>) {
     const self = this
-    return new StoryEntity(self,data)
+    return new StoryEntity(self, entopts)
   }
 
 
   // Entity access: `client.StructuredPvP().list()` / `client.StructuredPvP().load({ id })`.
-  StructuredPvP(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  StructuredPvP(entopts?: Record<string, any>) {
     const self = this
-    return new StructuredPvPEntity(self,data)
+    return new StructuredPvPEntity(self, entopts)
   }
 
 
   // Entity access: `client.TradingPost().list()` / `client.TradingPost().load({ id })`.
-  TradingPost(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  TradingPost(entopts?: Record<string, any>) {
     const self = this
-    return new TradingPostEntity(self,data)
+    return new TradingPostEntity(self, entopts)
   }
 
 
   // Entity access: `client.WorldVsWorld().list()` / `client.WorldVsWorld().load({ id })`.
-  WorldVsWorld(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  WorldVsWorld(entopts?: Record<string, any>) {
     const self = this
-    return new WorldVsWorldEntity(self,data)
+    return new WorldVsWorldEntity(self, entopts)
   }
 
 

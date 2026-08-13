@@ -281,6 +281,28 @@ Alias for `GuildWars2SDK.test()`.
 const achievement = client.Achievement()
 ```
 
+### Actions
+
+This entity exposes custom API actions in addition to the standard
+operations. Select one with `$action` in the call's argument; the
+remaining keys are sent as that action's payload.
+
+| Action | Route | Call |
+| --- | --- | --- |
+| `category` | `/achievements/categories` | `client.Achievement().list({ $action: 'category', ... })` |
+| `group` | `/achievements/groups` | `client.Achievement().list({ $action: 'group', ... })` |
+| `daily` | `/achievements/daily` | `client.Achievement().load({ $action: 'daily', ... })` |
+
+An action returns that action's OWN response, which is not necessarily a
+Achievement record — check the API definition for its shape.
+
+```ts
+const result = await client.Achievement().list({
+  $action: 'category',
+  /* ...the action's own arguments */
+})
+```
+
 ### Operations
 
 #### `list(match: object, ctrl?: object)`
@@ -340,7 +362,7 @@ const authenticated = client.Authenticated()
 | `created` | `string` | No |  |
 | `id` | `string` | No |  |
 | `name` | `string` | No |  |
-| `permission` | `any[]` | No |  |
+| `permissions` | `any[]` | No |  |
 | `subtoken` | `string` | No |  |
 | `value` | `number` | No |  |
 | `world` | `number` | No |  |
@@ -485,6 +507,28 @@ Return a copy of the entity options.
 const guild = client.Guild()
 ```
 
+### Actions
+
+This entity exposes custom API actions in addition to the standard
+operations. Select one with `$action` in the call's argument; the
+remaining keys are sent as that action's payload.
+
+| Action | Route | Call |
+| --- | --- | --- |
+| `permission` | `/guild/permissions` | `client.Guild().list({ $action: 'permission', ... })` |
+| `search` | `/guild/search` | `client.Guild().list({ $action: 'search', ... })` |
+| `upgrade` | `/guild/upgrades` | `client.Guild().list({ $action: 'upgrade', ... })` |
+
+An action returns that action's OWN response, which is not necessarily a
+Guild record — check the API definition for its shape.
+
+```ts
+const result = await client.Guild().list({
+  $action: 'permission',
+  /* ...the action's own arguments */
+})
+```
+
 ### Operations
 
 #### `list(match: object, ctrl?: object)`
@@ -537,6 +581,33 @@ Return a copy of the entity options.
 const guild_authenticated = client.GuildAuthenticated()
 ```
 
+### Actions
+
+This entity exposes custom API actions in addition to the standard
+operations. Select one with `$action` in the call's argument; the
+remaining keys are sent as that action's payload.
+
+| Action | Route | Call |
+| --- | --- | --- |
+| `log` | `/guild/{id}/log` | `client.GuildAuthenticated().list({ $action: 'log', ... })` |
+| `members` | `/guild/{id}/members` | `client.GuildAuthenticated().list({ $action: 'members', ... })` |
+| `ranks` | `/guild/{id}/ranks` | `client.GuildAuthenticated().list({ $action: 'ranks', ... })` |
+| `stash` | `/guild/{id}/stash` | `client.GuildAuthenticated().list({ $action: 'stash', ... })` |
+| `storage` | `/guild/{id}/storage` | `client.GuildAuthenticated().list({ $action: 'storage', ... })` |
+| `teams` | `/guild/{id}/teams` | `client.GuildAuthenticated().list({ $action: 'teams', ... })` |
+| `treasury` | `/guild/{id}/treasury` | `client.GuildAuthenticated().list({ $action: 'treasury', ... })` |
+| `upgrades` | `/guild/{id}/upgrades` | `client.GuildAuthenticated().list({ $action: 'upgrades', ... })` |
+
+An action returns that action's OWN response, which is not necessarily a
+GuildAuthenticated record — check the API definition for its shape.
+
+```ts
+const result = await client.GuildAuthenticated().list({
+  $action: 'log',
+  /* ...the action's own arguments */
+})
+```
+
 ### Operations
 
 #### `list(match: object, ctrl?: object)`
@@ -544,7 +615,7 @@ const guild_authenticated = client.GuildAuthenticated()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.GuildAuthenticated().list()
+const results = await client.GuildAuthenticated().list({ id: "example" })
 ```
 
 ### Common Methods
@@ -815,6 +886,26 @@ Return a copy of the entity options.
 const story = client.Story()
 ```
 
+### Actions
+
+This entity exposes custom API actions in addition to the standard
+operations. Select one with `$action` in the call's argument; the
+remaining keys are sent as that action's payload.
+
+| Action | Route | Call |
+| --- | --- | --- |
+| `season` | `/stories/seasons` | `client.Story().list({ $action: 'season', ... })` |
+
+An action returns that action's OWN response, which is not necessarily a
+Story record — check the API definition for its shape.
+
+```ts
+const result = await client.Story().list({
+  $action: 'season',
+  /* ...the action's own arguments */
+})
+```
+
 ### Operations
 
 #### `list(match: object, ctrl?: object)`
@@ -907,9 +998,9 @@ const trading_post = client.TradingPost()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `coin` | `number` | No |  |
+| `coins` | `number` | No |  |
 | `coins_per_gem` | `number` | No |  |
-| `item` | `any[]` | No |  |
+| `items` | `any[]` | No |  |
 | `quantity` | `number` | No |  |
 
 ### Operations

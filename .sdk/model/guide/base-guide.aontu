@@ -137,6 +137,7 @@ guide: {
     }
     path: "/tokeninfo": {
       op: list: method: *GET
+      op: list: transform: res: *("`body.permissions`")|top
     }
   }
 
@@ -365,6 +366,7 @@ guide: {
   entity: trading_post: {
     path: "/commerce/delivery": {
       op: list: method: *GET
+      op: list: transform: res: *("`body.items`")|top
     }
     path: "/commerce/exchange": {
       op: list: method: *GET

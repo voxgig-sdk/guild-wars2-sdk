@@ -5,7 +5,7 @@
         "created": "s46",
         "id": "AUTHENTICATED00",
         "name": "s48",
-        "permission": [],
+        "permissions": [],
         "subtoken": "s4a",
         "value": "s4b",
         "world": "s4c"
@@ -14,7 +14,7 @@
         "created": "s8c",
         "id": "AUTHENTICATED01",
         "name": "s8e",
-        "permission": [],
+        "permissions": [],
         "subtoken": "s90",
         "value": "s91",
         "world": "s92"
@@ -23,7 +23,7 @@
         "created": "sd2",
         "id": "AUTHENTICATED02",
         "name": "sd4",
-        "permission": [],
+        "permissions": [],
         "subtoken": "sd6",
         "value": "sd7",
         "world": "sd8"
@@ -35,7 +35,7 @@
       "authenticated_ref01": {
         "created": "s118",
         "name": "s11a",
-        "permission": [],
+        "permissions": [],
         "subtoken": "s11c",
         "value": "s11d",
         "world": "s11e"

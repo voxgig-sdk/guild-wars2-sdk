@@ -111,16 +111,16 @@ function miscellaneous_direct_setup($mockres)
     $calls = new \ArrayObject();
 
     $env = Runner::env_override([
-        "GUILDWARS__TEST_MISCELLANEOUS_ENTID" => [],
-        "GUILDWARS__TEST_LIVE" => "FALSE",
-        "GUILDWARS__APIKEY" => "NONE",
+        "GUILD_WARS2_TEST_MISCELLANEOUS_ENTID" => [],
+        "GUILD_WARS2_TEST_LIVE" => "FALSE",
+        "GUILD_WARS2_APIKEY" => "NONE",
     ]);
 
-    $live = $env["GUILDWARS__TEST_LIVE"] === "TRUE";
+    $live = $env["GUILD_WARS2_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [
-            "apikey" => $env["GUILDWARS__APIKEY"],
+            "apikey" => $env["GUILD_WARS2_APIKEY"],
         ];
         $client = new GuildWars2SDK($merged_opts);
         return [

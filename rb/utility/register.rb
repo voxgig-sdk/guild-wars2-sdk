@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ GuildWars2Utility.registrar = ->(u) {
   u.prepare_params = GuildWars2Utilities::PrepareParams
   u.prepare_path = GuildWars2Utilities::PreparePath
   u.prepare_query = GuildWars2Utilities::PrepareQuery
+  u.graphql_body = GuildWars2Utilities::GraphqlBody
+  u.graphql_errors = GuildWars2Utilities::GraphqlErrors
   u.result_basic = GuildWars2Utilities::ResultBasic
   u.result_body = GuildWars2Utilities::ResultBody
   u.result_headers = GuildWars2Utilities::ResultHeaders

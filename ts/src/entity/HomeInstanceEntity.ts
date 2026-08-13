@@ -37,7 +37,7 @@ class HomeInstanceEntity extends GuildWars2EntityBase<HomeInstance> {
 
 
 
-  async list(this: any, reqmatch?: HomeInstanceListMatch, ctrl?: Control): Promise<HomeInstance[]> {
+  async list(this: any, reqmatch?: HomeInstanceListMatch, ctrl?: Control): Promise<HomeInstanceEntity[]> {
 
     const utility = this._utility
 

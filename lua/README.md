@@ -64,7 +64,7 @@ Entity operations return `(value, err)`. Check `err` before using
 the value:
 
 ```lua
-local achievements, err = client:Achievement():list()
+local gamemechanics, err = client:GameMechanic():list()
 if err then error(err) end
 ```
 
@@ -122,7 +122,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:Achievement():list()
+local result, err = client:GameMechanic():list()
 -- result is the returned data; err is set on failure
 ```
 
@@ -271,7 +271,7 @@ API path: `/achievements`
 | `created` |  |
 | `id` |  |
 | `name` |  |
-| `permission` |  |
+| `permissions` |  |
 | `subtoken` |  |
 | `value` |  |
 | `world` |  |
@@ -384,9 +384,9 @@ API path: `/pvp/heroes`
 
 | Field | Description |
 | --- | --- |
-| `coin` |  |
+| `coins` |  |
 | `coins_per_gem` |  |
-| `item` |  |
+| `items` |  |
 | `quantity` |  |
 
 Operations: List, Load.
@@ -449,7 +449,7 @@ Create an instance: `local authenticated = client:Authenticated(nil)`
 | `created` | `string` |  |
 | `id` | `string` |  |
 | `name` | `string` |  |
-| `permission` | `table` |  |
+| `permissions` | `table` |  |
 | `subtoken` | `string` |  |
 | `value` | `number` |  |
 | `world` | `number` |  |
@@ -689,9 +689,9 @@ Create an instance: `local trading_post = client:TradingPost(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `coin` | `number` |  |
+| `coins` | `number` |  |
 | `coins_per_gem` | `number` |  |
-| `item` | `table` |  |
+| `items` | `table` |  |
 | `quantity` | `number` |  |
 
 #### Example: Load
@@ -800,11 +800,11 @@ Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local achievement = client:Achievement()
-achievement:list()
+local gamemechanic = client:GameMechanic()
+gamemechanic:list()
 
--- achievement:data_get() now returns the achievement data from the last list
--- achievement:match_get() returns the last match criteria
+-- gamemechanic:data_get() now returns the gamemechanic data from the last list
+-- gamemechanic:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

@@ -72,7 +72,7 @@ class HomeInstanceEntityTest extends TestCase
         // The basic flow consumes synthetic IDs from the fixture. In live mode
         // without an *_ENTID env override, those IDs hit the live API and 4xx.
         if (!empty($setup["synthetic_only"])) {
-            $this->markTestSkipped("live entity test uses synthetic IDs from fixture — set GUILDWARS__TEST_HOME_INSTANCE_ENTID JSON to run live");
+            $this->markTestSkipped("live entity test uses synthetic IDs from fixture — set GUILD_WARS2_TEST_HOME_INSTANCE_ENTID JSON to run live");
             return;
         }
         $client = $setup["client"];
@@ -117,39 +117,39 @@ function home_instance_basic_setup($extra)
     // Detect ENTID env override before envOverride consumes it. When live
     // mode is on without a real override, the basic test runs against synthetic
     // IDs from the fixture and 4xx's. Surface this so the test can skip.
-    $entid_env_raw = getenv("GUILDWARS__TEST_HOME_INSTANCE_ENTID");
+    $entid_env_raw = getenv("GUILD_WARS2_TEST_HOME_INSTANCE_ENTID");
     $idmap_overridden = $entid_env_raw !== false && str_starts_with(trim($entid_env_raw), "{");
 
     $env = Runner::env_override([
-        "GUILDWARS__TEST_HOME_INSTANCE_ENTID" => $idmap,
-        "GUILDWARS__TEST_LIVE" => "FALSE",
-        "GUILDWARS__TEST_EXPLAIN" => "FALSE",
-        "GUILDWARS__APIKEY" => "NONE",
+        "GUILD_WARS2_TEST_HOME_INSTANCE_ENTID" => $idmap,
+        "GUILD_WARS2_TEST_LIVE" => "FALSE",
+        "GUILD_WARS2_TEST_EXPLAIN" => "FALSE",
+        "GUILD_WARS2_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
-        $env["GUILDWARS__TEST_HOME_INSTANCE_ENTID"]);
+        $env["GUILD_WARS2_TEST_HOME_INSTANCE_ENTID"]);
     if ($idmap_resolved === null) {
         $idmap_resolved = Helpers::to_map($idmap);
     }
 
-    if ($env["GUILDWARS__TEST_LIVE"] === "TRUE") {
+    if ($env["GUILD_WARS2_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["GUILDWARS__APIKEY"],
+                "apikey" => $env["GUILD_WARS2_APIKEY"],
             ],
             $extra ?? [],
         ]);
         $client = new GuildWars2SDK(Helpers::to_map($merged_opts));
     }
 
-    $live = $env["GUILDWARS__TEST_LIVE"] === "TRUE";
+    $live = $env["GUILD_WARS2_TEST_LIVE"] === "TRUE";
     return [
         "client" => $client,
         "data" => $entity_data,
         "idmap" => $idmap_resolved,
         "env" => $env,
-        "explain" => $env["GUILDWARS__TEST_EXPLAIN"] === "TRUE",
+        "explain" => $env["GUILD_WARS2_TEST_EXPLAIN"] === "TRUE",
         "live" => $live,
         "synthetic_only" => $live && !$idmap_overridden,
         "now" => (int)(microtime(true) * 1000),

@@ -21,7 +21,7 @@ main: kit: entity: authenticated: {
       type: "`$STRING`"
     }
     {
-      name: "permission"
+      name: "permissions"
       req: false
       type: "`$ARRAY`"
     }
@@ -464,7 +464,7 @@ main: kit: entity: authenticated: {
           ]
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.permissions`"
           }
         }
       ]

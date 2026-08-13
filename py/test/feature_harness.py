@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import GuildWars2Control
-from core.error import GuildWars2Error
-from core.result import GuildWars2Result
-from core.spec import GuildWars2Spec
+from guildwars2_sdk.config import make_config
+from guildwars2_sdk.features import _make_feature
+from guildwars2_sdk.core.control import GuildWars2Control
+from guildwars2_sdk.core.error import GuildWars2Error
+from guildwars2_sdk.core.result import GuildWars2Result
+from guildwars2_sdk.core.spec import GuildWars2Spec
 
 
 # True when this SDK was generated with the named feature.

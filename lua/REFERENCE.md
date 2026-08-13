@@ -204,7 +204,7 @@ local authenticated = client:Authenticated(nil)
 | `created` | `string` | No |  |
 | `id` | `string` | No |  |
 | `name` | `string` | No |  |
-| `permission` | `table` | No |  |
+| `permissions` | `table` | No |  |
 | `subtoken` | `string` | No |  |
 | `value` | `number` | No |  |
 | `world` | `number` | No |  |
@@ -795,9 +795,9 @@ local trading_post = client:TradingPost(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `coin` | `number` | No |  |
+| `coins` | `number` | No |  |
 | `coins_per_gem` | `number` | No |  |
-| `item` | `table` | No |  |
+| `items` | `table` | No |  |
 | `quantity` | `number` | No |  |
 
 ### Operations

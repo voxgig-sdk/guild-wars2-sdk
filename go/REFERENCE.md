@@ -215,7 +215,7 @@ fmt.Println(authenticated.GetName()) // "authenticated"
 | `created` | `string` | No |  |
 | `id` | `string` | No |  |
 | `name` | `string` | No |  |
-| `permission` | `[]any` | No |  |
+| `permissions` | `[]any` | No |  |
 | `subtoken` | `string` | No |  |
 | `value` | `int` | No |  |
 | `world` | `int` | No |  |
@@ -806,9 +806,9 @@ fmt.Println(tradingPost.GetName()) // "trading_post"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `coin` | `int` | No |  |
+| `coins` | `int` | No |  |
 | `coins_per_gem` | `int` | No |  |
-| `item` | `[]any` | No |  |
+| `items` | `[]any` | No |  |
 | `quantity` | `int` | No |  |
 
 ### Operations

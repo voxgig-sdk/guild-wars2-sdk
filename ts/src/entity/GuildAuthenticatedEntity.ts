@@ -37,7 +37,7 @@ class GuildAuthenticatedEntity extends GuildWars2EntityBase<GuildAuthenticated> 
 
 
 
-  async list(this: any, reqmatch?: GuildAuthenticatedListMatch, ctrl?: Control): Promise<GuildAuthenticated[]> {
+  async list(this: any, reqmatch?: GuildAuthenticatedListMatch, ctrl?: Control): Promise<GuildAuthenticatedEntity[]> {
 
     const utility = this._utility
 

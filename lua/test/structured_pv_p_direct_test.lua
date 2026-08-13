@@ -61,16 +61,16 @@ function structured_pv_p_direct_setup(mockres)
   local calls = {}
 
   local env = runner.env_override({
-    ["GUILDWARS__TEST_STRUCTURED_PV_P_ENTID"] = {},
-    ["GUILDWARS__TEST_LIVE"] = "FALSE",
-    ["GUILDWARS__APIKEY"] = "NONE",
+    ["GUILD_WARS2_TEST_STRUCTURED_PV_P_ENTID"] = {},
+    ["GUILD_WARS2_TEST_LIVE"] = "FALSE",
+    ["GUILD_WARS2_APIKEY"] = "NONE",
   })
 
-  local live = env["GUILDWARS__TEST_LIVE"] == "TRUE"
+  local live = env["GUILD_WARS2_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
-      apikey = env["GUILDWARS__APIKEY"],
+      apikey = env["GUILD_WARS2_APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {

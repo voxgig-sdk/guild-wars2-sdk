@@ -16,7 +16,7 @@
 ---@field created? string
 ---@field id? string
 ---@field name? string
----@field permission? table
+---@field permissions? table
 ---@field subtoken? string
 ---@field value? number
 ---@field world? number
@@ -25,7 +25,7 @@
 ---@field created? string
 ---@field id string
 ---@field name? string
----@field permission? table
+---@field permissions? table
 ---@field subtoken? string
 ---@field value? number
 ---@field world? number
@@ -34,7 +34,7 @@
 ---@field created? string
 ---@field id? string
 ---@field name? string
----@field permission? table
+---@field permissions? table
 ---@field subtoken? string
 ---@field value? number
 ---@field world? number
@@ -93,21 +93,21 @@
 ---@class StructuredPvPListMatch
 
 ---@class TradingPost
----@field coin? number
+---@field coins? number
 ---@field coins_per_gem? number
----@field item? table
+---@field items? table
 ---@field quantity? number
 
 ---@class TradingPostLoadMatch
----@field coin? number
+---@field coins? number
 ---@field coins_per_gem? number
----@field item? table
+---@field items? table
 ---@field quantity? number
 
 ---@class TradingPostListMatch
----@field coin? number
+---@field coins? number
 ---@field coins_per_gem? number
----@field item? table
+---@field items? table
 ---@field quantity? number
 
 ---@class WorldVsWorld

@@ -37,7 +37,7 @@ class MapInformationEntity extends GuildWars2EntityBase<MapInformation> {
 
 
 
-  async list(this: any, reqmatch?: MapInformationListMatch, ctrl?: Control): Promise<MapInformation[]> {
+  async list(this: any, reqmatch?: MapInformationListMatch, ctrl?: Control): Promise<MapInformationEntity[]> {
 
     const utility = this._utility
 

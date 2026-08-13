@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from guildwars2_sdk.utility.voxgig_struct import voxgig_struct as vs
 from guildwars2_sdk import GuildWars2SDK
-from core import helpers
+from guildwars2_sdk.core import helpers
 from test import runner
 
 
@@ -95,16 +95,16 @@ def _authenticated_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "GUILDWARS__TEST_AUTHENTICATED_ENTID": {},
-        "GUILDWARS__TEST_LIVE": "FALSE",
-        "GUILDWARS__APIKEY": "NONE",
+        "GUILD_WARS2_TEST_AUTHENTICATED_ENTID": {},
+        "GUILD_WARS2_TEST_LIVE": "FALSE",
+        "GUILD_WARS2_APIKEY": "NONE",
     })
 
-    live = env.get("GUILDWARS__TEST_LIVE") == "TRUE"
+    live = env.get("GUILD_WARS2_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
-            "apikey": env.get("GUILDWARS__APIKEY"),
+            "apikey": env.get("GUILD_WARS2_APIKEY"),
         }
         client = GuildWars2SDK(merged_opts)
         return {

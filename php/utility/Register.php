@@ -23,6 +23,7 @@ require_once __DIR__ . '/MakeUrl.php';
 require_once __DIR__ . '/Param.php';
 require_once __DIR__ . '/PrepareAuth.php';
 require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/Graphql.php';
 require_once __DIR__ . '/PrepareHeaders.php';
 require_once __DIR__ . '/PrepareMethod.php';
 require_once __DIR__ . '/PrepareParams.php';
@@ -59,6 +60,8 @@ GuildWars2Utility::setRegistrar(function (GuildWars2Utility $u): void {
     $u->prepare_params = [GuildWars2PrepareParams::class, 'call'];
     $u->prepare_path = [GuildWars2PreparePath::class, 'call'];
     $u->prepare_query = [GuildWars2PrepareQuery::class, 'call'];
+    $u->graphql_body = [GuildWars2Graphql::class, 'body'];
+    $u->graphql_errors = [GuildWars2Graphql::class, 'errors'];
     $u->result_basic = [GuildWars2ResultBasic::class, 'call'];
     $u->result_body = [GuildWars2ResultBody::class, 'call'];
     $u->result_headers = [GuildWars2ResultHeaders::class, 'call'];

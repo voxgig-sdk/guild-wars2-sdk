@@ -51,7 +51,7 @@ try {
 
 ```php
 try {
-    // load() returns the bare Achievement record (throws on error).
+    // load() returns the ENTITY — call data_get() for the Achievement record (throws on error).
     $achievement = $client->Achievement()->load();
     print_r($achievement);
 } catch (\Throwable $err) {
@@ -67,7 +67,7 @@ Entity operations throw a `\Throwable` on failure, so wrap them in
 
 ```php
 try {
-    $achievements = $client->Achievement()->list();
+    $gamemechanics = $client->GameMechanic()->list();
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
@@ -139,9 +139,10 @@ Create a mock client for unit testing — no server required:
 ```php
 $client = GuildWars2SDK::test();
 
-// Entity ops return the bare mock record (throws on error).
-$achievement = $client->Achievement()->list();
-print_r($achievement);
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
+$gamemechanic = $client->GameMechanic()->list();
+print_r($gamemechanic);
 ```
 
 ### Use a custom fetch function
@@ -255,7 +256,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -289,7 +290,7 @@ API path: `/achievements`
 | `created` |  |
 | `id` |  |
 | `name` |  |
-| `permission` |  |
+| `permissions` |  |
 | `subtoken` |  |
 | `value` |  |
 | `world` |  |
@@ -402,9 +403,9 @@ API path: `/pvp/heroes`
 
 | Field | Description |
 | --- | --- |
-| `coin` |  |
+| `coins` |  |
 | `coins_per_gem` |  |
-| `item` |  |
+| `items` |  |
 | `quantity` |  |
 
 Operations: List, Load.
@@ -439,7 +440,7 @@ Create an instance: `$achievement = $client->Achievement();`
 #### Example: Load
 
 ```php
-// load() returns the bare Achievement record (throws on error).
+// load() returns the ENTITY — call data_get() for the Achievement record (throws on error).
 $achievement = $client->Achievement()->load();
 ```
 
@@ -469,7 +470,7 @@ Create an instance: `$authenticated = $client->Authenticated();`
 | `created` | `string` |  |
 | `id` | `string` |  |
 | `name` | `string` |  |
-| `permission` | `array` |  |
+| `permissions` | `array` |  |
 | `subtoken` | `string` |  |
 | `value` | `int` |  |
 | `world` | `int` |  |
@@ -477,7 +478,7 @@ Create an instance: `$authenticated = $client->Authenticated();`
 #### Example: Load
 
 ```php
-// load() returns the bare Authenticated record (throws on error).
+// load() returns the ENTITY — call data_get() for the Authenticated record (throws on error).
 $authenticated = $client->Authenticated()->load(["id" => "authenticated_id"]);
 ```
 
@@ -539,7 +540,7 @@ Create an instance: `$guild = $client->Guild();`
 #### Example: Load
 
 ```php
-// load() returns the bare Guild record (throws on error).
+// load() returns the ENTITY — call data_get() for the Guild record (throws on error).
 $guild = $client->Guild()->load(["id" => "guild_id"]);
 ```
 
@@ -661,7 +662,7 @@ Create an instance: `$miscellaneous = $client->Miscellaneous();`
 #### Example: Load
 
 ```php
-// load() returns the bare Miscellaneous record (throws on error).
+// load() returns the ENTITY — call data_get() for the Miscellaneous record (throws on error).
 $miscellaneous = $client->Miscellaneous()->load(["id" => 1]);
 ```
 
@@ -724,15 +725,15 @@ Create an instance: `$trading_post = $client->TradingPost();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `coin` | `int` |  |
+| `coins` | `int` |  |
 | `coins_per_gem` | `int` |  |
-| `item` | `array` |  |
+| `items` | `array` |  |
 | `quantity` | `int` |  |
 
 #### Example: Load
 
 ```php
-// load() returns the bare TradingPost record (throws on error).
+// load() returns the ENTITY — call data_get() for the TradingPost record (throws on error).
 $trading_post = $client->TradingPost()->load();
 ```
 
@@ -838,11 +839,11 @@ Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$achievement = $client->Achievement();
-$achievement->list();
+$gamemechanic = $client->GameMechanic();
+$gamemechanic->list();
 
-// $achievement->data_get() now returns the achievement data from the last list
-// $achievement->match_get() returns the last match criteria
+// $gamemechanic->data_get() now returns the gamemechanic data from the last list
+// $gamemechanic->match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

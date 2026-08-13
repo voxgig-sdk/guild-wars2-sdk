@@ -37,7 +37,9 @@ const client = new GuildWars2SDK({
 
 ### 2. List achievement records
 
-`list()` resolves to an array of Achievement objects — iterate it directly:
+`list()` resolves to an array of Achievement ENTITIES — every operation
+resolves to entities, not raw records. Iterate them directly, and call
+`.data()` on one for the record it holds:
 
 ```ts
 const achievements = await client.Achievement().list()
@@ -67,8 +69,8 @@ Entity operations reject on failure, so wrap them in `try` / `catch`:
 
 ```ts
 try {
-  const achievements = await client.Achievement().list()
-  console.log(achievements)
+  const gamemechanics = await client.GameMechanic().list()
+  console.log(gamemechanics)
 } catch (err) {
   console.error('list failed:', err)
 }
@@ -134,9 +136,10 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = GuildWars2SDK.test()
 
-const achievement = await client.Achievement().list()
-// achievement is a bare entity populated with mock response data
-console.log(achievement)
+const gamemechanic = await client.GameMechanic().list()
+// gamemechanic is the entity, populated with mock response data
+// — call gamemechanic.data() for the record itself
+console.log(gamemechanic)
 ```
 
 You can also use the instance method:
@@ -151,7 +154,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Achievement()
+const entity = client.GameMechanic()
 
 // First call runs the operation and stores its result
 await entity.list()
@@ -331,7 +334,7 @@ API path: `/achievements`
 | `created` |  |
 | `id` |  |
 | `name` |  |
-| `permission` |  |
+| `permissions` |  |
 | `subtoken` |  |
 | `value` |  |
 | `world` |  |
@@ -444,9 +447,9 @@ API path: `/pvp/heroes`
 
 | Field | Description |
 | --- | --- |
-| `coin` |  |
+| `coins` |  |
 | `coins_per_gem` |  |
-| `item` |  |
+| `items` |  |
 | `quantity` |  |
 
 Operations: list, load.
@@ -509,7 +512,7 @@ Create an instance: `const authenticated = client.Authenticated()`
 | `created` | `string` |  |
 | `id` | `string` |  |
 | `name` | `string` |  |
-| `permission` | `any[]` |  |
+| `permissions` | `any[]` |  |
 | `subtoken` | `string` |  |
 | `value` | `number` |  |
 | `world` | `number` |  |
@@ -598,7 +601,7 @@ Create an instance: `const guild_authenticated = client.GuildAuthenticated()`
 #### Example: List
 
 ```ts
-const guild_authenticateds = await client.GuildAuthenticated().list()
+const guild_authenticateds = await client.GuildAuthenticated().list({ id: "example" })
 ```
 
 
@@ -749,9 +752,9 @@ Create an instance: `const trading_post = client.TradingPost()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `coin` | `number` |  |
+| `coins` | `number` |  |
 | `coins_per_gem` | `number` |  |
-| `item` | `any[]` |  |
+| `items` | `any[]` |  |
 | `quantity` | `number` |  |
 
 #### Example: Load
@@ -853,11 +856,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const achievement = client.Achievement()
-await achievement.list()
+const gamemechanic = client.GameMechanic()
+await gamemechanic.list()
 
-// achievement.data() now returns the achievement data from the last `list`
-// achievement.match() returns the last match criteria
+// gamemechanic.data() now returns the gamemechanic data from the last `list`
+// gamemechanic.match() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

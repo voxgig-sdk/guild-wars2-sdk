@@ -16,11 +16,11 @@
 import pytest
 
 from projectname_sdk import GuildWars2SDK
-from core.error import GuildWars2Error
-from core.result import GuildWars2Result
-from core.response import GuildWars2Response
-from core.spec import GuildWars2Spec
-from feature.base_feature import GuildWars2BaseFeature
+from projectname_sdk.core.error import GuildWars2Error
+from projectname_sdk.core.result import GuildWars2Result
+from projectname_sdk.core.response import GuildWars2Response
+from projectname_sdk.core.spec import GuildWars2Spec
+from projectname_sdk.feature.base_feature import GuildWars2BaseFeature
 
 
 def _client():
