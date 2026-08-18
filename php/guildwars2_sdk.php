@@ -40,7 +40,7 @@ class GuildWars2SDK
         $utility = new GuildWars2Utility();
         $this->_utility = $utility;
 
-        $config = GuildWars2Config::make_config();
+        $config = GuildWars2Config::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

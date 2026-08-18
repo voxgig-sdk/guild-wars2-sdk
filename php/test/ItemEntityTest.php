@@ -40,7 +40,7 @@ class ItemEntityTest extends TestCase
         $this->assertCount(3, $seen);
 
         // Inbound: streaming active -> yields each item from the feature.
-        $cfg = GuildWars2Config::make_config();
+        $cfg = GuildWars2Config::shared_config();
         if (isset($cfg["feature"]) && is_array($cfg["feature"]) && isset($cfg["feature"]["streaming"])) {
             $sdk = GuildWars2SDK::test($seed, ["feature" => ["streaming" => ["active" => true]]]);
             $got = [];

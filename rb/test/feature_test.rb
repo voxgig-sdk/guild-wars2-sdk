@@ -15,7 +15,7 @@ require_relative "../GuildWars2_sdk"
 module GuildWars2FeatureHarness
   # True when this SDK was generated with the named feature.
   def self.has_feature?(name)
-    f = GuildWars2Config.make_config["feature"]
+    f = GuildWars2Config.shared_config["feature"]
     f.is_a?(Hash) && !f[name].nil?
   end
 

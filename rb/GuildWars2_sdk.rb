@@ -28,7 +28,7 @@ class GuildWars2SDK
     utility = GuildWars2Utility.new
     @_utility = utility
 
-    config = GuildWars2Config.make_config
+    config = GuildWars2Config.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,
