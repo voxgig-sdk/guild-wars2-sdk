@@ -109,7 +109,7 @@ export interface Item {
 export interface ItemListMatch {
 }
 
-export interface Map {
+export interface MapType {
 }
 
 export interface MapListMatch {

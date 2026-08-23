@@ -19,6 +19,9 @@ module GuildWars2Config
     {
       "main" => {
         "name" => "GuildWars2",
+        "slug" => "guild-wars2",
+        "version" => "0.0.1",
+        "target" => "rb",
       },
       "feature" => {
         "test" => {

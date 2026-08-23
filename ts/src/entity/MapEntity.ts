@@ -15,12 +15,12 @@ import type {
 } from '../types'
 
 import type {
-  Map,
+  MapType,
   MapListMatch,
 } from '../GuildWars2Types'
 
 // TODO: needs Entity superclass
-class MapEntity extends GuildWars2EntityBase<Map> {
+class MapEntity extends GuildWars2EntityBase<MapType> {
 
   constructor(client: GuildWars2SDK, entopts: any) {
     super(client, entopts)

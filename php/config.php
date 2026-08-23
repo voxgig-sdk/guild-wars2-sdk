@@ -33,6 +33,9 @@ class GuildWars2Config
         return [
             "main" => [
                 "name" => "GuildWars2",
+                "slug" => "guild-wars2",
+                "version" => "0.0.1",
+                "target" => "php",
             ],
             "feature" => [
                 "test" => [

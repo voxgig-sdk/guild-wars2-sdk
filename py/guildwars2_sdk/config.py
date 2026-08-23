@@ -28,6 +28,9 @@ def make_config():
     return {
         "main": {
             "name": "GuildWars2",
+            "slug": "guild-wars2",
+            "version": "0.0.1",
+            "target": "py",
         },
         "feature": {
             "test": {
