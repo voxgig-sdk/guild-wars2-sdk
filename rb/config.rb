@@ -28,6 +28,7 @@ module GuildWars2Config
           "options" => {
             "active" => false,
           },
+          "transport" => "base",
         },
       },
       "options" => {
@@ -1263,7 +1264,12 @@ module GuildWars2Config
           },
         },
         "guild" => {
-          "fields" => [],
+          "fields" => [
+            {
+              "name" => "id",
+              "type" => "`$STRING`",
+            },
+          ],
           "name" => "guild",
           "op" => {
             "list" => {
@@ -1414,7 +1420,12 @@ module GuildWars2Config
           },
         },
         "guild_authenticated" => {
-          "fields" => [],
+          "fields" => [
+            {
+              "name" => "id",
+              "type" => "`$STRING`",
+            },
+          ],
           "name" => "guild_authenticated",
           "op" => {
             "list" => {

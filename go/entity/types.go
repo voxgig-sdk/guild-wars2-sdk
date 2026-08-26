@@ -75,6 +75,7 @@ type GameMechanicListMatch struct {
 
 // Guild is the typed data model for the guild entity.
 type Guild struct {
+	Id *string `json:"id,omitempty"`
 }
 
 // GuildLoadMatch is the typed request payload for Guild.LoadTyped.
@@ -84,10 +85,12 @@ type GuildLoadMatch struct {
 
 // GuildListMatch is the typed request payload for Guild.ListTyped.
 type GuildListMatch struct {
+	Id *string `json:"id,omitempty"`
 }
 
 // GuildAuthenticated is the typed data model for the guild_authenticated entity.
 type GuildAuthenticated struct {
+	Id *string `json:"id,omitempty"`
 }
 
 // GuildAuthenticatedListMatch is the typed request payload for GuildAuthenticated.ListTyped.

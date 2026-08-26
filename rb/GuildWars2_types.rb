@@ -136,8 +136,13 @@ class GameMechanicListMatch
 end
 
 # Guild entity data model.
-class Guild
-end
+#
+# @!attribute [rw] id
+#   @return [String, nil]
+Guild = Struct.new(
+  :id,
+  keyword_init: true
+)
 
 # Request payload for Guild#load.
 #
@@ -149,12 +154,22 @@ GuildLoadMatch = Struct.new(
 )
 
 # Request payload for Guild#list.
-class GuildListMatch
-end
+#
+# @!attribute [rw] id
+#   @return [String, nil]
+GuildListMatch = Struct.new(
+  :id,
+  keyword_init: true
+)
 
 # GuildAuthenticated entity data model.
-class GuildAuthenticated
-end
+#
+# @!attribute [rw] id
+#   @return [String, nil]
+GuildAuthenticated = Struct.new(
+  :id,
+  keyword_init: true
+)
 
 # Request payload for GuildAuthenticated#list.
 #

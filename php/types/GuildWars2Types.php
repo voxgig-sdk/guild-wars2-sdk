@@ -86,6 +86,7 @@ class GameMechanicListMatch
 /** Guild entity data model. */
 class Guild
 {
+    public ?string $id = null;
 }
 
 /** Request payload for Guild#load. */
@@ -97,11 +98,13 @@ class GuildLoadMatch
 /** Request payload for Guild#list. */
 class GuildListMatch
 {
+    public ?string $id = null;
 }
 
 /** GuildAuthenticated entity data model. */
 class GuildAuthenticated
 {
+    public ?string $id = null;
 }
 
 /** Request payload for GuildAuthenticated#list. */

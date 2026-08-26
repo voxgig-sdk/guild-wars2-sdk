@@ -40,7 +40,8 @@ class Config {
      test:     {
       "options": {
         "active": false
-      }
+      },
+      "transport": "base"
     },
 
   }
@@ -1315,7 +1316,12 @@ class Config {
       }
     },
     "guild": {
-      "fields": [],
+      "fields": [
+        {
+          "name": "id",
+          "type": "`$STRING`"
+        }
+      ],
       "name": "guild",
       "op": {
         "list": {
@@ -1466,7 +1472,12 @@ class Config {
       }
     },
     "guild_authenticated": {
-      "fields": [],
+      "fields": [
+        {
+          "name": "id",
+          "type": "`$STRING`"
+        }
+      ],
       "name": "guild_authenticated",
       "op": {
         "list": {

@@ -16,6 +16,7 @@ local function make_config()
         ["options"] = {
           ["active"] = false,
         },
+        ["transport"] = "base",
       },
     },
     options = {
@@ -1251,7 +1252,12 @@ local function make_config()
         },
       },
       ["guild"] = {
-        ["fields"] = {},
+        ["fields"] = {
+          {
+            ["name"] = "id",
+            ["type"] = "`$STRING`",
+          },
+        },
         ["name"] = "guild",
         ["op"] = {
           ["list"] = {
@@ -1402,7 +1408,12 @@ local function make_config()
         },
       },
       ["guild_authenticated"] = {
-        ["fields"] = {},
+        ["fields"] = {
+          {
+            ["name"] = "id",
+            ["type"] = "`$STRING`",
+          },
+        },
         ["name"] = "guild_authenticated",
         ["op"] = {
           ["list"] = {

@@ -318,6 +318,7 @@ API path: `/legendaryarmory`
 
 | Field | Description |
 | --- | --- |
+| `id` |  |
 
 Operations: List, Load.
 
@@ -327,6 +328,7 @@ API path: `/guild/permissions`
 
 | Field | Description |
 | --- | --- |
+| `id` |  |
 
 Operations: List.
 
@@ -528,6 +530,12 @@ Create an instance: `guild = client.Guild()`
 | `list()` | List entities, optionally matching the given criteria. |
 | `load(match)` | Load a single entity by match criteria. |
 
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `id` | `str` |  |
+
 #### Example: Load
 
 ```python
@@ -550,6 +558,12 @@ Create an instance: `guild_authenticated = client.GuildAuthenticated()`
 | Method | Description |
 | --- | --- |
 | `list()` | List entities, optionally matching the given criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `id` | `str` |  |
 
 #### Example: List
 

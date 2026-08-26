@@ -37,6 +37,7 @@ def make_config():
         "options": {
           "active": False,
         },
+        "transport": "base",
       },
         },
         "options": {
@@ -1272,7 +1273,12 @@ def make_config():
         },
       },
       "guild": {
-        "fields": [],
+        "fields": [
+          {
+            "name": "id",
+            "type": "`$STRING`",
+          },
+        ],
         "name": "guild",
         "op": {
           "list": {
@@ -1423,7 +1429,12 @@ def make_config():
         },
       },
       "guild_authenticated": {
-        "fields": [],
+        "fields": [
+          {
+            "name": "id",
+            "type": "`$STRING`",
+          },
+        ],
         "name": "guild_authenticated",
         "op": {
           "list": {

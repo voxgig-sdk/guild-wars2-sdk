@@ -356,6 +356,12 @@ Return the entity name.
 guild = client.Guild()
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `str` | No |  |
+
 ### Operations
 
 #### `list(reqmatch=None, ctrl=None) -> list`
@@ -410,6 +416,12 @@ Return the entity name.
 ```python
 guild_authenticated = client.GuildAuthenticated()
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `str` | No |  |
 
 ### Operations
 

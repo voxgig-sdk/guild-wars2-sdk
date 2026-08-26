@@ -507,6 +507,12 @@ Return a copy of the entity options.
 const guild = client.Guild()
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
+
 ### Actions
 
 This entity exposes custom API actions in addition to the standard
@@ -580,6 +586,12 @@ Return a copy of the entity options.
 ```ts
 const guild_authenticated = client.GuildAuthenticated()
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
 
 ### Actions
 

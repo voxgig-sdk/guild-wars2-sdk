@@ -321,6 +321,7 @@ API path: `/legendaryarmory`
 
 | Field | Description |
 | --- | --- |
+| `id` |  |
 
 Operations: List, Load.
 
@@ -330,6 +331,7 @@ API path: `/guild/permissions`
 
 | Field | Description |
 | --- | --- |
+| `id` |  |
 
 Operations: List.
 
@@ -537,6 +539,12 @@ Create an instance: `$guild = $client->Guild();`
 | `list(match)` | List entities matching the criteria. |
 | `load(match)` | Load a single entity by match criteria. |
 
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `id` | `string` |  |
+
 #### Example: Load
 
 ```php
@@ -561,6 +569,12 @@ Create an instance: `$guild_authenticated = $client->GuildAuthenticated();`
 | Method | Description |
 | --- | --- |
 | `list(match)` | List entities matching the criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `id` | `string` |  |
 
 #### Example: List
 

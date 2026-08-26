@@ -20,6 +20,7 @@ func MakeConfig() map[string]any {
 				"options": map[string]any{
 					"active": false,
 				},
+				"transport": "base",
 			},
 		},
 		"options": map[string]any{
@@ -1255,7 +1256,12 @@ func MakeConfig() map[string]any {
 				},
 			},
 			"guild": map[string]any{
-				"fields": []any{},
+				"fields": []any{
+					map[string]any{
+						"name": "id",
+						"type": "`$STRING`",
+					},
+				},
 				"name": "guild",
 				"op": map[string]any{
 					"list": map[string]any{
@@ -1406,7 +1412,12 @@ func MakeConfig() map[string]any {
 				},
 			},
 			"guild_authenticated": map[string]any{
-				"fields": []any{},
+				"fields": []any{
+					map[string]any{
+						"name": "id",
+						"type": "`$STRING`",
+					},
+				},
 				"name": "guild_authenticated",
 				"op": map[string]any{
 					"list": map[string]any{

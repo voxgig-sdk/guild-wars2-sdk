@@ -48,13 +48,16 @@
 ---@class GameMechanicListMatch
 
 ---@class Guild
+---@field id? string
 
 ---@class GuildLoadMatch
 ---@field id string
 
 ---@class GuildListMatch
+---@field id? string
 
 ---@class GuildAuthenticated
+---@field id? string
 
 ---@class GuildAuthenticatedListMatch
 ---@field id string

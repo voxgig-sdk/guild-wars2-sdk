@@ -357,6 +357,12 @@ Return the entity name.
 $guild = $client->Guild();
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
+
 ### Operations
 
 #### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
@@ -410,6 +416,12 @@ Return the entity name.
 ```php
 $guild_authenticated = $client->GuildAuthenticated();
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
 
 ### Operations
 

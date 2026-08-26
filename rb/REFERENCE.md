@@ -358,6 +358,12 @@ Return the entity name.
 guild = client.Guild
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `String` | No |  |
+
 ### Operations
 
 #### `list(reqmatch = nil, ctrl = nil) -> Array`
@@ -411,6 +417,12 @@ Return the entity name.
 ```ruby
 guild_authenticated = client.GuildAuthenticated
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `String` | No |  |
 
 ### Operations
 

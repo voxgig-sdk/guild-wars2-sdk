@@ -92,10 +92,14 @@ describe("GuildEntity", function()
     assert.is_table(guild_ref01_list_result)
 
     -- LOAD
-    local guild_ref01_match_dt0 = {}
+    local guild_ref01_match_dt0 = {
+      id = guild_ref01_data["id"],
+    }
     local guild_ref01_data_dt0_loaded, err = guild_ref01_ent:load(guild_ref01_match_dt0, nil)
     assert.is_nil(err)
-    assert.is_not_nil(guild_ref01_data_dt0_loaded)
+    local guild_ref01_data_dt0_load_result = helpers.to_map(type(guild_ref01_data_dt0_loaded) == 'table' and guild_ref01_data_dt0_loaded.data_get and guild_ref01_data_dt0_loaded:data_get() or guild_ref01_data_dt0_loaded)
+    assert.is_not_nil(guild_ref01_data_dt0_load_result)
+    assert.are.equal(guild_ref01_data_dt0_load_result["id"], guild_ref01_data["id"])
 
   end)
 end)

@@ -365,6 +365,7 @@ API path: `/legendaryarmory`
 
 | Field | Description |
 | --- | --- |
+| `id` |  |
 
 Operations: list, load.
 
@@ -374,6 +375,7 @@ API path: `/guild/permissions`
 
 | Field | Description |
 | --- | --- |
+| `id` |  |
 
 Operations: list.
 
@@ -575,6 +577,12 @@ Create an instance: `const guild = client.Guild()`
 | `list(match)` | List entities matching the criteria. |
 | `load(match)` | Load a single entity by match criteria. |
 
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `id` | `string` |  |
+
 #### Example: Load
 
 ```ts
@@ -597,6 +605,12 @@ Create an instance: `const guild_authenticated = client.GuildAuthenticated()`
 | Method | Description |
 | --- | --- |
 | `list(match)` | List entities matching the criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `id` | `string` |  |
 
 #### Example: List
 

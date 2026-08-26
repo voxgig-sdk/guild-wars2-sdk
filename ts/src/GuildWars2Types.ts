@@ -69,6 +69,7 @@ export interface GameMechanicListMatch {
 }
 
 export interface Guild {
+  id?: string
 }
 
 export interface GuildLoadMatch {
@@ -76,6 +77,7 @@ export interface GuildLoadMatch {
 }
 
 export interface GuildListMatch {
+  id?: string
 
   // Selects a custom action instead of the plain list:
   //   'permission' | 'search' | 'upgrade'
@@ -85,6 +87,7 @@ export interface GuildListMatch {
 }
 
 export interface GuildAuthenticated {
+  id?: string
 }
 
 export interface GuildAuthenticatedListMatch {

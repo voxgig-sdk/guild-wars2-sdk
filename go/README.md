@@ -331,6 +331,7 @@ API path: `/legendaryarmory`
 
 | Field | Description |
 | --- | --- |
+| `"id"` |  |
 
 Operations: List, Load.
 
@@ -340,6 +341,7 @@ API path: `/guild/permissions`
 
 | Field | Description |
 | --- | --- |
+| `"id"` |  |
 
 Operations: List.
 
@@ -565,6 +567,12 @@ Create an instance: `guild := client.Guild(nil)`
 | `List(match, ctrl)` | List entities matching the criteria. |
 | `Load(match, ctrl)` | Load a single entity by match criteria. |
 
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `id` | `string` |  |
+
 #### Example: Load
 
 ```go
@@ -595,6 +603,12 @@ Create an instance: `guildAuthenticated := client.GuildAuthenticated(nil)`
 | Method | Description |
 | --- | --- |
 | `List(match, ctrl)` | List entities matching the criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `id` | `string` |  |
 
 #### Example: List
 

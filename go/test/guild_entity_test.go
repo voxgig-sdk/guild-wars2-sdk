@@ -121,13 +121,19 @@ func TestGuildEntity(t *testing.T) {
 		}
 
 		// LOAD
-		guildRef01MatchDt0 := map[string]any{}
+		guildRef01MatchDt0 := map[string]any{
+			"id": guildRef01Data["id"],
+		}
 		guildRef01DataDt0Loaded, err := guildRef01Ent.Load(guildRef01MatchDt0, nil)
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		if guildRef01DataDt0Loaded == nil {
-			t.Fatal("expected load result to be non-nil")
+		guildRef01DataDt0LoadResult := core.ToMapAny(entityData(guildRef01DataDt0Loaded))
+		if guildRef01DataDt0LoadResult == nil {
+			t.Fatal("expected load result to be a map")
+		}
+		if guildRef01DataDt0LoadResult["id"] != guildRef01Data["id"] {
+			t.Fatal("expected load result id to match")
 		}
 
 	})

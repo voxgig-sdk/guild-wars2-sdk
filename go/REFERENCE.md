@@ -367,6 +367,12 @@ guild := client.Guild(nil)
 fmt.Println(guild.GetName()) // "guild"
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
+
 ### Operations
 
 #### `List(reqmatch, ctrl map[string]any) (any, error)`
@@ -423,6 +429,12 @@ Return the entity name.
 guildAuthenticated := client.GuildAuthenticated(nil)
 fmt.Println(guildAuthenticated.GetName()) // "guild_authenticated"
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
 
 ### Operations
 

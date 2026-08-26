@@ -355,6 +355,12 @@ Return the entity name.
 local guild = client:Guild(nil)
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
+
 ### Operations
 
 #### `list(reqmatch, ctrl) -> any, err`
@@ -408,6 +414,12 @@ Return the entity name.
 ```lua
 local guild_authenticated = client:GuildAuthenticated(nil)
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
 
 ### Operations
 

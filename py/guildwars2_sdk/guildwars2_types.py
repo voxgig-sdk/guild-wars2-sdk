@@ -77,20 +77,20 @@ class GameMechanicListMatch(TypedDict):
     pass
 
 
-class Guild(TypedDict):
-    pass
+class Guild(TypedDict, total=False):
+    id: str
 
 
 class GuildLoadMatch(TypedDict):
     id: str
 
 
-class GuildListMatch(TypedDict):
-    pass
+class GuildListMatch(TypedDict, total=False):
+    id: str
 
 
-class GuildAuthenticated(TypedDict):
-    pass
+class GuildAuthenticated(TypedDict, total=False):
+    id: str
 
 
 class GuildAuthenticatedListMatch(TypedDict):

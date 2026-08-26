@@ -44,7 +44,8 @@ class HomeInstanceEntity extends GuildWars2EntityBase<HomeInstance> {
     const {
       makeContext,
       done,
-      error,
+      // The registry name is `makeError`; `error` is the local alias.
+      makeError: error,
       featureHook,
       makePoint,
       makeRequest,

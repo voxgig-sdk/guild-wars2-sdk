@@ -93,9 +93,13 @@ class GuildEntityTest extends TestCase
         $this->assertIsArray($guild_ref01_list_result);
 
         // LOAD
-        $guild_ref01_match_dt0 = [];
+        $guild_ref01_match_dt0 = [
+            "id" => $guild_ref01_data["id"],
+        ];
         $guild_ref01_data_dt0_loaded = $guild_ref01_ent->load($guild_ref01_match_dt0, null);
-        $this->assertNotNull($guild_ref01_data_dt0_loaded);
+        $guild_ref01_data_dt0_load_result = Helpers::to_map(is_object($guild_ref01_data_dt0_loaded) && method_exists($guild_ref01_data_dt0_loaded, 'data_get') ? $guild_ref01_data_dt0_loaded->data_get() : $guild_ref01_data_dt0_loaded);
+        $this->assertNotNull($guild_ref01_data_dt0_load_result);
+        $this->assertEquals($guild_ref01_data_dt0_load_result["id"], $guild_ref01_data["id"]);
 
     }
 }

@@ -66,6 +66,12 @@ describe('GuildEntity', async () => {
     const guild_ref01_list = (await guild_ref01_ent.list(guild_ref01_match)).map((e: any) => e.data())
 
 
+    // LOAD
+    const guild_ref01_match_dt0: any = {}
+    guild_ref01_match_dt0.id = guild_ref01_data.id
+    const guild_ref01_data_dt0 = (await guild_ref01_ent.load(guild_ref01_match_dt0)).data()
+    assert(guild_ref01_data_dt0.id === guild_ref01_data.id)
+
 
   })
 })
