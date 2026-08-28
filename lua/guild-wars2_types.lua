@@ -11,6 +11,8 @@
 ---@class AchievementLoadMatch
 
 ---@class AchievementListMatch
+---@field ids? string
+---@field v? string
 
 ---@class Authenticated
 ---@field created? string
@@ -22,22 +24,12 @@
 ---@field world? number
 
 ---@class AuthenticatedLoadMatch
----@field created? string
----@field id string
----@field name? string
----@field permissions? table
----@field subtoken? string
----@field value? number
----@field world? number
+---@field expire? string
+---@field permission? string
+---@field url? string
 
 ---@class AuthenticatedListMatch
----@field created? string
----@field id? string
----@field name? string
----@field permissions? table
----@field subtoken? string
----@field value? number
----@field world? number
+---@field ids? string
 
 ---@class DailyReward
 
@@ -46,6 +38,7 @@
 ---@class GameMechanic
 
 ---@class GameMechanicListMatch
+---@field ids? string
 
 ---@class Guild
 ---@field id? string
@@ -65,18 +58,22 @@
 ---@class HomeInstance
 
 ---@class HomeInstanceListMatch
+---@field ids? string
 
 ---@class Item
 
 ---@class ItemListMatch
+---@field ids? string
 
 ---@class Map
 
 ---@class MapListMatch
+---@field ids? string
 
 ---@class MapInformation
 
 ---@class MapInformationListMatch
+---@field ids? string
 
 ---@class Miscellaneous
 ---@field id? number
@@ -85,11 +82,12 @@
 ---@field id number
 
 ---@class MiscellaneousListMatch
----@field id? number
+---@field ids? string
 
 ---@class Story
 
 ---@class StoryListMatch
+---@field ids? string
 
 ---@class StructuredPvP
 
@@ -102,16 +100,10 @@
 ---@field quantity? number
 
 ---@class TradingPostLoadMatch
----@field coins? number
----@field coins_per_gem? number
----@field items? table
----@field quantity? number
+---@field quantity number
 
 ---@class TradingPostListMatch
----@field coins? number
----@field coins_per_gem? number
----@field items? table
----@field quantity? number
+---@field ids? string
 
 ---@class WorldVsWorld
 

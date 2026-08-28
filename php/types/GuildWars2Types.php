@@ -25,6 +25,8 @@ class AchievementLoadMatch
 /** Request payload for Achievement#list. */
 class AchievementListMatch
 {
+    public ?string $ids = null;
+    public ?string $v = null;
 }
 
 /** Authenticated entity data model. */
@@ -42,25 +44,15 @@ class Authenticated
 /** Request payload for Authenticated#load. */
 class AuthenticatedLoadMatch
 {
-    public ?string $created = null;
-    public string $id;
-    public ?string $name = null;
-    public ?array $permissions = null;
-    public ?string $subtoken = null;
-    public ?int $value = null;
-    public ?int $world = null;
+    public ?string $expire = null;
+    public ?string $permission = null;
+    public ?string $url = null;
 }
 
 /** Request payload for Authenticated#list. */
 class AuthenticatedListMatch
 {
-    public ?string $created = null;
-    public ?string $id = null;
-    public ?string $name = null;
-    public ?array $permissions = null;
-    public ?string $subtoken = null;
-    public ?int $value = null;
-    public ?int $world = null;
+    public ?string $ids = null;
 }
 
 /** DailyReward entity data model. */
@@ -81,6 +73,7 @@ class GameMechanic
 /** Request payload for GameMechanic#list. */
 class GameMechanicListMatch
 {
+    public ?string $ids = null;
 }
 
 /** Guild entity data model. */
@@ -121,6 +114,7 @@ class HomeInstance
 /** Request payload for HomeInstance#list. */
 class HomeInstanceListMatch
 {
+    public ?string $ids = null;
 }
 
 /** Item entity data model. */
@@ -131,6 +125,7 @@ class Item
 /** Request payload for Item#list. */
 class ItemListMatch
 {
+    public ?string $ids = null;
 }
 
 /** Map entity data model. */
@@ -141,6 +136,7 @@ class Map
 /** Request payload for Map#list. */
 class MapListMatch
 {
+    public ?string $ids = null;
 }
 
 /** MapInformation entity data model. */
@@ -151,6 +147,7 @@ class MapInformation
 /** Request payload for MapInformation#list. */
 class MapInformationListMatch
 {
+    public ?string $ids = null;
 }
 
 /** Miscellaneous entity data model. */
@@ -168,7 +165,7 @@ class MiscellaneousLoadMatch
 /** Request payload for Miscellaneous#list. */
 class MiscellaneousListMatch
 {
-    public ?int $id = null;
+    public ?string $ids = null;
 }
 
 /** Story entity data model. */
@@ -179,6 +176,7 @@ class Story
 /** Request payload for Story#list. */
 class StoryListMatch
 {
+    public ?string $ids = null;
 }
 
 /** StructuredPvP entity data model. */
@@ -203,19 +201,13 @@ class TradingPost
 /** Request payload for TradingPost#load. */
 class TradingPostLoadMatch
 {
-    public ?int $coins = null;
-    public ?int $coins_per_gem = null;
-    public ?array $items = null;
-    public ?int $quantity = null;
+    public int $quantity;
 }
 
 /** Request payload for TradingPost#list. */
 class TradingPostListMatch
 {
-    public ?int $coins = null;
-    public ?int $coins_per_gem = null;
-    public ?array $items = null;
-    public ?int $quantity = null;
+    public ?string $ids = null;
 }
 
 /** WorldVsWorld entity data model. */

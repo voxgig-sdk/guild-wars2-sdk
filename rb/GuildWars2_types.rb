@@ -17,8 +17,17 @@ class AchievementLoadMatch
 end
 
 # Request payload for Achievement#list.
-class AchievementListMatch
-end
+#
+# @!attribute [rw] ids
+#   @return [String, nil]
+#
+# @!attribute [rw] v
+#   @return [String, nil]
+AchievementListMatch = Struct.new(
+  :ids,
+  :v,
+  keyword_init: true
+)
 
 # Authenticated entity data model.
 #
@@ -55,67 +64,27 @@ Authenticated = Struct.new(
 
 # Request payload for Authenticated#load.
 #
-# @!attribute [rw] created
+# @!attribute [rw] expire
 #   @return [String, nil]
 #
-# @!attribute [rw] id
-#   @return [String]
-#
-# @!attribute [rw] name
+# @!attribute [rw] permission
 #   @return [String, nil]
 #
-# @!attribute [rw] permissions
-#   @return [Array, nil]
-#
-# @!attribute [rw] subtoken
+# @!attribute [rw] url
 #   @return [String, nil]
-#
-# @!attribute [rw] value
-#   @return [Integer, nil]
-#
-# @!attribute [rw] world
-#   @return [Integer, nil]
 AuthenticatedLoadMatch = Struct.new(
-  :created,
-  :id,
-  :name,
-  :permissions,
-  :subtoken,
-  :value,
-  :world,
+  :expire,
+  :permission,
+  :url,
   keyword_init: true
 )
 
 # Request payload for Authenticated#list.
 #
-# @!attribute [rw] created
+# @!attribute [rw] ids
 #   @return [String, nil]
-#
-# @!attribute [rw] id
-#   @return [String, nil]
-#
-# @!attribute [rw] name
-#   @return [String, nil]
-#
-# @!attribute [rw] permissions
-#   @return [Array, nil]
-#
-# @!attribute [rw] subtoken
-#   @return [String, nil]
-#
-# @!attribute [rw] value
-#   @return [Integer, nil]
-#
-# @!attribute [rw] world
-#   @return [Integer, nil]
 AuthenticatedListMatch = Struct.new(
-  :created,
-  :id,
-  :name,
-  :permissions,
-  :subtoken,
-  :value,
-  :world,
+  :ids,
   keyword_init: true
 )
 
@@ -132,8 +101,13 @@ class GameMechanic
 end
 
 # Request payload for GameMechanic#list.
-class GameMechanicListMatch
-end
+#
+# @!attribute [rw] ids
+#   @return [String, nil]
+GameMechanicListMatch = Struct.new(
+  :ids,
+  keyword_init: true
+)
 
 # Guild entity data model.
 #
@@ -185,32 +159,52 @@ class HomeInstance
 end
 
 # Request payload for HomeInstance#list.
-class HomeInstanceListMatch
-end
+#
+# @!attribute [rw] ids
+#   @return [String, nil]
+HomeInstanceListMatch = Struct.new(
+  :ids,
+  keyword_init: true
+)
 
 # Item entity data model.
 class Item
 end
 
 # Request payload for Item#list.
-class ItemListMatch
-end
+#
+# @!attribute [rw] ids
+#   @return [String, nil]
+ItemListMatch = Struct.new(
+  :ids,
+  keyword_init: true
+)
 
 # Map entity data model.
 class Map
 end
 
 # Request payload for Map#list.
-class MapListMatch
-end
+#
+# @!attribute [rw] ids
+#   @return [String, nil]
+MapListMatch = Struct.new(
+  :ids,
+  keyword_init: true
+)
 
 # MapInformation entity data model.
 class MapInformation
 end
 
 # Request payload for MapInformation#list.
-class MapInformationListMatch
-end
+#
+# @!attribute [rw] ids
+#   @return [String, nil]
+MapInformationListMatch = Struct.new(
+  :ids,
+  keyword_init: true
+)
 
 # Miscellaneous entity data model.
 #
@@ -232,10 +226,10 @@ MiscellaneousLoadMatch = Struct.new(
 
 # Request payload for Miscellaneous#list.
 #
-# @!attribute [rw] id
-#   @return [Integer, nil]
+# @!attribute [rw] ids
+#   @return [String, nil]
 MiscellaneousListMatch = Struct.new(
-  :id,
+  :ids,
   keyword_init: true
 )
 
@@ -244,8 +238,13 @@ class Story
 end
 
 # Request payload for Story#list.
-class StoryListMatch
-end
+#
+# @!attribute [rw] ids
+#   @return [String, nil]
+StoryListMatch = Struct.new(
+  :ids,
+  keyword_init: true
+)
 
 # StructuredPvP entity data model.
 class StructuredPvP
@@ -278,43 +277,19 @@ TradingPost = Struct.new(
 
 # Request payload for TradingPost#load.
 #
-# @!attribute [rw] coins
-#   @return [Integer, nil]
-#
-# @!attribute [rw] coins_per_gem
-#   @return [Integer, nil]
-#
-# @!attribute [rw] items
-#   @return [Array, nil]
-#
 # @!attribute [rw] quantity
-#   @return [Integer, nil]
+#   @return [Integer]
 TradingPostLoadMatch = Struct.new(
-  :coins,
-  :coins_per_gem,
-  :items,
   :quantity,
   keyword_init: true
 )
 
 # Request payload for TradingPost#list.
 #
-# @!attribute [rw] coins
-#   @return [Integer, nil]
-#
-# @!attribute [rw] coins_per_gem
-#   @return [Integer, nil]
-#
-# @!attribute [rw] items
-#   @return [Array, nil]
-#
-# @!attribute [rw] quantity
-#   @return [Integer, nil]
+# @!attribute [rw] ids
+#   @return [String, nil]
 TradingPostListMatch = Struct.new(
-  :coins,
-  :coins_per_gem,
-  :items,
-  :quantity,
+  :ids,
   keyword_init: true
 )
 

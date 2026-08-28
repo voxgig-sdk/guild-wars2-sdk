@@ -24,8 +24,9 @@ class AchievementLoadMatch(TypedDict):
     pass
 
 
-class AchievementListMatch(TypedDict):
-    pass
+class AchievementListMatch(TypedDict, total=False):
+    ids: str
+    v: str
 
 
 class Authenticated(TypedDict, total=False):
@@ -38,27 +39,14 @@ class Authenticated(TypedDict, total=False):
     world: int
 
 
-class AuthenticatedLoadMatchRequired(TypedDict):
-    id: str
-
-
-class AuthenticatedLoadMatch(AuthenticatedLoadMatchRequired, total=False):
-    created: str
-    name: str
-    permissions: list
-    subtoken: str
-    value: int
-    world: int
+class AuthenticatedLoadMatch(TypedDict, total=False):
+    expire: str
+    permission: str
+    url: str
 
 
 class AuthenticatedListMatch(TypedDict, total=False):
-    created: str
-    id: str
-    name: str
-    permissions: list
-    subtoken: str
-    value: int
-    world: int
+    ids: str
 
 
 class DailyReward(TypedDict):
@@ -73,8 +61,8 @@ class GameMechanic(TypedDict):
     pass
 
 
-class GameMechanicListMatch(TypedDict):
-    pass
+class GameMechanicListMatch(TypedDict, total=False):
+    ids: str
 
 
 class Guild(TypedDict, total=False):
@@ -101,32 +89,32 @@ class HomeInstance(TypedDict):
     pass
 
 
-class HomeInstanceListMatch(TypedDict):
-    pass
+class HomeInstanceListMatch(TypedDict, total=False):
+    ids: str
 
 
 class Item(TypedDict):
     pass
 
 
-class ItemListMatch(TypedDict):
-    pass
+class ItemListMatch(TypedDict, total=False):
+    ids: str
 
 
 class Map(TypedDict):
     pass
 
 
-class MapListMatch(TypedDict):
-    pass
+class MapListMatch(TypedDict, total=False):
+    ids: str
 
 
 class MapInformation(TypedDict):
     pass
 
 
-class MapInformationListMatch(TypedDict):
-    pass
+class MapInformationListMatch(TypedDict, total=False):
+    ids: str
 
 
 class Miscellaneous(TypedDict, total=False):
@@ -138,15 +126,15 @@ class MiscellaneousLoadMatch(TypedDict):
 
 
 class MiscellaneousListMatch(TypedDict, total=False):
-    id: int
+    ids: str
 
 
 class Story(TypedDict):
     pass
 
 
-class StoryListMatch(TypedDict):
-    pass
+class StoryListMatch(TypedDict, total=False):
+    ids: str
 
 
 class StructuredPvP(TypedDict):
@@ -164,18 +152,12 @@ class TradingPost(TypedDict, total=False):
     quantity: int
 
 
-class TradingPostLoadMatch(TypedDict, total=False):
-    coins: int
-    coins_per_gem: int
-    items: list
+class TradingPostLoadMatch(TypedDict):
     quantity: int
 
 
 class TradingPostListMatch(TypedDict, total=False):
-    coins: int
-    coins_per_gem: int
-    items: list
-    quantity: int
+    ids: str
 
 
 class WorldVsWorld(TypedDict):

@@ -496,7 +496,7 @@ Create an instance: `authenticated := client.Authenticated(nil)`
 #### Example: Load
 
 ```go
-authenticated, err := client.Authenticated(nil).Load(map[string]any{"id": "authenticated_id"}, nil)
+authenticated, err := client.Authenticated(nil).Load(nil, nil)
 if err != nil {
     panic(err)
 }
@@ -808,7 +808,7 @@ Create an instance: `tradingPost := client.TradingPost(nil)`
 #### Example: Load
 
 ```go
-tradingPost, err := client.TradingPost(nil).Load(nil, nil)
+tradingPost, err := client.TradingPost(nil).Load(map[string]any{"quantity": 1}, nil)
 if err != nil {
     panic(err)
 }
@@ -845,6 +845,29 @@ if err != nil {
 }
 fmt.Println(worldVsWorlds) // the array of records
 ```
+
+## Features
+
+This SDK ships 1 optional features. Each is **inactive until you
+switch it on**, so an SDK you have not configured behaves exactly as if none of
+them existed — no retries, no cache, no logging, no measurable overhead.
+
+Activate a feature by name in the client options, alongside the options shown
+above:
+
+| Feature | What it does |
+|---|---|
+| [`test`](#test) | In-memory mock transport for testing without a live server |
+
+### test
+
+In-memory mock transport for testing without a live server.
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Set `feature.test.active` to enable it, then override any of the options above.
 
 
 ## Advanced

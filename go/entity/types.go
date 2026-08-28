@@ -22,6 +22,8 @@ type AchievementLoadMatch struct {
 
 // AchievementListMatch is the typed request payload for Achievement.ListTyped.
 type AchievementListMatch struct {
+	Ids *string `json:"ids,omitempty"`
+	V *string `json:"v,omitempty"`
 }
 
 // Authenticated is the typed data model for the authenticated entity.
@@ -37,24 +39,14 @@ type Authenticated struct {
 
 // AuthenticatedLoadMatch is the typed request payload for Authenticated.LoadTyped.
 type AuthenticatedLoadMatch struct {
-	Created *string `json:"created,omitempty"`
-	Id string `json:"id"`
-	Name *string `json:"name,omitempty"`
-	Permissions *[]any `json:"permissions,omitempty"`
-	Subtoken *string `json:"subtoken,omitempty"`
-	Value *int `json:"value,omitempty"`
-	World *int `json:"world,omitempty"`
+	Expire *string `json:"expire,omitempty"`
+	Permission *string `json:"permission,omitempty"`
+	Url *string `json:"url,omitempty"`
 }
 
 // AuthenticatedListMatch is the typed request payload for Authenticated.ListTyped.
 type AuthenticatedListMatch struct {
-	Created *string `json:"created,omitempty"`
-	Id *string `json:"id,omitempty"`
-	Name *string `json:"name,omitempty"`
-	Permissions *[]any `json:"permissions,omitempty"`
-	Subtoken *string `json:"subtoken,omitempty"`
-	Value *int `json:"value,omitempty"`
-	World *int `json:"world,omitempty"`
+	Ids *string `json:"ids,omitempty"`
 }
 
 // DailyReward is the typed data model for the daily_reward entity.
@@ -71,6 +63,7 @@ type GameMechanic struct {
 
 // GameMechanicListMatch is the typed request payload for GameMechanic.ListTyped.
 type GameMechanicListMatch struct {
+	Ids *string `json:"ids,omitempty"`
 }
 
 // Guild is the typed data model for the guild entity.
@@ -104,6 +97,7 @@ type HomeInstance struct {
 
 // HomeInstanceListMatch is the typed request payload for HomeInstance.ListTyped.
 type HomeInstanceListMatch struct {
+	Ids *string `json:"ids,omitempty"`
 }
 
 // Item is the typed data model for the item entity.
@@ -112,6 +106,7 @@ type Item struct {
 
 // ItemListMatch is the typed request payload for Item.ListTyped.
 type ItemListMatch struct {
+	Ids *string `json:"ids,omitempty"`
 }
 
 // Map is the typed data model for the map entity.
@@ -120,6 +115,7 @@ type Map struct {
 
 // MapListMatch is the typed request payload for Map.ListTyped.
 type MapListMatch struct {
+	Ids *string `json:"ids,omitempty"`
 }
 
 // MapInformation is the typed data model for the map_information entity.
@@ -128,6 +124,7 @@ type MapInformation struct {
 
 // MapInformationListMatch is the typed request payload for MapInformation.ListTyped.
 type MapInformationListMatch struct {
+	Ids *string `json:"ids,omitempty"`
 }
 
 // Miscellaneous is the typed data model for the miscellaneous entity.
@@ -142,7 +139,7 @@ type MiscellaneousLoadMatch struct {
 
 // MiscellaneousListMatch is the typed request payload for Miscellaneous.ListTyped.
 type MiscellaneousListMatch struct {
-	Id *int `json:"id,omitempty"`
+	Ids *string `json:"ids,omitempty"`
 }
 
 // Story is the typed data model for the story entity.
@@ -151,6 +148,7 @@ type Story struct {
 
 // StoryListMatch is the typed request payload for Story.ListTyped.
 type StoryListMatch struct {
+	Ids *string `json:"ids,omitempty"`
 }
 
 // StructuredPvP is the typed data model for the structured_pv_p entity.
@@ -171,18 +169,12 @@ type TradingPost struct {
 
 // TradingPostLoadMatch is the typed request payload for TradingPost.LoadTyped.
 type TradingPostLoadMatch struct {
-	Coins *int `json:"coins,omitempty"`
-	CoinsPerGem *int `json:"coins_per_gem,omitempty"`
-	Items *[]any `json:"items,omitempty"`
-	Quantity *int `json:"quantity,omitempty"`
+	Quantity int `json:"quantity"`
 }
 
 // TradingPostListMatch is the typed request payload for TradingPost.ListTyped.
 type TradingPostListMatch struct {
-	Coins *int `json:"coins,omitempty"`
-	CoinsPerGem *int `json:"coins_per_gem,omitempty"`
-	Items *[]any `json:"items,omitempty"`
-	Quantity *int `json:"quantity,omitempty"`
+	Ids *string `json:"ids,omitempty"`
 }
 
 // WorldVsWorld is the typed data model for the world_vs_world entity.

@@ -18,6 +18,8 @@ export interface AchievementLoadMatch {
 }
 
 export interface AchievementListMatch {
+  ids?: string
+  v?: string
 
   // Selects a custom action instead of the plain list:
   //   'category' | 'group'
@@ -37,23 +39,13 @@ export interface Authenticated {
 }
 
 export interface AuthenticatedLoadMatch {
-  created?: string
-  id: string
-  name?: string
-  permissions?: any[]
-  subtoken?: string
-  value?: number
-  world?: number
+  expire?: string
+  permission?: string
+  url?: string
 }
 
 export interface AuthenticatedListMatch {
-  created?: string
-  id?: string
-  name?: string
-  permissions?: any[]
-  subtoken?: string
-  value?: number
-  world?: number
+  ids?: string
 }
 
 export interface DailyReward {
@@ -66,6 +58,7 @@ export interface GameMechanic {
 }
 
 export interface GameMechanicListMatch {
+  ids?: string
 }
 
 export interface Guild {
@@ -104,24 +97,28 @@ export interface HomeInstance {
 }
 
 export interface HomeInstanceListMatch {
+  ids?: string
 }
 
 export interface Item {
 }
 
 export interface ItemListMatch {
+  ids?: string
 }
 
 export interface MapType {
 }
 
 export interface MapListMatch {
+  ids?: string
 }
 
 export interface MapInformation {
 }
 
 export interface MapInformationListMatch {
+  ids?: string
 }
 
 export interface Miscellaneous {
@@ -133,13 +130,14 @@ export interface MiscellaneousLoadMatch {
 }
 
 export interface MiscellaneousListMatch {
-  id?: number
+  ids?: string
 }
 
 export interface Story {
 }
 
 export interface StoryListMatch {
+  ids?: string
 
   // Selects a custom action instead of the plain list:
   //   'season'
@@ -162,17 +160,11 @@ export interface TradingPost {
 }
 
 export interface TradingPostLoadMatch {
-  coins?: number
-  coins_per_gem?: number
-  items?: any[]
-  quantity?: number
+  quantity: number
 }
 
 export interface TradingPostListMatch {
-  coins?: number
-  coins_per_gem?: number
-  items?: any[]
-  quantity?: number
+  ids?: string
 }
 
 export interface WorldVsWorld {
