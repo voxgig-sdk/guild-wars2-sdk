@@ -23,8 +23,10 @@ main: kit: entity: map_information: {
           }
           method: "GET"
           orig: "/continents"
-          parts: [
-            "continents"
+          segments: [
+            {
+              lit: "continents"
+            }
           ]
           select: {
             exist: [

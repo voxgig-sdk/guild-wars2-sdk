@@ -6,6 +6,7 @@ main: kit: entity: authenticated: {
 
   fields: [
     {
+      format: "date-time"
       name: "created"
       req: false
       type: "`$STRING`"
@@ -66,8 +67,10 @@ main: kit: entity: authenticated: {
           }
           method: "GET"
           orig: "/characters"
-          parts: [
-            "characters"
+          segments: [
+            {
+              lit: "characters"
+            }
           ]
           select: {
             exist: [
@@ -82,9 +85,13 @@ main: kit: entity: authenticated: {
         {
           method: "GET"
           orig: "/account/achievements"
-          parts: [
-            "account"
-            "achievements"
+          segments: [
+            {
+              lit: "account"
+            }
+            {
+              lit: "achievements"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -94,9 +101,13 @@ main: kit: entity: authenticated: {
         {
           method: "GET"
           orig: "/account/bank"
-          parts: [
-            "account"
-            "bank"
+          segments: [
+            {
+              lit: "account"
+            }
+            {
+              lit: "bank"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -106,9 +117,13 @@ main: kit: entity: authenticated: {
         {
           method: "GET"
           orig: "/account/buildstorage"
-          parts: [
-            "account"
-            "buildstorage"
+          segments: [
+            {
+              lit: "account"
+            }
+            {
+              lit: "buildstorage"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -118,9 +133,13 @@ main: kit: entity: authenticated: {
         {
           method: "GET"
           orig: "/account/dailycrafting"
-          parts: [
-            "account"
-            "dailycrafting"
+          segments: [
+            {
+              lit: "account"
+            }
+            {
+              lit: "dailycrafting"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -130,9 +149,13 @@ main: kit: entity: authenticated: {
         {
           method: "GET"
           orig: "/account/dungeons"
-          parts: [
-            "account"
-            "dungeons"
+          segments: [
+            {
+              lit: "account"
+            }
+            {
+              lit: "dungeons"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -142,9 +165,13 @@ main: kit: entity: authenticated: {
         {
           method: "GET"
           orig: "/account/dyes"
-          parts: [
-            "account"
-            "dyes"
+          segments: [
+            {
+              lit: "account"
+            }
+            {
+              lit: "dyes"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -154,9 +181,13 @@ main: kit: entity: authenticated: {
         {
           method: "GET"
           orig: "/account/emotes"
-          parts: [
-            "account"
-            "emotes"
+          segments: [
+            {
+              lit: "account"
+            }
+            {
+              lit: "emotes"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -166,9 +197,13 @@ main: kit: entity: authenticated: {
         {
           method: "GET"
           orig: "/account/finishers"
-          parts: [
-            "account"
-            "finishers"
+          segments: [
+            {
+              lit: "account"
+            }
+            {
+              lit: "finishers"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -178,9 +213,13 @@ main: kit: entity: authenticated: {
         {
           method: "GET"
           orig: "/account/gliders"
-          parts: [
-            "account"
-            "gliders"
+          segments: [
+            {
+              lit: "account"
+            }
+            {
+              lit: "gliders"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -190,10 +229,16 @@ main: kit: entity: authenticated: {
         {
           method: "GET"
           orig: "/account/home/cats"
-          parts: [
-            "account"
-            "home"
-            "cats"
+          segments: [
+            {
+              lit: "account"
+            }
+            {
+              lit: "home"
+            }
+            {
+              lit: "cats"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -203,10 +248,16 @@ main: kit: entity: authenticated: {
         {
           method: "GET"
           orig: "/account/home/nodes"
-          parts: [
-            "account"
-            "home"
-            "nodes"
+          segments: [
+            {
+              lit: "account"
+            }
+            {
+              lit: "home"
+            }
+            {
+              lit: "nodes"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -216,9 +267,13 @@ main: kit: entity: authenticated: {
         {
           method: "GET"
           orig: "/account/inventory"
-          parts: [
-            "account"
-            "inventory"
+          segments: [
+            {
+              lit: "account"
+            }
+            {
+              lit: "inventory"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -228,9 +283,13 @@ main: kit: entity: authenticated: {
         {
           method: "GET"
           orig: "/account/legendaryarmory"
-          parts: [
-            "account"
-            "legendaryarmory"
+          segments: [
+            {
+              lit: "account"
+            }
+            {
+              lit: "legendaryarmory"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -240,9 +299,13 @@ main: kit: entity: authenticated: {
         {
           method: "GET"
           orig: "/account/luck"
-          parts: [
-            "account"
-            "luck"
+          segments: [
+            {
+              lit: "account"
+            }
+            {
+              lit: "luck"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -252,9 +315,13 @@ main: kit: entity: authenticated: {
         {
           method: "GET"
           orig: "/account/mapchests"
-          parts: [
-            "account"
-            "mapchests"
+          segments: [
+            {
+              lit: "account"
+            }
+            {
+              lit: "mapchests"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -264,9 +331,13 @@ main: kit: entity: authenticated: {
         {
           method: "GET"
           orig: "/account/masteries"
-          parts: [
-            "account"
-            "masteries"
+          segments: [
+            {
+              lit: "account"
+            }
+            {
+              lit: "masteries"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -276,9 +347,13 @@ main: kit: entity: authenticated: {
         {
           method: "GET"
           orig: "/account/materials"
-          parts: [
-            "account"
-            "materials"
+          segments: [
+            {
+              lit: "account"
+            }
+            {
+              lit: "materials"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -288,9 +363,13 @@ main: kit: entity: authenticated: {
         {
           method: "GET"
           orig: "/account/minis"
-          parts: [
-            "account"
-            "minis"
+          segments: [
+            {
+              lit: "account"
+            }
+            {
+              lit: "minis"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -300,10 +379,16 @@ main: kit: entity: authenticated: {
         {
           method: "GET"
           orig: "/account/mounts/skins"
-          parts: [
-            "account"
-            "mounts"
-            "skins"
+          segments: [
+            {
+              lit: "account"
+            }
+            {
+              lit: "mounts"
+            }
+            {
+              lit: "skins"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -313,10 +398,16 @@ main: kit: entity: authenticated: {
         {
           method: "GET"
           orig: "/account/mounts/types"
-          parts: [
-            "account"
-            "mounts"
-            "types"
+          segments: [
+            {
+              lit: "account"
+            }
+            {
+              lit: "mounts"
+            }
+            {
+              lit: "types"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -326,9 +417,13 @@ main: kit: entity: authenticated: {
         {
           method: "GET"
           orig: "/account/novelties"
-          parts: [
-            "account"
-            "novelties"
+          segments: [
+            {
+              lit: "account"
+            }
+            {
+              lit: "novelties"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -338,9 +433,13 @@ main: kit: entity: authenticated: {
         {
           method: "GET"
           orig: "/account/outfits"
-          parts: [
-            "account"
-            "outfits"
+          segments: [
+            {
+              lit: "account"
+            }
+            {
+              lit: "outfits"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -350,10 +449,16 @@ main: kit: entity: authenticated: {
         {
           method: "GET"
           orig: "/account/pvp/heroes"
-          parts: [
-            "account"
-            "pvp"
-            "heroes"
+          segments: [
+            {
+              lit: "account"
+            }
+            {
+              lit: "pvp"
+            }
+            {
+              lit: "heroes"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -363,9 +468,13 @@ main: kit: entity: authenticated: {
         {
           method: "GET"
           orig: "/account/raids"
-          parts: [
-            "account"
-            "raids"
+          segments: [
+            {
+              lit: "account"
+            }
+            {
+              lit: "raids"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -375,9 +484,13 @@ main: kit: entity: authenticated: {
         {
           method: "GET"
           orig: "/account/recipes"
-          parts: [
-            "account"
-            "recipes"
+          segments: [
+            {
+              lit: "account"
+            }
+            {
+              lit: "recipes"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -387,9 +500,13 @@ main: kit: entity: authenticated: {
         {
           method: "GET"
           orig: "/account/skins"
-          parts: [
-            "account"
-            "skins"
+          segments: [
+            {
+              lit: "account"
+            }
+            {
+              lit: "skins"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -399,9 +516,13 @@ main: kit: entity: authenticated: {
         {
           method: "GET"
           orig: "/account/titles"
-          parts: [
-            "account"
-            "titles"
+          segments: [
+            {
+              lit: "account"
+            }
+            {
+              lit: "titles"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -411,9 +532,13 @@ main: kit: entity: authenticated: {
         {
           method: "GET"
           orig: "/account/wallet"
-          parts: [
-            "account"
-            "wallet"
+          segments: [
+            {
+              lit: "account"
+            }
+            {
+              lit: "wallet"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -423,9 +548,13 @@ main: kit: entity: authenticated: {
         {
           method: "GET"
           orig: "/account/worldbosses"
-          parts: [
-            "account"
-            "worldbosses"
+          segments: [
+            {
+              lit: "account"
+            }
+            {
+              lit: "worldbosses"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -435,9 +564,13 @@ main: kit: entity: authenticated: {
         {
           method: "GET"
           orig: "/pvp/games"
-          parts: [
-            "pvp"
-            "games"
+          segments: [
+            {
+              lit: "pvp"
+            }
+            {
+              lit: "games"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -447,9 +580,13 @@ main: kit: entity: authenticated: {
         {
           method: "GET"
           orig: "/pvp/standings"
-          parts: [
-            "pvp"
-            "standings"
+          segments: [
+            {
+              lit: "pvp"
+            }
+            {
+              lit: "standings"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -459,8 +596,10 @@ main: kit: entity: authenticated: {
         {
           method: "GET"
           orig: "/tokeninfo"
-          parts: [
-            "tokeninfo"
+          segments: [
+            {
+              lit: "tokeninfo"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -500,8 +639,10 @@ main: kit: entity: authenticated: {
           }
           method: "GET"
           orig: "/createsubtoken"
-          parts: [
-            "createsubtoken"
+          segments: [
+            {
+              lit: "createsubtoken"
+            }
           ]
           select: {
             exist: [
@@ -518,8 +659,10 @@ main: kit: entity: authenticated: {
         {
           method: "GET"
           orig: "/account"
-          parts: [
-            "account"
+          segments: [
+            {
+              lit: "account"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -529,10 +672,16 @@ main: kit: entity: authenticated: {
         {
           method: "GET"
           orig: "/account/mastery/points"
-          parts: [
-            "account"
-            "mastery"
-            "points"
+          segments: [
+            {
+              lit: "account"
+            }
+            {
+              lit: "mastery"
+            }
+            {
+              lit: "points"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -542,9 +691,13 @@ main: kit: entity: authenticated: {
         {
           method: "GET"
           orig: "/pvp/stats"
-          parts: [
-            "pvp"
-            "stats"
+          segments: [
+            {
+              lit: "pvp"
+            }
+            {
+              lit: "stats"
+            }
           ]
           transform: {
             req: "`reqdata`"

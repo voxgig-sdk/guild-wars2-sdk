@@ -36,9 +36,13 @@ main: kit: entity: guild: {
           }
           method: "GET"
           orig: "/guild/permissions"
-          parts: [
-            "guild"
-            "permissions"
+          segments: [
+            {
+              lit: "guild"
+            }
+            {
+              lit: "permissions"
+            }
           ]
           select: {
             "$action": "permission"
@@ -65,9 +69,13 @@ main: kit: entity: guild: {
           }
           method: "GET"
           orig: "/guild/search"
-          parts: [
-            "guild"
-            "search"
+          segments: [
+            {
+              lit: "guild"
+            }
+            {
+              lit: "search"
+            }
           ]
           select: {
             "$action": "search"
@@ -94,9 +102,13 @@ main: kit: entity: guild: {
           }
           method: "GET"
           orig: "/guild/upgrades"
-          parts: [
-            "guild"
-            "upgrades"
+          segments: [
+            {
+              lit: "guild"
+            }
+            {
+              lit: "upgrades"
+            }
           ]
           select: {
             "$action": "upgrade"
@@ -112,8 +124,10 @@ main: kit: entity: guild: {
         {
           method: "GET"
           orig: "/emblem"
-          parts: [
-            "emblem"
+          segments: [
+            {
+              lit: "emblem"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -139,9 +153,13 @@ main: kit: entity: guild: {
           }
           method: "GET"
           orig: "/guild/{id}"
-          parts: [
-            "guild"
-            "{id}"
+          segments: [
+            {
+              lit: "guild"
+            }
+            {
+              var: "id"
+            }
           ]
           select: {
             exist: [

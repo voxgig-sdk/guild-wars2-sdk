@@ -23,8 +23,10 @@ main: kit: entity: map: {
           }
           method: "GET"
           orig: "/maps"
-          parts: [
-            "maps"
+          segments: [
+            {
+              lit: "maps"
+            }
           ]
           select: {
             exist: [

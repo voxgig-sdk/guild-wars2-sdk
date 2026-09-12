@@ -23,9 +23,13 @@ main: kit: entity: home_instance: {
           }
           method: "GET"
           orig: "/home/cats"
-          parts: [
-            "home"
-            "cats"
+          segments: [
+            {
+              lit: "home"
+            }
+            {
+              lit: "cats"
+            }
           ]
           select: {
             exist: [
@@ -51,9 +55,13 @@ main: kit: entity: home_instance: {
           }
           method: "GET"
           orig: "/home/nodes"
-          parts: [
-            "home"
-            "nodes"
+          segments: [
+            {
+              lit: "home"
+            }
+            {
+              lit: "nodes"
+            }
           ]
           select: {
             exist: [

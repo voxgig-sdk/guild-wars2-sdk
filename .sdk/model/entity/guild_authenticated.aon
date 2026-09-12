@@ -36,10 +36,16 @@ main: kit: entity: guild_authenticated: {
           }
           method: "GET"
           orig: "/guild/{id}/log"
-          parts: [
-            "guild"
-            "{id}"
-            "log"
+          segments: [
+            {
+              lit: "guild"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "log"
+            }
           ]
           select: {
             "$action": "log"
@@ -66,10 +72,16 @@ main: kit: entity: guild_authenticated: {
           }
           method: "GET"
           orig: "/guild/{id}/members"
-          parts: [
-            "guild"
-            "{id}"
-            "members"
+          segments: [
+            {
+              lit: "guild"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "members"
+            }
           ]
           select: {
             "$action": "members"
@@ -96,10 +108,16 @@ main: kit: entity: guild_authenticated: {
           }
           method: "GET"
           orig: "/guild/{id}/ranks"
-          parts: [
-            "guild"
-            "{id}"
-            "ranks"
+          segments: [
+            {
+              lit: "guild"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "ranks"
+            }
           ]
           select: {
             "$action": "ranks"
@@ -126,10 +144,16 @@ main: kit: entity: guild_authenticated: {
           }
           method: "GET"
           orig: "/guild/{id}/stash"
-          parts: [
-            "guild"
-            "{id}"
-            "stash"
+          segments: [
+            {
+              lit: "guild"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "stash"
+            }
           ]
           select: {
             "$action": "stash"
@@ -156,10 +180,16 @@ main: kit: entity: guild_authenticated: {
           }
           method: "GET"
           orig: "/guild/{id}/storage"
-          parts: [
-            "guild"
-            "{id}"
-            "storage"
+          segments: [
+            {
+              lit: "guild"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "storage"
+            }
           ]
           select: {
             "$action": "storage"
@@ -186,10 +216,16 @@ main: kit: entity: guild_authenticated: {
           }
           method: "GET"
           orig: "/guild/{id}/teams"
-          parts: [
-            "guild"
-            "{id}"
-            "teams"
+          segments: [
+            {
+              lit: "guild"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "teams"
+            }
           ]
           select: {
             "$action": "teams"
@@ -216,10 +252,16 @@ main: kit: entity: guild_authenticated: {
           }
           method: "GET"
           orig: "/guild/{id}/treasury"
-          parts: [
-            "guild"
-            "{id}"
-            "treasury"
+          segments: [
+            {
+              lit: "guild"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "treasury"
+            }
           ]
           select: {
             "$action": "treasury"
@@ -246,10 +288,16 @@ main: kit: entity: guild_authenticated: {
           }
           method: "GET"
           orig: "/guild/{id}/upgrades"
-          parts: [
-            "guild"
-            "{id}"
-            "upgrades"
+          segments: [
+            {
+              lit: "guild"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "upgrades"
+            }
           ]
           select: {
             "$action": "upgrades"

@@ -1,0 +1,85 @@
+import { AchievementEntity } from './entity/AchievementEntity';
+import { AuthenticatedEntity } from './entity/AuthenticatedEntity';
+import { DailyRewardEntity } from './entity/DailyRewardEntity';
+import { GameMechanicEntity } from './entity/GameMechanicEntity';
+import { GuildEntity } from './entity/GuildEntity';
+import { GuildAuthenticatedEntity } from './entity/GuildAuthenticatedEntity';
+import { HomeInstanceEntity } from './entity/HomeInstanceEntity';
+import { ItemEntity } from './entity/ItemEntity';
+import { MapEntity } from './entity/MapEntity';
+import { MapInformationEntity } from './entity/MapInformationEntity';
+import { MiscellaneousEntity } from './entity/MiscellaneousEntity';
+import { StoryEntity } from './entity/StoryEntity';
+import { StructuredPvPEntity } from './entity/StructuredPvPEntity';
+import { TradingPostEntity } from './entity/TradingPostEntity';
+import { WorldVsWorldEntity } from './entity/WorldVsWorldEntity';
+export type * from './GuildWars2Types';
+import { inspect } from 'node:util';
+import type { Context, Feature } from './types';
+import { config } from './Config';
+import { GuildWars2EntityBase } from './GuildWars2EntityBase';
+import { Utility } from './utility/Utility';
+import { BaseFeature } from './feature/base/BaseFeature';
+declare const stdutil: Utility;
+declare class GuildWars2SDK {
+    _mode: string;
+    _options: any;
+    _utility: Utility;
+    _features: Feature[];
+    _rootctx: Context;
+    constructor(options?: any);
+    options(): any;
+    utility(): any;
+    prepare(fetchargs?: any): Promise<any>;
+    direct(fetchargs?: any): Promise<Error | {
+        ok: boolean;
+        status: number;
+        headers: any;
+        data: any;
+        err?: undefined;
+    } | {
+        ok: boolean;
+        err: any;
+        status?: undefined;
+        headers?: undefined;
+        data?: undefined;
+    }>;
+    _rawRequest(fetchargs?: any): Promise<Error | {
+        ok: boolean;
+        status: number;
+        headers: any;
+        data: any;
+        err?: undefined;
+    } | {
+        ok: boolean;
+        err: any;
+        status?: undefined;
+        headers?: undefined;
+        data?: undefined;
+    }>;
+    graphql(query: string, variables?: any, ctrl?: any): Promise<any>;
+    Achievement(entopts?: Record<string, any>): AchievementEntity;
+    Authenticated(entopts?: Record<string, any>): AuthenticatedEntity;
+    DailyReward(entopts?: Record<string, any>): DailyRewardEntity;
+    GameMechanic(entopts?: Record<string, any>): GameMechanicEntity;
+    Guild(entopts?: Record<string, any>): GuildEntity;
+    GuildAuthenticated(entopts?: Record<string, any>): GuildAuthenticatedEntity;
+    HomeInstance(entopts?: Record<string, any>): HomeInstanceEntity;
+    Item(entopts?: Record<string, any>): ItemEntity;
+    Map(entopts?: Record<string, any>): MapEntity;
+    MapInformation(entopts?: Record<string, any>): MapInformationEntity;
+    Miscellaneous(entopts?: Record<string, any>): MiscellaneousEntity;
+    Story(entopts?: Record<string, any>): StoryEntity;
+    StructuredPvP(entopts?: Record<string, any>): StructuredPvPEntity;
+    TradingPost(entopts?: Record<string, any>): TradingPostEntity;
+    WorldVsWorld(entopts?: Record<string, any>): WorldVsWorldEntity;
+    static test(testoptsarg?: any, sdkoptsarg?: any): GuildWars2SDK;
+    tester(testopts?: any, sdkopts?: any): GuildWars2SDK;
+    toJSON(): {
+        name: string;
+    };
+    toString(): string;
+    [inspect.custom](): string;
+}
+declare const SDK: typeof GuildWars2SDK;
+export { stdutil, config, BaseFeature, GuildWars2EntityBase, GuildWars2SDK, SDK, };

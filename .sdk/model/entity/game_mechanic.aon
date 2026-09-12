@@ -23,8 +23,10 @@ main: kit: entity: game_mechanic: {
           }
           method: "GET"
           orig: "/legendaryarmory"
-          parts: [
-            "legendaryarmory"
+          segments: [
+            {
+              lit: "legendaryarmory"
+            }
           ]
           select: {
             exist: [
@@ -50,8 +52,10 @@ main: kit: entity: game_mechanic: {
           }
           method: "GET"
           orig: "/legends"
-          parts: [
-            "legends"
+          segments: [
+            {
+              lit: "legends"
+            }
           ]
           select: {
             exist: [
@@ -77,8 +81,10 @@ main: kit: entity: game_mechanic: {
           }
           method: "GET"
           orig: "/masteries"
-          parts: [
-            "masteries"
+          segments: [
+            {
+              lit: "masteries"
+            }
           ]
           select: {
             exist: [
@@ -104,9 +110,13 @@ main: kit: entity: game_mechanic: {
           }
           method: "GET"
           orig: "/mounts/skins"
-          parts: [
-            "mounts"
-            "skins"
+          segments: [
+            {
+              lit: "mounts"
+            }
+            {
+              lit: "skins"
+            }
           ]
           select: {
             exist: [
@@ -132,9 +142,13 @@ main: kit: entity: game_mechanic: {
           }
           method: "GET"
           orig: "/mounts/types"
-          parts: [
-            "mounts"
-            "types"
+          segments: [
+            {
+              lit: "mounts"
+            }
+            {
+              lit: "types"
+            }
           ]
           select: {
             exist: [
@@ -160,8 +174,10 @@ main: kit: entity: game_mechanic: {
           }
           method: "GET"
           orig: "/outfits"
-          parts: [
-            "outfits"
+          segments: [
+            {
+              lit: "outfits"
+            }
           ]
           select: {
             exist: [
@@ -187,8 +203,10 @@ main: kit: entity: game_mechanic: {
           }
           method: "GET"
           orig: "/pets"
-          parts: [
-            "pets"
+          segments: [
+            {
+              lit: "pets"
+            }
           ]
           select: {
             exist: [
@@ -214,8 +232,10 @@ main: kit: entity: game_mechanic: {
           }
           method: "GET"
           orig: "/professions"
-          parts: [
-            "professions"
+          segments: [
+            {
+              lit: "professions"
+            }
           ]
           select: {
             exist: [
@@ -241,8 +261,10 @@ main: kit: entity: game_mechanic: {
           }
           method: "GET"
           orig: "/races"
-          parts: [
-            "races"
+          segments: [
+            {
+              lit: "races"
+            }
           ]
           select: {
             exist: [
@@ -268,8 +290,10 @@ main: kit: entity: game_mechanic: {
           }
           method: "GET"
           orig: "/skills"
-          parts: [
-            "skills"
+          segments: [
+            {
+              lit: "skills"
+            }
           ]
           select: {
             exist: [
@@ -295,8 +319,10 @@ main: kit: entity: game_mechanic: {
           }
           method: "GET"
           orig: "/specializations"
-          parts: [
-            "specializations"
+          segments: [
+            {
+              lit: "specializations"
+            }
           ]
           select: {
             exist: [
@@ -322,8 +348,10 @@ main: kit: entity: game_mechanic: {
           }
           method: "GET"
           orig: "/traits"
-          parts: [
-            "traits"
+          segments: [
+            {
+              lit: "traits"
+            }
           ]
           select: {
             exist: [
@@ -338,8 +366,10 @@ main: kit: entity: game_mechanic: {
         {
           method: "GET"
           orig: "/mounts"
-          parts: [
-            "mounts"
+          segments: [
+            {
+              lit: "mounts"
+            }
           ]
           transform: {
             req: "`reqdata`"

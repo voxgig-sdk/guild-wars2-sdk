@@ -86,8 +86,10 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/achievements",
-                  "parts" => [
-                    "achievements",
+                  "segments" => [
+                    {
+                      "lit" => "achievements",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -99,6 +101,9 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "achievements",
+                  ],
                 },
                 {
                   "args" => {
@@ -114,9 +119,13 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/achievements/categories",
-                  "parts" => [
-                    "achievements",
-                    "categories",
+                  "segments" => [
+                    {
+                      "lit" => "achievements",
+                    },
+                    {
+                      "lit" => "categories",
+                    },
                   ],
                   "select" => {
                     "$action" => "category",
@@ -128,6 +137,10 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "achievements",
+                    "categories",
+                  ],
                 },
                 {
                   "args" => {
@@ -143,9 +156,13 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/achievements/groups",
-                  "parts" => [
-                    "achievements",
-                    "groups",
+                  "segments" => [
+                    {
+                      "lit" => "achievements",
+                    },
+                    {
+                      "lit" => "groups",
+                    },
                   ],
                   "select" => {
                     "$action" => "group",
@@ -157,6 +174,10 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "achievements",
+                    "groups",
+                  ],
                 },
               ],
             },
@@ -169,9 +190,13 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/achievements/daily",
-                  "parts" => [
-                    "achievements",
-                    "daily",
+                  "segments" => [
+                    {
+                      "lit" => "achievements",
+                    },
+                    {
+                      "lit" => "daily",
+                    },
                   ],
                   "select" => {
                     "$action" => "daily",
@@ -180,22 +205,37 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "achievements",
+                    "daily",
+                  ],
                 },
                 {
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/achievements/daily/tomorrow",
-                  "parts" => [
-                    "achievements",
-                    "daily",
-                    "tomorrow",
+                  "segments" => [
+                    {
+                      "lit" => "achievements",
+                    },
+                    {
+                      "lit" => "daily",
+                    },
+                    {
+                      "lit" => "tomorrow",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "achievements",
+                    "daily",
+                    "tomorrow",
+                  ],
                 },
               ],
             },
@@ -207,6 +247,7 @@ module GuildWars2Config
         "authenticated" => {
           "fields" => [
             {
+              "format" => "date-time",
               "name" => "created",
               "type" => "`$STRING`",
             },
@@ -235,6 +276,10 @@ module GuildWars2Config
               "type" => "`$INTEGER`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "authenticated",
           "op" => {
             "list" => {
@@ -255,8 +300,10 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/characters",
-                  "parts" => [
-                    "characters",
+                  "segments" => [
+                    {
+                      "lit" => "characters",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -267,490 +314,761 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "characters",
+                  ],
                 },
                 {
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/account/achievements",
-                  "parts" => [
-                    "account",
-                    "achievements",
+                  "segments" => [
+                    {
+                      "lit" => "account",
+                    },
+                    {
+                      "lit" => "achievements",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "account",
+                    "achievements",
+                  ],
                 },
                 {
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/account/bank",
-                  "parts" => [
-                    "account",
-                    "bank",
+                  "segments" => [
+                    {
+                      "lit" => "account",
+                    },
+                    {
+                      "lit" => "bank",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "account",
+                    "bank",
+                  ],
                 },
                 {
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/account/buildstorage",
-                  "parts" => [
-                    "account",
-                    "buildstorage",
+                  "segments" => [
+                    {
+                      "lit" => "account",
+                    },
+                    {
+                      "lit" => "buildstorage",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "account",
+                    "buildstorage",
+                  ],
                 },
                 {
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/account/dailycrafting",
-                  "parts" => [
-                    "account",
-                    "dailycrafting",
+                  "segments" => [
+                    {
+                      "lit" => "account",
+                    },
+                    {
+                      "lit" => "dailycrafting",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "account",
+                    "dailycrafting",
+                  ],
                 },
                 {
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/account/dungeons",
-                  "parts" => [
-                    "account",
-                    "dungeons",
+                  "segments" => [
+                    {
+                      "lit" => "account",
+                    },
+                    {
+                      "lit" => "dungeons",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "account",
+                    "dungeons",
+                  ],
                 },
                 {
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/account/dyes",
-                  "parts" => [
-                    "account",
-                    "dyes",
+                  "segments" => [
+                    {
+                      "lit" => "account",
+                    },
+                    {
+                      "lit" => "dyes",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "account",
+                    "dyes",
+                  ],
                 },
                 {
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/account/emotes",
-                  "parts" => [
-                    "account",
-                    "emotes",
+                  "segments" => [
+                    {
+                      "lit" => "account",
+                    },
+                    {
+                      "lit" => "emotes",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "account",
+                    "emotes",
+                  ],
                 },
                 {
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/account/finishers",
-                  "parts" => [
-                    "account",
-                    "finishers",
+                  "segments" => [
+                    {
+                      "lit" => "account",
+                    },
+                    {
+                      "lit" => "finishers",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "account",
+                    "finishers",
+                  ],
                 },
                 {
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/account/gliders",
-                  "parts" => [
-                    "account",
-                    "gliders",
+                  "segments" => [
+                    {
+                      "lit" => "account",
+                    },
+                    {
+                      "lit" => "gliders",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "account",
+                    "gliders",
+                  ],
                 },
                 {
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/account/home/cats",
-                  "parts" => [
-                    "account",
-                    "home",
-                    "cats",
+                  "segments" => [
+                    {
+                      "lit" => "account",
+                    },
+                    {
+                      "lit" => "home",
+                    },
+                    {
+                      "lit" => "cats",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "account",
+                    "home",
+                    "cats",
+                  ],
                 },
                 {
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/account/home/nodes",
-                  "parts" => [
-                    "account",
-                    "home",
-                    "nodes",
+                  "segments" => [
+                    {
+                      "lit" => "account",
+                    },
+                    {
+                      "lit" => "home",
+                    },
+                    {
+                      "lit" => "nodes",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "account",
+                    "home",
+                    "nodes",
+                  ],
                 },
                 {
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/account/inventory",
-                  "parts" => [
-                    "account",
-                    "inventory",
+                  "segments" => [
+                    {
+                      "lit" => "account",
+                    },
+                    {
+                      "lit" => "inventory",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "account",
+                    "inventory",
+                  ],
                 },
                 {
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/account/legendaryarmory",
-                  "parts" => [
-                    "account",
-                    "legendaryarmory",
+                  "segments" => [
+                    {
+                      "lit" => "account",
+                    },
+                    {
+                      "lit" => "legendaryarmory",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "account",
+                    "legendaryarmory",
+                  ],
                 },
                 {
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/account/luck",
-                  "parts" => [
-                    "account",
-                    "luck",
+                  "segments" => [
+                    {
+                      "lit" => "account",
+                    },
+                    {
+                      "lit" => "luck",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "account",
+                    "luck",
+                  ],
                 },
                 {
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/account/mapchests",
-                  "parts" => [
-                    "account",
-                    "mapchests",
+                  "segments" => [
+                    {
+                      "lit" => "account",
+                    },
+                    {
+                      "lit" => "mapchests",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "account",
+                    "mapchests",
+                  ],
                 },
                 {
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/account/masteries",
-                  "parts" => [
-                    "account",
-                    "masteries",
+                  "segments" => [
+                    {
+                      "lit" => "account",
+                    },
+                    {
+                      "lit" => "masteries",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "account",
+                    "masteries",
+                  ],
                 },
                 {
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/account/materials",
-                  "parts" => [
-                    "account",
-                    "materials",
+                  "segments" => [
+                    {
+                      "lit" => "account",
+                    },
+                    {
+                      "lit" => "materials",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "account",
+                    "materials",
+                  ],
                 },
                 {
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/account/minis",
-                  "parts" => [
-                    "account",
-                    "minis",
+                  "segments" => [
+                    {
+                      "lit" => "account",
+                    },
+                    {
+                      "lit" => "minis",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "account",
+                    "minis",
+                  ],
                 },
                 {
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/account/mounts/skins",
-                  "parts" => [
-                    "account",
-                    "mounts",
-                    "skins",
+                  "segments" => [
+                    {
+                      "lit" => "account",
+                    },
+                    {
+                      "lit" => "mounts",
+                    },
+                    {
+                      "lit" => "skins",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "account",
+                    "mounts",
+                    "skins",
+                  ],
                 },
                 {
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/account/mounts/types",
-                  "parts" => [
-                    "account",
-                    "mounts",
-                    "types",
+                  "segments" => [
+                    {
+                      "lit" => "account",
+                    },
+                    {
+                      "lit" => "mounts",
+                    },
+                    {
+                      "lit" => "types",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "account",
+                    "mounts",
+                    "types",
+                  ],
                 },
                 {
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/account/novelties",
-                  "parts" => [
-                    "account",
-                    "novelties",
+                  "segments" => [
+                    {
+                      "lit" => "account",
+                    },
+                    {
+                      "lit" => "novelties",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "account",
+                    "novelties",
+                  ],
                 },
                 {
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/account/outfits",
-                  "parts" => [
-                    "account",
-                    "outfits",
+                  "segments" => [
+                    {
+                      "lit" => "account",
+                    },
+                    {
+                      "lit" => "outfits",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "account",
+                    "outfits",
+                  ],
                 },
                 {
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/account/pvp/heroes",
-                  "parts" => [
-                    "account",
-                    "pvp",
-                    "heroes",
+                  "segments" => [
+                    {
+                      "lit" => "account",
+                    },
+                    {
+                      "lit" => "pvp",
+                    },
+                    {
+                      "lit" => "heroes",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "account",
+                    "pvp",
+                    "heroes",
+                  ],
                 },
                 {
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/account/raids",
-                  "parts" => [
-                    "account",
-                    "raids",
+                  "segments" => [
+                    {
+                      "lit" => "account",
+                    },
+                    {
+                      "lit" => "raids",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "account",
+                    "raids",
+                  ],
                 },
                 {
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/account/recipes",
-                  "parts" => [
-                    "account",
-                    "recipes",
+                  "segments" => [
+                    {
+                      "lit" => "account",
+                    },
+                    {
+                      "lit" => "recipes",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "account",
+                    "recipes",
+                  ],
                 },
                 {
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/account/skins",
-                  "parts" => [
-                    "account",
-                    "skins",
+                  "segments" => [
+                    {
+                      "lit" => "account",
+                    },
+                    {
+                      "lit" => "skins",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "account",
+                    "skins",
+                  ],
                 },
                 {
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/account/titles",
-                  "parts" => [
-                    "account",
-                    "titles",
+                  "segments" => [
+                    {
+                      "lit" => "account",
+                    },
+                    {
+                      "lit" => "titles",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "account",
+                    "titles",
+                  ],
                 },
                 {
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/account/wallet",
-                  "parts" => [
-                    "account",
-                    "wallet",
+                  "segments" => [
+                    {
+                      "lit" => "account",
+                    },
+                    {
+                      "lit" => "wallet",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "account",
+                    "wallet",
+                  ],
                 },
                 {
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/account/worldbosses",
-                  "parts" => [
-                    "account",
-                    "worldbosses",
+                  "segments" => [
+                    {
+                      "lit" => "account",
+                    },
+                    {
+                      "lit" => "worldbosses",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "account",
+                    "worldbosses",
+                  ],
                 },
                 {
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/pvp/games",
-                  "parts" => [
-                    "pvp",
-                    "games",
+                  "segments" => [
+                    {
+                      "lit" => "pvp",
+                    },
+                    {
+                      "lit" => "games",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "pvp",
+                    "games",
+                  ],
                 },
                 {
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/pvp/standings",
-                  "parts" => [
-                    "pvp",
-                    "standings",
+                  "segments" => [
+                    {
+                      "lit" => "pvp",
+                    },
+                    {
+                      "lit" => "standings",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "pvp",
+                    "standings",
+                  ],
                 },
                 {
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/tokeninfo",
-                  "parts" => [
-                    "tokeninfo",
+                  "segments" => [
+                    {
+                      "lit" => "tokeninfo",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body.permissions`",
                   },
+                  "parts" => [
+                    "tokeninfo",
+                  ],
                 },
               ],
             },
@@ -784,8 +1102,10 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/createsubtoken",
-                  "parts" => [
-                    "createsubtoken",
+                  "segments" => [
+                    {
+                      "lit" => "createsubtoken",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -798,51 +1118,78 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "createsubtoken",
+                  ],
                 },
                 {
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/account",
-                  "parts" => [
-                    "account",
+                  "segments" => [
+                    {
+                      "lit" => "account",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "account",
+                  ],
                 },
                 {
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/account/mastery/points",
-                  "parts" => [
-                    "account",
-                    "mastery",
-                    "points",
+                  "segments" => [
+                    {
+                      "lit" => "account",
+                    },
+                    {
+                      "lit" => "mastery",
+                    },
+                    {
+                      "lit" => "points",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "account",
+                    "mastery",
+                    "points",
+                  ],
                 },
                 {
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/pvp/stats",
-                  "parts" => [
-                    "pvp",
-                    "stats",
+                  "segments" => [
+                    {
+                      "lit" => "pvp",
+                    },
+                    {
+                      "lit" => "stats",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "pvp",
+                    "stats",
+                  ],
                 },
               ],
             },
@@ -864,42 +1211,57 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/dailycrafting",
-                  "parts" => [
-                    "dailycrafting",
+                  "segments" => [
+                    {
+                      "lit" => "dailycrafting",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "dailycrafting",
+                  ],
                 },
                 {
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/mapchests",
-                  "parts" => [
-                    "mapchests",
+                  "segments" => [
+                    {
+                      "lit" => "mapchests",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "mapchests",
+                  ],
                 },
                 {
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/worldbosses",
-                  "parts" => [
-                    "worldbosses",
+                  "segments" => [
+                    {
+                      "lit" => "worldbosses",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "worldbosses",
+                  ],
                 },
               ],
             },
@@ -930,8 +1292,10 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/legendaryarmory",
-                  "parts" => [
-                    "legendaryarmory",
+                  "segments" => [
+                    {
+                      "lit" => "legendaryarmory",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -942,6 +1306,9 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "legendaryarmory",
+                  ],
                 },
                 {
                   "args" => {
@@ -957,8 +1324,10 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/legends",
-                  "parts" => [
-                    "legends",
+                  "segments" => [
+                    {
+                      "lit" => "legends",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -969,6 +1338,9 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "legends",
+                  ],
                 },
                 {
                   "args" => {
@@ -984,8 +1356,10 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/masteries",
-                  "parts" => [
-                    "masteries",
+                  "segments" => [
+                    {
+                      "lit" => "masteries",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -996,6 +1370,9 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "masteries",
+                  ],
                 },
                 {
                   "args" => {
@@ -1011,9 +1388,13 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/mounts/skins",
-                  "parts" => [
-                    "mounts",
-                    "skins",
+                  "segments" => [
+                    {
+                      "lit" => "mounts",
+                    },
+                    {
+                      "lit" => "skins",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -1024,6 +1405,10 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "mounts",
+                    "skins",
+                  ],
                 },
                 {
                   "args" => {
@@ -1039,9 +1424,13 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/mounts/types",
-                  "parts" => [
-                    "mounts",
-                    "types",
+                  "segments" => [
+                    {
+                      "lit" => "mounts",
+                    },
+                    {
+                      "lit" => "types",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -1052,6 +1441,10 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "mounts",
+                    "types",
+                  ],
                 },
                 {
                   "args" => {
@@ -1067,8 +1460,10 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/outfits",
-                  "parts" => [
-                    "outfits",
+                  "segments" => [
+                    {
+                      "lit" => "outfits",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -1079,6 +1474,9 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "outfits",
+                  ],
                 },
                 {
                   "args" => {
@@ -1094,8 +1492,10 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/pets",
-                  "parts" => [
-                    "pets",
+                  "segments" => [
+                    {
+                      "lit" => "pets",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -1106,6 +1506,9 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "pets",
+                  ],
                 },
                 {
                   "args" => {
@@ -1121,8 +1524,10 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/professions",
-                  "parts" => [
-                    "professions",
+                  "segments" => [
+                    {
+                      "lit" => "professions",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -1133,6 +1538,9 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "professions",
+                  ],
                 },
                 {
                   "args" => {
@@ -1148,8 +1556,10 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/races",
-                  "parts" => [
-                    "races",
+                  "segments" => [
+                    {
+                      "lit" => "races",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -1160,6 +1570,9 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "races",
+                  ],
                 },
                 {
                   "args" => {
@@ -1175,8 +1588,10 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/skills",
-                  "parts" => [
-                    "skills",
+                  "segments" => [
+                    {
+                      "lit" => "skills",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -1187,6 +1602,9 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "skills",
+                  ],
                 },
                 {
                   "args" => {
@@ -1202,8 +1620,10 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/specializations",
-                  "parts" => [
-                    "specializations",
+                  "segments" => [
+                    {
+                      "lit" => "specializations",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -1214,6 +1634,9 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "specializations",
+                  ],
                 },
                 {
                   "args" => {
@@ -1229,8 +1652,10 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/traits",
-                  "parts" => [
-                    "traits",
+                  "segments" => [
+                    {
+                      "lit" => "traits",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -1241,20 +1666,28 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "traits",
+                  ],
                 },
                 {
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/mounts",
-                  "parts" => [
-                    "mounts",
+                  "segments" => [
+                    {
+                      "lit" => "mounts",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "mounts",
+                  ],
                 },
               ],
             },
@@ -1270,6 +1703,10 @@ module GuildWars2Config
               "type" => "`$STRING`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "guild",
           "op" => {
             "list" => {
@@ -1290,9 +1727,13 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/guild/permissions",
-                  "parts" => [
-                    "guild",
-                    "permissions",
+                  "segments" => [
+                    {
+                      "lit" => "guild",
+                    },
+                    {
+                      "lit" => "permissions",
+                    },
                   ],
                   "select" => {
                     "$action" => "permission",
@@ -1304,6 +1745,10 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "guild",
+                    "permissions",
+                  ],
                 },
                 {
                   "args" => {
@@ -1319,9 +1764,13 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/guild/search",
-                  "parts" => [
-                    "guild",
-                    "search",
+                  "segments" => [
+                    {
+                      "lit" => "guild",
+                    },
+                    {
+                      "lit" => "search",
+                    },
                   ],
                   "select" => {
                     "$action" => "search",
@@ -1333,6 +1782,10 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "guild",
+                    "search",
+                  ],
                 },
                 {
                   "args" => {
@@ -1348,9 +1801,13 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/guild/upgrades",
-                  "parts" => [
-                    "guild",
-                    "upgrades",
+                  "segments" => [
+                    {
+                      "lit" => "guild",
+                    },
+                    {
+                      "lit" => "upgrades",
+                    },
                   ],
                   "select" => {
                     "$action" => "upgrade",
@@ -1362,20 +1819,29 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "guild",
+                    "upgrades",
+                  ],
                 },
                 {
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/emblem",
-                  "parts" => [
-                    "emblem",
+                  "segments" => [
+                    {
+                      "lit" => "emblem",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "emblem",
+                  ],
                 },
               ],
             },
@@ -1398,9 +1864,13 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/guild/{id}",
-                  "parts" => [
-                    "guild",
-                    "{id}",
+                  "segments" => [
+                    {
+                      "lit" => "guild",
+                    },
+                    {
+                      "var" => "id",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -1411,6 +1881,10 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "guild",
+                    "{id}",
+                  ],
                 },
               ],
             },
@@ -1426,6 +1900,10 @@ module GuildWars2Config
               "type" => "`$STRING`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "guild_authenticated",
           "op" => {
             "list" => {
@@ -1447,10 +1925,16 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/guild/{id}/log",
-                  "parts" => [
-                    "guild",
-                    "{id}",
-                    "log",
+                  "segments" => [
+                    {
+                      "lit" => "guild",
+                    },
+                    {
+                      "var" => "id",
+                    },
+                    {
+                      "lit" => "log",
+                    },
                   ],
                   "select" => {
                     "$action" => "log",
@@ -1462,6 +1946,11 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "guild",
+                    "{id}",
+                    "log",
+                  ],
                 },
                 {
                   "args" => {
@@ -1478,10 +1967,16 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/guild/{id}/members",
-                  "parts" => [
-                    "guild",
-                    "{id}",
-                    "members",
+                  "segments" => [
+                    {
+                      "lit" => "guild",
+                    },
+                    {
+                      "var" => "id",
+                    },
+                    {
+                      "lit" => "members",
+                    },
                   ],
                   "select" => {
                     "$action" => "members",
@@ -1493,6 +1988,11 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "guild",
+                    "{id}",
+                    "members",
+                  ],
                 },
                 {
                   "args" => {
@@ -1509,10 +2009,16 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/guild/{id}/ranks",
-                  "parts" => [
-                    "guild",
-                    "{id}",
-                    "ranks",
+                  "segments" => [
+                    {
+                      "lit" => "guild",
+                    },
+                    {
+                      "var" => "id",
+                    },
+                    {
+                      "lit" => "ranks",
+                    },
                   ],
                   "select" => {
                     "$action" => "ranks",
@@ -1524,6 +2030,11 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "guild",
+                    "{id}",
+                    "ranks",
+                  ],
                 },
                 {
                   "args" => {
@@ -1540,10 +2051,16 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/guild/{id}/stash",
-                  "parts" => [
-                    "guild",
-                    "{id}",
-                    "stash",
+                  "segments" => [
+                    {
+                      "lit" => "guild",
+                    },
+                    {
+                      "var" => "id",
+                    },
+                    {
+                      "lit" => "stash",
+                    },
                   ],
                   "select" => {
                     "$action" => "stash",
@@ -1555,6 +2072,11 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "guild",
+                    "{id}",
+                    "stash",
+                  ],
                 },
                 {
                   "args" => {
@@ -1571,10 +2093,16 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/guild/{id}/storage",
-                  "parts" => [
-                    "guild",
-                    "{id}",
-                    "storage",
+                  "segments" => [
+                    {
+                      "lit" => "guild",
+                    },
+                    {
+                      "var" => "id",
+                    },
+                    {
+                      "lit" => "storage",
+                    },
                   ],
                   "select" => {
                     "$action" => "storage",
@@ -1586,6 +2114,11 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "guild",
+                    "{id}",
+                    "storage",
+                  ],
                 },
                 {
                   "args" => {
@@ -1602,10 +2135,16 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/guild/{id}/teams",
-                  "parts" => [
-                    "guild",
-                    "{id}",
-                    "teams",
+                  "segments" => [
+                    {
+                      "lit" => "guild",
+                    },
+                    {
+                      "var" => "id",
+                    },
+                    {
+                      "lit" => "teams",
+                    },
                   ],
                   "select" => {
                     "$action" => "teams",
@@ -1617,6 +2156,11 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "guild",
+                    "{id}",
+                    "teams",
+                  ],
                 },
                 {
                   "args" => {
@@ -1633,10 +2177,16 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/guild/{id}/treasury",
-                  "parts" => [
-                    "guild",
-                    "{id}",
-                    "treasury",
+                  "segments" => [
+                    {
+                      "lit" => "guild",
+                    },
+                    {
+                      "var" => "id",
+                    },
+                    {
+                      "lit" => "treasury",
+                    },
                   ],
                   "select" => {
                     "$action" => "treasury",
@@ -1648,6 +2198,11 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "guild",
+                    "{id}",
+                    "treasury",
+                  ],
                 },
                 {
                   "args" => {
@@ -1664,10 +2219,16 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/guild/{id}/upgrades",
-                  "parts" => [
-                    "guild",
-                    "{id}",
-                    "upgrades",
+                  "segments" => [
+                    {
+                      "lit" => "guild",
+                    },
+                    {
+                      "var" => "id",
+                    },
+                    {
+                      "lit" => "upgrades",
+                    },
                   ],
                   "select" => {
                     "$action" => "upgrades",
@@ -1679,6 +2240,11 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "guild",
+                    "{id}",
+                    "upgrades",
+                  ],
                 },
               ],
             },
@@ -1709,9 +2275,13 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/home/cats",
-                  "parts" => [
-                    "home",
-                    "cats",
+                  "segments" => [
+                    {
+                      "lit" => "home",
+                    },
+                    {
+                      "lit" => "cats",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -1722,6 +2292,10 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "home",
+                    "cats",
+                  ],
                 },
                 {
                   "args" => {
@@ -1737,9 +2311,13 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/home/nodes",
-                  "parts" => [
-                    "home",
-                    "nodes",
+                  "segments" => [
+                    {
+                      "lit" => "home",
+                    },
+                    {
+                      "lit" => "nodes",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -1750,6 +2328,10 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "home",
+                    "nodes",
+                  ],
                 },
               ],
             },
@@ -1786,9 +2368,13 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/recipes/search",
-                  "parts" => [
-                    "recipes",
-                    "search",
+                  "segments" => [
+                    {
+                      "lit" => "recipes",
+                    },
+                    {
+                      "lit" => "search",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -1800,6 +2386,10 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "recipes",
+                    "search",
+                  ],
                 },
                 {
                   "args" => {
@@ -1815,8 +2405,10 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/finishers",
-                  "parts" => [
-                    "finishers",
+                  "segments" => [
+                    {
+                      "lit" => "finishers",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -1827,6 +2419,9 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "finishers",
+                  ],
                 },
                 {
                   "args" => {
@@ -1842,8 +2437,10 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/gliders",
-                  "parts" => [
-                    "gliders",
+                  "segments" => [
+                    {
+                      "lit" => "gliders",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -1854,6 +2451,9 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "gliders",
+                  ],
                 },
                 {
                   "args" => {
@@ -1869,8 +2469,10 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/items",
-                  "parts" => [
-                    "items",
+                  "segments" => [
+                    {
+                      "lit" => "items",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -1881,6 +2483,9 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "items",
+                  ],
                 },
                 {
                   "args" => {
@@ -1896,8 +2501,10 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/itemstats",
-                  "parts" => [
-                    "itemstats",
+                  "segments" => [
+                    {
+                      "lit" => "itemstats",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -1908,6 +2515,9 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "itemstats",
+                  ],
                 },
                 {
                   "args" => {
@@ -1923,8 +2533,10 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/materials",
-                  "parts" => [
-                    "materials",
+                  "segments" => [
+                    {
+                      "lit" => "materials",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -1935,6 +2547,9 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "materials",
+                  ],
                 },
                 {
                   "args" => {
@@ -1950,9 +2565,13 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/pvp/amulets",
-                  "parts" => [
-                    "pvp",
-                    "amulets",
+                  "segments" => [
+                    {
+                      "lit" => "pvp",
+                    },
+                    {
+                      "lit" => "amulets",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -1963,6 +2582,10 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "pvp",
+                    "amulets",
+                  ],
                 },
                 {
                   "args" => {
@@ -1978,8 +2601,10 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/recipes",
-                  "parts" => [
-                    "recipes",
+                  "segments" => [
+                    {
+                      "lit" => "recipes",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -1990,6 +2615,9 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "recipes",
+                  ],
                 },
                 {
                   "args" => {
@@ -2005,8 +2633,10 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/skins",
-                  "parts" => [
-                    "skins",
+                  "segments" => [
+                    {
+                      "lit" => "skins",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -2017,6 +2647,9 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "skins",
+                  ],
                 },
               ],
             },
@@ -2047,8 +2680,10 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/maps",
-                  "parts" => [
-                    "maps",
+                  "segments" => [
+                    {
+                      "lit" => "maps",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -2059,6 +2694,9 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "maps",
+                  ],
                 },
               ],
             },
@@ -2089,8 +2727,10 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/continents",
-                  "parts" => [
-                    "continents",
+                  "segments" => [
+                    {
+                      "lit" => "continents",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -2101,6 +2741,9 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "continents",
+                  ],
                 },
               ],
             },
@@ -2116,6 +2759,10 @@ module GuildWars2Config
               "type" => "`$INTEGER`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "miscellaneous",
           "op" => {
             "list" => {
@@ -2136,8 +2783,10 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/colors",
-                  "parts" => [
-                    "colors",
+                  "segments" => [
+                    {
+                      "lit" => "colors",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -2148,6 +2797,9 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "colors",
+                  ],
                 },
                 {
                   "args" => {
@@ -2163,8 +2815,10 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/currencies",
-                  "parts" => [
-                    "currencies",
+                  "segments" => [
+                    {
+                      "lit" => "currencies",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -2175,6 +2829,9 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "currencies",
+                  ],
                 },
                 {
                   "args" => {
@@ -2190,8 +2847,10 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/dungeons",
-                  "parts" => [
-                    "dungeons",
+                  "segments" => [
+                    {
+                      "lit" => "dungeons",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -2202,6 +2861,9 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "dungeons",
+                  ],
                 },
                 {
                   "args" => {
@@ -2217,8 +2879,10 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/files",
-                  "parts" => [
-                    "files",
+                  "segments" => [
+                    {
+                      "lit" => "files",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -2229,6 +2893,9 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "files",
+                  ],
                 },
                 {
                   "args" => {
@@ -2244,8 +2911,10 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/minis",
-                  "parts" => [
-                    "minis",
+                  "segments" => [
+                    {
+                      "lit" => "minis",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -2256,6 +2925,9 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "minis",
+                  ],
                 },
                 {
                   "args" => {
@@ -2271,8 +2943,10 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/novelties",
-                  "parts" => [
-                    "novelties",
+                  "segments" => [
+                    {
+                      "lit" => "novelties",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -2283,6 +2957,9 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "novelties",
+                  ],
                 },
                 {
                   "args" => {
@@ -2298,8 +2975,10 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/raids",
-                  "parts" => [
-                    "raids",
+                  "segments" => [
+                    {
+                      "lit" => "raids",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -2310,6 +2989,9 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "raids",
+                  ],
                 },
                 {
                   "args" => {
@@ -2325,8 +3007,10 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/titles",
-                  "parts" => [
-                    "titles",
+                  "segments" => [
+                    {
+                      "lit" => "titles",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -2337,6 +3021,9 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "titles",
+                  ],
                 },
                 {
                   "args" => {
@@ -2352,8 +3039,10 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/worlds",
-                  "parts" => [
-                    "worlds",
+                  "segments" => [
+                    {
+                      "lit" => "worlds",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -2364,6 +3053,9 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "worlds",
+                  ],
                 },
               ],
             },
@@ -2376,14 +3068,19 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/build",
-                  "parts" => [
-                    "build",
+                  "segments" => [
+                    {
+                      "lit" => "build",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "build",
+                  ],
                 },
               ],
             },
@@ -2414,8 +3111,10 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/quests",
-                  "parts" => [
-                    "quests",
+                  "segments" => [
+                    {
+                      "lit" => "quests",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -2426,6 +3125,9 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "quests",
+                  ],
                 },
                 {
                   "args" => {
@@ -2441,8 +3143,10 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/stories",
-                  "parts" => [
-                    "stories",
+                  "segments" => [
+                    {
+                      "lit" => "stories",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -2453,6 +3157,9 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "stories",
+                  ],
                 },
                 {
                   "args" => {
@@ -2468,9 +3175,13 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/stories/seasons",
-                  "parts" => [
-                    "stories",
-                    "seasons",
+                  "segments" => [
+                    {
+                      "lit" => "stories",
+                    },
+                    {
+                      "lit" => "seasons",
+                    },
                   ],
                   "select" => {
                     "$action" => "season",
@@ -2482,6 +3193,10 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "stories",
+                    "seasons",
+                  ],
                 },
               ],
             },
@@ -2512,9 +3227,13 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/pvp/heroes",
-                  "parts" => [
-                    "pvp",
-                    "heroes",
+                  "segments" => [
+                    {
+                      "lit" => "pvp",
+                    },
+                    {
+                      "lit" => "heroes",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -2525,6 +3244,10 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "pvp",
+                    "heroes",
+                  ],
                 },
                 {
                   "args" => {
@@ -2540,9 +3263,13 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/pvp/ranks",
-                  "parts" => [
-                    "pvp",
-                    "ranks",
+                  "segments" => [
+                    {
+                      "lit" => "pvp",
+                    },
+                    {
+                      "lit" => "ranks",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -2553,6 +3280,10 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "pvp",
+                    "ranks",
+                  ],
                 },
                 {
                   "args" => {
@@ -2568,9 +3299,13 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/pvp/seasons",
-                  "parts" => [
-                    "pvp",
-                    "seasons",
+                  "segments" => [
+                    {
+                      "lit" => "pvp",
+                    },
+                    {
+                      "lit" => "seasons",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -2581,20 +3316,29 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "pvp",
+                    "seasons",
+                  ],
                 },
                 {
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/pvp",
-                  "parts" => [
-                    "pvp",
+                  "segments" => [
+                    {
+                      "lit" => "pvp",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "pvp",
+                  ],
                 },
               ],
             },
@@ -2642,9 +3386,13 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/commerce/listings",
-                  "parts" => [
-                    "commerce",
-                    "listings",
+                  "segments" => [
+                    {
+                      "lit" => "commerce",
+                    },
+                    {
+                      "lit" => "listings",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -2655,6 +3403,10 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "commerce",
+                    "listings",
+                  ],
                 },
                 {
                   "args" => {
@@ -2670,9 +3422,13 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/commerce/prices",
-                  "parts" => [
-                    "commerce",
-                    "prices",
+                  "segments" => [
+                    {
+                      "lit" => "commerce",
+                    },
+                    {
+                      "lit" => "prices",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -2683,51 +3439,79 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "commerce",
+                    "prices",
+                  ],
                 },
                 {
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/commerce/delivery",
-                  "parts" => [
-                    "commerce",
-                    "delivery",
+                  "segments" => [
+                    {
+                      "lit" => "commerce",
+                    },
+                    {
+                      "lit" => "delivery",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body.items`",
                   },
+                  "parts" => [
+                    "commerce",
+                    "delivery",
+                  ],
                 },
                 {
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/commerce/exchange",
-                  "parts" => [
-                    "commerce",
-                    "exchange",
+                  "segments" => [
+                    {
+                      "lit" => "commerce",
+                    },
+                    {
+                      "lit" => "exchange",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "commerce",
+                    "exchange",
+                  ],
                 },
                 {
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/commerce/transactions",
-                  "parts" => [
-                    "commerce",
-                    "transactions",
+                  "segments" => [
+                    {
+                      "lit" => "commerce",
+                    },
+                    {
+                      "lit" => "transactions",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "commerce",
+                    "transactions",
+                  ],
                 },
               ],
             },
@@ -2750,10 +3534,16 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/commerce/exchange/coins",
-                  "parts" => [
-                    "commerce",
-                    "exchange",
-                    "coins",
+                  "segments" => [
+                    {
+                      "lit" => "commerce",
+                    },
+                    {
+                      "lit" => "exchange",
+                    },
+                    {
+                      "lit" => "coins",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -2764,6 +3554,11 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "commerce",
+                    "exchange",
+                    "coins",
+                  ],
                 },
                 {
                   "args" => {
@@ -2780,10 +3575,16 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/commerce/exchange/gems",
-                  "parts" => [
-                    "commerce",
-                    "exchange",
-                    "gems",
+                  "segments" => [
+                    {
+                      "lit" => "commerce",
+                    },
+                    {
+                      "lit" => "exchange",
+                    },
+                    {
+                      "lit" => "gems",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -2794,6 +3595,11 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "commerce",
+                    "exchange",
+                    "gems",
+                  ],
                 },
               ],
             },
@@ -2824,9 +3630,13 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/wvw/abilities",
-                  "parts" => [
-                    "wvw",
-                    "abilities",
+                  "segments" => [
+                    {
+                      "lit" => "wvw",
+                    },
+                    {
+                      "lit" => "abilities",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -2837,6 +3647,10 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "wvw",
+                    "abilities",
+                  ],
                 },
                 {
                   "args" => {
@@ -2852,9 +3666,13 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/wvw/matches",
-                  "parts" => [
-                    "wvw",
-                    "matches",
+                  "segments" => [
+                    {
+                      "lit" => "wvw",
+                    },
+                    {
+                      "lit" => "matches",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -2865,6 +3683,10 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "wvw",
+                    "matches",
+                  ],
                 },
                 {
                   "args" => {
@@ -2880,9 +3702,13 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/wvw/objectives",
-                  "parts" => [
-                    "wvw",
-                    "objectives",
+                  "segments" => [
+                    {
+                      "lit" => "wvw",
+                    },
+                    {
+                      "lit" => "objectives",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -2893,6 +3719,10 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "wvw",
+                    "objectives",
+                  ],
                 },
                 {
                   "args" => {
@@ -2908,9 +3738,13 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/wvw/ranks",
-                  "parts" => [
-                    "wvw",
-                    "ranks",
+                  "segments" => [
+                    {
+                      "lit" => "wvw",
+                    },
+                    {
+                      "lit" => "ranks",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -2921,6 +3755,10 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "wvw",
+                    "ranks",
+                  ],
                 },
                 {
                   "args" => {
@@ -2936,9 +3774,13 @@ module GuildWars2Config
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/wvw/upgrades",
-                  "parts" => [
-                    "wvw",
-                    "upgrades",
+                  "segments" => [
+                    {
+                      "lit" => "wvw",
+                    },
+                    {
+                      "lit" => "upgrades",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -2949,20 +3791,29 @@ module GuildWars2Config
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "wvw",
+                    "upgrades",
+                  ],
                 },
                 {
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/wvw",
-                  "parts" => [
-                    "wvw",
+                  "segments" => [
+                    {
+                      "lit" => "wvw",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "wvw",
+                  ],
                 },
               ],
             },

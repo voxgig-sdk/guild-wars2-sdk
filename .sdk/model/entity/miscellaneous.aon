@@ -36,8 +36,10 @@ main: kit: entity: miscellaneous: {
           }
           method: "GET"
           orig: "/colors"
-          parts: [
-            "colors"
+          segments: [
+            {
+              lit: "colors"
+            }
           ]
           select: {
             exist: [
@@ -63,8 +65,10 @@ main: kit: entity: miscellaneous: {
           }
           method: "GET"
           orig: "/currencies"
-          parts: [
-            "currencies"
+          segments: [
+            {
+              lit: "currencies"
+            }
           ]
           select: {
             exist: [
@@ -90,8 +94,10 @@ main: kit: entity: miscellaneous: {
           }
           method: "GET"
           orig: "/dungeons"
-          parts: [
-            "dungeons"
+          segments: [
+            {
+              lit: "dungeons"
+            }
           ]
           select: {
             exist: [
@@ -117,8 +123,10 @@ main: kit: entity: miscellaneous: {
           }
           method: "GET"
           orig: "/files"
-          parts: [
-            "files"
+          segments: [
+            {
+              lit: "files"
+            }
           ]
           select: {
             exist: [
@@ -144,8 +152,10 @@ main: kit: entity: miscellaneous: {
           }
           method: "GET"
           orig: "/minis"
-          parts: [
-            "minis"
+          segments: [
+            {
+              lit: "minis"
+            }
           ]
           select: {
             exist: [
@@ -171,8 +181,10 @@ main: kit: entity: miscellaneous: {
           }
           method: "GET"
           orig: "/novelties"
-          parts: [
-            "novelties"
+          segments: [
+            {
+              lit: "novelties"
+            }
           ]
           select: {
             exist: [
@@ -198,8 +210,10 @@ main: kit: entity: miscellaneous: {
           }
           method: "GET"
           orig: "/raids"
-          parts: [
-            "raids"
+          segments: [
+            {
+              lit: "raids"
+            }
           ]
           select: {
             exist: [
@@ -225,8 +239,10 @@ main: kit: entity: miscellaneous: {
           }
           method: "GET"
           orig: "/titles"
-          parts: [
-            "titles"
+          segments: [
+            {
+              lit: "titles"
+            }
           ]
           select: {
             exist: [
@@ -252,8 +268,10 @@ main: kit: entity: miscellaneous: {
           }
           method: "GET"
           orig: "/worlds"
-          parts: [
-            "worlds"
+          segments: [
+            {
+              lit: "worlds"
+            }
           ]
           select: {
             exist: [
@@ -273,8 +291,10 @@ main: kit: entity: miscellaneous: {
         {
           method: "GET"
           orig: "/build"
-          parts: [
-            "build"
+          segments: [
+            {
+              lit: "build"
+            }
           ]
           transform: {
             req: "`reqdata`"

@@ -30,8 +30,10 @@ main: kit: entity: achievement: {
           }
           method: "GET"
           orig: "/achievements"
-          parts: [
-            "achievements"
+          segments: [
+            {
+              lit: "achievements"
+            }
           ]
           select: {
             exist: [
@@ -58,9 +60,13 @@ main: kit: entity: achievement: {
           }
           method: "GET"
           orig: "/achievements/categories"
-          parts: [
-            "achievements"
-            "categories"
+          segments: [
+            {
+              lit: "achievements"
+            }
+            {
+              lit: "categories"
+            }
           ]
           select: {
             "$action": "category"
@@ -87,9 +93,13 @@ main: kit: entity: achievement: {
           }
           method: "GET"
           orig: "/achievements/groups"
-          parts: [
-            "achievements"
-            "groups"
+          segments: [
+            {
+              lit: "achievements"
+            }
+            {
+              lit: "groups"
+            }
           ]
           select: {
             "$action": "group"
@@ -110,9 +120,13 @@ main: kit: entity: achievement: {
         {
           method: "GET"
           orig: "/achievements/daily"
-          parts: [
-            "achievements"
-            "daily"
+          segments: [
+            {
+              lit: "achievements"
+            }
+            {
+              lit: "daily"
+            }
           ]
           select: {
             "$action": "daily"
@@ -125,10 +139,16 @@ main: kit: entity: achievement: {
         {
           method: "GET"
           orig: "/achievements/daily/tomorrow"
-          parts: [
-            "achievements"
-            "daily"
-            "tomorrow"
+          segments: [
+            {
+              lit: "achievements"
+            }
+            {
+              lit: "daily"
+            }
+            {
+              lit: "tomorrow"
+            }
           ]
           transform: {
             req: "`reqdata`"

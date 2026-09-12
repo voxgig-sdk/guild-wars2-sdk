@@ -12,8 +12,10 @@ main: kit: entity: daily_reward: {
         {
           method: "GET"
           orig: "/dailycrafting"
-          parts: [
-            "dailycrafting"
+          segments: [
+            {
+              lit: "dailycrafting"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -23,8 +25,10 @@ main: kit: entity: daily_reward: {
         {
           method: "GET"
           orig: "/mapchests"
-          parts: [
-            "mapchests"
+          segments: [
+            {
+              lit: "mapchests"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -34,8 +38,10 @@ main: kit: entity: daily_reward: {
         {
           method: "GET"
           orig: "/worldbosses"
-          parts: [
-            "worldbosses"
+          segments: [
+            {
+              lit: "worldbosses"
+            }
           ]
           transform: {
             req: "`reqdata`"

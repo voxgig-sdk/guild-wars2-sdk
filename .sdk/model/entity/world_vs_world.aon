@@ -23,9 +23,13 @@ main: kit: entity: world_vs_world: {
           }
           method: "GET"
           orig: "/wvw/abilities"
-          parts: [
-            "wvw"
-            "abilities"
+          segments: [
+            {
+              lit: "wvw"
+            }
+            {
+              lit: "abilities"
+            }
           ]
           select: {
             exist: [
@@ -51,9 +55,13 @@ main: kit: entity: world_vs_world: {
           }
           method: "GET"
           orig: "/wvw/matches"
-          parts: [
-            "wvw"
-            "matches"
+          segments: [
+            {
+              lit: "wvw"
+            }
+            {
+              lit: "matches"
+            }
           ]
           select: {
             exist: [
@@ -79,9 +87,13 @@ main: kit: entity: world_vs_world: {
           }
           method: "GET"
           orig: "/wvw/objectives"
-          parts: [
-            "wvw"
-            "objectives"
+          segments: [
+            {
+              lit: "wvw"
+            }
+            {
+              lit: "objectives"
+            }
           ]
           select: {
             exist: [
@@ -107,9 +119,13 @@ main: kit: entity: world_vs_world: {
           }
           method: "GET"
           orig: "/wvw/ranks"
-          parts: [
-            "wvw"
-            "ranks"
+          segments: [
+            {
+              lit: "wvw"
+            }
+            {
+              lit: "ranks"
+            }
           ]
           select: {
             exist: [
@@ -135,9 +151,13 @@ main: kit: entity: world_vs_world: {
           }
           method: "GET"
           orig: "/wvw/upgrades"
-          parts: [
-            "wvw"
-            "upgrades"
+          segments: [
+            {
+              lit: "wvw"
+            }
+            {
+              lit: "upgrades"
+            }
           ]
           select: {
             exist: [
@@ -152,8 +172,10 @@ main: kit: entity: world_vs_world: {
         {
           method: "GET"
           orig: "/wvw"
-          parts: [
-            "wvw"
+          segments: [
+            {
+              lit: "wvw"
+            }
           ]
           transform: {
             req: "`reqdata`"

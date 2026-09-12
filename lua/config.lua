@@ -74,8 +74,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/achievements",
-                ["parts"] = {
-                  "achievements",
+                ["segments"] = {
+                  {
+                    ["lit"] = "achievements",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -86,6 +88,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "achievements",
                 },
               },
               {
@@ -102,9 +107,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/achievements/categories",
-                ["parts"] = {
-                  "achievements",
-                  "categories",
+                ["segments"] = {
+                  {
+                    ["lit"] = "achievements",
+                  },
+                  {
+                    ["lit"] = "categories",
+                  },
                 },
                 ["select"] = {
                   ["$action"] = "category",
@@ -115,6 +124,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "achievements",
+                  "categories",
                 },
               },
               {
@@ -131,9 +144,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/achievements/groups",
-                ["parts"] = {
-                  "achievements",
-                  "groups",
+                ["segments"] = {
+                  {
+                    ["lit"] = "achievements",
+                  },
+                  {
+                    ["lit"] = "groups",
+                  },
                 },
                 ["select"] = {
                   ["$action"] = "group",
@@ -144,6 +161,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "achievements",
+                  "groups",
                 },
               },
             },
@@ -157,9 +178,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/achievements/daily",
-                ["parts"] = {
-                  "achievements",
-                  "daily",
+                ["segments"] = {
+                  {
+                    ["lit"] = "achievements",
+                  },
+                  {
+                    ["lit"] = "daily",
+                  },
                 },
                 ["select"] = {
                   ["$action"] = "daily",
@@ -168,21 +193,36 @@ local function make_config()
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
+                ["parts"] = {
+                  "achievements",
+                  "daily",
+                },
               },
               {
                 ["args"] = {},
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/achievements/daily/tomorrow",
-                ["parts"] = {
-                  "achievements",
-                  "daily",
-                  "tomorrow",
+                ["segments"] = {
+                  {
+                    ["lit"] = "achievements",
+                  },
+                  {
+                    ["lit"] = "daily",
+                  },
+                  {
+                    ["lit"] = "tomorrow",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "achievements",
+                  "daily",
+                  "tomorrow",
                 },
               },
             },
@@ -195,6 +235,7 @@ local function make_config()
       ["authenticated"] = {
         ["fields"] = {
           {
+            ["format"] = "date-time",
             ["name"] = "created",
             ["type"] = "`$STRING`",
           },
@@ -223,6 +264,10 @@ local function make_config()
             ["type"] = "`$INTEGER`",
           },
         },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
+        },
         ["name"] = "authenticated",
         ["op"] = {
           ["list"] = {
@@ -243,8 +288,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/characters",
-                ["parts"] = {
-                  "characters",
+                ["segments"] = {
+                  {
+                    ["lit"] = "characters",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -255,20 +302,31 @@ local function make_config()
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
+                ["parts"] = {
+                  "characters",
+                },
               },
               {
                 ["args"] = {},
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/account/achievements",
-                ["parts"] = {
-                  "account",
-                  "achievements",
+                ["segments"] = {
+                  {
+                    ["lit"] = "account",
+                  },
+                  {
+                    ["lit"] = "achievements",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "account",
+                  "achievements",
                 },
               },
               {
@@ -276,14 +334,22 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/account/bank",
-                ["parts"] = {
-                  "account",
-                  "bank",
+                ["segments"] = {
+                  {
+                    ["lit"] = "account",
+                  },
+                  {
+                    ["lit"] = "bank",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "account",
+                  "bank",
                 },
               },
               {
@@ -291,14 +357,22 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/account/buildstorage",
-                ["parts"] = {
-                  "account",
-                  "buildstorage",
+                ["segments"] = {
+                  {
+                    ["lit"] = "account",
+                  },
+                  {
+                    ["lit"] = "buildstorage",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "account",
+                  "buildstorage",
                 },
               },
               {
@@ -306,14 +380,22 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/account/dailycrafting",
-                ["parts"] = {
-                  "account",
-                  "dailycrafting",
+                ["segments"] = {
+                  {
+                    ["lit"] = "account",
+                  },
+                  {
+                    ["lit"] = "dailycrafting",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "account",
+                  "dailycrafting",
                 },
               },
               {
@@ -321,14 +403,22 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/account/dungeons",
-                ["parts"] = {
-                  "account",
-                  "dungeons",
+                ["segments"] = {
+                  {
+                    ["lit"] = "account",
+                  },
+                  {
+                    ["lit"] = "dungeons",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "account",
+                  "dungeons",
                 },
               },
               {
@@ -336,14 +426,22 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/account/dyes",
-                ["parts"] = {
-                  "account",
-                  "dyes",
+                ["segments"] = {
+                  {
+                    ["lit"] = "account",
+                  },
+                  {
+                    ["lit"] = "dyes",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "account",
+                  "dyes",
                 },
               },
               {
@@ -351,14 +449,22 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/account/emotes",
-                ["parts"] = {
-                  "account",
-                  "emotes",
+                ["segments"] = {
+                  {
+                    ["lit"] = "account",
+                  },
+                  {
+                    ["lit"] = "emotes",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "account",
+                  "emotes",
                 },
               },
               {
@@ -366,14 +472,22 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/account/finishers",
-                ["parts"] = {
-                  "account",
-                  "finishers",
+                ["segments"] = {
+                  {
+                    ["lit"] = "account",
+                  },
+                  {
+                    ["lit"] = "finishers",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "account",
+                  "finishers",
                 },
               },
               {
@@ -381,14 +495,22 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/account/gliders",
-                ["parts"] = {
-                  "account",
-                  "gliders",
+                ["segments"] = {
+                  {
+                    ["lit"] = "account",
+                  },
+                  {
+                    ["lit"] = "gliders",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "account",
+                  "gliders",
                 },
               },
               {
@@ -396,15 +518,26 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/account/home/cats",
-                ["parts"] = {
-                  "account",
-                  "home",
-                  "cats",
+                ["segments"] = {
+                  {
+                    ["lit"] = "account",
+                  },
+                  {
+                    ["lit"] = "home",
+                  },
+                  {
+                    ["lit"] = "cats",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "account",
+                  "home",
+                  "cats",
                 },
               },
               {
@@ -412,15 +545,26 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/account/home/nodes",
-                ["parts"] = {
-                  "account",
-                  "home",
-                  "nodes",
+                ["segments"] = {
+                  {
+                    ["lit"] = "account",
+                  },
+                  {
+                    ["lit"] = "home",
+                  },
+                  {
+                    ["lit"] = "nodes",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "account",
+                  "home",
+                  "nodes",
                 },
               },
               {
@@ -428,14 +572,22 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/account/inventory",
-                ["parts"] = {
-                  "account",
-                  "inventory",
+                ["segments"] = {
+                  {
+                    ["lit"] = "account",
+                  },
+                  {
+                    ["lit"] = "inventory",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "account",
+                  "inventory",
                 },
               },
               {
@@ -443,14 +595,22 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/account/legendaryarmory",
-                ["parts"] = {
-                  "account",
-                  "legendaryarmory",
+                ["segments"] = {
+                  {
+                    ["lit"] = "account",
+                  },
+                  {
+                    ["lit"] = "legendaryarmory",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "account",
+                  "legendaryarmory",
                 },
               },
               {
@@ -458,14 +618,22 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/account/luck",
-                ["parts"] = {
-                  "account",
-                  "luck",
+                ["segments"] = {
+                  {
+                    ["lit"] = "account",
+                  },
+                  {
+                    ["lit"] = "luck",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "account",
+                  "luck",
                 },
               },
               {
@@ -473,14 +641,22 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/account/mapchests",
-                ["parts"] = {
-                  "account",
-                  "mapchests",
+                ["segments"] = {
+                  {
+                    ["lit"] = "account",
+                  },
+                  {
+                    ["lit"] = "mapchests",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "account",
+                  "mapchests",
                 },
               },
               {
@@ -488,14 +664,22 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/account/masteries",
-                ["parts"] = {
-                  "account",
-                  "masteries",
+                ["segments"] = {
+                  {
+                    ["lit"] = "account",
+                  },
+                  {
+                    ["lit"] = "masteries",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "account",
+                  "masteries",
                 },
               },
               {
@@ -503,14 +687,22 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/account/materials",
-                ["parts"] = {
-                  "account",
-                  "materials",
+                ["segments"] = {
+                  {
+                    ["lit"] = "account",
+                  },
+                  {
+                    ["lit"] = "materials",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "account",
+                  "materials",
                 },
               },
               {
@@ -518,14 +710,22 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/account/minis",
-                ["parts"] = {
-                  "account",
-                  "minis",
+                ["segments"] = {
+                  {
+                    ["lit"] = "account",
+                  },
+                  {
+                    ["lit"] = "minis",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "account",
+                  "minis",
                 },
               },
               {
@@ -533,15 +733,26 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/account/mounts/skins",
-                ["parts"] = {
-                  "account",
-                  "mounts",
-                  "skins",
+                ["segments"] = {
+                  {
+                    ["lit"] = "account",
+                  },
+                  {
+                    ["lit"] = "mounts",
+                  },
+                  {
+                    ["lit"] = "skins",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "account",
+                  "mounts",
+                  "skins",
                 },
               },
               {
@@ -549,15 +760,26 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/account/mounts/types",
-                ["parts"] = {
-                  "account",
-                  "mounts",
-                  "types",
+                ["segments"] = {
+                  {
+                    ["lit"] = "account",
+                  },
+                  {
+                    ["lit"] = "mounts",
+                  },
+                  {
+                    ["lit"] = "types",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "account",
+                  "mounts",
+                  "types",
                 },
               },
               {
@@ -565,14 +787,22 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/account/novelties",
-                ["parts"] = {
-                  "account",
-                  "novelties",
+                ["segments"] = {
+                  {
+                    ["lit"] = "account",
+                  },
+                  {
+                    ["lit"] = "novelties",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "account",
+                  "novelties",
                 },
               },
               {
@@ -580,14 +810,22 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/account/outfits",
-                ["parts"] = {
-                  "account",
-                  "outfits",
+                ["segments"] = {
+                  {
+                    ["lit"] = "account",
+                  },
+                  {
+                    ["lit"] = "outfits",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "account",
+                  "outfits",
                 },
               },
               {
@@ -595,15 +833,26 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/account/pvp/heroes",
-                ["parts"] = {
-                  "account",
-                  "pvp",
-                  "heroes",
+                ["segments"] = {
+                  {
+                    ["lit"] = "account",
+                  },
+                  {
+                    ["lit"] = "pvp",
+                  },
+                  {
+                    ["lit"] = "heroes",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "account",
+                  "pvp",
+                  "heroes",
                 },
               },
               {
@@ -611,14 +860,22 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/account/raids",
-                ["parts"] = {
-                  "account",
-                  "raids",
+                ["segments"] = {
+                  {
+                    ["lit"] = "account",
+                  },
+                  {
+                    ["lit"] = "raids",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "account",
+                  "raids",
                 },
               },
               {
@@ -626,14 +883,22 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/account/recipes",
-                ["parts"] = {
-                  "account",
-                  "recipes",
+                ["segments"] = {
+                  {
+                    ["lit"] = "account",
+                  },
+                  {
+                    ["lit"] = "recipes",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "account",
+                  "recipes",
                 },
               },
               {
@@ -641,14 +906,22 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/account/skins",
-                ["parts"] = {
-                  "account",
-                  "skins",
+                ["segments"] = {
+                  {
+                    ["lit"] = "account",
+                  },
+                  {
+                    ["lit"] = "skins",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "account",
+                  "skins",
                 },
               },
               {
@@ -656,14 +929,22 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/account/titles",
-                ["parts"] = {
-                  "account",
-                  "titles",
+                ["segments"] = {
+                  {
+                    ["lit"] = "account",
+                  },
+                  {
+                    ["lit"] = "titles",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "account",
+                  "titles",
                 },
               },
               {
@@ -671,14 +952,22 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/account/wallet",
-                ["parts"] = {
-                  "account",
-                  "wallet",
+                ["segments"] = {
+                  {
+                    ["lit"] = "account",
+                  },
+                  {
+                    ["lit"] = "wallet",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "account",
+                  "wallet",
                 },
               },
               {
@@ -686,14 +975,22 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/account/worldbosses",
-                ["parts"] = {
-                  "account",
-                  "worldbosses",
+                ["segments"] = {
+                  {
+                    ["lit"] = "account",
+                  },
+                  {
+                    ["lit"] = "worldbosses",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "account",
+                  "worldbosses",
                 },
               },
               {
@@ -701,14 +998,22 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/pvp/games",
-                ["parts"] = {
-                  "pvp",
-                  "games",
+                ["segments"] = {
+                  {
+                    ["lit"] = "pvp",
+                  },
+                  {
+                    ["lit"] = "games",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "pvp",
+                  "games",
                 },
               },
               {
@@ -716,14 +1021,22 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/pvp/standings",
-                ["parts"] = {
-                  "pvp",
-                  "standings",
+                ["segments"] = {
+                  {
+                    ["lit"] = "pvp",
+                  },
+                  {
+                    ["lit"] = "standings",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "pvp",
+                  "standings",
                 },
               },
               {
@@ -731,13 +1044,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/tokeninfo",
-                ["parts"] = {
-                  "tokeninfo",
+                ["segments"] = {
+                  {
+                    ["lit"] = "tokeninfo",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.permissions`",
+                },
+                ["parts"] = {
+                  "tokeninfo",
                 },
               },
             },
@@ -772,8 +1090,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/createsubtoken",
-                ["parts"] = {
-                  "createsubtoken",
+                ["segments"] = {
+                  {
+                    ["lit"] = "createsubtoken",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -786,19 +1106,27 @@ local function make_config()
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
+                ["parts"] = {
+                  "createsubtoken",
+                },
               },
               {
                 ["args"] = {},
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/account",
-                ["parts"] = {
-                  "account",
+                ["segments"] = {
+                  {
+                    ["lit"] = "account",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "account",
                 },
               },
               {
@@ -806,15 +1134,26 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/account/mastery/points",
-                ["parts"] = {
-                  "account",
-                  "mastery",
-                  "points",
+                ["segments"] = {
+                  {
+                    ["lit"] = "account",
+                  },
+                  {
+                    ["lit"] = "mastery",
+                  },
+                  {
+                    ["lit"] = "points",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "account",
+                  "mastery",
+                  "points",
                 },
               },
               {
@@ -822,14 +1161,22 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/pvp/stats",
-                ["parts"] = {
-                  "pvp",
-                  "stats",
+                ["segments"] = {
+                  {
+                    ["lit"] = "pvp",
+                  },
+                  {
+                    ["lit"] = "stats",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "pvp",
+                  "stats",
                 },
               },
             },
@@ -852,13 +1199,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/dailycrafting",
-                ["parts"] = {
-                  "dailycrafting",
+                ["segments"] = {
+                  {
+                    ["lit"] = "dailycrafting",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "dailycrafting",
                 },
               },
               {
@@ -866,13 +1218,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/mapchests",
-                ["parts"] = {
-                  "mapchests",
+                ["segments"] = {
+                  {
+                    ["lit"] = "mapchests",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "mapchests",
                 },
               },
               {
@@ -880,13 +1237,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/worldbosses",
-                ["parts"] = {
-                  "worldbosses",
+                ["segments"] = {
+                  {
+                    ["lit"] = "worldbosses",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "worldbosses",
                 },
               },
             },
@@ -918,8 +1280,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/legendaryarmory",
-                ["parts"] = {
-                  "legendaryarmory",
+                ["segments"] = {
+                  {
+                    ["lit"] = "legendaryarmory",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -929,6 +1293,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "legendaryarmory",
                 },
               },
               {
@@ -945,8 +1312,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/legends",
-                ["parts"] = {
-                  "legends",
+                ["segments"] = {
+                  {
+                    ["lit"] = "legends",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -956,6 +1325,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "legends",
                 },
               },
               {
@@ -972,8 +1344,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/masteries",
-                ["parts"] = {
-                  "masteries",
+                ["segments"] = {
+                  {
+                    ["lit"] = "masteries",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -983,6 +1357,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "masteries",
                 },
               },
               {
@@ -999,9 +1376,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/mounts/skins",
-                ["parts"] = {
-                  "mounts",
-                  "skins",
+                ["segments"] = {
+                  {
+                    ["lit"] = "mounts",
+                  },
+                  {
+                    ["lit"] = "skins",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -1011,6 +1392,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "mounts",
+                  "skins",
                 },
               },
               {
@@ -1027,9 +1412,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/mounts/types",
-                ["parts"] = {
-                  "mounts",
-                  "types",
+                ["segments"] = {
+                  {
+                    ["lit"] = "mounts",
+                  },
+                  {
+                    ["lit"] = "types",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -1039,6 +1428,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "mounts",
+                  "types",
                 },
               },
               {
@@ -1055,8 +1448,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/outfits",
-                ["parts"] = {
-                  "outfits",
+                ["segments"] = {
+                  {
+                    ["lit"] = "outfits",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -1066,6 +1461,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "outfits",
                 },
               },
               {
@@ -1082,8 +1480,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/pets",
-                ["parts"] = {
-                  "pets",
+                ["segments"] = {
+                  {
+                    ["lit"] = "pets",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -1093,6 +1493,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "pets",
                 },
               },
               {
@@ -1109,8 +1512,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/professions",
-                ["parts"] = {
-                  "professions",
+                ["segments"] = {
+                  {
+                    ["lit"] = "professions",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -1120,6 +1525,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "professions",
                 },
               },
               {
@@ -1136,8 +1544,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/races",
-                ["parts"] = {
-                  "races",
+                ["segments"] = {
+                  {
+                    ["lit"] = "races",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -1147,6 +1557,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "races",
                 },
               },
               {
@@ -1163,8 +1576,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/skills",
-                ["parts"] = {
-                  "skills",
+                ["segments"] = {
+                  {
+                    ["lit"] = "skills",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -1174,6 +1589,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "skills",
                 },
               },
               {
@@ -1190,8 +1608,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/specializations",
-                ["parts"] = {
-                  "specializations",
+                ["segments"] = {
+                  {
+                    ["lit"] = "specializations",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -1201,6 +1621,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "specializations",
                 },
               },
               {
@@ -1217,8 +1640,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/traits",
-                ["parts"] = {
-                  "traits",
+                ["segments"] = {
+                  {
+                    ["lit"] = "traits",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -1229,19 +1654,27 @@ local function make_config()
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
+                ["parts"] = {
+                  "traits",
+                },
               },
               {
                 ["args"] = {},
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/mounts",
-                ["parts"] = {
-                  "mounts",
+                ["segments"] = {
+                  {
+                    ["lit"] = "mounts",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "mounts",
                 },
               },
             },
@@ -1257,6 +1690,10 @@ local function make_config()
             ["name"] = "id",
             ["type"] = "`$STRING`",
           },
+        },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
         },
         ["name"] = "guild",
         ["op"] = {
@@ -1278,9 +1715,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/guild/permissions",
-                ["parts"] = {
-                  "guild",
-                  "permissions",
+                ["segments"] = {
+                  {
+                    ["lit"] = "guild",
+                  },
+                  {
+                    ["lit"] = "permissions",
+                  },
                 },
                 ["select"] = {
                   ["$action"] = "permission",
@@ -1291,6 +1732,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "guild",
+                  "permissions",
                 },
               },
               {
@@ -1307,9 +1752,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/guild/search",
-                ["parts"] = {
-                  "guild",
-                  "search",
+                ["segments"] = {
+                  {
+                    ["lit"] = "guild",
+                  },
+                  {
+                    ["lit"] = "search",
+                  },
                 },
                 ["select"] = {
                   ["$action"] = "search",
@@ -1320,6 +1769,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "guild",
+                  "search",
                 },
               },
               {
@@ -1336,9 +1789,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/guild/upgrades",
-                ["parts"] = {
-                  "guild",
-                  "upgrades",
+                ["segments"] = {
+                  {
+                    ["lit"] = "guild",
+                  },
+                  {
+                    ["lit"] = "upgrades",
+                  },
                 },
                 ["select"] = {
                   ["$action"] = "upgrade",
@@ -1350,19 +1807,28 @@ local function make_config()
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
+                ["parts"] = {
+                  "guild",
+                  "upgrades",
+                },
               },
               {
                 ["args"] = {},
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/emblem",
-                ["parts"] = {
-                  "emblem",
+                ["segments"] = {
+                  {
+                    ["lit"] = "emblem",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "emblem",
                 },
               },
             },
@@ -1386,9 +1852,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/guild/{id}",
-                ["parts"] = {
-                  "guild",
-                  "{id}",
+                ["segments"] = {
+                  {
+                    ["lit"] = "guild",
+                  },
+                  {
+                    ["var"] = "id",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -1398,6 +1868,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "guild",
+                  "{id}",
                 },
               },
             },
@@ -1413,6 +1887,10 @@ local function make_config()
             ["name"] = "id",
             ["type"] = "`$STRING`",
           },
+        },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
         },
         ["name"] = "guild_authenticated",
         ["op"] = {
@@ -1435,10 +1913,16 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/guild/{id}/log",
-                ["parts"] = {
-                  "guild",
-                  "{id}",
-                  "log",
+                ["segments"] = {
+                  {
+                    ["lit"] = "guild",
+                  },
+                  {
+                    ["var"] = "id",
+                  },
+                  {
+                    ["lit"] = "log",
+                  },
                 },
                 ["select"] = {
                   ["$action"] = "log",
@@ -1449,6 +1933,11 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "guild",
+                  "{id}",
+                  "log",
                 },
               },
               {
@@ -1466,10 +1955,16 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/guild/{id}/members",
-                ["parts"] = {
-                  "guild",
-                  "{id}",
-                  "members",
+                ["segments"] = {
+                  {
+                    ["lit"] = "guild",
+                  },
+                  {
+                    ["var"] = "id",
+                  },
+                  {
+                    ["lit"] = "members",
+                  },
                 },
                 ["select"] = {
                   ["$action"] = "members",
@@ -1480,6 +1975,11 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "guild",
+                  "{id}",
+                  "members",
                 },
               },
               {
@@ -1497,10 +1997,16 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/guild/{id}/ranks",
-                ["parts"] = {
-                  "guild",
-                  "{id}",
-                  "ranks",
+                ["segments"] = {
+                  {
+                    ["lit"] = "guild",
+                  },
+                  {
+                    ["var"] = "id",
+                  },
+                  {
+                    ["lit"] = "ranks",
+                  },
                 },
                 ["select"] = {
                   ["$action"] = "ranks",
@@ -1511,6 +2017,11 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "guild",
+                  "{id}",
+                  "ranks",
                 },
               },
               {
@@ -1528,10 +2039,16 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/guild/{id}/stash",
-                ["parts"] = {
-                  "guild",
-                  "{id}",
-                  "stash",
+                ["segments"] = {
+                  {
+                    ["lit"] = "guild",
+                  },
+                  {
+                    ["var"] = "id",
+                  },
+                  {
+                    ["lit"] = "stash",
+                  },
                 },
                 ["select"] = {
                   ["$action"] = "stash",
@@ -1542,6 +2059,11 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "guild",
+                  "{id}",
+                  "stash",
                 },
               },
               {
@@ -1559,10 +2081,16 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/guild/{id}/storage",
-                ["parts"] = {
-                  "guild",
-                  "{id}",
-                  "storage",
+                ["segments"] = {
+                  {
+                    ["lit"] = "guild",
+                  },
+                  {
+                    ["var"] = "id",
+                  },
+                  {
+                    ["lit"] = "storage",
+                  },
                 },
                 ["select"] = {
                   ["$action"] = "storage",
@@ -1573,6 +2101,11 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "guild",
+                  "{id}",
+                  "storage",
                 },
               },
               {
@@ -1590,10 +2123,16 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/guild/{id}/teams",
-                ["parts"] = {
-                  "guild",
-                  "{id}",
-                  "teams",
+                ["segments"] = {
+                  {
+                    ["lit"] = "guild",
+                  },
+                  {
+                    ["var"] = "id",
+                  },
+                  {
+                    ["lit"] = "teams",
+                  },
                 },
                 ["select"] = {
                   ["$action"] = "teams",
@@ -1604,6 +2143,11 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "guild",
+                  "{id}",
+                  "teams",
                 },
               },
               {
@@ -1621,10 +2165,16 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/guild/{id}/treasury",
-                ["parts"] = {
-                  "guild",
-                  "{id}",
-                  "treasury",
+                ["segments"] = {
+                  {
+                    ["lit"] = "guild",
+                  },
+                  {
+                    ["var"] = "id",
+                  },
+                  {
+                    ["lit"] = "treasury",
+                  },
                 },
                 ["select"] = {
                   ["$action"] = "treasury",
@@ -1635,6 +2185,11 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "guild",
+                  "{id}",
+                  "treasury",
                 },
               },
               {
@@ -1652,10 +2207,16 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/guild/{id}/upgrades",
-                ["parts"] = {
-                  "guild",
-                  "{id}",
-                  "upgrades",
+                ["segments"] = {
+                  {
+                    ["lit"] = "guild",
+                  },
+                  {
+                    ["var"] = "id",
+                  },
+                  {
+                    ["lit"] = "upgrades",
+                  },
                 },
                 ["select"] = {
                   ["$action"] = "upgrades",
@@ -1666,6 +2227,11 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "guild",
+                  "{id}",
+                  "upgrades",
                 },
               },
             },
@@ -1697,9 +2263,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/home/cats",
-                ["parts"] = {
-                  "home",
-                  "cats",
+                ["segments"] = {
+                  {
+                    ["lit"] = "home",
+                  },
+                  {
+                    ["lit"] = "cats",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -1709,6 +2279,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "home",
+                  "cats",
                 },
               },
               {
@@ -1725,9 +2299,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/home/nodes",
-                ["parts"] = {
-                  "home",
-                  "nodes",
+                ["segments"] = {
+                  {
+                    ["lit"] = "home",
+                  },
+                  {
+                    ["lit"] = "nodes",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -1737,6 +2315,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "home",
+                  "nodes",
                 },
               },
             },
@@ -1774,9 +2356,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/recipes/search",
-                ["parts"] = {
-                  "recipes",
-                  "search",
+                ["segments"] = {
+                  {
+                    ["lit"] = "recipes",
+                  },
+                  {
+                    ["lit"] = "search",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -1787,6 +2373,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "recipes",
+                  "search",
                 },
               },
               {
@@ -1803,8 +2393,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/finishers",
-                ["parts"] = {
-                  "finishers",
+                ["segments"] = {
+                  {
+                    ["lit"] = "finishers",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -1814,6 +2406,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "finishers",
                 },
               },
               {
@@ -1830,8 +2425,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/gliders",
-                ["parts"] = {
-                  "gliders",
+                ["segments"] = {
+                  {
+                    ["lit"] = "gliders",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -1841,6 +2438,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "gliders",
                 },
               },
               {
@@ -1857,8 +2457,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/items",
-                ["parts"] = {
-                  "items",
+                ["segments"] = {
+                  {
+                    ["lit"] = "items",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -1868,6 +2470,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "items",
                 },
               },
               {
@@ -1884,8 +2489,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/itemstats",
-                ["parts"] = {
-                  "itemstats",
+                ["segments"] = {
+                  {
+                    ["lit"] = "itemstats",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -1895,6 +2502,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "itemstats",
                 },
               },
               {
@@ -1911,8 +2521,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/materials",
-                ["parts"] = {
-                  "materials",
+                ["segments"] = {
+                  {
+                    ["lit"] = "materials",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -1922,6 +2534,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "materials",
                 },
               },
               {
@@ -1938,9 +2553,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/pvp/amulets",
-                ["parts"] = {
-                  "pvp",
-                  "amulets",
+                ["segments"] = {
+                  {
+                    ["lit"] = "pvp",
+                  },
+                  {
+                    ["lit"] = "amulets",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -1950,6 +2569,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "pvp",
+                  "amulets",
                 },
               },
               {
@@ -1966,8 +2589,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/recipes",
-                ["parts"] = {
-                  "recipes",
+                ["segments"] = {
+                  {
+                    ["lit"] = "recipes",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -1977,6 +2602,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "recipes",
                 },
               },
               {
@@ -1993,8 +2621,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/skins",
-                ["parts"] = {
-                  "skins",
+                ["segments"] = {
+                  {
+                    ["lit"] = "skins",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -2004,6 +2634,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "skins",
                 },
               },
             },
@@ -2035,8 +2668,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/maps",
-                ["parts"] = {
-                  "maps",
+                ["segments"] = {
+                  {
+                    ["lit"] = "maps",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -2046,6 +2681,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "maps",
                 },
               },
             },
@@ -2077,8 +2715,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/continents",
-                ["parts"] = {
-                  "continents",
+                ["segments"] = {
+                  {
+                    ["lit"] = "continents",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -2088,6 +2728,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "continents",
                 },
               },
             },
@@ -2103,6 +2746,10 @@ local function make_config()
             ["name"] = "id",
             ["type"] = "`$INTEGER`",
           },
+        },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
         },
         ["name"] = "miscellaneous",
         ["op"] = {
@@ -2124,8 +2771,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/colors",
-                ["parts"] = {
-                  "colors",
+                ["segments"] = {
+                  {
+                    ["lit"] = "colors",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -2135,6 +2784,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "colors",
                 },
               },
               {
@@ -2151,8 +2803,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/currencies",
-                ["parts"] = {
-                  "currencies",
+                ["segments"] = {
+                  {
+                    ["lit"] = "currencies",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -2162,6 +2816,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "currencies",
                 },
               },
               {
@@ -2178,8 +2835,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/dungeons",
-                ["parts"] = {
-                  "dungeons",
+                ["segments"] = {
+                  {
+                    ["lit"] = "dungeons",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -2189,6 +2848,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "dungeons",
                 },
               },
               {
@@ -2205,8 +2867,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/files",
-                ["parts"] = {
-                  "files",
+                ["segments"] = {
+                  {
+                    ["lit"] = "files",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -2216,6 +2880,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "files",
                 },
               },
               {
@@ -2232,8 +2899,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/minis",
-                ["parts"] = {
-                  "minis",
+                ["segments"] = {
+                  {
+                    ["lit"] = "minis",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -2243,6 +2912,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "minis",
                 },
               },
               {
@@ -2259,8 +2931,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/novelties",
-                ["parts"] = {
-                  "novelties",
+                ["segments"] = {
+                  {
+                    ["lit"] = "novelties",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -2270,6 +2944,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "novelties",
                 },
               },
               {
@@ -2286,8 +2963,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/raids",
-                ["parts"] = {
-                  "raids",
+                ["segments"] = {
+                  {
+                    ["lit"] = "raids",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -2297,6 +2976,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "raids",
                 },
               },
               {
@@ -2313,8 +2995,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/titles",
-                ["parts"] = {
-                  "titles",
+                ["segments"] = {
+                  {
+                    ["lit"] = "titles",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -2324,6 +3008,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "titles",
                 },
               },
               {
@@ -2340,8 +3027,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/worlds",
-                ["parts"] = {
-                  "worlds",
+                ["segments"] = {
+                  {
+                    ["lit"] = "worlds",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -2351,6 +3040,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "worlds",
                 },
               },
             },
@@ -2364,13 +3056,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/build",
-                ["parts"] = {
-                  "build",
+                ["segments"] = {
+                  {
+                    ["lit"] = "build",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "build",
                 },
               },
             },
@@ -2402,8 +3099,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/quests",
-                ["parts"] = {
-                  "quests",
+                ["segments"] = {
+                  {
+                    ["lit"] = "quests",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -2413,6 +3112,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "quests",
                 },
               },
               {
@@ -2429,8 +3131,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/stories",
-                ["parts"] = {
-                  "stories",
+                ["segments"] = {
+                  {
+                    ["lit"] = "stories",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -2440,6 +3144,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "stories",
                 },
               },
               {
@@ -2456,9 +3163,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/stories/seasons",
-                ["parts"] = {
-                  "stories",
-                  "seasons",
+                ["segments"] = {
+                  {
+                    ["lit"] = "stories",
+                  },
+                  {
+                    ["lit"] = "seasons",
+                  },
                 },
                 ["select"] = {
                   ["$action"] = "season",
@@ -2469,6 +3180,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "stories",
+                  "seasons",
                 },
               },
             },
@@ -2500,9 +3215,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/pvp/heroes",
-                ["parts"] = {
-                  "pvp",
-                  "heroes",
+                ["segments"] = {
+                  {
+                    ["lit"] = "pvp",
+                  },
+                  {
+                    ["lit"] = "heroes",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -2512,6 +3231,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "pvp",
+                  "heroes",
                 },
               },
               {
@@ -2528,9 +3251,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/pvp/ranks",
-                ["parts"] = {
-                  "pvp",
-                  "ranks",
+                ["segments"] = {
+                  {
+                    ["lit"] = "pvp",
+                  },
+                  {
+                    ["lit"] = "ranks",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -2540,6 +3267,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "pvp",
+                  "ranks",
                 },
               },
               {
@@ -2556,9 +3287,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/pvp/seasons",
-                ["parts"] = {
-                  "pvp",
-                  "seasons",
+                ["segments"] = {
+                  {
+                    ["lit"] = "pvp",
+                  },
+                  {
+                    ["lit"] = "seasons",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -2569,19 +3304,28 @@ local function make_config()
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
+                ["parts"] = {
+                  "pvp",
+                  "seasons",
+                },
               },
               {
                 ["args"] = {},
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/pvp",
-                ["parts"] = {
-                  "pvp",
+                ["segments"] = {
+                  {
+                    ["lit"] = "pvp",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "pvp",
                 },
               },
             },
@@ -2630,9 +3374,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/commerce/listings",
-                ["parts"] = {
-                  "commerce",
-                  "listings",
+                ["segments"] = {
+                  {
+                    ["lit"] = "commerce",
+                  },
+                  {
+                    ["lit"] = "listings",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -2642,6 +3390,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "commerce",
+                  "listings",
                 },
               },
               {
@@ -2658,9 +3410,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/commerce/prices",
-                ["parts"] = {
-                  "commerce",
-                  "prices",
+                ["segments"] = {
+                  {
+                    ["lit"] = "commerce",
+                  },
+                  {
+                    ["lit"] = "prices",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -2671,20 +3427,32 @@ local function make_config()
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
+                ["parts"] = {
+                  "commerce",
+                  "prices",
+                },
               },
               {
                 ["args"] = {},
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/commerce/delivery",
-                ["parts"] = {
-                  "commerce",
-                  "delivery",
+                ["segments"] = {
+                  {
+                    ["lit"] = "commerce",
+                  },
+                  {
+                    ["lit"] = "delivery",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.items`",
+                },
+                ["parts"] = {
+                  "commerce",
+                  "delivery",
                 },
               },
               {
@@ -2692,14 +3460,22 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/commerce/exchange",
-                ["parts"] = {
-                  "commerce",
-                  "exchange",
+                ["segments"] = {
+                  {
+                    ["lit"] = "commerce",
+                  },
+                  {
+                    ["lit"] = "exchange",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "commerce",
+                  "exchange",
                 },
               },
               {
@@ -2707,14 +3483,22 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/commerce/transactions",
-                ["parts"] = {
-                  "commerce",
-                  "transactions",
+                ["segments"] = {
+                  {
+                    ["lit"] = "commerce",
+                  },
+                  {
+                    ["lit"] = "transactions",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "commerce",
+                  "transactions",
                 },
               },
             },
@@ -2738,10 +3522,16 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/commerce/exchange/coins",
-                ["parts"] = {
-                  "commerce",
-                  "exchange",
-                  "coins",
+                ["segments"] = {
+                  {
+                    ["lit"] = "commerce",
+                  },
+                  {
+                    ["lit"] = "exchange",
+                  },
+                  {
+                    ["lit"] = "coins",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -2751,6 +3541,11 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "commerce",
+                  "exchange",
+                  "coins",
                 },
               },
               {
@@ -2768,10 +3563,16 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/commerce/exchange/gems",
-                ["parts"] = {
-                  "commerce",
-                  "exchange",
-                  "gems",
+                ["segments"] = {
+                  {
+                    ["lit"] = "commerce",
+                  },
+                  {
+                    ["lit"] = "exchange",
+                  },
+                  {
+                    ["lit"] = "gems",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -2781,6 +3582,11 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "commerce",
+                  "exchange",
+                  "gems",
                 },
               },
             },
@@ -2812,9 +3618,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/wvw/abilities",
-                ["parts"] = {
-                  "wvw",
-                  "abilities",
+                ["segments"] = {
+                  {
+                    ["lit"] = "wvw",
+                  },
+                  {
+                    ["lit"] = "abilities",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -2824,6 +3634,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "wvw",
+                  "abilities",
                 },
               },
               {
@@ -2840,9 +3654,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/wvw/matches",
-                ["parts"] = {
-                  "wvw",
-                  "matches",
+                ["segments"] = {
+                  {
+                    ["lit"] = "wvw",
+                  },
+                  {
+                    ["lit"] = "matches",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -2852,6 +3670,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "wvw",
+                  "matches",
                 },
               },
               {
@@ -2868,9 +3690,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/wvw/objectives",
-                ["parts"] = {
-                  "wvw",
-                  "objectives",
+                ["segments"] = {
+                  {
+                    ["lit"] = "wvw",
+                  },
+                  {
+                    ["lit"] = "objectives",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -2880,6 +3706,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "wvw",
+                  "objectives",
                 },
               },
               {
@@ -2896,9 +3726,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/wvw/ranks",
-                ["parts"] = {
-                  "wvw",
-                  "ranks",
+                ["segments"] = {
+                  {
+                    ["lit"] = "wvw",
+                  },
+                  {
+                    ["lit"] = "ranks",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -2908,6 +3742,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "wvw",
+                  "ranks",
                 },
               },
               {
@@ -2924,9 +3762,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/wvw/upgrades",
-                ["parts"] = {
-                  "wvw",
-                  "upgrades",
+                ["segments"] = {
+                  {
+                    ["lit"] = "wvw",
+                  },
+                  {
+                    ["lit"] = "upgrades",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -2937,19 +3779,28 @@ local function make_config()
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
+                ["parts"] = {
+                  "wvw",
+                  "upgrades",
+                },
               },
               {
                 ["args"] = {},
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/wvw",
-                ["parts"] = {
-                  "wvw",
+                ["segments"] = {
+                  {
+                    ["lit"] = "wvw",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "wvw",
                 },
               },
             },

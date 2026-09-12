@@ -46,9 +46,13 @@ main: kit: entity: trading_post: {
           }
           method: "GET"
           orig: "/commerce/listings"
-          parts: [
-            "commerce"
-            "listings"
+          segments: [
+            {
+              lit: "commerce"
+            }
+            {
+              lit: "listings"
+            }
           ]
           select: {
             exist: [
@@ -74,9 +78,13 @@ main: kit: entity: trading_post: {
           }
           method: "GET"
           orig: "/commerce/prices"
-          parts: [
-            "commerce"
-            "prices"
+          segments: [
+            {
+              lit: "commerce"
+            }
+            {
+              lit: "prices"
+            }
           ]
           select: {
             exist: [
@@ -91,9 +99,13 @@ main: kit: entity: trading_post: {
         {
           method: "GET"
           orig: "/commerce/delivery"
-          parts: [
-            "commerce"
-            "delivery"
+          segments: [
+            {
+              lit: "commerce"
+            }
+            {
+              lit: "delivery"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -103,9 +115,13 @@ main: kit: entity: trading_post: {
         {
           method: "GET"
           orig: "/commerce/exchange"
-          parts: [
-            "commerce"
-            "exchange"
+          segments: [
+            {
+              lit: "commerce"
+            }
+            {
+              lit: "exchange"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -115,9 +131,13 @@ main: kit: entity: trading_post: {
         {
           method: "GET"
           orig: "/commerce/transactions"
-          parts: [
-            "commerce"
-            "transactions"
+          segments: [
+            {
+              lit: "commerce"
+            }
+            {
+              lit: "transactions"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -143,10 +163,16 @@ main: kit: entity: trading_post: {
           }
           method: "GET"
           orig: "/commerce/exchange/coins"
-          parts: [
-            "commerce"
-            "exchange"
-            "coins"
+          segments: [
+            {
+              lit: "commerce"
+            }
+            {
+              lit: "exchange"
+            }
+            {
+              lit: "coins"
+            }
           ]
           select: {
             exist: [
@@ -172,10 +198,16 @@ main: kit: entity: trading_post: {
           }
           method: "GET"
           orig: "/commerce/exchange/gems"
-          parts: [
-            "commerce"
-            "exchange"
-            "gems"
+          segments: [
+            {
+              lit: "commerce"
+            }
+            {
+              lit: "exchange"
+            }
+            {
+              lit: "gems"
+            }
           ]
           select: {
             exist: [

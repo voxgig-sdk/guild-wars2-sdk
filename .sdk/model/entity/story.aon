@@ -23,8 +23,10 @@ main: kit: entity: story: {
           }
           method: "GET"
           orig: "/quests"
-          parts: [
-            "quests"
+          segments: [
+            {
+              lit: "quests"
+            }
           ]
           select: {
             exist: [
@@ -50,8 +52,10 @@ main: kit: entity: story: {
           }
           method: "GET"
           orig: "/stories"
-          parts: [
-            "stories"
+          segments: [
+            {
+              lit: "stories"
+            }
           ]
           select: {
             exist: [
@@ -77,9 +81,13 @@ main: kit: entity: story: {
           }
           method: "GET"
           orig: "/stories/seasons"
-          parts: [
-            "stories"
-            "seasons"
+          segments: [
+            {
+              lit: "stories"
+            }
+            {
+              lit: "seasons"
+            }
           ]
           select: {
             "$action": "season"

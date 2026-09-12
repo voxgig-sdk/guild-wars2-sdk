@@ -98,7 +98,7 @@ func TestDailyRewardEntity(t *testing.T) {
 		client := setup.client
 
 		// Bootstrap entity data from existing test data (no create step in flow).
-		dailyRewardRef01DataRaw := vs.Items(core.ToMapAny(vs.GetPath("existing.daily_reward", setup.data)))
+		dailyRewardRef01DataRaw := vs.Items(core.ToMapAny(vs.GetPath(setup.data, "existing.daily_reward")))
 		var dailyRewardRef01Data map[string]any
 		if len(dailyRewardRef01DataRaw) > 0 {
 			dailyRewardRef01Data = core.ToMapAny(dailyRewardRef01DataRaw[0][1])
@@ -147,7 +147,7 @@ func daily_rewardBasicSetup(extra map[string]any) *entityTestSetup {
 	client := sdk.TestSDK(options, extra)
 
 	// Generate idmap via transform, matching TS pattern.
-	idmap := vs.Transform(
+	idmap, _ := vs.Transform(
 		[]any{"daily_reward01", "daily_reward02", "daily_reward03"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
@@ -167,7 +167,7 @@ func daily_rewardBasicSetup(extra map[string]any) *entityTestSetup {
 		"GUILD_WARS2_TEST_DAILY_REWARD_ENTID": idmap,
 		"GUILD_WARS2_TEST_LIVE":      "FALSE",
 		"GUILD_WARS2_TEST_EXPLAIN":   "FALSE",
-		"GUILD_WARS2_APIKEY":         "NONE",
+		"GUILD_WARS2_APIKEY":         "",
 	})
 
 	idmapResolved := core.ToMapAny(env["GUILD_WARS2_TEST_DAILY_REWARD_ENTID"])
@@ -176,11 +176,23 @@ func daily_rewardBasicSetup(extra map[string]any) *entityTestSetup {
 	}
 
 	if env["GUILD_WARS2_TEST_LIVE"] == "TRUE" {
+		// An empty map, not a nil one: Merge returns nil when its last entry
+		// is nil, and BasicSetup is normally called with no extras - so a
+		// bare nil silently discarded the apikey and server values below.
+		extraOpts := extra
+		if extraOpts == nil {
+			extraOpts = map[string]any{}
+		}
+
 		mergedOpts := vs.Merge([]any{
+			// liveClientOptions() FIRST, so the generated fields below win:
+			// sdk-test-control.json's test.client.options adds to the live
+			// client, it does not redirect it.
+			liveClientOptions(),
 			map[string]any{
 				"apikey": env["GUILD_WARS2_APIKEY"],
 			},
-			extra,
+			extraOpts,
 		})
 		client = sdk.NewGuildWars2SDK(core.ToMapAny(mergedOpts))
 	}

@@ -23,9 +23,13 @@ main: kit: entity: structured_pv_p: {
           }
           method: "GET"
           orig: "/pvp/heroes"
-          parts: [
-            "pvp"
-            "heroes"
+          segments: [
+            {
+              lit: "pvp"
+            }
+            {
+              lit: "heroes"
+            }
           ]
           select: {
             exist: [
@@ -51,9 +55,13 @@ main: kit: entity: structured_pv_p: {
           }
           method: "GET"
           orig: "/pvp/ranks"
-          parts: [
-            "pvp"
-            "ranks"
+          segments: [
+            {
+              lit: "pvp"
+            }
+            {
+              lit: "ranks"
+            }
           ]
           select: {
             exist: [
@@ -79,9 +87,13 @@ main: kit: entity: structured_pv_p: {
           }
           method: "GET"
           orig: "/pvp/seasons"
-          parts: [
-            "pvp"
-            "seasons"
+          segments: [
+            {
+              lit: "pvp"
+            }
+            {
+              lit: "seasons"
+            }
           ]
           select: {
             exist: [
@@ -96,8 +108,10 @@ main: kit: entity: structured_pv_p: {
         {
           method: "GET"
           orig: "/pvp"
-          parts: [
-            "pvp"
+          segments: [
+            {
+              lit: "pvp"
+            }
           ]
           transform: {
             req: "`reqdata`"

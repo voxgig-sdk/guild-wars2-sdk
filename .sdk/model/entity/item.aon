@@ -30,9 +30,13 @@ main: kit: entity: item: {
           }
           method: "GET"
           orig: "/recipes/search"
-          parts: [
-            "recipes"
-            "search"
+          segments: [
+            {
+              lit: "recipes"
+            }
+            {
+              lit: "search"
+            }
           ]
           select: {
             exist: [
@@ -59,8 +63,10 @@ main: kit: entity: item: {
           }
           method: "GET"
           orig: "/finishers"
-          parts: [
-            "finishers"
+          segments: [
+            {
+              lit: "finishers"
+            }
           ]
           select: {
             exist: [
@@ -86,8 +92,10 @@ main: kit: entity: item: {
           }
           method: "GET"
           orig: "/gliders"
-          parts: [
-            "gliders"
+          segments: [
+            {
+              lit: "gliders"
+            }
           ]
           select: {
             exist: [
@@ -113,8 +121,10 @@ main: kit: entity: item: {
           }
           method: "GET"
           orig: "/items"
-          parts: [
-            "items"
+          segments: [
+            {
+              lit: "items"
+            }
           ]
           select: {
             exist: [
@@ -140,8 +150,10 @@ main: kit: entity: item: {
           }
           method: "GET"
           orig: "/itemstats"
-          parts: [
-            "itemstats"
+          segments: [
+            {
+              lit: "itemstats"
+            }
           ]
           select: {
             exist: [
@@ -167,8 +179,10 @@ main: kit: entity: item: {
           }
           method: "GET"
           orig: "/materials"
-          parts: [
-            "materials"
+          segments: [
+            {
+              lit: "materials"
+            }
           ]
           select: {
             exist: [
@@ -194,9 +208,13 @@ main: kit: entity: item: {
           }
           method: "GET"
           orig: "/pvp/amulets"
-          parts: [
-            "pvp"
-            "amulets"
+          segments: [
+            {
+              lit: "pvp"
+            }
+            {
+              lit: "amulets"
+            }
           ]
           select: {
             exist: [
@@ -222,8 +240,10 @@ main: kit: entity: item: {
           }
           method: "GET"
           orig: "/recipes"
-          parts: [
-            "recipes"
+          segments: [
+            {
+              lit: "recipes"
+            }
           ]
           select: {
             exist: [
@@ -249,8 +269,10 @@ main: kit: entity: item: {
           }
           method: "GET"
           orig: "/skins"
-          parts: [
-            "skins"
+          segments: [
+            {
+              lit: "skins"
+            }
           ]
           select: {
             exist: [

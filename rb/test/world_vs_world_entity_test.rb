@@ -118,7 +118,7 @@ def world_vs_world_basic_setup(extra)
     "GUILD_WARS2_TEST_WORLD_VS_WORLD_ENTID" => idmap,
     "GUILD_WARS2_TEST_LIVE" => "FALSE",
     "GUILD_WARS2_TEST_EXPLAIN" => "FALSE",
-    "GUILD_WARS2_APIKEY" => "NONE",
+    "GUILD_WARS2_APIKEY" => "",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -129,6 +129,9 @@ def world_vs_world_basic_setup(extra)
 
   if env["GUILD_WARS2_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
+      # FIRST, so the generated fields below win: sdk-test-control.json's
+      # test.client.options adds to the live client, it does not redirect it.
+      Runner.live_client_options,
       {
         "apikey" => env["GUILD_WARS2_APIKEY"],
       },
