@@ -105,7 +105,7 @@ local results, err = client:GameMechanic():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/guild-wars2` | publish pending — [install from git tag](https://github.com/voxgig-sdk/guild-wars2-sdk/releases) |
+| TypeScript | `@voxgig-sdk/guild-wars2-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/guild-wars2-sdk/releases) |
 | Python | `voxgig-sdk-guild-wars2` | publish pending — [install from git tag](https://github.com/voxgig-sdk/guild-wars2-sdk/releases) |
 | PHP | `voxgig-sdk/guild-wars2` | publish pending — [install from git tag](https://github.com/voxgig-sdk/guild-wars2-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/guild-wars2-sdk/go` | `go get github.com/voxgig-sdk/guild-wars2-sdk/go@latest` |
@@ -119,7 +119,7 @@ local results, err = client:GameMechanic():list()
 ### TypeScript
 
 ```ts
-import { GuildWars2SDK } from '@voxgig-sdk/guild-wars2'
+import { GuildWars2SDK } from '@voxgig-sdk/guild-wars2-sdk'
 
 const client = new GuildWars2SDK({
   apikey: process.env.GUILD_WARS2_APIKEY,

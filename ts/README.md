@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { GuildWars2SDK } from '@voxgig-sdk/guild-wars2'
+import { GuildWars2SDK } from '@voxgig-sdk/guild-wars2-sdk'
 
 const client = new GuildWars2SDK({
   apikey: process.env.GUILD_WARS2_APIKEY,
@@ -883,7 +883,7 @@ guild-wars2/
 Import the SDK from the package root:
 
 ```ts
-import { GuildWars2SDK } from '@voxgig-sdk/guild-wars2'
+import { GuildWars2SDK } from '@voxgig-sdk/guild-wars2-sdk'
 ```
 
 ### Entity state
